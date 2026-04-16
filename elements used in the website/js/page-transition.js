@@ -33,6 +33,15 @@
     }
 
     var navigating = false;
+
+    // Reset navigating flag when page is shown from bfcache (browser back/forward)
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            navigating = false;
+            body.classList.remove('page-is-leaving');
+        }
+    });
+
     document.addEventListener('click', function (event) {
         if (navigating || event.defaultPrevented) return;
         if (event.button !== 0) return;
