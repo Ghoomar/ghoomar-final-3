@@ -95,10 +95,14 @@ document.addEventListener("DOMContentLoaded", function () {
         fadeObserver.observe(el);
     });
 
-    // Village page gallery videos — lazy-load + play only the visible one
+    // Village page gallery videos
+    // Desktop (hover device): lazy-load on scroll proximity, play on mouseenter, pause on mouseleave
+    // Mobile (touch): scroll-snap container, autoplay whichever video is snapped into view
     const villageVideos = Array.from(document.querySelectorAll('.village-gallery-video'));
     if (villageVideos.length > 0) {
-        const loadVillageVideo = (video) => {
+        const isHoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        const loadVideo = (video) => {
             if (video.dataset.loaded === 'true') return;
             const src = video.dataset.src;
             if (!src) return;
@@ -107,30 +111,55 @@ document.addEventListener("DOMContentLoaded", function () {
             video.dataset.loaded = 'true';
         };
 
-        // Single combined observer: lazy-load at 200px margin, play when 65% visible
-        let activeVillageVideo = null;
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const video = entry.target;
-                if (entry.isIntersecting) {
-                    loadVillageVideo(video);
-                    if (entry.intersectionRatio >= 0.65) {
-                        villageVideos.forEach(other => { if (other !== video) other.pause(); });
+        if (isHoverDevice) {
+            // DESKTOP: lazy-load when card approaches viewport, play on hover
+            const lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadVideo(entry.target);
+                        lazyObserver.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '400px 0px' });
+
+            villageVideos.forEach(video => {
+                lazyObserver.observe(video);
+                const card = video.closest('.village-video-card');
+                if (card) {
+                    card.addEventListener('mouseenter', () => {
+                        loadVideo(video);
                         const p = video.play();
                         if (p && typeof p.catch === 'function') p.catch(() => {});
-                        activeVillageVideo = video;
-                    }
-                } else if (activeVillageVideo === video) {
-                    video.pause();
-                    activeVillageVideo = null;
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        video.pause();
+                    });
                 }
             });
-        }, {
-            rootMargin: "200px 0px",
-            threshold: [0, 0.65]
-        });
 
-        villageVideos.forEach(video => videoObserver.observe(video));
+        } else {
+            // MOBILE: observe within the scroll-snap grid container
+            const grid = document.querySelector('.village-video-grid');
+
+            const mobileObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        loadVideo(video);
+                        villageVideos.forEach(v => { if (v !== video) v.pause(); });
+                        const p = video.play();
+                        if (p && typeof p.catch === 'function') p.catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, {
+                root: grid,
+                threshold: 0.5
+            });
+
+            villageVideos.forEach(v => mobileObserver.observe(v));
+        }
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) villageVideos.forEach(v => v.pause());

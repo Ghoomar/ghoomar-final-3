@@ -929,6 +929,8 @@ img {
     content-visibility: auto;
     contain-intrinsic-size: 520px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    position: relative;
 }
 
 .village-video-card video {
@@ -1124,12 +1126,40 @@ img {
         justify-content: center;
     }
 
+    /* Mobile: single-column scroll-snap — one video fills the screen at a time */
     .village-video-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 0;
+        height: 100svh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0;
+    }
+
+    .village-video-card {
+        scroll-snap-align: start;
+        height: 100svh;
+        min-height: 100svh;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
     }
 
     .village-video-card video {
-        aspect-ratio: 9 / 16;
+        aspect-ratio: unset;
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+    }
+
+    .village-video-card p {
+        flex-shrink: 0;
+        padding: 12px 16px;
+        background: var(--glass-bg);
     }
 
     .village-hero {
