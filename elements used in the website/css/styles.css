@@ -1125,14 +1125,19 @@ img {
         justify-content: center;
     }
 
-    /* Mobile: stacked full-screen cards — each video is its own 100svh block */
+    /* Mobile: single-column scroll-snap — one video fills the screen at a time */
     .village-video-grid {
         grid-template-columns: 1fr;
         gap: 0;
+        height: 100svh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
         border-radius: 0;
     }
 
     .village-video-card {
+        scroll-snap-align: start;
         height: 100svh;
         min-height: 100svh;
         border-radius: 0;
