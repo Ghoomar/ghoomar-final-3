@@ -933,35 +933,12 @@ img {
     position: relative;
 }
 
-.video-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    overflow: hidden;
-}
-
 .village-video-card video {
     display: block;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 9 / 16;
     object-fit: cover;
     object-position: 50% 50%;
-}
-
-.video-poster-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.village-video-card.is-playing .video-poster-img {
-    opacity: 0;
 }
 
 .village-video-card p {
