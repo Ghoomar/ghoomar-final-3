@@ -1,15 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Pill Nav behavior on scroll
     const pillNav = document.querySelector('.pill-nav');
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // Single rAF-throttled scroll handler — replaces two separate scroll listeners
+    let scrollRafPending = false;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            pillNav.style.background = 'rgba(255, 244, 194, 0.97)';
-            pillNav.style.boxShadow = '0 5px 20px rgba(163, 28, 33, 0.18)';
-        } else {
-            pillNav.style.background = 'var(--glass-bg)';
-            pillNav.style.boxShadow = '0 8px 24px rgba(163, 28, 33, 0.1)';
+        if (!scrollRafPending) {
+            scrollRafPending = true;
+            requestAnimationFrame(() => {
+                const y = window.scrollY;
+
+                if (pillNav) {
+                    if (y > 50) {
+                        pillNav.style.background = 'rgba(255, 244, 194, 0.97)';
+                        pillNav.style.boxShadow = '0 5px 20px rgba(163, 28, 33, 0.18)';
+                    } else {
+                        pillNav.style.background = 'var(--glass-bg)';
+                        pillNav.style.boxShadow = '0 8px 24px rgba(163, 28, 33, 0.1)';
+                    }
+                }
+
+                if (backToTopBtn) {
+                    backToTopBtn.style.display = y > 500 ? 'flex' : 'none';
+                }
+
+                scrollRafPending = false;
+            });
         }
-    });
+    }, { passive: true });
+
+    // Back to top click
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
     // Mobile Navigation Toggle
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -21,12 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileMenuToggle.addEventListener('click', () => {
             mobileOverlay.classList.add('active');
         });
-        
+
         closeMenu.addEventListener('click', () => {
             mobileOverlay.classList.remove('active');
         });
 
-        // Close when clicking a link
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileOverlay.classList.remove('active');
@@ -40,51 +64,38 @@ document.addEventListener("DOMContentLoaded", function () {
         new Swiper(swiperEl, {
             effect: 'fade',
             autoplay: {
-                delay: 3000,
+                delay: 4000,
                 disableOnInteraction: false,
             },
-            speed: 1000,
+            speed: 800,
             loop: true,
             allowTouchMove: false
         });
     });
 
-    // Text fade animation on scroll
-    const fadeElements = document.querySelectorAll('h3, h4, p, .outlet-name, .price-amount, .price-type, .journey-text p, .presence-title');
-    
-    const fadeObserver = new IntersectionObserver((entries, observer) => {
+    // Scroll fade — section headings only (not every <p> on the page)
+    const fadeElements = document.querySelectorAll(
+        'h3:not(.hero-title), h4:not(.hero-subtitle), .outlet-name, .presence-title'
+    );
+
+    const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+                fadeObserver.unobserve(entry.target); // stop watching once visible
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px"
+        rootMargin: "0px 0px -30px 0px"
     });
 
     fadeElements.forEach(el => {
-        if (!el.classList.contains('hero-title') && !el.classList.contains('hero-subtitle')) {
-            el.classList.add('fade-on-scroll');
-            fadeObserver.observe(el);
-        }
+        el.classList.add('fade-on-scroll');
+        fadeObserver.observe(el);
     });
 
-    // Back to top behavior
-    const backToTopBtn = document.getElementById("backToTop");
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 500) {
-            backToTopBtn.style.display = "flex";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    });
-
-    backToTopBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Village page video performance: lazy-load clips and keep only one playing.
+    // Village page gallery videos — lazy-load + play only the visible one
     const villageVideos = Array.from(document.querySelectorAll('.village-gallery-video'));
     if (villageVideos.length > 0) {
         const loadVillageVideo = (video) => {
@@ -96,82 +107,59 @@ document.addEventListener("DOMContentLoaded", function () {
             video.dataset.loaded = 'true';
         };
 
-        const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    loadVillageVideo(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            rootMargin: "350px 0px",
-            threshold: 0.01
-        });
-
-        villageVideos.forEach(video => lazyVideoObserver.observe(video));
-
+        // Single combined observer: lazy-load at 200px margin, play when 65% visible
         let activeVillageVideo = null;
-        const playOnlyVisibleVideo = new IntersectionObserver((entries) => {
+        const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const video = entry.target;
-
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
+                if (entry.isIntersecting) {
                     loadVillageVideo(video);
-
-                    villageVideos.forEach(other => {
-                        if (other !== video) other.pause();
-                    });
-
-                    const playPromise = video.play();
-                    if (playPromise && typeof playPromise.catch === 'function') {
-                        playPromise.catch(() => {});
+                    if (entry.intersectionRatio >= 0.65) {
+                        villageVideos.forEach(other => { if (other !== video) other.pause(); });
+                        const p = video.play();
+                        if (p && typeof p.catch === 'function') p.catch(() => {});
+                        activeVillageVideo = video;
                     }
-                    activeVillageVideo = video;
-                } else if (!entry.isIntersecting && activeVillageVideo === video) {
+                } else if (activeVillageVideo === video) {
                     video.pause();
                     activeVillageVideo = null;
                 }
             });
         }, {
-            threshold: [0, 0.45, 0.65, 0.85]
+            rootMargin: "200px 0px",
+            threshold: [0, 0.65]
         });
 
-        villageVideos.forEach(video => playOnlyVisibleVideo.observe(video));
+        villageVideos.forEach(video => videoObserver.observe(video));
 
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                villageVideos.forEach(video => video.pause());
-            }
+            if (document.hidden) villageVideos.forEach(v => v.pause());
         });
     }
 
-    // Pause hero video when it's out of view to reduce background CPU use.
+    // Hero video — pause when scrolled out of view
     const villageHeroVideo = document.querySelector('.village-hero-video');
     if (villageHeroVideo) {
-        const ensureHeroVideoLoaded = () => {
-            if (villageHeroVideo.dataset.loaded === 'true') return;
-            const src = villageHeroVideo.dataset.src;
-            if (!src) return;
-            villageHeroVideo.src = src;
-            villageHeroVideo.load();
-            villageHeroVideo.dataset.loaded = 'true';
+        const tryPlay = () => {
+            const p = villageHeroVideo.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
         };
+
+        if (villageHeroVideo.readyState >= 3) {
+            tryPlay();
+        } else {
+            villageHeroVideo.addEventListener('canplay', tryPlay, { once: true });
+        }
 
         const heroVideoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    ensureHeroVideoLoaded();
-                    const playPromise = villageHeroVideo.play();
-                    if (playPromise && typeof playPromise.catch === 'function') {
-                        playPromise.catch(() => {});
-                    }
+                    tryPlay();
                 } else {
                     villageHeroVideo.pause();
                 }
             });
-        }, {
-            threshold: [0, 0.2, 0.5]
-        });
+        }, { threshold: 0.1 });
 
         heroVideoObserver.observe(villageHeroVideo);
     }

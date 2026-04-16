@@ -54,7 +54,6 @@ body::before {
     background-image: url('https://static.wixstatic.com/media/c1b97d_f6e525bf50294c8dbe6e99ebb07c125b~mv2.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     opacity: 0.05;
     mix-blend-mode: multiply;
     z-index: -1;
@@ -114,7 +113,7 @@ img {
     border-radius: 30px;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -161,8 +160,8 @@ img {
     align-items: center;
     justify-content: space-between;
     background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--glass-border);
     border-radius: 50px;
     padding: 10px 25px;
@@ -323,7 +322,6 @@ img {
     height: 100vh;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -391,8 +389,7 @@ img {
     padding: 40px;
     border-radius: 20px;
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s ease;
     text-align: center;
 }
@@ -408,12 +405,8 @@ img {
 
 .interior-img {
     border-radius: 20px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     border: 2px solid var(--glass-border);
-    transition: transform 0.5s ease;
-}
-.interior-img:hover {
-    transform: scale(1.02) rotate(1deg);
 }
 
 /* Menu Offers Grid */
@@ -433,13 +426,13 @@ img {
     overflow: hidden;
     border-radius: 20px;
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 24px rgba(139, 26, 26, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 14px rgba(139, 26, 26, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .offers-grid > div:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
 }
 
 .offer-middle img, .fade-swiper img {
@@ -480,7 +473,6 @@ img {
     overflow: hidden;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
-    backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: block;
@@ -488,7 +480,7 @@ img {
 
 .location-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .location-img {
@@ -585,12 +577,11 @@ img {
     padding: 20px;
     gap: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
 .outlet-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .outlet-img {
@@ -671,7 +662,6 @@ img {
     margin: 80px 0 0;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     text-align: center;
 }
 
@@ -695,7 +685,6 @@ img {
     background: var(--glass-bg);
     border-radius: 20px;
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
 }
 
 /* Footer / Contact */
@@ -773,16 +762,15 @@ img {
     z-index: 99;
     font-size: 18px;
     outline: none;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 244, 194, 0.95);
     cursor: pointer;
     border-radius: 50%;
     border: 1px solid var(--glass-border);
     display: none;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 #backToTop:hover {
@@ -808,7 +796,6 @@ img {
     object-fit: cover;
     object-position: 50% 0%;
     z-index: 0;
-    filter: saturate(1.05) contrast(1.05);
 }
 
 .village-hero-overlay {
@@ -878,14 +865,13 @@ img {
     border-radius: 16px;
     padding: 28px 24px;
     text-align: left;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .village-experience-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .village-experience-icon {
@@ -936,8 +922,7 @@ img {
     overflow: hidden;
     content-visibility: auto;
     contain-intrinsic-size: 520px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .village-video-card video {
@@ -968,8 +953,7 @@ img {
     border-radius: 18px;
     padding: 34px 30px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .village-visit-card p {
@@ -1146,10 +1130,6 @@ img {
         min-height: 78vh;
     }
 
-    .village-hero-video {
-        display: none;
-    }
-
     .village-visit-card {
         padding: 28px 20px;
     }
@@ -1316,9 +1296,8 @@ img {
 /* Scroll Animation Classes */
 .fade-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-    will-change: opacity, transform;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .fade-on-scroll.is-visible {
