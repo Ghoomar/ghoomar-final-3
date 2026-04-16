@@ -1236,6 +1236,19 @@ img {
         padding: 28px 20px;
     }
 
+    .visit-map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-info-col {
+        padding: 28px 20px;
+    }
+
+    .visit-map-col,
+    .visit-map-iframe {
+        min-height: 260px;
+    }
+
     .village-visit-actions {
         flex-direction: column;
         gap: 12px;
