@@ -96,51 +96,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Village page gallery videos
-    // Desktop (hover device): lazy-load on scroll proximity, play on mouseenter, pause on mouseleave
+    // Desktop (hover device): src preloaded in HTML, show poster immediately, play on mouseenter, pause on mouseleave
     // Mobile (touch): scroll-snap container, autoplay whichever video is snapped into view
     const villageVideos = Array.from(document.querySelectorAll('.village-gallery-video'));
     if (villageVideos.length > 0) {
         const isHoverDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-        const loadVideo = (video) => {
-            if (video.dataset.loaded === 'true') return;
-            const src = video.dataset.src;
-            if (!src) return;
-            video.src = src;
-            video.load();
-            video.dataset.loaded = 'true';
-        };
-
-        // Show poster on the card element — background-image on <video> is unreliable.
-        // The card background shows through the video element before its src loads.
-        villageVideos.forEach(video => {
-            const poster = video.getAttribute('poster');
-            const card = video.closest('.village-video-card');
-            if (poster && card) {
-                card.style.backgroundImage = 'url(' + poster + ')';
-                card.style.backgroundSize = 'cover';
-                card.style.backgroundPosition = 'center';
-                card.style.backgroundRepeat = 'no-repeat';
-            }
-        });
-
         if (isHoverDevice) {
-            // DESKTOP: lazy-load when card approaches viewport, play on hover
-            const lazyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        loadVideo(entry.target);
-                        lazyObserver.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '400px 0px' });
-
+            // DESKTOP: src already set in HTML with preload="metadata" so poster shows immediately.
+            // Only play on hover.
             villageVideos.forEach(video => {
-                lazyObserver.observe(video);
                 const card = video.closest('.village-video-card');
                 if (card) {
                     card.addEventListener('mouseenter', () => {
-                        loadVideo(video);
                         const p = video.play();
                         if (p && typeof p.catch === 'function') p.catch(() => {});
                     });
@@ -158,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 entries.forEach(entry => {
                     const video = entry.target;
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                        loadVideo(video);
                         villageVideos.forEach(v => { if (v !== video) v.pause(); });
                         const p = video.play();
                         if (p && typeof p.catch === 'function') p.catch(() => {});
