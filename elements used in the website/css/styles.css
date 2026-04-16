@@ -1353,9 +1353,8 @@ body.master-landing::before {
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    opacity: 0.08;
-    filter: saturate(0.85) contrast(0.95);
-    mix-blend-mode: multiply;
+    opacity: 0.28;
+    filter: saturate(0.75) contrast(0.9);
     z-index: 0;
 }
 
