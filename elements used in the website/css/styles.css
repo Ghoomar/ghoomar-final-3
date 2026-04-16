@@ -1148,17 +1148,11 @@ img {
         flex-direction: column;
     }
 
-    .video-wrap {
+    .village-video-card video {
         aspect-ratio: unset;
         flex: 1;
         min-height: 0;
         width: 100%;
-    }
-
-    .village-video-card video {
-        aspect-ratio: unset;
-        width: 100%;
-        height: 100%;
     }
 
     .village-video-card p {
