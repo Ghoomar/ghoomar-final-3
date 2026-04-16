@@ -100,7 +100,7 @@ img {
 
 .section-title {
     text-align: center;
-    margin: 36px 0 24px;
+    margin: 20px 0 16px;
     position: relative;
 }
 
@@ -380,7 +380,7 @@ img {
 
 /* Culinary Journey / About */
 .culinary-journey {
-    padding: 60px 0;
+    padding: 36px 0;
 }
 
 .journey-grid {
@@ -417,7 +417,7 @@ img {
 
 /* Menu Offers Grid */
 .offers {
-    padding: 50px 0;
+    padding: 32px 0;
     position: relative;
 }
 
@@ -459,7 +459,7 @@ img {
 
 /* Select Outlet Pricing Section */
 .outlet-pricing {
-    padding: 50px 0;
+    padding: 32px 0;
     position: relative;
     background: transparent;
 }
@@ -553,12 +553,12 @@ img {
     text-align: center;
     color: var(--text-color);
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     opacity: 0.8;
 }
 
 .outlet-list + .outlet-region {
-    margin-top: 36px;
+    margin-top: 24px;
 }
 
 .outlet-region i {
@@ -1199,19 +1199,19 @@ img {
 
     /* Reduce tall section padding */
     .culinary-journey {
-        padding: 40px 0;
+        padding: 24px 0;
     }
 
     .village-experiences {
-        padding: 40px 0 50px;
+        padding: 24px 0 32px;
     }
 
     .outlet-pricing {
-        padding: 36px 0;
+        padding: 24px 0;
     }
 
     .village-video-showcase {
-        padding: 16px 0 40px;
+        padding: 12px 0 28px;
     }
 
     .journey-text {
@@ -1266,7 +1266,7 @@ img {
     }
 
     .section-title {
-        margin: 28px 0 18px;
+        margin: 16px 0 12px;
     }
 
     .culinary-journey {
@@ -1675,7 +1675,7 @@ body.coming-soon {
    FAMILY FAVOURITES (Thali page)
    ============================================================ */
 .family-favourites {
-    padding: 50px 0;
+    padding: 32px 0;
     position: relative;
 }
 
