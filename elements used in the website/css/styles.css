@@ -2126,12 +2126,78 @@ body.coming-soon {
     letter-spacing: 0.3px;
 }
 
-.family-footnote {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.38);
-    letter-spacing: 0.5px;
+/* Platform callout — replaces the old faint footnote */
+.family-platform-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    background: rgba(251, 200, 23, 0.07);
+    border: 1px solid rgba(251, 200, 23, 0.3);
+    border-left: 4px solid #FBC817;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+}
+
+.fpc-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+    min-width: 220px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.55;
+}
+
+.fpc-icon {
+    color: #FBC817;
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.fpc-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.fpc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+}
+
+.fpc-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.fpc-swiggy {
+    background: #fc8019;
+    color: #fff;
+}
+
+.fpc-zomato {
+    background: #e23744;
+    color: #fff;
+}
+
+.fpc-logo {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 @media (max-width: 820px) {
