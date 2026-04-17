@@ -2395,10 +2395,11 @@ body.coming-soon {
 }
 
 .fp-featured {
-    background: linear-gradient(175deg, rgba(38, 18, 80, 0.99) 0%, rgba(80, 20, 20, 0.97) 100%);
+    background: linear-gradient(175deg, rgba(45, 20, 90, 0.99) 0%, rgba(90, 22, 22, 0.98) 100%);
     border-top: 3px solid #FBC817;
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 0 1px rgba(212,175,55,0.18), 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.1);
+    border-color: rgba(212, 175, 55, 0.7);
+    box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 20px 60px rgba(0,0,0,0.55), 0 0 50px rgba(212,175,55,0.15);
+    transform: translateY(-6px);
 }
 
 .fp-badge {
