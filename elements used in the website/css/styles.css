@@ -2229,7 +2229,8 @@ body.coming-soon {
     }
     .family-platform-callout {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 16px;
     }
     .fpc-buttons {
         width: 100%;
@@ -2237,6 +2238,9 @@ body.coming-soon {
     .fpc-btn {
         flex: 1;
         justify-content: center;
+    }
+    .fpc-text {
+        min-width: 0;
     }
 }
 
