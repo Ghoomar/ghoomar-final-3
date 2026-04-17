@@ -1850,7 +1850,7 @@ body.master-landing::before {
 
 @media (max-width: 760px) {
     .master-tiles { grid-template-columns: 1fr; gap: 20px; }
-    .master-hero { padding: 40px 16px 30px; }
+    .master-hero { padding: 96px 16px 30px; }
     .master-hero-content { margin: 20px auto 40px; }
     .master-logo { width: 140px; }
     .master-tile .tile-media { height: 180px; }
