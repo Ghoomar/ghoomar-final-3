@@ -2247,16 +2247,16 @@ body.coming-soon {
     }
 
     .family-price-card {
-        padding: 0 14px 20px;
+        padding: 0 12px 18px;
         border-radius: 12px;
     }
 
     .fp-size {
-        font-size: 1.25rem;
+        font-size: 0.95rem;
     }
 
-    .fp-amount {
-        font-size: 1.45rem;
+    .fp-total-value {
+        font-size: 1.3rem;
     }
 
     .fp-top-label {
@@ -2264,8 +2264,12 @@ body.coming-soon {
         letter-spacing: 2px;
     }
 
-    .fp-per-rate {
-        font-size: 1rem;
+    .fp-rate-label {
+        font-size: 0.68rem;
+    }
+
+    .fp-rate-value {
+        font-size: 0.9rem;
     }
 
     .fp-badge-spacer {
