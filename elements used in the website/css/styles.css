@@ -2208,6 +2208,17 @@ body.coming-soon {
     .fp-featured:hover {
         transform: translateY(-6px);
     }
+    .family-platform-callout {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .fpc-buttons {
+        width: 100%;
+    }
+    .fpc-btn {
+        flex: 1;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 460px) {
