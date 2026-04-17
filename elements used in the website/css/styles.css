@@ -1391,10 +1391,27 @@ img {
         padding: 20px;
     }
 
-    /* Single-column locations on very small screens */
+    /* Two-column locations on small screens — keeps all 4 visible without excess scroll */
     .location-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .location-img {
+        aspect-ratio: 1/1;
+    }
+
+    .location-info {
+        padding: 10px 8px;
+    }
+
+    .location-name {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .location-city {
+        font-size: 0.78rem;
     }
 
     .outlet-card {
