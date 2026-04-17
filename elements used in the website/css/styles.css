@@ -2353,11 +2353,11 @@ body.coming-soon {
 
 .family-pricing-heading {
     text-align: center;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin: 0 0 24px;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 28px;
 }
 
 .family-pricing {
