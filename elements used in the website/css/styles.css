@@ -1212,54 +1212,17 @@ img {
         height: 300px;
     }
     
-    .outlet-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 14px;
-        gap: 12px;
-    }
-
-    .outlet-img {
-        width: 100%;
-        flex: auto;
-    }
-
-    .outlet-img img {
-        height: 130px;
-    }
-
-    .outlet-name {
-        text-align: center;
-        font-size: 1.25rem;
-    }
-
-    .outlet-address {
-        font-size: 0.9rem;
-    }
-
-    .outlet-prices {
-        text-align: center;
-        flex: auto;
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-top: 10px;
-        gap: 10px;
-    }
-
     .outlet-list {
         gap: 12px;
     }
 
+    .outlet-card {
+        flex: 1 1 220px;
+        max-width: 340px;
+    }
+
     .outlet-list + .outlet-region {
-        margin-top: 16px;
-    }
-
-    .price-type {
-        font-size: 0.85rem;
-    }
-
-    .price-amount {
-        font-size: 1.1rem;
+        margin-top: 24px;
     }
 
     .location-grid {
