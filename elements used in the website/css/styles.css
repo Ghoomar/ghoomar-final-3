@@ -553,107 +553,144 @@ img {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--primary-color);
-    margin: 28px 0 14px;
-    margin-bottom: 20px;
-    opacity: 0.8;
+    margin: 32px 0 16px;
+}
+
+.outlet-region::before,
+.outlet-region::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--glass-border);
+}
+
+.outlet-region:first-of-type {
+    margin-top: 8px;
 }
 
 .outlet-list + .outlet-region {
-    margin-top: 24px;
+    margin-top: 32px;
 }
 
 .outlet-region i {
-    color: var(--secondary-color);
-    margin-right: 5px;
+    color: var(--primary-color);
+    margin-right: 4px;
 }
 
 .outlet-list {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
 }
 
 .outlet-card {
+    flex: 1 1 260px;
+    max-width: 380px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    padding: 20px;
-    gap: 25px;
+    border-radius: 14px;
+    overflow: hidden;
+    padding: 0;
+    gap: 0;
+    align-items: stretch;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
 }
 
 .outlet-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .outlet-img {
-    flex: 0 0 180px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    flex: none;
 }
 
 .outlet-img img {
-    border-radius: 10px;
     width: 100%;
-    height: 120px;
+    height: 100%;
     object-fit: cover;
-    border: 1px solid var(--glass-border);
+    border-radius: 0;
+    border: none;
+    transition: transform 0.4s ease;
+}
+
+.outlet-card:hover .outlet-img img {
+    transform: scale(1.05);
 }
 
 .outlet-info {
+    padding: 14px 16px 10px;
     flex: 1;
-    text-align: center;
+    text-align: left;
 }
 
 .outlet-name {
-    font-size: 1.6rem;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 8px;
-    text-align: center;
+    margin-bottom: 4px;
+    text-align: left;
 }
 
 .outlet-address {
-    font-size: 1rem;
-    color: var(--brand-warm);
-    margin-bottom: 0;
-    text-align: center;
+    font-size: 0.82rem;
+    color: #7a5c5c;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
 }
 
 .outlet-prices {
-    flex: 0 0 250px;
-    text-align: center;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(163, 28, 33, 0.04);
+    flex: none;
+    gap: 0;
+    padding: 0;
 }
 
 .price-row {
+    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 10px 8px;
+    border-right: 1px solid var(--glass-border);
+}
+
+.price-row:last-child {
+    border-right: none;
 }
 
 .price-type {
-    font-size: 0.95rem;
-    color: var(--primary-color);
-    margin-bottom: 4px;
+    font-size: 0.68rem;
+    color: rgba(42, 14, 14, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 2px 0 0;
+    order: 2;
+    text-align: center;
 }
 
 .price-amount {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-color);
-}
-
-.outlet-card .price-amount:has-text {
-    color: #fff;
+    order: 1;
+    margin: 0;
 }
 
 .outlet-card[href="#"] .price-amount {
