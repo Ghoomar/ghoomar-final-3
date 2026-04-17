@@ -1,3 +1,6 @@
 {
-  "outputDirectory": "elements used in the website"
+  "outputDirectory": "elements used in the website",
+  "buildCommand": null,
+  "installCommand": null,
+  "framework": null
 }
