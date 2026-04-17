@@ -1026,14 +1026,14 @@ img {
 }
 
 .visit-map-col {
-    height: 420px;
-    min-height: 360px;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
+    min-height: 380px;
+    position: relative;
 }
 
 .visit-map-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
