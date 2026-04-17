@@ -2043,30 +2043,19 @@ body.coming-soon {
     margin-bottom: 14px;
 }
 
-.fp-members-icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    color: rgba(255,255,255,0.3);
-    font-size: 0.9rem;
-}
-
-.fp-members-icons .fp-plus {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: rgba(212,175,55,0.55);
-    margin-left: 2px;
-}
-
 .fp-size {
-    font-size: 1.55rem;
-    font-weight: 700;
-    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
     line-height: 1;
     margin-bottom: 16px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
+}
+
+.fp-size i {
+    font-size: 0.9em;
+    opacity: 0.5;
+    margin-right: 5px;
 }
 
 .fp-divider {
@@ -2076,42 +2065,61 @@ body.coming-soon {
     margin: 0 auto 16px;
 }
 
-.fp-per-rate {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 2px;
-    letter-spacing: -0.2px;
+/* Two-row rate table inside each card */
+.fp-rate-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 14px;
+    text-align: left;
 }
 
-.fp-per-rate span {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.55);
+.fp-rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 0;
 }
 
-.fp-total-label {
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 4px;
+.fp-rate-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.42);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
-.fp-amount {
-    color: #FBC817;
-    font-size: 1.9rem;
+.fp-rate-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+}
+
+.fp-total-row {
+    border-top: 1px solid rgba(212,175,55,0.18);
+}
+
+.fp-total-value {
+    font-size: 1.6rem;
     font-weight: 800;
-    line-height: 1;
-    margin-bottom: 6px;
+    color: #FBC817;
     letter-spacing: -0.5px;
+    white-space: nowrap;
+    line-height: 1.1;
+}
+
+.fp-savings-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .fp-strike {
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.32);
     text-decoration: line-through;
-    font-size: 0.78rem;
-    margin-bottom: 14px;
+    font-size: 0.8rem;
 }
 
 .fp-save {
@@ -2124,6 +2132,7 @@ body.coming-soon {
     padding: 4px 12px;
     border-radius: 20px;
     letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
 /* Platform callout — replaces the old faint footnote */
