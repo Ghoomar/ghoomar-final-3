@@ -175,6 +175,44 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Menu Inquiry -->
+            <div class="menu-inquiry-wrap">
+                <div class="miq-header">
+                    <i class="fab fa-whatsapp miq-icon"></i>
+                    <div>
+                        <h4 class="miq-heading">Want to know today's menu?</h4>
+                        <p class="miq-sub">Our daily spread changes &mdash; fill in your details and we'll send the menu straight to your WhatsApp before your visit.</p>
+                    </div>
+                </div>
+                <form class="miq-form" id="menuInquiryForm" novalidate>
+                    <div class="miq-fields">
+                        <div class="miq-field">
+                            <label for="miq-name">Your Name</label>
+                            <input type="text" id="miq-name" placeholder="e.g. Priya Sharma" autocomplete="name">
+                        </div>
+                        <div class="miq-field">
+                            <label for="miq-outlet">Which Outlet?</label>
+                            <select id="miq-outlet">
+                                <option value="" disabled selected>Select an outlet</option>
+                                <option value="Chandni Chowk, Delhi">Chandni Chowk, Delhi</option>
+                                <option value="Connaught Place, Delhi">Connaught Place, Delhi</option>
+                                <option value="Patna, Bihar">Patna, Bihar</option>
+                                <option value="Guwahati, Assam">Guwahati, Assam</option>
+                            </select>
+                        </div>
+                        <div class="miq-field">
+                            <label for="miq-date">Date of Visit</label>
+                            <input type="date" id="miq-date">
+                        </div>
+                    </div>
+                    <p class="miq-error" id="miqError" aria-live="polite"></p>
+                    <button type="submit" class="miq-submit">
+                        <i class="fab fa-whatsapp"></i> Ask on WhatsApp
+                    </button>
+                </form>
+            </div>
+
         </div>
     </section>
 
