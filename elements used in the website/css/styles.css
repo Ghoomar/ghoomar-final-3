@@ -1844,8 +1844,8 @@ body.coming-soon {
 .family-price-card {
     background: linear-gradient(160deg, rgba(74, 42, 135, 0.85), rgba(139, 26, 26, 0.85));
     border: 1px solid rgba(212, 175, 55, 0.45);
-    border-radius: 18px;
-    padding: 26px 18px;
+    border-radius: 14px;
+    padding: 20px 14px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
