@@ -2224,3 +2224,155 @@ body.coming-soon {
         padding: 52px 0;
     }
 }
+
+/* ============================================================
+   MENU INQUIRY (Thali page)
+   ============================================================ */
+.menu-inquiry-wrap {
+    margin-top: 40px;
+    background: linear-gradient(135deg, rgba(163, 28, 33, 0.06), rgba(251, 226, 1, 0.06));
+    border: 1px solid rgba(163, 28, 33, 0.18);
+    border-radius: 16px;
+    padding: 32px 28px;
+}
+
+.miq-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.miq-icon {
+    font-size: 2rem;
+    color: #25D366;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.miq-heading {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.miq-sub {
+    font-size: 0.95rem;
+    color: #6b4c4c;
+    margin: 0;
+    font-weight: 300;
+}
+
+.miq-fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.miq-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.miq-field label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary-color);
+}
+
+.miq-field input,
+.miq-field select {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 400;
+    color: var(--text-color);
+    background: #FFFDF3;
+    border: 1px solid rgba(163, 28, 33, 0.22);
+    border-radius: 8px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+.miq-field input:focus,
+.miq-field select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(163, 28, 33, 0.1);
+}
+
+.miq-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A31C21' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.miq-error {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin: 4px 0 12px;
+    min-height: 1.2em;
+}
+
+.miq-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.miq-submit:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+.miq-submit i {
+    font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+    .miq-fields {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .menu-inquiry-wrap {
+        padding: 24px 18px;
+        margin-top: 28px;
+    }
+
+    .miq-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .miq-heading {
+        font-size: 1.1rem;
+    }
+
+    .miq-icon {
+        font-size: 1.6rem;
+    }
+
+    .menu-inquiry-wrap {
+        padding: 20px 14px;
+    }
+}
