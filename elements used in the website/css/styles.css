@@ -2399,7 +2399,8 @@ body.coming-soon {
     border-top: 3px solid #FBC817;
     border-color: rgba(212, 175, 55, 0.7);
     box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 20px 60px rgba(0,0,0,0.55), 0 0 50px rgba(212,175,55,0.15);
-    transform: translateY(-6px);
+    padding-top: 10px;
+    padding-bottom: 32px;
 }
 
 .fp-badge {
