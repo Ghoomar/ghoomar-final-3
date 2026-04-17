@@ -2642,23 +2642,23 @@ body.coming-soon {
 }
 
 .fpc-swiggy {
-    background: #fc8019;
+    background: var(--primary-color);
     color: #fff;
-    box-shadow: 0 4px 16px rgba(252, 128, 25, 0.4);
+    box-shadow: 0 4px 16px rgba(163, 28, 33, 0.4);
 }
 
 .fpc-swiggy:hover {
-    box-shadow: 0 8px 24px rgba(252, 128, 25, 0.55);
+    box-shadow: 0 8px 24px rgba(163, 28, 33, 0.55);
 }
 
 .fpc-zomato {
-    background: #e23744;
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(226, 55, 68, 0.4);
+    background: var(--accent-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 16px rgba(251, 226, 1, 0.45);
 }
 
 .fpc-zomato:hover {
-    box-shadow: 0 8px 24px rgba(226, 55, 68, 0.55);
+    box-shadow: 0 8px 24px rgba(251, 226, 1, 0.6);
 }
 
 @media (max-width: 820px) {
