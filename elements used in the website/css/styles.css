@@ -1322,12 +1322,13 @@ img {
 /* ── Small phones (≤ 480 px) ── */
 @media screen and (max-width: 480px) {
     .floating-nav-wrapper {
-        top: 15px;
-        padding: 0 14px;
+        top: 0;
+        padding: 0;
     }
 
     .pill-nav {
         padding: 8px 14px;
+        border-radius: 0;
     }
 
     .pill-nav .logo img {
