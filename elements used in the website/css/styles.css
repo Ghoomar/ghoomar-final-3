@@ -1305,8 +1305,8 @@ img {
         padding: 28px 20px;
     }
 
-    .visit-map-col,
-    .visit-map-iframe {
+    .visit-map-col {
+        height: 280px;
         min-height: 260px;
     }
 
