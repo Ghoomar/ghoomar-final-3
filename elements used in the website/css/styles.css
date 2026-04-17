@@ -1439,16 +1439,33 @@ img {
     }
 
     .outlet-card {
-        padding: 14px;
-        gap: 16px;
+        padding: 10px;
+        gap: 8px;
     }
 
     .outlet-img img {
-        height: 160px;
+        height: 100px;
     }
 
     .outlet-name {
-        font-size: 1.3rem;
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+    }
+
+    .outlet-address {
+        font-size: 0.82rem;
+    }
+
+    .price-type {
+        font-size: 0.78rem;
+    }
+
+    .price-amount {
+        font-size: 1rem;
+    }
+
+    .outlet-list {
+        gap: 10px;
     }
 
     .village-hero {
