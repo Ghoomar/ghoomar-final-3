@@ -1733,6 +1733,288 @@ body.master-landing::before {
 }
 /* ---- end thali nav ---- */
 
+/* ============================================================
+   MASTER NAV  (index.html hub page — cross-page links)
+   ============================================================ */
+.master-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(253, 248, 232, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(163, 28, 33, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.master-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.master-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.master-nav-logo img {
+    width: 108px;
+    height: auto;
+    display: block;
+}
+
+.master-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.master-nav-links a {
+    color: var(--brand-warm);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.master-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--brand-maroon);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.master-nav-links a:hover {
+    color: var(--brand-maroon);
+}
+
+.master-nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.master-nav-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.master-nav-contact {
+    color: var(--brand-maroon);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(163, 28, 33, 0.38);
+    padding: 7px 20px;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.master-nav-contact:hover {
+    background: var(--brand-maroon);
+    color: #fff;
+    border-color: var(--brand-maroon);
+}
+
+@media (max-width: 700px) {
+    .master-nav-inner {
+        grid-template-columns: 1fr auto;
+    }
+    .master-nav-links {
+        display: none;
+    }
+    .master-nav-contact {
+        margin-left: 0;
+    }
+}
+/* ---- end master nav ---- */
+
+/* ============================================================
+   VILLAGE PAGE NAV  (village.html — in-page anchor links)
+   ============================================================ */
+.village-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(253, 248, 232, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(163, 28, 33, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.village-nav.scrolled {
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.09);
+}
+
+.village-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.village-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.village-nav-logo img {
+    width: 108px;
+    height: auto;
+    display: block;
+}
+
+.village-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.village-nav-link {
+    color: var(--brand-warm);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.village-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--brand-maroon);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.village-nav-link:hover,
+.village-nav-link.active {
+    color: var(--brand-maroon);
+}
+
+.village-nav-link:hover::after,
+.village-nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.village-nav-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.village-nav-cta {
+    color: var(--brand-maroon);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(163, 28, 33, 0.38);
+    padding: 7px 20px;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.village-nav-cta:hover {
+    background: var(--brand-maroon);
+    color: #fff;
+    border-color: var(--brand-maroon);
+}
+
+.village-nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    line-height: 0;
+}
+
+.village-nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--brand-maroon);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.25s ease;
+}
+
+.village-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.village-nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.village-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 700px) {
+    .village-nav-inner {
+        grid-template-columns: 1fr auto;
+    }
+
+    .village-nav-cta {
+        display: none;
+    }
+
+    .village-nav-hamburger {
+        display: flex;
+    }
+
+    .village-nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(253, 248, 232, 0.98);
+        border-bottom: 2px solid rgba(163, 28, 33, 0.12);
+        padding: 6px 0 10px;
+    }
+
+    .village-nav-links.open {
+        display: flex;
+    }
+
+    .village-nav-link {
+        padding: 13px 28px;
+        border-bottom: 1px solid rgba(163, 28, 33, 0.07);
+        font-size: 0.95rem;
+    }
+
+    .village-nav-link::after {
+        display: none;
+    }
+}
+/* ---- end village nav ---- */
+
 .master-hero {
     position: relative;
     min-height: 100vh;
