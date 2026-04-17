@@ -1128,8 +1128,25 @@ img {
         display: none;
     }
 
+    /* Solid block navbar on mobile — no floating pill */
+    .floating-nav-wrapper {
+        position: fixed;
+        top: 0;
+        padding: 0;
+        background: var(--glass-bg);
+        border-bottom: 1px solid var(--glass-border);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
     .pill-nav {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
         padding: 8px 20px;
+        max-width: 100%;
     }
 
     .mobile-menu-toggle {
