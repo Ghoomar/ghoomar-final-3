@@ -2839,7 +2839,7 @@ body.coming-soon {
 }
 
 @media (max-width: 768px) {
-    .gs-act { padding: 60px 0; }
+    .gs-act { padding: 44px 0; }
     .gs-three-grid {
         grid-template-columns: 1fr;
         gap: 12px;
