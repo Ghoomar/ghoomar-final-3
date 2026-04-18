@@ -2362,14 +2362,14 @@ body.coming-soon {
 
 /* ---- Shared tokens ---- */
 .gs-act {
-    padding: 80px 0;
+    padding: 52px 0;
     background-color: var(--bg-dark);
 }
 
 .gs-act-header {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto 52px;
+    margin: 0 auto 32px;
     padding: 0 24px;
 }
 
