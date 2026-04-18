@@ -2217,6 +2217,12 @@ body.master-landing::before {
     transform: translateX(5px);
 }
 
+/* Per-brand card backgrounds from logo palette */
+.tile-thali  { background: #F5D0D1; border-color: rgba(200, 35, 43, 0.35); }
+.tile-village { background: #FBE201; border-color: rgba(180, 130, 0, 0.4); }
+.tile-yatra   { background: #FFF4C2; border-color: rgba(122, 20, 24, 0.4); }
+.tile-vedanta { background: #C8E6C9; border-color: rgba(46, 125, 50, 0.4); }
+
 /* Per-brand button colors from logo palette */
 .tile-thali .tile-cta {
     background: #C8232B;
@@ -2227,11 +2233,11 @@ body.master-landing::before {
 }
 
 .tile-village .tile-cta {
-    background: #FBE201;
-    color: #2A0E0E;
+    background: #2A0E0E;
+    color: #FBE201;
 }
 .tile-village:hover .tile-cta {
-    background: #e8cf00;
+    background: #1a0808;
 }
 
 .tile-yatra .tile-cta {
