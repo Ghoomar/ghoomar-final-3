@@ -2855,7 +2855,6 @@ body.coming-soon {
     }
     .gs-fig--wide {
         aspect-ratio: 16 / 9;
-        max-height: none;
     }
     .gs-spread-grid {
         grid-template-columns: 1fr;
