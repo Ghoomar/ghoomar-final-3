@@ -2370,6 +2370,7 @@ body.coming-soon {
     text-align: center;
     max-width: 640px;
     margin: 0 auto 52px;
+    padding: 0 24px;
 }
 
 .gs-label {
