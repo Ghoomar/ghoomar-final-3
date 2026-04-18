@@ -2708,7 +2708,7 @@ body.coming-soon {
 
 /* ---- ACT 8: CTA ---- */
 .gs-cta {
-    padding: 80px 24px;
+    padding: 56px 24px;
     text-align: center;
     background-color: var(--primary-color);
 }
