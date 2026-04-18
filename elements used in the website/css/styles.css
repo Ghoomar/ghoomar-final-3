@@ -2190,20 +2190,22 @@ body.master-landing::before {
 .master-tile .tile-cta {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: var(--brand-maroon);
+    gap: 8px;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding-bottom: 3px;
-    border-bottom: 1px solid rgba(163, 28, 33, 0.25);
+    padding: 10px 20px;
+    border-radius: 50px;
     align-self: flex-start;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: var(--brand-maroon);
 }
 
 .master-tile:hover .tile-cta {
-    border-bottom-color: var(--brand-maroon);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 }
 
 .master-tile .tile-cta i {
@@ -2211,7 +2213,37 @@ body.master-landing::before {
 }
 
 .master-tile:hover .tile-cta i {
-    transform: translateX(6px);
+    transform: translateX(5px);
+}
+
+/* Per-brand button colors from logo palette */
+.tile-thali .tile-cta {
+    background: #C8232B;
+    color: #fff;
+}
+.tile-thali:hover .tile-cta {
+    background: #a31c21;
+}
+
+.tile-village .tile-cta {
+    background: #FBE201;
+    color: #2A0E0E;
+}
+.tile-village:hover .tile-cta {
+    background: #e8cf00;
+}
+
+.tile-yatra .tile-cta {
+    background: var(--brand-maroon);
+    color: #fff;
+}
+
+.tile-vedanta .tile-cta {
+    background: #2E7D32;
+    color: #fff;
+}
+.tile-vedanta:hover .tile-cta {
+    background: #236327;
 }
 
 .master-footer {
