@@ -2925,24 +2925,27 @@ body.coming-soon {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 12px 14px;
     margin: 0 0 44px;
 }
 
 .family-chip {
-    background: rgba(163, 28, 33, 0.07);
-    border: 1px solid rgba(163, 28, 33, 0.25);
-    padding: 8px 16px;
-    border-radius: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
     color: var(--text-color);
-    font-size: 0.88rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
 }
 
-.family-chip i {
+.family-chip:not(:last-child)::after {
+    content: "|";
     color: var(--primary-color);
+    margin-left: 14px;
+    font-weight: 400;
 }
 
 .family-pricing-heading {
@@ -3315,12 +3318,12 @@ body.coming-soon {
     }
 
     .family-chip {
-        padding: 6px 12px;
-        font-size: 0.82rem;
+        padding: 0;
+        font-size: 0.9rem;
     }
 
     .family-perks {
-        gap: 8px;
+        gap: 12px 18px;
     }
 }
 
