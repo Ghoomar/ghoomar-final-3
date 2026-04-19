@@ -13,15 +13,26 @@
 
     <style>
         /* ============================================================
-           GALLERY PAGE — SCROLLABLE GALLERIES
+           GALLERY PAGE — REVAMPED 2026
            ============================================================ */
 
-        /* ---------- Opening hero ---------- */
+        :root {
+            --primary-maroon: #A31C21;
+            --primary-dark: #8B1519;
+            --accent-yellow: #FBE201;
+            --bg-cream: #FDF8E8;
+            --bg-warm: #F9F1D8;
+            --text-dark: #2A0E0E;
+            --text-muted: #5A3030;
+            --glass-bg: rgba(255, 244, 194, 0.72);
+        }
+
+        /* ---------- Opening Hero ---------- */
         .gs-opening {
             position: relative;
             width: 100%;
-            height: 70vh;
-            min-height: 420px;
+            height: 85vh;
+            min-height: 500px;
             overflow: hidden;
         }
         .gs-opening-img {
@@ -29,215 +40,167 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
         }
         .gs-opening-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(42,14,14,.85) 0%, rgba(42,14,14,.3) 50%, transparent 100%);
+            background: linear-gradient(to bottom, rgba(42,14,14,0.3) 0%, rgba(42,14,14,0.7) 60%, rgba(42,14,14,0.85) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 50px 40px;
+            padding: 60px 40px;
         }
         .gs-opening-kicker {
-            font-size: 0.85rem;
-            letter-spacing: 3px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            color: var(--accent-yellow);
+            margin-bottom: 12px;
             font-weight: 600;
         }
         .gs-opening-title {
-            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-size: clamp(2.2rem, 6vw, 4rem);
             color: #fff;
-            line-height: 1.15;
-            margin-bottom: 0;
+            line-height: 1.1;
+            margin: 0;
+            font-weight: 700;
+        }
+        .gs-opening-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255,255,255,0.85);
+            margin-top: 12px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
-        /* ---------- Section structure ---------- */
+        /* ---------- Section Structure ---------- */
         .gs-section {
-            padding: 70px 0;
+            padding: 90px 0;
+            position: relative;
         }
         .gs-section:nth-child(even) {
-            background: rgba(163,28,33,.03);
+            background: linear-gradient(135deg, rgba(163,28,33,0.02) 0%, rgba(251,200,23,0.03) 100%);
         }
         .gs-section-header {
             text-align: center;
-            margin-bottom: 14px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
         }
         .gs-label {
-            font-size: 0.8rem;
-            letter-spacing: 3px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 8px;
+            color: var(--primary-maroon);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(163,28,33,0.08);
+            border-radius: 50px;
         }
         .gs-heading {
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-            color: var(--text-color);
-            line-height: 1.25;
-            margin-bottom: 12px;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
         .gs-body {
-            font-size: 1.05rem;
-            color: #5a3030;
-            max-width: 680px;
-            margin: 0 auto 10px;
-            line-height: 1.7;
+            font-size: 1.08rem;
+            color: var(--text-muted);
+            line-height: 1.75;
             font-weight: 300;
         }
 
-        /* ---------- Scrollable gallery track ---------- */
+        /* ---------- Scroll Gallery Track ---------- */
         .scroll-gallery {
             display: flex;
             flex-wrap: nowrap !important;
-            gap: 16px;
+            gap: 20px;
             overflow-x: auto !important;
             overflow-y: hidden;
-            padding: 20px 20px 22px;
+            padding: 24px 24px 28px;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) rgba(163,28,33,.1);
+            scrollbar-color: var(--primary-maroon) rgba(163,28,33,0.1);
             -webkit-overflow-scrolling: touch;
             scroll-snap-type: x mandatory;
             cursor: grab;
             width: 100%;
         }
         .scroll-gallery:active { cursor: grabbing; }
-
-        .scroll-gallery::-webkit-scrollbar { height: 8px; }
-        .scroll-gallery::-webkit-scrollbar-track { background: rgba(163,28,33,.08); border-radius: 10px; }
-        .scroll-gallery::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+        .scroll-gallery::-webkit-scrollbar { height: 6px; }
+        .scroll-gallery::-webkit-scrollbar-track { background: rgba(163,28,33,0.06); border-radius: 10px; }
+        .scroll-gallery::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--primary-maroon), #c92a30); border-radius: 10px; }
 
         .scroll-gallery figure {
-            flex: 0 0 320px;
-            min-width: 320px;
-            max-width: 320px;
+            flex: 0 0 340px;
+            min-width: 340px;
+            max-width: 340px;
             margin: 0;
             scroll-snap-align: start;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 18px rgba(42,14,14,.1);
-            transition: transform .3s ease, box-shadow .3s ease;
+            box-shadow: 0 8px 24px rgba(42,14,14,0.12);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
             position: relative;
             cursor: zoom-in;
             background: #f5e6d0;
         }
         .scroll-gallery figure:hover {
-            transform: translateY(-4px) scale(1.015);
-            box-shadow: 0 8px 28px rgba(163,28,33,.18);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(163,28,33,0.2);
         }
         .scroll-gallery figure img {
             width: 100%;
-            max-width: none !important;
-            height: 240px;
+            height: 260px;
             object-fit: cover;
             display: block;
-            transition: transform .4s ease;
+            transition: transform 0.5s ease;
         }
         .scroll-gallery figure:hover img {
-            transform: scale(1.06);
+            transform: scale(1.08);
         }
         .scroll-gallery figcaption {
-            padding: 10px 14px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-color);
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
             text-align: center;
-            background: rgba(253,248,232,.9);
+            background: rgba(253,248,232,0.95);
+            border-top: 1px solid rgba(163,28,33,0.08);
         }
 
-        /* -- Wider cards variant for interiors -- */
+        /* -- Wide Cards Variant -- */
         .scroll-gallery--wide figure {
-            flex: 0 0 420px;
-            min-width: 420px;
-            max-width: 420px;
+            flex: 0 0 480px;
+            min-width: 480px;
+            max-width: 480px;
         }
         .scroll-gallery--wide figure img {
-            height: 280px;
+            height: 320px;
         }
 
-        /* ---------- Haveli / Ambiance split layout ---------- */
-        .gs-haveli-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 32px;
-            align-items: stretch;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .gs-haveli-big {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 6px 24px rgba(42,14,14,.12);
-            position: relative;
-            cursor: zoom-in;
-            min-height: 520px;
-        }
-        .gs-haveli-big img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            position: absolute;
-            inset: 0;
-            transition: transform .5s ease;
-        }
-        .gs-haveli-big:hover img { transform: scale(1.03); }
-
-        .gs-haveli-right {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            justify-content: center;
-        }
-        .gs-haveli-text {
-            padding: 0 6px;
-        }
-        .gs-haveli-text .gs-heading {
-            text-align: left;
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-
-        .gs-haveli-scroll-wrap {
-            border-radius: 14px;
-            overflow: hidden;
-            background: rgba(163,28,33,.04);
-            border: 1px solid rgba(163,28,33,.08);
-        }
-        .gs-haveli-scroll-label {
-            padding: 12px 16px 0;
-            font-size: 0.78rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        .gs-haveli-scroll-wrap .scroll-gallery {
-            padding: 10px 10px 14px;
-            overflow-x: auto !important;
-        }
-        .gs-haveli-scroll-wrap .scroll-gallery figure {
-            flex: 0 0 220px;
-            min-width: 220px;
-            max-width: 220px;
-        }
-        .gs-haveli-scroll-wrap .scroll-gallery figure img {
-            height: 170px;
-            max-width: none !important;
-        }
-
-        /* ---------- Thali reveal full-bleed strip ---------- */
+        /* ---------- Thali Reveal Full-Bleed ---------- */
         .gs-thali-reveal {
             position: relative;
             width: 100%;
-            height: 50vh;
-            min-height: 340px;
+            height: 65vh;
+            min-height: 450px;
             overflow: hidden;
             cursor: zoom-in;
+        }
+        .gs-thali-reveal::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(163,28,33,0.75) 0%, rgba(42,14,14,0.7) 100%);
+            z-index: 1;
         }
         .gs-reveal-img {
             width: 100%;
@@ -248,7 +211,7 @@
         .gs-reveal-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(163,28,33,.8) 0%, rgba(42,14,14,.65) 100%);
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -257,120 +220,117 @@
             padding: 20px;
         }
         .gs-reveal-num {
-            font-size: clamp(5rem, 12vw, 9rem);
-            font-weight: 700;
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 800;
             color: #fff;
             line-height: 1;
-            margin-bottom: 0;
+            margin: 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .gs-reveal-num span {
-            color: var(--accent-color);
+            color: var(--accent-yellow);
         }
         .gs-reveal-line {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            color: rgba(255,255,255,.9);
-            font-weight: 300;
+            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            color: rgba(255,255,255,0.95);
+            font-weight: 400;
             letter-spacing: 1px;
+            margin-top: 8px;
         }
 
-        /* ---------- Dish category segmented section ---------- */
+        /* ---------- Dish Category Segments ---------- */
         .gs-dish-segment {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            scroll-margin-top: 80px;
         }
         .gs-dish-segment:last-child { margin-bottom: 0; }
 
         .gs-segment-header {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             padding: 0 20px;
             max-width: 1200px;
-            margin: 0 auto 8px;
+            margin: 0 auto 20px;
         }
         .gs-segment-icon {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), #c92a30);
+            background: linear-gradient(135deg, var(--primary-maroon), #c92a30);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             flex-shrink: 0;
-            box-shadow: 0 3px 10px rgba(163,28,33,.25);
+            box-shadow: 0 4px 15px rgba(163,28,33,0.3);
         }
         .gs-segment-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
             margin: 0;
         }
         .gs-segment-sub {
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: #7a4a4a;
             font-weight: 300;
-            margin: 0;
+            margin: 4px 0 0;
         }
 
-        /* ---------- Experience chips ---------- */
-        .gs-coming-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-        .gs-coming-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 28px;
-        }
-        .gs-coming-chips span {
-            background: rgba(163,28,33,.08);
-            color: var(--primary-color);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(163,28,33,.15);
-        }
-
-        /* ---------- CTA ---------- */
+        /* ---------- CTA Section ---------- */
         .gs-cta {
             text-align: center;
-            padding: 70px 20px;
-            background: linear-gradient(135deg, #2A0E0E 0%, #4a1a1a 100%);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #2A0E0E 0%, #4a1a1a 50%, #2A0E0E 100%);
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
-        .gs-cta .gs-label { color: var(--accent-color); }
+        .gs-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(163,28,33,0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .gs-cta .gs-label {
+            color: var(--accent-yellow);
+            background: rgba(251,226,1,0.15);
+        }
         .gs-cta-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin: 10px 0;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin: 16px 0;
             color: #fff;
+            font-weight: 700;
         }
         .gs-cta-sub {
-            color: rgba(255,255,255,.7);
-            margin-bottom: 30px;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 36px;
+            font-size: 1.1rem;
         }
 
         /* ---------- Lightbox ---------- */
         .gallery-lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,.92);
+            background: rgba(0,0,0,0.95);
             z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity .3s ease;
-            backdrop-filter: blur(6px);
+            transition: opacity 0.35s ease;
+            backdrop-filter: blur(8px);
         }
         .gallery-lightbox.open {
             opacity: 1;
@@ -378,58 +338,66 @@
         }
         .glb-close, .glb-prev, .glb-next {
             position: absolute;
-            background: rgba(255,255,255,.12);
-            border: 1px solid rgba(255,255,255,.15);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
             color: #fff;
-            width: 46px; height: 46px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: background .2s;
+            transition: all 0.25s ease;
             z-index: 10;
+            backdrop-filter: blur(4px);
         }
-        .glb-close:hover, .glb-prev:hover, .glb-next:hover { background: rgba(255,255,255,.25); }
-        .glb-close { top: 20px; right: 20px; }
-        .glb-prev  { left: 20px; top: 50%; transform: translateY(-50%); }
-        .glb-next  { right: 20px; top: 50%; transform: translateY(-50%); }
-        .glb-img-wrap { max-width: 90vw; max-height: 85vh; text-align: center; }
+        .glb-close:hover, .glb-prev:hover, .glb-next:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        .glb-close { top: 24px; right: 24px; }
+        .glb-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+        .glb-next { right: 24px; top: 50%; transform: translateY(-50%); }
+        .glb-img-wrap {
+            max-width: 90vw;
+            max-height: 85vh;
+            text-align: center;
+        }
         .glb-img-wrap img {
             max-width: 100%;
             max-height: 80vh;
-            border-radius: 10px;
-            box-shadow: 0 0 40px rgba(0,0,0,.5);
+            border-radius: 12px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.6);
         }
         .glb-caption {
-            color: rgba(255,255,255,.8);
-            margin-top: 12px;
-            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 16px;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         /* ---------- Responsive ---------- */
         @media (max-width: 900px) {
-            .gs-haveli-layout {
-                grid-template-columns: 1fr;
-            }
-            .gs-haveli-big { min-height: 320px; }
-            .scroll-gallery figure { flex: 0 0 260px; min-width: 260px; max-width: 260px; }
-            .scroll-gallery figure img { height: 200px; }
-            .scroll-gallery--wide figure { flex: 0 0 320px; min-width: 320px; max-width: 320px; }
-            .scroll-gallery--wide figure img { height: 230px; }
+            .gs-opening { height: 65vh; min-height: 400px; }
+            .scroll-gallery figure { flex: 0 0 280px; min-width: 280px; max-width: 280px; }
+            .scroll-gallery figure img { height: 210px; }
+            .scroll-gallery--wide figure { flex: 0 0 360px; min-width: 360px; max-width: 360px; }
+            .scroll-gallery--wide figure img { height: 250px; }
+            .gs-segment-header { flex-direction: column; text-align: center; }
         }
         @media (max-width: 500px) {
             .gs-opening { height: 55vh; min-height: 320px; }
             .gs-opening-overlay { padding: 30px 20px; }
             .gs-section { padding: 50px 0; }
-            .scroll-gallery figure { flex: 0 0 80vw; min-width: 80vw; max-width: 80vw; }
-            .scroll-gallery figure img { height: 200px; }
-            .scroll-gallery--wide figure { flex: 0 0 85vw; min-width: 85vw; max-width: 85vw; }
-            .scroll-gallery--wide figure img { height: 220px; }
-            .gs-haveli-scroll-wrap .scroll-gallery figure { flex: 0 0 65vw; min-width: 65vw; max-width: 65vw; }
-            .gs-segment-header { flex-direction: column; text-align: center; }
-            .gs-thali-reveal { height: 40vh; }
+            .scroll-gallery figure { flex: 0 0 82vw; min-width: 82vw; max-width: 82vw; }
+            .scroll-gallery figure img { height: 220px; }
+            .scroll-gallery--wide figure { flex: 0 0 88vw; min-width: 88vw; max-width: 88vw; }
+            .scroll-gallery--wide figure img { height: 240px; }
+            .gs-thali-reveal { height: 45vh; }
+            .gs-segment-icon { width: 48px; height: 48px; font-size: 1.2rem; }
+            .gs-segment-title { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -466,7 +434,8 @@
              loading="eager">
         <div class="gs-opening-overlay">
             <p class="gs-opening-kicker">Ghoomar Traditional Thali</p>
-            <h1 class="gs-opening-title">Step inside.<br>Leave the city behind.</h1>
+            <h1 class="gs-opening-title">Step Inside.<br>Leave the City Behind.</h1>
+            <p class="gs-opening-subtitle">A journey through Rajasthani heritage, one frame at a time.</p>
         </div>
     </section>
 
@@ -475,251 +444,144 @@
          ACT 2 — INTERIORS SCROLLING GALLERY
     ============================================================ -->
     <section class="gs-section" id="interiors">
-        <div class="gs-section-header container">
-            <p class="gs-label">Our Interiors</p>
-            <h2 class="gs-heading">Three cities. One soul.<br>The warmth of a Rajasthani haveli.</h2>
+        <div class="gs-section-header">
+            <span class="gs-label">Our Interiors</span>
+            <h2 class="gs-heading">Three Cities. One Soul.<br>The Warmth of a Rajasthani Haveli.</h2>
             <p class="gs-body">Jharokha windows, folk motifs, earthy terracotta tones — every corner of a Ghoomar outlet is designed to feel like you have walked into a Rajasthani home.</p>
         </div>
 
         <div class="scroll-gallery scroll-gallery--wide" id="interiorsGallery">
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-01.jpg" data-alt="Connaught Place — Dining Hall">
-                <img src="../assets/thali/gallery/interiors/cp-01.jpg" alt="Connaught Place — Dining Hall" loading="lazy">
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-01.jpg" data-alt="Connaught Place — Grand Dining Hall">
+                <img src="../assets/thali/gallery/interiors/cp-01.jpg" alt="Connaught Place — Grand Dining Hall" loading="lazy">
                 <figcaption>Connaught Place, Delhi</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-02.jpg" data-alt="Connaught Place — Seating Area">
-                <img src="../assets/thali/gallery/interiors/cp-02.jpg" alt="Connaught Place — Seating Area" loading="lazy">
-                <figcaption>CP — Seating Area</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-04.jpg" data-alt="Connaught Place — Royal Seating">
+                <img src="../assets/thali/gallery/interiors/cp-04.jpg" alt="Connaught Place — Royal Seating" loading="lazy">
+                <figcaption>CP — Royal Seating</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-03.jpg" data-alt="Connaught Place — Decor">
-                <img src="../assets/thali/gallery/interiors/cp-03.jpg" alt="Connaught Place — Decor" loading="lazy">
-                <figcaption>CP — Decor</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-04.jpg" data-alt="Connaught Place — Grand Hall">
-                <img src="../assets/thali/gallery/interiors/cp-04.jpg" alt="Connaught Place — Grand Hall" loading="lazy">
-                <figcaption>CP — Grand Hall</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-05.jpg" data-alt="Connaught Place — Detail">
-                <img src="../assets/thali/gallery/interiors/cp-05.jpg" alt="Connaught Place — Detail" loading="lazy">
-                <figcaption>CP — Detail</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-06.jpg" data-alt="Connaught Place — Ambiance">
-                <img src="../assets/thali/gallery/interiors/cp-06.jpg" alt="Connaught Place — Ambiance" loading="lazy">
-                <figcaption>CP — Ambiance</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-01.jpg" data-alt="Chandni Chowk — Interior">
-                <img src="../assets/thali/gallery/interiors/cc-01.jpg" alt="Chandni Chowk — Interior" loading="lazy">
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-01.jpg" data-alt="Chandni Chowk — Traditional Interior">
+                <img src="../assets/thali/gallery/interiors/cc-01.jpg" alt="Chandni Chowk — Traditional Interior" loading="lazy">
                 <figcaption>Chandni Chowk, Delhi</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-02.jpg" data-alt="Chandni Chowk — Decor">
-                <img src="../assets/thali/gallery/interiors/cc-02.jpg" alt="Chandni Chowk — Decor" loading="lazy">
-                <figcaption>CC — Decor</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-02.jpg" data-alt="Chandni Chowk — Decorative Jharokha">
+                <img src="../assets/thali/gallery/interiors/cc-02.jpg" alt="Chandni Chowk — Decorative Jharokha" loading="lazy">
+                <figcaption>CC — Decorative Jharokha</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-03.jpg" data-alt="Chandni Chowk — Seating">
-                <img src="../assets/thali/gallery/interiors/cc-03.jpg" alt="Chandni Chowk — Seating" loading="lazy">
-                <figcaption>CC — Seating</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/guw-01.jpg" data-alt="Guwahati — Interior">
-                <img src="../assets/thali/gallery/interiors/guw-01.jpg" alt="Guwahati — Interior" loading="lazy">
-                <figcaption>Guwahati, Assam</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/guw-02.jpg" data-alt="Guwahati — Hall">
-                <img src="../assets/thali/gallery/interiors/guw-02.jpg" alt="Guwahati — Hall" loading="lazy">
-                <figcaption>Guwahati — Hall</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/guw-03.jpg" data-alt="Guwahati — Ambiance">
-                <img src="../assets/thali/gallery/interiors/guw-03.jpg" alt="Guwahati — Ambiance" loading="lazy">
-                <figcaption>Guwahati — Ambiance</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-01.jpg" data-alt="Traditional Setting">
-                <img src="../assets/thali/gallery/interiors/oth-01.jpg" alt="Traditional Setting" loading="lazy">
-                <figcaption>Traditional Setting</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-03.jpg" data-alt="Cultural Artwork">
-                <img src="../assets/thali/gallery/interiors/oth-03.jpg" alt="Cultural Artwork" loading="lazy">
-                <figcaption>Cultural Artwork</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-04.jpg" data-alt="Rajasthani Motifs">
-                <img src="../assets/thali/gallery/interiors/oth-04.jpg" alt="Rajasthani Motifs" loading="lazy">
-                <figcaption>Rajasthani Motifs</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/interiors/chandni-chowk-2.jpg" data-alt="Chandni Chowk — View 2">
-                <img src="../assets/thali/interiors/chandni-chowk-2.jpg" alt="Chandni Chowk — View 2" loading="lazy">
-                <figcaption>Chandni Chowk — View 2</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/interiors/connaught-place-2-web.jpg" data-alt="CP — View 2">
-                <img src="../assets/thali/interiors/connaught-place-2-web.jpg" alt="CP — View 2" loading="lazy">
-                <figcaption>Connaught Place — View 2</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/interiors/patna-1.jpg" data-alt="Patna — Interior">
-                <img src="../assets/thali/interiors/patna-1.jpg" alt="Patna — Interior" loading="lazy">
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/patna-01.jpg" data-alt="Patna — Heritage Hall">
+                <img src="../assets/thali/gallery/interiors/patna-01.jpg" alt="Patna — Heritage Hall" loading="lazy">
                 <figcaption>Patna, Bihar</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/interiors/patna-2.jpg" data-alt="Patna — Hall">
-                <img src="../assets/thali/interiors/patna-2.jpg" alt="Patna — Hall" loading="lazy">
-                <figcaption>Patna — Hall</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/guw-01.jpg" data-alt="Guwahati — Traditional Setting">
+                <img src="../assets/thali/gallery/interiors/guw-01.jpg" alt="Guwahati — Traditional Setting" loading="lazy">
+                <figcaption>Guwahati, Assam</figcaption>
+            </figure>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-01.jpg" data-alt="Rajasthani Architectural Details">
+                <img src="../assets/thali/gallery/interiors/oth-01.jpg" alt="Rajasthani Architectural Details" loading="lazy">
+                <figcaption>Architectural Details</figcaption>
+            </figure>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-03.jpg" data-alt="Folk Art & Cultural Motifs">
+                <img src="../assets/thali/gallery/interiors/oth-03.jpg" alt="Folk Art & Cultural Motifs" loading="lazy">
+                <figcaption>Folk Art & Motifs</figcaption>
+            </figure>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-04.jpg" data-alt="Traditional Rajasthani Decor">
+                <img src="../assets/thali/gallery/interiors/oth-04.jpg" alt="Traditional Rajasthani Decor" loading="lazy">
+                <figcaption>Rajasthani Decor</figcaption>
             </figure>
         </div>
     </section>
 
 
     <!-- ============================================================
-         ACT 3 — A HAVELI, INSIDE THE CITY
-         Big image left + text and scrolling gallery right
+         ACT 3 — THE THALI ARRIVES (Full-Bleed Reveal)
     ============================================================ -->
-    <section class="gs-section" id="haveli">
-        <div class="gs-section-header container">
-            <p class="gs-label">The Setting</p>
-            <h2 class="gs-heading">A haveli, inside the city.</h2>
-        </div>
-
-        <div class="gs-haveli-layout">
-            <div class="gs-haveli-big gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-04.jpg" data-alt="The Grand Dining Hall">
-                <img src="../assets/thali/gallery/interiors/cp-04.jpg" alt="The Grand Dining Hall" loading="lazy">
-            </div>
-
-            <div class="gs-haveli-right">
-                <div class="gs-haveli-text">
-                    <h3 class="gs-heading">The Rajasthani Home Feel</h3>
-                    <p class="gs-body" style="margin-bottom:6px;">Jharokha windows, folk motifs, earthy terracotta tones. Every corner of a Ghoomar outlet is designed to feel like you have walked into a Rajasthani home — the kind where the table is always set and the food never runs out.</p>
-                </div>
-
-                <div class="gs-haveli-scroll-wrap">
-                    <p class="gs-haveli-scroll-label">More glimpses →</p>
-                    <div class="scroll-gallery" id="haveliScrollGallery">
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-05.jpg" data-alt="Decor Detail">
-                            <img src="../assets/thali/gallery/interiors/cp-05.jpg" alt="Decor Detail" loading="lazy">
-                            <figcaption>Decor Detail</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-03.jpg" data-alt="Cultural Setting">
-                            <img src="../assets/thali/gallery/interiors/oth-03.jpg" alt="Cultural Setting" loading="lazy">
-                            <figcaption>Cultural Setting</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cp-06.jpg" data-alt="Ambiance">
-                            <img src="../assets/thali/gallery/interiors/cp-06.jpg" alt="Ambiance" loading="lazy">
-                            <figcaption>Ambiance</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-04.jpg" data-alt="Rajasthani Motifs">
-                            <img src="../assets/thali/gallery/interiors/oth-04.jpg" alt="Rajasthani Motifs" loading="lazy">
-                            <figcaption>Rajasthani Motifs</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/cc-03.jpg" data-alt="Chandni Chowk Seating">
-                            <img src="../assets/thali/gallery/interiors/cc-03.jpg" alt="Chandni Chowk Seating" loading="lazy">
-                            <figcaption>CC Seating</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/oth-01.jpg" data-alt="Traditional Accents">
-                            <img src="../assets/thali/gallery/interiors/oth-01.jpg" alt="Traditional Accents" loading="lazy">
-                            <figcaption>Traditional Accents</figcaption>
-                        </figure>
-                        <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/interiors/guw-03.jpg" data-alt="Guwahati Ambiance">
-                            <img src="../assets/thali/gallery/interiors/guw-03.jpg" alt="Guwahati Ambiance" loading="lazy">
-                            <figcaption>Guwahati Ambiance</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================================
-         ACT 4 — THE THALI ARRIVES (Full-bleed reveal)
-    ============================================================ -->
-    <section class="gs-thali-reveal gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-01.jpg" data-alt="The Ghoomar Thali">
-        <img src="../assets/thali/gallery/food/thali-01.jpg"
-             alt="The Ghoomar Thali" loading="lazy" class="gs-reveal-img">
+    <section class="gs-thali-reveal gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-05.jpg" data-alt="The Complete Ghoomar Thali">
+        <img src="../assets/thali/gallery/food/thali-05.jpg"
+             alt="The Complete Ghoomar Thali" loading="lazy" class="gs-reveal-img">
         <div class="gs-reveal-overlay">
             <p class="gs-reveal-num">24<span>+</span></p>
-            <p class="gs-reveal-line">dishes. One thali. Unlimited Rajasthan.</p>
+            <p class="gs-reveal-line">Dishes. One Thali. Unlimited Rajasthan.</p>
         </div>
     </section>
 
 
     <!-- ============================================================
-         ACT 5 — UNLIMITED FOR REAL — Thali Scrolling Gallery
+         ACT 4 — UNLIMITED FOR REAL — Thali Scrolling Gallery
     ============================================================ -->
     <section class="gs-section" id="thali-spread">
-        <div class="gs-section-header container">
-            <p class="gs-label">The Format</p>
-            <h2 class="gs-heading">Unlimited. For real.</h2>
+        <div class="gs-section-header">
+            <span class="gs-label">The Format</span>
+            <h2 class="gs-heading">Unlimited. For Real.</h2>
             <p class="gs-body">This is not a fixed plate. The moment something on your thali runs low, it is refilled — no questions, no extra charge. Our servers weave through the hall carrying fresh batches from the kitchen all evening.</p>
         </div>
 
         <div class="scroll-gallery scroll-gallery--wide" id="thaliGallery">
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-01.jpg" data-alt="Ghoomar Thali — Plate 1">
-                <img src="../assets/thali/gallery/food/thali-01.jpg" alt="Ghoomar Thali — Plate 1" loading="lazy">
-                <figcaption>The Ghoomar Thali</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-01.jpg" data-alt="The Signature Ghoomar Thali">
+                <img src="../assets/thali/gallery/food/thali-01.jpg" alt="The Signature Ghoomar Thali" loading="lazy">
+                <figcaption>The Signature Thali</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-02.jpg" data-alt="Ghoomar Thali — Plate 2">
-                <img src="../assets/thali/gallery/food/thali-02.jpg" alt="Ghoomar Thali — Plate 2" loading="lazy">
-                <figcaption>Full Spread</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-02.jpg" data-alt="Complete Rajasthani Spread">
+                <img src="../assets/thali/gallery/food/thali-02.jpg" alt="Complete Rajasthani Spread" loading="lazy">
+                <figcaption>Complete Spread</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-03.jpg" data-alt="Ghoomar Thali — Plate 3">
-                <img src="../assets/thali/gallery/food/thali-03.jpg" alt="Ghoomar Thali — Plate 3" loading="lazy">
-                <figcaption>The Royal Feast</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-03.jpg" data-alt="Royal Thali Arrangement">
+                <img src="../assets/thali/gallery/food/thali-03.jpg" alt="Royal Thali Arrangement" loading="lazy">
+                <figcaption>Royal Arrangement</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-04.jpg" data-alt="Ghoomar Thali — Plate 4">
-                <img src="../assets/thali/gallery/food/thali-04.jpg" alt="Ghoomar Thali — Plate 4" loading="lazy">
-                <figcaption>Traditional Arrangement</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-04.jpg" data-alt="Traditional Brass Thali">
+                <img src="../assets/thali/gallery/food/thali-04.jpg" alt="Traditional Brass Thali" loading="lazy">
+                <figcaption>Traditional Brass Thali</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-05.jpg" data-alt="Ghoomar Thali — Plate 5">
-                <img src="../assets/thali/gallery/food/thali-05.jpg" alt="Ghoomar Thali — Plate 5" loading="lazy">
-                <figcaption>Complete Thali</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-06.jpg" data-alt="Freshly Served Thali">
+                <img src="../assets/thali/gallery/food/thali-06.jpg" alt="Freshly Served Thali" loading="lazy">
+                <figcaption>Freshly Served</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-06.jpg" data-alt="Ghoomar Thali — Plate 6">
-                <img src="../assets/thali/gallery/food/thali-06.jpg" alt="Ghoomar Thali — Plate 6" loading="lazy">
-                <figcaption>Served Fresh</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-07.jpg" data-alt="Premium Thali Experience">
+                <img src="../assets/thali/gallery/food/thali-07.jpg" alt="Premium Thali Experience" loading="lazy">
+                <figcaption>Premium Experience</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-07.jpg" data-alt="Ghoomar Thali — Plate 7">
-                <img src="../assets/thali/gallery/food/thali-07.jpg" alt="Ghoomar Thali — Plate 7" loading="lazy">
-                <figcaption>Premium Thali</figcaption>
+            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-08.jpg" data-alt="Grand Festive Thali">
+                <img src="../assets/thali/gallery/food/thali-08.jpg" alt="Grand Festive Thali" loading="lazy">
+                <figcaption>Grand Festive Thali</figcaption>
             </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-08.jpg" data-alt="Ghoomar Thali — Plate 8">
-                <img src="../assets/thali/gallery/food/thali-08.jpg" alt="Ghoomar Thali — Plate 8" loading="lazy">
-                <figcaption>Grand Spread</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/food/serving-thali-web.jpg" data-alt="Serving the Thali">
-                <img src="../assets/thali/food/serving-thali-web.jpg" alt="Serving the Thali" loading="lazy">
+            <figure class="gs-fig--clickable" data-src="../assets/thali/food/serving-thali-web.jpg" data-alt="Server Bringing Fresh Thali">
+                <img src="../assets/thali/food/serving-thali-web.jpg" alt="Server Bringing Fresh Thali" loading="lazy">
                 <figcaption>Being Served</figcaption>
-            </figure>
-            <figure class="gs-fig--clickable" data-src="../assets/thali/food/thali-1-web.jpg" data-alt="Regular Thali">
-                <img src="../assets/thali/food/thali-1-web.jpg" alt="Regular Thali" loading="lazy">
-                <figcaption>Regular Thali</figcaption>
             </figure>
         </div>
     </section>
 
 
     <!-- ============================================================
-         ACT 6 — THE DISHES — Segmented: Starters, Main Course, Sweets
+         ACT 5 — THE DISHES — Properly Categorized
     ============================================================ -->
     <section class="gs-section" id="dishes">
-        <div class="gs-section-header container">
-            <p class="gs-label">The Dishes</p>
-            <h2 class="gs-heading">Every dish made from scratch,<br>every single time.</h2>
+        <div class="gs-section-header">
+            <span class="gs-label">The Dishes</span>
+            <h2 class="gs-heading">Every Dish Made From Scratch,<br>Every Single Time.</h2>
             <p class="gs-body">No shortcuts. No pre-mixes. The dal is simmered, the bati is baked over coals, the jalebi is fried to order. Here is a taste of what arrives at your table.</p>
         </div>
 
         <!-- ——— STARTERS ——— -->
         <div class="gs-dish-segment">
             <div class="gs-segment-header">
-                <div class="gs-segment-icon"><i class="fas fa-fire"></i></div>
+                <div class="gs-segment-icon"><i class="fas fa-fire-burner"></i></div>
                 <div>
                     <p class="gs-segment-title">Starters</p>
                     <p class="gs-segment-sub">Crispy, spicy, straight from the kadhai</p>
                 </div>
             </div>
             <div class="scroll-gallery" id="startersGallery">
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kachori.jpg" data-alt="Pyaaz Kachori">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kachori.jpg" data-alt="Pyaaz Kachori — Crispy onion-filled fritters">
                     <img src="../assets/thali/gallery/food/dish-kachori.jpg" alt="Pyaaz Kachori" loading="lazy">
                     <figcaption>Pyaaz Kachori</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-gatta.jpg" data-alt="Besan Gatta">
-                    <img src="../assets/thali/gallery/food/dish-gatta.jpg" alt="Besan Gatta" loading="lazy">
-                    <figcaption>Besan Gatta</figcaption>
-                </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kela-kofta.jpg" data-alt="Kela Kofta">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kela-kofta.jpg" data-alt="Kela Kofta — Banana dumplings in rich gravy">
                     <img src="../assets/thali/gallery/food/dish-kela-kofta.jpg" alt="Kela Kofta" loading="lazy">
                     <figcaption>Kela Kofta</figcaption>
+                </figure>
+                <figure class="gs-fig--clickable" data-src="../assets/thali/food/kachori.jpg" data-alt="Traditional Kachori with chutney">
+                    <img src="../assets/thali/food/kachori.jpg" alt="Traditional Kachori" loading="lazy">
+                    <figcaption>Kachori with Chutney</figcaption>
                 </figure>
             </div>
         </div>
@@ -727,28 +589,28 @@
         <!-- ——— MAIN COURSE ——— -->
         <div class="gs-dish-segment">
             <div class="gs-segment-header">
-                <div class="gs-segment-icon"><i class="fas fa-utensils"></i></div>
+                <div class="gs-segment-icon"><i class="fas fa-bowl-food"></i></div>
                 <div>
                     <p class="gs-segment-title">Main Course</p>
                     <p class="gs-segment-sub">The heart of every Rajasthani thali</p>
                 </div>
             </div>
             <div class="scroll-gallery" id="mainCourseGallery">
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-dal-bati.jpg" data-alt="Dal Bati Churma">
-                    <img src="../assets/thali/gallery/food/dish-dal-bati.jpg" alt="Dal Bati Churma" loading="lazy">
-                    <figcaption>Dal Bati Churma</figcaption>
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-dal-bati.jpg" data-alt="Dal Baati Churma — The iconic Rajasthani trinity">
+                    <img src="../assets/thali/gallery/food/dish-dal-bati.jpg" alt="Dal Baati Churma" loading="lazy">
+                    <figcaption>Dal Baati Churma</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-churma.jpg" data-alt="Dry Fruit Churma">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-gatta.jpg" data-alt="Gatte ki Sabzi — Gram flour dumplings in yogurt gravy">
+                    <img src="../assets/thali/gallery/food/dish-gatta.jpg" alt="Gatte ki Sabzi" loading="lazy">
+                    <figcaption>Gatte ki Sabzi</figcaption>
+                </figure>
+                <figure class="gs-fig--clickable" data-src="../assets/thali/food/dal-bati.jpg" data-alt="Panchmel Dal with Baati">
+                    <img src="../assets/thali/food/dal-bati.jpg" alt="Panchmel Dal with Baati" loading="lazy">
+                    <figcaption>Panchmel Dal with Baati</figcaption>
+                </figure>
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-churma.jpg" data-alt="Dry Fruit Churma — Sweet crumbled wheat with dry fruits">
                     <img src="../assets/thali/gallery/food/dish-churma.jpg" alt="Dry Fruit Churma" loading="lazy">
                     <figcaption>Dry Fruit Churma</figcaption>
-                </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-03.jpg" data-alt="Full Thali Spread">
-                    <img src="../assets/thali/gallery/food/thali-03.jpg" alt="Full Thali Spread" loading="lazy">
-                    <figcaption>Full Thali Spread</figcaption>
-                </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/thali-06.jpg" data-alt="Served Fresh">
-                    <img src="../assets/thali/gallery/food/thali-06.jpg" alt="Served Fresh" loading="lazy">
-                    <figcaption>Served Fresh</figcaption>
                 </figure>
             </div>
         </div>
@@ -756,32 +618,36 @@
         <!-- ——— SWEETS ——— -->
         <div class="gs-dish-segment">
             <div class="gs-segment-header">
-                <div class="gs-segment-icon"><i class="fas fa-candy-cane"></i></div>
+                <div class="gs-segment-icon"><i class="fas fa-cookie-bite"></i></div>
                 <div>
                     <p class="gs-segment-title">Sweets</p>
                     <p class="gs-segment-sub">The grand finale — traditional Rajasthani mithai</p>
                 </div>
             </div>
             <div class="scroll-gallery" id="sweetsGallery">
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-jalebi.jpg" data-alt="Jaipuri Jalebi">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-jalebi.jpg" data-alt="Jaipuri Jalebi — Saffron-infused spiral sweets">
                     <img src="../assets/thali/gallery/food/dish-jalebi.jpg" alt="Jaipuri Jalebi" loading="lazy">
                     <figcaption>Jaipuri Jalebi</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-malpua.jpg" data-alt="Rabdi Malpua">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-malpua.jpg" data-alt="Rabdi Malpua — Fried pancakes in sweetened milk">
                     <img src="../assets/thali/gallery/food/dish-malpua.jpg" alt="Rabdi Malpua" loading="lazy">
                     <figcaption>Rabdi Malpua</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kheer.jpg" data-alt="Makhane Ki Kheer">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-kheer.jpg" data-alt="Makhane Ki Kheer — Fox nut pudding">
                     <img src="../assets/thali/gallery/food/dish-kheer.jpg" alt="Makhane Ki Kheer" loading="lazy">
                     <figcaption>Makhane Ki Kheer</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-moong-halwa.jpg" data-alt="Moong Dal Halwa">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-moong-halwa.jpg" data-alt="Moong Dal Halwa — Rich lentil pudding">
                     <img src="../assets/thali/gallery/food/dish-moong-halwa.jpg" alt="Moong Dal Halwa" loading="lazy">
                     <figcaption>Moong Dal Halwa</figcaption>
                 </figure>
-                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-gond-halwa.jpg" data-alt="Gond Pak Halwa">
+                <figure class="gs-fig--clickable" data-src="../assets/thali/gallery/food/dish-gond-halwa.jpg" data-alt="Gond Pak Halwa — Edible gum sweet">
                     <img src="../assets/thali/gallery/food/dish-gond-halwa.jpg" alt="Gond Pak Halwa" loading="lazy">
                     <figcaption>Gond Pak Halwa</figcaption>
+                </figure>
+                <figure class="gs-fig--clickable" data-src="../assets/thali/food/jalebi.jpg" data-alt="Fresh Jalebi being prepared">
+                    <img src="../assets/thali/food/jalebi.jpg" alt="Fresh Jalebi" loading="lazy">
+                    <figcaption>Fresh Jalebi</figcaption>
                 </figure>
             </div>
         </div>
@@ -789,34 +655,15 @@
 
 
     <!-- ============================================================
-         ACT 7 — THE EXPERIENCE (Bhopa / Pagdi)
-    ============================================================ -->
-    <section class="gs-section">
-        <div class="gs-coming-inner">
-            <p class="gs-label">The Experience</p>
-            <h2 class="gs-heading">The Bhopa. The Pagdi.<br>The part that words struggle with.</h2>
-            <p class="gs-body">A Bhopa musician plays live at your table — the ancient string of the Rajasthani jantar filling the room. At the end of your meal, you are dressed in a pagdi and a traditional dupatta for a photo you will actually keep.</p>
-            <p class="gs-body">These are not ticketed add-ons. They come with the thali. Visual documentation of this is on its way — until then, come see it for yourself.</p>
-            <div class="gs-coming-chips">
-                <span><i class="fas fa-music"></i> Live Bhopa Music</span>
-                <span><i class="fas fa-crown"></i> Pagdi Photo Shoot</span>
-                <span><i class="fas fa-drum"></i> Cultural Performances</span>
-                <span><i class="fas fa-camera"></i> Photos Coming Soon</span>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================================
-         ACT 8 — CTA
+         ACT 6 — CTA
     ============================================================ -->
     <section class="gs-cta">
-        <p class="gs-label">Ready?</p>
-        <h2 class="gs-cta-title">Your thali is waiting.</h2>
+        <span class="gs-label">Ready?</span>
+        <h2 class="gs-cta-title">Your Thali Is Waiting.</h2>
         <p class="gs-cta-sub">Walk in or reserve a table — the food keeps coming either way.</p>
-        <div class="hero-buttons" style="justify-content:center;">
-            <a href="thali.html" class="btn-primary">Back to Thali</a>
-            <a href="thali.html#contactus" class="btn-secondary">Find an Outlet</a>
+        <div class="hero-buttons" style="justify-content:center; gap:16px; position:relative; z-index:1;">
+            <a href="thali.html" class="btn-primary" style="background: var(--accent-yellow); color: var(--text-dark);">Back to Thali</a>
+            <a href="thali.html#contactus" class="btn-secondary" style="border-color: rgba(255,255,255,0.4); color: #fff;">Find an Outlet</a>
         </div>
     </section>
 
@@ -840,8 +687,8 @@
                 <div class="footer-col">
                     <h4><strong>Opening Hours</strong></h4>
                     <p>Dine In or Take Away</p>
-                    <p><strong>Monday &ndash; Friday:</strong><br>12:00pm &ndash; 5:00pm<br>7:00pm &ndash; 11:00pm</p>
-                    <p><strong>Saturday &ndash; Sunday:</strong><br>12:00pm &ndash; 5:00pm<br>7:00pm &ndash; 11:30pm</p>
+                    <p><strong>Monday – Friday:</strong><br>12:00pm – 5:00pm<br>7:00pm – 11:00pm</p>
+                    <p><strong>Saturday – Sunday:</strong><br>12:00pm – 5:00pm<br>7:00pm – 11:30pm</p>
                 </div>
                 <div class="footer-col">
                     <h4><strong>Contact Us</strong></h4>
@@ -977,7 +824,7 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.gs-section-header, .gs-dish-segment, .gs-coming-inner').forEach(function (el) {
+        document.querySelectorAll('.gs-section-header, .gs-dish-segment').forEach(function (el) {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
