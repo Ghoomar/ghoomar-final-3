@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patna | Ghoomar Traditional Thali</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .outlet-page { padding: 60px 20px; text-align: center; color: var(--text-color); max-width: 900px; margin: 0 auto; }
+        .outlet-page-header { background: url('../assets/thali/interiors/patna-1.jpg') center/cover; position: relative; color: white; padding: 100px 20px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .outlet-page-header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+        .outlet-page-header * { position: relative; z-index: 1; }
+        .outlet-title { font-size: 2.5rem; margin-bottom: 10px; color: #FFF; font-family: 'Outfit', sans-serif;}
+        .outlet-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
+        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem;}
+        .btn-call, .btn-book, .btn-menu, .btn-map { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+        .btn-call:hover, .btn-book:hover, .btn-menu:hover, .btn-map:hover { background: transparent; color: var(--primary-color); }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
+        .info-card { background: #FFFDF3; border: 1px solid rgba(163, 28, 33, 0.1); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .info-card h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;}
+        .info-card p { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: start; gap: 12px; line-height: 1.5; color: var(--text-color);}
+        .info-card i { color: var(--primary-color); margin-top: 4px; font-size: 1.1rem; width: 20px;}
+        .pricing-section { margin-top: 30px; background: rgba(251, 226, 1, 0.1); border: 1px solid rgba(251, 226, 1, 0.5); padding: 20px; border-radius: 12px; text-align: center; }
+        .pricing-section h4 { color: #2A0E0E; margin-bottom: 15px; font-size: 1.1rem; }
+        .price-tag { display: inline-block; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; margin: 5px; font-size: 0.9rem;}
+        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .outlet-actions { flex-direction: column; } .action-btn { justify-content: center; } .outlet-page { padding: 40px 15px; }}
+    </style>
+</head>
+<body style="background: var(--bg-color); font-family: 'Outfit', sans-serif;">
+    <nav class="thali-nav scrolled" style="position: relative; background: var(--bg-dark);">
+        <div class="thali-nav-inner">
+            <a href="../index.html" class="thali-nav-logo">
+                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar Traditional Thali">
+            </a>
+            <div class="thali-nav-links" style="display: flex;">
+                <a href="thali.html" class="thali-nav-link active" style="margin-left: auto;">Back to Thali</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="outlet-page">
+        <header class="outlet-page-header">
+            <h1 class="outlet-title">Raja Bazaar, Patna</h1>
+            <p>Ghoomar Traditional Thali Restaurant</p>
+        </header>
+
+        <div class="outlet-actions">
+            <a href="tel:+919031296999" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
+            <a href="#" class="action-btn btn-book"><i class="fas fa-utensils"></i> Book A Table</a>
+            <a href="https://menu.ghoomarthali.in/patna" target="_blank" rel="noopener" class="action-btn btn-menu"><i class="fas fa-book-open"></i> See Today's Menu</a>
+            <a href="https://goo.gl/maps/DXTnoNYMxTfcH4L98" target="_blank" rel="noopener" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
+        </div>
+
+        <div class="details-grid">
+            <div class="info-card">
+                <h4><i class="fas fa-info-circle"></i> Restaurant Details</h4>
+                <p><i class="fas fa-map-marker-alt"></i> <span>5th Floor, Ambitious Sresth, Pillar No. 55, Raja Bazaar, Patna, Bihar - 800014</span></p>
+                <p><i class="fas fa-phone-alt"></i> <span>+91 90312 96999<br>+91 88039 80000</span></p>
+                <p><i class="fas fa-envelope"></i> <span>patna@ghoomarthali.in</span></p>
+                <p><i class="fab fa-whatsapp"></i> <span>+91 88039 80000</span></p>
+            </div>
+            
+            <div class="info-card">
+                <h4><i class="fas fa-clock"></i> Opening Hours</h4>
+                <p style="margin-bottom: 10px;"><strong>Monday to Sunday</strong></p>
+                <p style="margin-bottom: 5px;"><i class="fas fa-sun" style="font-size:0.9rem;"></i> <span>12:00 PM - 5:00 PM</span></p>
+                <p><i class="fas fa-moon" style="font-size:0.9rem;"></i> <span>7:00 PM - 11:00 PM</span></p>
+                
+                <div class="pricing-section">
+                    <h4>Today's Thali Price</h4>
+                    <div class="price-tag">Adult: &#8377;545/-</div>
+                    <div class="price-tag">Child: &#8377;345/-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
