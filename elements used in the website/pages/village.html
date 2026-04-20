@@ -11,6 +11,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Master Menu Lightbox */
+        .menu-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+        .menu-modal.active { display: flex; }
+        .menu-modal img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            cursor: default;
+        }
+        .close-menu-modal {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body class="village-page">
 
@@ -43,7 +73,9 @@
             <h1 class="hero-title story-hook">25,000 sq.ft. of Unlimited Fun, Unlimited Food, Experience Culture, and Heritage</h1>
             <p class="hero-subtitle">One Ticket. Endless Memories. Unlock an immersive cultural portal right here in Gurugram.</p>
             <div class="hero-buttons">
-                <a href="#arrival" class="btn-primary hero-btn">Begin The Journey</a>
+                <a href="#logistics" class="btn-primary hero-btn">Inquiry</a>
+                <a href="javascript:void(0)" class="btn-primary hero-btn" id="openMasterMenu">Today's Menu</a>
+                <a href="tel:+919810211031" class="btn-primary hero-btn">Call Us</a>
             </div>
         </div>
     </section>
@@ -343,6 +375,32 @@
                         vids.forEach(v => v.pause());
                     }
                 }, { threshold: 0.3 }).observe(wrapper);
+            });
+
+            /* ---- Master Menu Modal Logic ---- */
+            const menuBtn = document.getElementById('openMasterMenu');
+            const menuModal = document.createElement('div');
+            menuModal.className = 'menu-modal';
+            menuModal.innerHTML = `
+                <span class="close-menu-modal">&times;</span>
+                <img src="../assets/village/master-menu.png" alt="Ghoomar Village Master Menu">
+            `;
+            document.body.appendChild(menuModal);
+
+            menuBtn.addEventListener('click', () => {
+                menuModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            const closeBtn = menuModal.querySelector('.close-menu-modal');
+            const closeModal = () => {
+                menuModal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            menuModal.addEventListener('click', (e) => {
+                if (e.target === menuModal) closeModal();
             });
 
         });
