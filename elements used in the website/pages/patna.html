@@ -14,9 +14,10 @@
         .outlet-page-header * { position: relative; z-index: 1; }
         .outlet-title { font-size: 2.5rem; margin-bottom: 10px; color: #FFF; font-family: 'Outfit', sans-serif;}
         .outlet-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
-        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem;}
+        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; transform: translateY(0); }
         .btn-call, .btn-book, .btn-menu, .btn-map { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
-        .btn-call:hover, .btn-book:hover, .btn-menu:hover, .btn-map:hover { background: transparent; color: var(--primary-color); }
+        .btn-call:hover, .btn-book:hover, .btn-menu:hover, .btn-map:hover { background: transparent; color: var(--primary-color); transform: translateY(-3px); }
+        .action-btn:active { transform: translateY(0) scale(0.96); }
         .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
         .info-card { background: #FFFDF3; border: 1px solid rgba(163, 28, 33, 0.1); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .info-card h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;}
@@ -137,7 +138,7 @@
 
         <div class="outlet-actions">
             <a href="tel:+919031296999" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
-            <a href="#" class="action-btn btn-book"><i class="fas fa-utensils"></i> Book A Table</a>
+            <a href="https://wa.me/919031296999" target="_blank" class="action-btn btn-book"><i class="fas fa-utensils"></i> Book A Table</a>
             <a href="https://menu.ghoomarthali.in/patna" target="_blank" rel="noopener" class="action-btn btn-menu"><i class="fas fa-book-open"></i> See Today's Menu</a>
             <a href="https://goo.gl/maps/DXTnoNYMxTfcH4L98" target="_blank" rel="noopener" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
         </div>

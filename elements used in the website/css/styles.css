@@ -145,6 +145,19 @@ img {
     transform: translateY(-3px);
 }
 
+/* Global button reset and active states */
+.btn-primary, .btn-secondary, .action-btn, .map-btn-main, .cta-btn, .hero-btn {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                background-color 0.3s ease, 
+                color 0.3s ease;
+}
+
+.btn-primary:active, .btn-secondary:active, .action-btn:active, .map-btn-main:active, .cta-btn:active, .hero-btn:active {
+    transform: translateY(0) scale(0.96) !important;
+    transition: transform 0.1s ease !important;
+}
+
 /* Floating Pill Navbar */
 .floating-nav-wrapper {
     position: fixed;
