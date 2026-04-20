@@ -26,13 +26,102 @@
         .pricing-section h4 { color: #2A0E0E; margin-bottom: 15px; font-size: 1.1rem; }
         .price-tag { display: inline-block; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; margin: 5px; font-size: 0.9rem;}
         @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .outlet-actions { flex-direction: column; } .action-btn { justify-content: center; } .outlet-page { padding: 40px 15px; }}
+
+        /* New Map Section Styles */
+        .map-card { 
+            margin-top: 50px; 
+            background: #FFF; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); 
+            border: 1px solid rgba(163, 28, 33, 0.1); 
+            position: relative; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+        .map-card-actions { 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            background: #FFFDF3;
+        }
+        .map-btn-main { 
+            display: block; 
+            width: 100%; 
+            padding: 12px 24px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            text-align: center; 
+            font-size: 0.95rem; 
+            letter-spacing: 1.2px; 
+            transition: all 0.3s ease; 
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+        .btn-wa { 
+            background: #A31C21; 
+            color: white !important; 
+            border: none;
+        }
+        .btn-wa:hover { 
+            background: #8B181C; 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(163, 28, 33, 0.4);
+        }
+        .btn-menu-outline { 
+            background: white !important; 
+            color: #A31C21 !important; 
+            border: 2px solid #A31C21;
+        }
+        .btn-menu-outline:hover { 
+            background: #A31C21 !important; 
+            color: white !important; 
+            transform: translateY(-2px);
+        }
+        .map-frame-container { 
+            height: 400px; 
+            position: relative; 
+            border-top: 2px solid #FDF8E8;
+        }
+        .map-frame-container iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
+        .open-in-maps-btn { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            background: #FFF; 
+            color: #1a73e8; 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            z-index: 5;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .open-in-maps-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+        }
     </style>
 </head>
 <body style="background: var(--bg-color); font-family: 'Outfit', sans-serif;">
     <nav class="thali-nav scrolled" style="position: relative; background: var(--bg-dark);">
         <div class="thali-nav-inner">
-            <a href="../index.html" class="thali-nav-logo">
-                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar Traditional Thali">
+            <a href="../index.html" class="thali-nav-logo" style="display: flex; align-items: center; gap: 15px;">
+                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar Traditional Thali" style="height: 40px;">
+                <img src="../assets/logos/ghoomar-village.svg" alt="Ghoomar Village" style="height: 40px;">
             </a>
             <div class="thali-nav-links" style="display: flex;">
                 <a href="thali.html" class="thali-nav-link active" style="margin-left: auto;">Back to Thali</a>
@@ -57,13 +146,13 @@
             <div class="info-card">
                 <h4><i class="fas fa-info-circle"></i> Restaurant Details</h4>
                 <p><i class="fas fa-map-marker-alt"></i> <span>5th Floor, Ambitious Sresth, Pillar No. 55, Raja Bazaar, Patna, Bihar - 800014</span></p>
-                <p><i class="fas fa-phone-alt"></i> <span>+91 90312 96999<br>+91 88039 80000</span></p>
+                <p><i class="fas fa-phone-alt"></i> <span>+91 90312 96999</span></p>
                 <p><i class="fas fa-envelope"></i> <span>patna@ghoomarthali.in</span></p>
-                <p><i class="fab fa-whatsapp"></i> <span>+91 88039 80000</span></p>
+                <p><i class="fab fa-whatsapp"></i> <span>+91 90312 96999</span></p>
             </div>
             
             <div class="info-card">
-                <h4><i class="fas fa-clock"></i> Opening Hours</h4>
+                <h4><i class="fas fa-clock"></i> Timings</h4>
                 <p style="margin-bottom: 10px;"><strong>Monday to Sunday</strong></p>
                 <p style="margin-bottom: 5px;"><i class="fas fa-sun" style="font-size:0.9rem;"></i> <span>12:00 PM - 5:00 PM</span></p>
                 <p><i class="fas fa-moon" style="font-size:0.9rem;"></i> <span>7:00 PM - 11:00 PM</span></p>
@@ -73,6 +162,19 @@
                     <div class="price-tag">Adult: &#8377;545/-</div>
                     <div class="price-tag">Child: &#8377;345/-</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <div class="map-card-actions">
+                <a href="https://wa.me/919031296999" target="_blank" class="map-btn-main btn-wa">BOOK ON WHATSAPP</a>
+                <a href="https://menu.ghoomarthali.in/patna" target="_blank" class="map-btn-main btn-menu-outline">VIEW DINNER MENU</a>
+            </div>
+            <div class="map-frame-container">
+                <a href="https://goo.gl/maps/CEwmHUFvysJrPqT48" target="_blank" class="open-in-maps-btn">
+                    Open in Maps <i class="fas fa-external-link-alt"></i>
+                </a>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14391.992626732628!2d85.0852871!3d25.6049775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c2718bb791%3A0x66a1bec2dc55cce9!2sGhoomar%20Traditional%20Thali%20Restaurants%20-%20Raja%20Bazaar!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

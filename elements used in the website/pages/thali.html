@@ -49,7 +49,7 @@
             <p class="hero-subtitle">Unlimited Pure Veg Rajasthani Thali served with 24+ Chokho dishes</p>
             <div class="hero-buttons">
                 <a href="https://menu.ghoomarthali.in/" class="btn-primary hero-btn" target="_blank" rel="noopener">Today's Menu</a>
-                <a href="#contactus" class="btn-primary hero-btn">Call Us</a>
+                <a href="tel:+918803980000" class="btn-primary hero-btn">Call Us</a>
                 <a href="#locations" class="btn-primary hero-btn">Directions</a>
             </div>
         </div>
@@ -84,6 +84,10 @@
                         <h3 class="outlet-name">Chandni Chowk</h3>
                         <p class="outlet-address">Dawatpur, 2nd Floor, Omaxe Chowk, Chandni Chowk, Delhi - 110006</p>
                     </div>
+                    <div class="outlet-footer">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
 
                 <a href="connaught-place.html" class="outlet-card">
@@ -93,6 +97,10 @@
                     <div class="outlet-info">
                         <h3 class="outlet-name">Connaught Place</h3>
                         <p class="outlet-address">K-43, 1st Floor, Connaught Place, New Delhi - 110001</p>
+                    </div>
+                    <div class="outlet-footer">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
                     </div>
                 </a>
             </div>
@@ -107,6 +115,10 @@
                         <h3 class="outlet-name">Patna</h3>
                         <p class="outlet-address">5th Floor, Ambitious Sresth, Pillar No. 55, Raja Bazaar, Patna, Bihar - 800014</p>
                     </div>
+                    <div class="outlet-footer">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
 
                 <a href="guwahati.html" class="outlet-card">
@@ -116,6 +128,10 @@
                     <div class="outlet-info">
                         <h3 class="outlet-name">Guwahati</h3>
                         <p class="outlet-address">4th Floor, Adityam Building, GS Road, Ulubari, Guwahati, Assam - 781007</p>
+                    </div>
+                    <div class="outlet-footer">
+                        <span>View Details</span>
+                        <i class="fas fa-arrow-right"></i>
                     </div>
                 </a>
             </div>
@@ -395,7 +411,7 @@
             <div class="footer-grid">
 
                 <div class="footer-col">
-                    <h4><strong>Opening Hours</strong></h4>
+                    <h4><strong>Timings</strong></h4>
                     <p>Dine In or Take Away</p>
                     <p><strong>Monday - Friday:</strong><br>12:00pm - 5:00pm<br>7:00pm - 11:00pm</p>
                     <p><strong>Saturday - Sunday:</strong><br>12:00pm - 5:00pm<br>7:00pm - 11:30pm</p>
@@ -444,18 +460,27 @@
             e.preventDefault();
 
             const name   = document.getElementById('miq-name').value.trim();
-            const outlet = document.getElementById('miq-outlet').value;
+            const outletValue = document.getElementById('miq-outlet').value;
             const error  = document.getElementById('miqError');
 
-            if (!name || !outlet) {
+            if (!name || !outletValue) {
                 error.textContent = 'Please fill in both fields before sending.';
                 return;
             }
             error.textContent = '';
 
-            const message = `Hi! I'm ${name} and I'm planning to visit the Ghoomar Traditional Thali at ${outlet}. Could you please share the menu for today? 🙏`;
+            // Map outlets to their specific WhatsApp numbers
+            const outletNumbers = {
+                "Chandni Chowk, Delhi": "919717090971",
+                "Connaught Place, Delhi": "919810703703",
+                "Patna, Bihar": "919031296999",
+                "Guwahati, Assam": "919871944399"
+            };
 
-            window.open('https://wa.me/918803980000?text=' + encodeURIComponent(message), '_blank');
+            const whatsappNumber = outletNumbers[outletValue] || "918803980000";
+            const message = `Hi! I'm ${name} and I'm planning to visit the Ghoomar Traditional Thali at ${outletValue}. Could you please share the menu for today? 🙏`;
+
+            window.open(`https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(message), '_blank');
         });
     </script>
 
