@@ -40,6 +40,96 @@
             cursor: pointer;
             z-index: 10;
         }
+
+        /* Location Card Style */
+        .map-card { 
+            margin-top: 50px; 
+            background: #FFF; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); 
+            border: 1px solid rgba(163, 28, 33, 0.1); 
+            position: relative; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto;
+            margin-bottom: 80px;
+        }
+        .map-card-actions { 
+            padding: 30px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            background: #FFFDF3;
+        }
+        .map-btn-main { 
+            display: block; 
+            width: 100%; 
+            padding: 16px 24px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            text-align: center; 
+            font-size: 0.95rem; 
+            letter-spacing: 1.2px; 
+            transition: all 0.3s ease; 
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .btn-wa { 
+            background: #A31C21; 
+            color: white !important; 
+            border: none;
+        }
+        .btn-wa:hover { 
+            background: #8B181C; 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(163, 28, 33, 0.4);
+        }
+        .btn-menu-outline { 
+            background: white !important; 
+            color: #A31C21 !important; 
+            border: 2px solid #A31C21;
+        }
+        .btn-menu-outline:hover { 
+            background: #A31C21 !important; 
+            color: white !important; 
+            transform: translateY(-2px);
+        }
+        .map-frame-container { 
+            height: 450px; 
+            position: relative; 
+            border-top: 2px solid #FDF8E8;
+        }
+        .map-frame-container iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
+        .open-in-maps-btn { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            background: #FFF; 
+            color: #1a73e8; 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            z-index: 5;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .open-in-maps-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+        }
     </style>
 </head>
 <body class="village-page">
@@ -236,6 +326,156 @@
         </div>
     </section>
 
+    <!-- Act 8: What Our Guests Say -->
+    <style>
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .testimonial-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .testimonial-stars {
+            color: #A31C21;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .testimonial-author-name {
+            font-weight: 700;
+            color: #111;
+            font-size: 0.95rem;
+        }
+        .testimonial-sep {
+            color: #ccc;
+        }
+        .testimonial-role {
+            color: #888;
+            font-size: 0.85rem;
+        }
+    </style>
+    <section id="reviews" class="village-act showcase-act" style="background: var(--bg-dark, #FDF8E8); padding: 60px 24px;">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>WHAT OUR GUESTS SAY</b> &bull;</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Arjun Singh -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"The most authentic Rajasthani thali I have had outside Jaipur. Every item was perfectly spiced and the unlimited servings kept coming with a warm smile. Dal baati churma has never tasted this good in Delhi."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&h=64&fit=crop&crop=face" alt="Arjun Singh">
+                        </div>
+                        <div class="testimonial-author-name">Arjun Singh</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Food Enthusiast</div>
+                    </div>
+                </div>
+
+                <!-- Meera Joshi -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"Ghoomar Thali is our family's go-to for every celebration. The royal ambiance, live bhopa music and that glorious spread of 24+ items &mdash; it is an experience unlike any other restaurant in the city. Absolutely outstanding."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&h=64&fit=crop&crop=face" alt="Meera Joshi">
+                        </div>
+                        <div class="testimonial-author-name">Meera Joshi</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Regular Diner</div>
+                    </div>
+                </div>
+
+                <!-- Vikram Nair -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star" style="color:#ccc;"></i>
+                        </div>
+                        <p class="testimonial-content">"Worth every rupee! 24+ items in the thali and every single one prepared with care and tradition. The pagdi photo shoot was a fun bonus that the whole group enjoyed. A must-visit for anyone who loves real Rajasthani food."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=64&h=64&fit=crop&crop=face" alt="Vikram Nair">
+                        </div>
+                        <div class="testimonial-author-name">Vikram Nair</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Foodie Traveller</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 9: Locate Us -->
+    <section id="map" class="village-act" style="background: var(--bg-dark); padding: 40px 24px;">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>Find Us Here</b> &bull;</h2>
+                <p class="act-subtitle">Step into Rajasthan at M3M Urbana, Gurugram.</p>
+            </div>
+
+            <div class="map-card">
+                <div class="map-card-actions">
+                    <a href="https://wa.me/919810211031" target="_blank" class="map-btn-main btn-wa">BOOK ON WHATSAPP</a>
+                    <a href="javascript:void(0)" class="map-btn-main btn-menu-outline" id="openMasterMenuMap">VIEW MASTER MENU</a>
+                </div>
+                <div class="map-frame-container">
+                    <a href="https://maps.app.goo.gl/C9B9NHvxKkYkK3GW7" target="_blank" class="open-in-maps-btn">
+                        Open in Maps <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.3524673898165!2d77.0673413753512!3d28.393433575796245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23ab58f8f907%3A0xc0fb194f419c836!2sGhoomar%20Village%20-%20Experience%20Rajasthan!5e0!3m2!1sen!2sin!4v1713593000000!5m2!1sen!2sin" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="container">
@@ -387,9 +627,14 @@
             `;
             document.body.appendChild(menuModal);
 
-            menuBtn.addEventListener('click', () => {
-                menuModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const menuBtnMap = document.getElementById('openMasterMenuMap');
+            [menuBtn, menuBtnMap].forEach(btn => {
+                if(btn) {
+                    btn.addEventListener('click', () => {
+                        menuModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
             });
 
             const closeBtn = menuModal.querySelector('.close-menu-modal');

@@ -54,13 +54,13 @@
 
 /* Common Act Structuring */
 .village-act {
-    padding: 100px 0;
+    padding: 60px 0;
     position: relative;
 }
 
 .act-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .act-title {
@@ -84,7 +84,7 @@
     font-size: 3.2rem;
     line-height: 1.2;
     max-width: 900px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 10px auto;
     background: linear-gradient(to bottom, #fff 40%, #FBC817 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -131,7 +131,7 @@
 
 /* Act 3: Showcases (Unlimited Food, Entertainment, Apno Ka Saath) */
 .showcase-act {
-    padding: 80px 0;
+    padding: 60px 0;
     background: #FDF8E8;
     position: relative;
 }
@@ -143,7 +143,7 @@
 .showcase-row {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
 }
 
 .showcase-row.reverse {
@@ -255,7 +255,7 @@
 /* Act 7: Logistics */
 .act-logistics {
     background: var(--bg-dark, #FDF8E8);
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .logistics-grid {
@@ -371,10 +371,11 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+    .showcase-act, .act-welcome, .act-logistics { padding: 40px 0; }
     .showcase-row, .showcase-row.reverse, .logistics-grid {
         flex-direction: column;
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
     .showcase-video-gallery, .showcase-text {
         width: 100%;
