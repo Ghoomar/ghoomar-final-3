@@ -137,7 +137,7 @@
 }
 
 .showcase-act:nth-child(even) {
-    background: #fff;
+    background: var(--bg-dark, #FDF8E8);
 }
 
 .showcase-row {
@@ -254,7 +254,7 @@
 
 /* Act 7: Logistics */
 .act-logistics {
-    background: #fff;
+    background: var(--bg-dark, #FDF8E8);
     padding: 100px 0;
 }
 
@@ -271,7 +271,7 @@
 }
 
 .p-card {
-    background: #FDF8E8;
+    background: #fff;
     border-radius: 20px;
     padding: 30px;
     border: 1px solid rgba(163, 28, 33, 0.1);
@@ -339,7 +339,7 @@
 }
 
 .info-card {
-    background: #FDF8E8;
+    background: #fff;
     border-radius: 20px;
     padding: 40px;
     height: 100%;
