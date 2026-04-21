@@ -3,38 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vedanta By Ghoomar | Coming Soon</title>
-    <meta name="description" content="Vedanta By Ghoomar &mdash; a mindful wellness experience rooted in ancient Indian wisdom. Coming soon.">
+    <title>Vedanta By Ghoomar | Pure Veg Multicuisine Fine Dining in Varanasi</title>
+    <meta name="description" content="Vedanta By Ghoomar is a pure vegetarian multicuisine fine-dining experience in Varanasi, rooted in Indian hospitality and signature Ghoomar warmth.">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="coming-soon">
+    <style>
+        .vedanta-logo-wrap {
+            display: inline-block;
+            max-width: 640px;
+            width: min(90vw, 640px);
+            margin-bottom: 10px;
+            filter: drop-shadow(0 8px 28px rgba(0, 0, 0, 0.45));
+        }
 
-    <nav class="master-nav">
-        <div class="master-nav-inner">
-            <a href="../index.html" class="master-nav-logo">
-                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar">
+        .vedanta-logo-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .vedanta-map-card {
+            margin-top: 26px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(163, 28, 33, 0.18);
+            box-shadow: 0 8px 24px rgba(42, 14, 14, 0.12);
+        }
+
+        .vedanta-map-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(255, 244, 194, 0.72);
+            border-bottom: 1px solid rgba(163, 28, 33, 0.15);
+        }
+
+        .vedanta-map-actions .btn-primary,
+        .vedanta-map-actions .btn-secondary {
+            font-size: 0.88rem;
+            letter-spacing: 0.6px;
+        }
+
+        .vedanta-map-frame {
+            height: 360px;
+            width: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .vedanta-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .vedanta-mini-grid img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(163, 28, 33, 0.16);
+            box-shadow: 0 4px 14px rgba(42, 14, 14, 0.1);
+        }
+
+        @media (max-width: 700px) {
+            .vedanta-mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vedanta-map-actions {
+                flex-direction: column;
+            }
+
+            .vedanta-map-actions a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Laptop optimization */
+        @media (min-width: 701px) and (max-width: 1440px) {
+            .thali-nav-inner {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .thali-nav-links {
+                gap: 18px;
+            }
+
+            .thali-nav-link {
+                font-size: 0.8rem;
+            }
+
+            .thali-nav-cta {
+                font-size: 0.78rem;
+                padding: 6px 14px;
+            }
+
+            .hero-section {
+                min-height: 88vh;
+                min-height: 88svh;
+            }
+
+            .hero-title {
+                font-size: clamp(2.7rem, 4.2vw, 3.8rem);
+            }
+
+            .hero-subtitle {
+                max-width: 780px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+            }
+
+            .hero-buttons {
+                gap: 12px;
+            }
+
+            .hero-btn {
+                font-size: 0.9rem;
+                padding: 9px 18px;
+            }
+
+            .village-experience-grid {
+                gap: 18px;
+            }
+
+            .village-experience-card {
+                padding: 22px 18px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+
+            .vedanta-map-frame {
+                height: 320px;
+            }
+        }
+
+        @media (min-width: 701px) and (max-width: 1180px) {
+            .thali-nav-links {
+                gap: 12px;
+            }
+
+            .thali-nav-link {
+                font-size: 0.75rem;
+                letter-spacing: 0.2px;
+            }
+
+            .thali-nav-logo img {
+                width: 92px;
+            }
+        }
+    </style>
+</head>
+<body class="vedanta-page">
+
+    <nav class="thali-nav" id="thaliNav">
+        <div class="thali-nav-inner">
+
+            <a href="../index.html" class="thali-nav-logo" id="thaliNavLogo">
+                <img src="../assets/vedanta/vedanta-logo.png" alt="Vedanta By Ghoomar">
             </a>
-            <div class="master-nav-links">
-                <a href="thali.html">Traditional Thali</a>
-                <a href="village.html">Village</a>
-                <a href="yatra.html">Yatra</a>
-                <a href="vedanta.html">Vedanta</a>
+
+            <div class="thali-nav-links" id="thaliNavLinks">
+                <a href="#about" class="thali-nav-link">About Us</a>
+                <a href="#menu" class="thali-nav-link">Menu</a>
+                <a href="#directions" class="thali-nav-link">Directions</a>
+                <a href="#testimonials" class="thali-nav-link">Reviews</a>
+                <a href="#gallery" class="thali-nav-link">Gallery</a>
+                <a href="#timings" class="thali-nav-link">Timings</a>
+                <a href="#inquiry" class="thali-nav-link">Inquiry</a>
             </div>
-            <a href="tel:+918803980000" class="master-nav-contact">Contact</a>
+
+            <div class="thali-nav-end">
+                <a href="#inquiry" class="thali-nav-cta">Reserve</a>
+                <button class="thali-nav-hamburger" id="thaliHamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
         </div>
     </nav>
 
-    <div class="coming-wrap">
-        <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar" class="cs-logo">
-        <p class="cs-eyebrow">Wellness</p>
-        <h1>Vedanta By Ghoomar</h1>
-        <p>A mindful wellness experience rooted in ancient Indian wisdom &mdash; we're preparing something special. Coming soon.</p>
-        <a href="../index.html" class="cs-back"><i class="fas fa-arrow-left"></i> Back To Ghoomar</a>
-    </div>
-    <script src="../js/page-transition.js"></script>
+    <section class="hero-section" style="background-image: url('../assets/vedanta/interior-1.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="vedanta-logo-wrap">
+                <img src="../assets/vedanta/vedanta-logo.png" alt="Vedanta By Ghoomar logo">
+            </div>
+            <h1 class="hero-title">Step into Culture</h1>
+            <p class="hero-subtitle">A refined vegetarian dining destination in Varanasi inspired by tradition, comfort, and warm Indian hospitality.</p>
+            <div class="hero-buttons">
+                <a href="javascript:void(0)" class="btn-primary hero-btn">Menu</a>
+                <a href="#directions" class="btn-primary hero-btn">Directions</a>
+                <a href="tel:+919910028098" class="btn-primary hero-btn">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="culinary-journey">
+        <div class="container journey-grid">
+            <div class="journey-text">
+                <h3>&bull; <b>ABOUT VEDANTA</b> &bull;</h3>
+                <p>Vedanta by Ghoomar brings together premium ambience, thoughtful service, and a pure vegetarian multicuisine menu in the spiritual heart of Varanasi.</p>
+                <p>Built for families, travelers, and celebrations alike, the space blends contemporary comfort with Indian warmth to create an elegant dine-in experience.</p>
+            </div>
+            <div class="journey-images">
+                <img src="../assets/vedanta/interior-2.jpg" alt="Vedanta by Ghoomar interior" class="interior-img" loading="lazy" width="600" height="800">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="offers">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>MENU</b> &bull;</h3>
+            <p style="text-align: center; margin-bottom: 30px;">Pure vegetarian multicuisine selections crafted for family dining, celebrations, and everyday indulgence.</p>
+            <div class="village-experience-grid">
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-pepper-hot"></i></div>
+                    <h4>North Indian</h4>
+                    <p>Rich gravies, tandoori mains, breads, and comforting classics.</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Regional Vegetarian</h4>
+                    <p>Traditional flavors inspired by Indian culinary heritage.</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-utensils"></i></div>
+                    <h4>Global Comfort</h4>
+                    <p>Popular multicuisine dishes for every age and preference.</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-ice-cream"></i></div>
+                    <h4>Desserts</h4>
+                    <p>Sweet endings to complete your dining experience.</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-mug-hot"></i></div>
+                    <h4>Beverages</h4>
+                    <p>Hot and cold options to pair with every course.</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>Pure Veg Promise</h4>
+                    <p>A strictly vegetarian kitchen and hospitality-led service.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="directions" class="outlet-pricing">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>DIRECTIONS / MAP</b> &bull;</h3>
+            <div class="village-visit-card">
+                <p><strong>Venue:</strong> D 52/1, Luxa Road, Near Godowlia Chowk, Varanasi - 221010</p>
+                <p><strong>Contact:</strong> <a href="tel:+919910028098">+91 99100 28098</a></p>
+                <p><strong>Email:</strong> <a href="mailto:support@ghoomarthali.in">support@ghoomarthali.in</a></p>
+
+                <div class="vedanta-map-card">
+                    <div class="vedanta-map-actions">
+                        <a href="https://maps.google.com/?q=D%2052/1%20Luxa%20Road%20Varanasi" target="_blank" rel="noopener" class="btn-primary">Open In Maps</a>
+                        <a href="tel:+919910028098" class="btn-secondary">Call Now</a>
+                    </div>
+                    <iframe class="vedanta-map-frame" src="https://maps.google.com/maps?q=D%2052/1%20Luxa%20Road%20Varanasi&output=embed&z=15" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>REVIEWS / TESTIMONIALS</b> &bull;</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">"A beautiful ambience and a very comforting pure-veg dining experience. The place feels premium yet warm for family dinners."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-name">Family Diners</div>
+                        <span class="testimonial-sep"></span>
+                        <span class="testimonial-role">Varanasi</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">"The interior is elegant and peaceful. Service was attentive, and the menu had great variety for a pure vegetarian restaurant."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-name">Food Enthusiasts</div>
+                        <span class="testimonial-sep"></span>
+                        <span class="testimonial-role">Travelers</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">"A great fine-dining option near Godowlia for pure-veg meals. Perfect for hosting relatives and special occasion lunches."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-name">Local Guests</div>
+                        <span class="testimonial-sep"></span>
+                        <span class="testimonial-role">Banaras</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="main-gallery-section">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>GALLERY</b> &bull;</h3>
+            <p style="text-align: center; margin-bottom: 30px;">A quick look at Vedanta's interiors and visual identity.</p>
+            <div class="scrollable-gallery">
+                <img src="../assets/vedanta/interior-1.jpg" alt="Vedanta dining area wide view" loading="lazy">
+                <img src="../assets/vedanta/interior-2.jpg" alt="Vedanta dining area portrait view" loading="lazy">
+                <img src="../assets/vedanta/hero-image-2.png" alt="Vedanta by Ghoomar visual" loading="lazy">
+                <img src="../assets/vedanta/hero-image-edited.png" alt="Vedanta by Ghoomar branded visual" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="timings" class="offers">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>TIMINGS</b> &bull;</h3>
+            <div class="village-experience-grid">
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="far fa-clock"></i></div>
+                    <h4>Monday - Friday</h4>
+                    <p>12:00 PM - 3:00 PM<br>7:00 PM - 11:00 PM</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="far fa-clock"></i></div>
+                    <h4>Saturday - Sunday</h4>
+                    <p>12:00 PM - 3:00 PM<br>7:00 PM - 11:30 PM</p>
+                </article>
+                <article class="village-experience-card">
+                    <div class="village-experience-icon"><i class="fas fa-phone"></i></div>
+                    <h4>Reservations</h4>
+                    <p><a href="tel:+919910028098">+91 99100 28098</a></p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="inquiry" class="offers">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>FEEDBACK / INQUIRY</b> &bull;</h3>
+            <div class="menu-inquiry-wrap">
+                <div class="miq-header">
+                    <i class="fab fa-whatsapp miq-icon"></i>
+                    <div>
+                        <h4 class="miq-heading">Need help with menu, table booking, or feedback?</h4>
+                        <p class="miq-sub">Share your details and we'll continue the conversation on WhatsApp.</p>
+                    </div>
+                </div>
+                <form class="miq-form" id="vedantaInquiryForm" novalidate>
+                    <div class="miq-fields">
+                        <div class="miq-field">
+                            <label for="vedanta-name">Your Name</label>
+                            <input type="text" id="vedanta-name" placeholder="e.g. Priya Sharma" autocomplete="name">
+                        </div>
+                        <div class="miq-field">
+                            <label for="vedanta-purpose">Inquiry Type</label>
+                            <select id="vedanta-purpose">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="Table Reservation">Table Reservation</option>
+                                <option value="Menu Inquiry">Menu Inquiry</option>
+                                <option value="Feedback">Feedback</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="miq-error" id="vedantaInquiryError" aria-live="polite"></p>
+                    <button type="submit" class="miq-submit">
+                        <i class="fab fa-whatsapp"></i> Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contactus" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h4><strong>Location</strong></h4>
+                    <p>D 52/1, Luxa Road</p>
+                    <p>Near Godowlia Chowk</p>
+                    <p>Varanasi - 221010</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4><strong>Contact Us</strong></h4>
+                    <p><strong>Phone:</strong> <a href="tel:+919910028098">+91 99100 28098</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:support@ghoomarthali.in">support@ghoomarthali.in</a></p>
+                </div>
+
+                <div class="footer-col">
+                    <h4><strong>Vedanta By Ghoomar</strong></h4>
+                    <p>Pure vegetarian multicuisine fine dining with signature Ghoomar hospitality.</p>
+                    <div class="social-links" style="margin-top:20px;">
+                        <a href="https://maps.google.com/?q=D%2052/1%20Luxa%20Road%20Varanasi" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i></a>
+                        <a href="tel:+919910028098"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bottom-footer container">
+            <div class="copyright">
+                <p>&copy; 2026 Vedanta by Ghoomar. All Rights Reserved. &nbsp;|&nbsp; <a href="../index.html">Ghoomar Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">
+        <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="19 10 12 3 5 10" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+          <polyline points="19 15.5 12 8.5 5 15.5" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+          <polyline points="19 21 12 14 5 21" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+        </svg>
+    </button>
+
+    <script src="../js/page-transition.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        document.getElementById('vedantaInquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('vedanta-name').value.trim();
+            const purpose = document.getElementById('vedanta-purpose').value;
+            const error = document.getElementById('vedantaInquiryError');
+
+            if (!name || !purpose) {
+                error.textContent = 'Please fill in both fields before sending.';
+                return;
+            }
+
+            error.textContent = '';
+            const message = `Hi! I'm ${name}. This is regarding ${purpose} for Vedanta by Ghoomar, Varanasi.`;
+            window.open(`https://wa.me/919910028098?text=` + encodeURIComponent(message), '_blank');
+        });
+
+        (function () {
+            const nav = document.getElementById('thaliNav');
+            const links = document.querySelectorAll('.thali-nav-link');
+            const hamburger = document.getElementById('thaliHamburger');
+            const drawer = document.getElementById('thaliNavLinks');
+
+            const sections = Array.from(
+                document.querySelectorAll('section[id], footer[id]')
+            );
+
+            hamburger.addEventListener('click', function () {
+                const open = hamburger.classList.toggle('open');
+                drawer.classList.toggle('open', open);
+                hamburger.setAttribute('aria-expanded', open);
+            });
+
+            links.forEach(function (a) {
+                a.addEventListener('click', function () {
+                    hamburger.classList.remove('open');
+                    drawer.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            function onScroll() {
+                nav.classList.toggle('scrolled', window.scrollY > 30);
+
+                let current = '';
+                sections.forEach(function (sec) {
+                    if (window.scrollY >= sec.offsetTop - 90) {
+                        current = sec.id;
+                    }
+                });
+
+                links.forEach(function (a) {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }());
+    </script>
 </body>
 </html>
