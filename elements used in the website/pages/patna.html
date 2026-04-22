@@ -145,7 +145,7 @@
             <a href="tel:+919031296999" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
             <a href="https://wa.me/919031296999" target="_blank" class="action-btn btn-book"><i class="fas fa-utensils"></i> Book A Table</a>
             <a href="https://menu.ghoomarthali.in/patna" target="_blank" rel="noopener" class="action-btn btn-menu"><i class="fas fa-book-open"></i> See Today's Menu</a>
-            <a href="https://maps.app.goo.gl/DXTnoNYMxTfcH4L98" target="_blank" rel="noopener" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
+            <a href="#map" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
         </div>
 
         <div class="details-grid">
@@ -171,17 +171,20 @@
             </div>
         </div>
 
-        <div class="map-card">
+        <div class="map-card" id="map">
             <div class="map-card-actions">
                 <a href="https://wa.me/919031296999" target="_blank" class="map-btn-main btn-wa">BOOK ON WHATSAPP</a>
                 <a href="https://menu.ghoomarthali.in/patna" target="_blank" class="map-btn-main btn-menu-outline">VIEW DINNER MENU</a>
             </div>
-            <div class="map-frame-container">
+            <div class="map-frame-container" id="map">
                 <a href="https://maps.app.goo.gl/DXTnoNYMxTfcH4L98" target="_blank" class="open-in-maps-btn">
                     Open in Maps <i class="fas fa-external-link-alt"></i>
                 </a>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14391.992626732628!2d85.0852871!3d25.6049775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c2718bb791%3A0x66a1bec2dc55cce9!2sGhoomar%20Traditional%20Thali%20Restaurants%20-%20Raja%20Bazaar!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14391.992626732628!2d85.0852871!3d25.6049775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c2718bb791%3A0x66a1bec2dc55cce9!2sGhoomar%20Traditional%20Thali%20Restaurants%20-%20Raja%20Bazaar!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <script>
+                new IntersectionObserver((entries, obs) => { entries[0].isIntersecting && (document.querySelector('#map iframe').src = document.querySelector('#map iframe').dataset.src, obs.disconnect()); }).observe(document.querySelector('#map'));
+            </script>
         </div>
     </div>
 </body>

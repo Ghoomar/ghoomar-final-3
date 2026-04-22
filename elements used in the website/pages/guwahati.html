@@ -145,7 +145,7 @@
             <a href="tel:+919871944399" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
             <a href="https://wa.me/919871944399" target="_blank" class="action-btn btn-book"><i class="fas fa-utensils"></i> Book A Table</a>
             <a href="https://menu.ghoomarthali.in/guwahati/" target="_blank" rel="noopener" class="action-btn btn-menu"><i class="fas fa-book-open"></i> See Today's Menu</a>
-            <a href="https://maps.app.goo.gl/3A3S9S9S9S9S7" target="_blank" rel="noopener" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
+            <a href="#map" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
         </div>
 
         <div class="details-grid">
@@ -171,17 +171,20 @@
             </div>
         </div>
 
-        <div class="map-card">
+        <div class="map-card" id="map">
             <div class="map-card-actions">
                 <a href="https://wa.me/919871944399" target="_blank" class="map-btn-main btn-wa">BOOK ON WHATSAPP</a>
                 <a href="https://menu.ghoomarthali.in/guwahati/" target="_blank" class="map-btn-main btn-menu-outline">VIEW DINNER MENU</a>
             </div>
-            <div class="map-frame-container">
+            <div class="map-frame-container" id="map">
                 <a href="https://maps.app.goo.gl/3A3S9S9S9S9S7" target="_blank" class="open-in-maps-btn">
                     Open in Maps <i class="fas fa-external-link-alt"></i>
                 </a>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14322.86877840134!2d91.7511413!3d26.173167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a593366bdd899%3A0xe67bc58269786a6!2sGhoomar%20Traditional%20Thali%20Restaurant!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14322.86877840134!2d91.7511413!3d26.173167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a593366bdd899%3A0xe67bc58269786a6!2sGhoomar%20Traditional%20Thali%20Restaurant!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <script>
+                new IntersectionObserver((entries, obs) => { entries[0].isIntersecting && (document.querySelector('#map iframe').src = document.querySelector('#map iframe').dataset.src, obs.disconnect()); }).observe(document.querySelector('#map'));
+            </script>
         </div>
     </div>
 </body>
