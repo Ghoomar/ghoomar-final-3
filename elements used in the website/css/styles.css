@@ -370,7 +370,7 @@ img {
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 4.2rem;
     line-height: 1.1;
     margin-bottom: 20px;
     color: #fff;
@@ -1024,17 +1024,17 @@ img {
 
 .village-experience-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .village-experience-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    text-align: left;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1044,13 +1044,13 @@ img {
 }
 
 .village-experience-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 0 16px;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 16px;
     border-radius: 50%;
     display: grid;
     place-items: center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #FDF8E8;
     background: var(--primary-color);
 }
@@ -1408,8 +1408,24 @@ img {
         height: 100svh;
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 0;
+    }
+
+    .village-act {
+        padding: 40px 16px;
+    }
+
+    .act-header {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .act-title {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .act-subtitle {
+        font-size: 0.95rem;
     }
 
     .village-video-card {
@@ -4128,8 +4144,38 @@ body.coming-soon {
     }
 }
 /* ============================================================
-   VEDANTA SPECIFIC
+   VEDANTA SPECIFIC - DESKTOP REFINEMENTS
    ============================================================ */
+.vedanta-page .vedanta-logo-wrap {
+    margin-bottom: 12px;
+}
+
+.vedanta-page .vedanta-logo-wrap img {
+    width: 200px;
+}
+
+.vedanta-page .hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.vedanta-page .hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 680px;
+}
+
+.vedanta-page .culinary-journey {
+    padding: 60px 0;
+}
+
+.vedanta-page .journey-grid {
+    gap: 40px;
+}
+
+.vedanta-page .journey-text {
+    padding: 30px;
+}
+
 .vedanta-map-card {
     margin-top: 30px;
     background: var(--glass-bg);
@@ -4178,5 +4224,96 @@ body.coming-soon {
     }
     .vedanta-logo-wrap img {
         width: 140px;
+    }
+}
+/* ============================================================
+   VILLAGE MAP SECTION
+   ============================================================ */
+.map-card {
+    margin-top: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(42, 14, 14, 0.1);
+}
+
+.map-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(163, 28, 33, 0.05);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.map-btn-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-wa {
+    background: #25D366;
+    color: #fff;
+}
+
+.btn-menu-outline {
+    background: transparent;
+    border: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.map-frame-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.map-frame-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.open-in-maps-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .map-card-actions {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    .map-frame-container {
+        height: 320px;
+    }
+    .open-in-maps-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
     }
 }
