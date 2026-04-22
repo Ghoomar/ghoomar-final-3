@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="../assets/vedanta/interior-1.jpg" fetchpriority="high">
 </head>
 <body class="vedanta-page">
 
@@ -43,7 +46,7 @@
         </div>
     </nav>
 
-    <section class="hero-section" style="background-image: url('../assets/vedanta/interior-1.jpg'); background-fetchpriority: high;">
+    <section class="hero-section" style="background-image: url('../assets/vedanta/interior-1.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="vedanta-logo-wrap">
@@ -67,7 +70,7 @@
                 <p>Built for families, travelers, and celebrations alike, the space blends contemporary comfort with Indian warmth to create an elegant dine-in experience.</p>
             </div>
             <div class="journey-images">
-                <img src="../assets/vedanta/interior-2.jpg" alt="Vedanta by Ghoomar interior" class="interior-img" loading="lazy" width="600" height="800">
+                <img src="../assets/vedanta/interior-2.jpg" alt="Vedanta by Ghoomar interior" class="interior-img" loading="lazy" width="600" height="800" decoding="async">
             </div>
         </div>
     </section>
