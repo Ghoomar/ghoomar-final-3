@@ -370,18 +370,29 @@ img {
 }
 
 .hero-title {
-    font-size: 4.2rem;
+    font-size: 4.5rem;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #fff;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-title .accent-font {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    color: #ddd;
+    font-size: 1.35rem;
+    margin: 0 auto 40px;
+    color: #fff;
     font-weight: 300;
+    max-width: 750px;
+    line-height: 1.5;
 }
 
 .hero-buttons {
@@ -392,11 +403,39 @@ img {
 }
 
 .hero-btn {
-    box-shadow: 0 0 12px rgba(163, 28, 33, 0.5), 0 4px 14px rgba(163, 28, 33, 0.3) !important;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.hero-btn:hover {
-    box-shadow: 0 0 18px rgba(163, 28, 33, 0.7), 0 8px 22px rgba(163, 28, 33, 0.45) !important;
+.hero-btn.primary {
+    background: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(163, 28, 33, 0.4) !important;
+}
+
+.hero-btn.primary:hover {
+    background: #8B181C;
+    border-color: #8B181C;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(163, 28, 33, 0.5) !important;
+}
+
+.hero-btn.outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-btn.outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    transform: translateY(-3px);
 }
 
 @keyframes fadeInDown {
@@ -415,19 +454,82 @@ img {
     gap: 60px;
 }
 
+.journey-grid-reverse {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-direction: row-reverse;
+}
+
+.rajwadi-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(163, 28, 33, 0.05);
+    border: 2px dashed rgba(163, 28, 33, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    text-align: center;
+}
+.rajwadi-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+.rajwadi-placeholder p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.8;
+}
+
 .journey-text {
     flex: 1;
-    background: var(--glass-bg);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 20px 0;
+    text-align: left;
     transition: transform 0.4s ease;
-    text-align: center;
 }
 
 .journey-text:hover {
-    transform: translateY(-5px);
+    transform: translateX(10px);
+}
+
+.journey-kicker {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.journey-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--brand-ink);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.journey-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--brand-maroon);
+    margin-bottom: 25px;
+    border-radius: 2px;
+}
+
+.journey-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    opacity: 0.9;
 }
 
 .journey-images {
@@ -1319,7 +1421,7 @@ img {
         display: block;
     }
     
-    .journey-grid {
+    .journey-grid, .journey-grid-reverse {
         flex-direction: column;
     }
     
@@ -1508,7 +1610,7 @@ img {
 
     /* Reduce tall section padding */
     .culinary-journey {
-        padding: 24px 0;
+        padding: 40px 0;
     }
 
     .village-experiences {
@@ -1574,6 +1676,13 @@ img {
         font-size: 0.75rem !important;
     }
 
+    .journey-title {
+        font-size: 2.2rem;
+    }
+    .journey-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
     .btn-primary,
     .btn-secondary {
         font-size: 1rem;
@@ -1620,7 +1729,7 @@ img {
     }
 
     .outlet-card {
-        flex: 1 1 140px;
+        flex: 1 1 100%;
         max-width: none;
     }
 
@@ -1748,7 +1857,12 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.thali-nav.nav-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
 }
 
 .thali-nav.scrolled {
@@ -1925,7 +2039,12 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.master-nav.nav-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
 }
 
 .master-nav-inner {
@@ -2036,7 +2155,12 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.village-nav.nav-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
 }
 
 .village-nav.scrolled {

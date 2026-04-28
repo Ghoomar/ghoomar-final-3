@@ -70,7 +70,12 @@ document.addEventListener('DOMContentLoaded', function () {
             vids.forEach((_, i) => {
                 const dot = document.createElement('span');
                 dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-                dot.addEventListener('click', () => goTo(idx = i));
+                dot.addEventListener('click', () => {
+                    stopAuto();
+                    idx = i;
+                    goTo(idx);
+                    startAuto();
+                });
                 dotsEl.appendChild(dot);
             });
         }
@@ -112,11 +117,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // ---- Autoscroll Logic ----
+        let scrollTimer;
+        function startAuto() {
+            stopAuto();
+            scrollTimer = setInterval(() => goTo(idx + 1), 6000); // 6s per video
+        }
+        function stopAuto() {
+            clearInterval(scrollTimer);
+        }
+
         // Event Listeners
-        if (prevBtn) prevBtn.addEventListener('click', () => goTo(--idx));
-        if (nextBtn) nextBtn.addEventListener('click', () => goTo(++idx));
+        if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); goTo(--idx); startAuto(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); goTo(++idx); startAuto(); });
         
-        // Auto-advance on video end
+        // Auto-advance on video end (if not looping)
         vids.forEach((v, i) => {
             v.addEventListener('ended', () => goTo(idx + 1));
         });
@@ -127,8 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (entries[0].isIntersecting) {
                 // If never played before, start at 0
                 if (vids[idx].paused) goTo(idx);
+                startAuto();
             } else {
                 vids.forEach(v => v.pause());
+                stopAuto();
             }
         }, { threshold: 0.3 });
         

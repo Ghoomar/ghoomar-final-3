@@ -59,4 +59,16 @@
             window.location.assign(anchor.href);
         }, 90);
     });
+
+    // Navigation visibility logic: show only in hero section, hide when scrolling down
+    var nav = document.querySelector('.thali-nav, .master-nav, .village-nav');
+    if (nav) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+        }, { passive: true });
+    }
 })();

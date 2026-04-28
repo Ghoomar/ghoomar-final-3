@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -401,7 +401,7 @@
         <img src="../assets/thali/gallery/interiors/oth-02.jpg" alt="Inside Ghoomar Traditional Thali" loading="eager" fetchpriority="high">
         <div class="gallery-hero-overlay">
             <p class="hero-kicker">Ghoomar Traditional Thali</p>
-            <h1 class="hero-headline">Step Inside.<br>Leave the City Behind.</h1>
+            <h1 class="hero-headline"><span class="accent-font">Step Inside.</span><br>Leave the City Behind.</h1>
             <p class="hero-sub">A journey through Rajasthani heritage, one frame at a time.</p>
         </div>
     </section>
@@ -803,12 +803,31 @@
                 updateUI();
             }
 
-            prevBtn.addEventListener('click', () => goTo(current - 1));
-            nextBtn.addEventListener('click', () => goTo(current + 1));
+            /* Autoscroll logic */
+            let autoscrollInterval;
+            function startAutoscroll() {
+                stopAutoscroll();
+                autoscrollInterval = setInterval(() => goTo(current + 1), 5000);
+            }
+            function stopAutoscroll() {
+                clearInterval(autoscrollInterval);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                stopAutoscroll();
+                goTo(current - 1);
+                startAutoscroll();
+            });
+            nextBtn.addEventListener('click', () => {
+                stopAutoscroll();
+                goTo(current + 1);
+                startAutoscroll();
+            });
 
             /* Click image → open lightbox */
             slides.forEach((fig, i) => {
                 fig.addEventListener('click', () => {
+                    stopAutoscroll();
                     const img = fig.querySelector('img');
                     openLightbox(img.src, img.alt);
                 });
@@ -816,13 +835,18 @@
 
             /* Touch/drag swipe support */
             let touchStartX = 0;
-            strip.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+            strip.addEventListener('touchstart', e => { 
+                stopAutoscroll();
+                touchStartX = e.touches[0].clientX; 
+            }, { passive: true });
             strip.addEventListener('touchend', e => {
                 const diff = touchStartX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+                startAutoscroll();
             }, { passive: true });
 
             updateUI();
+            startAutoscroll();
         }
 
         /* Initialize all galleries */
