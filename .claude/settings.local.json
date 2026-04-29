@@ -4,7 +4,8 @@
       "Bash(git *)",
       "Bash(grep -n \"src=\\\\\"\\\\\\\\.\\\\\\\\./assets\\\\|url\\('\\\\\\\\.\\\\\\\\./assets\" \"C:/Ghoomar final 3/elements used in the website/pages/gallery-thali.html\")",
       "Bash(grep -n \"src=\\\\\"\\\\\\\\.\\\\\\\\./assets\" \"C:/Ghoomar final 3/elements used in the website/pages/chandni-chowk.html\")",
-      "WebSearch"
+      "WebSearch",
+      "Bash(node -e \"const fs=require\\('fs'\\);const c=fs.readFileSync\\('elements used in the website/pages/vedanta.html','utf8'\\);const m=c.match\\(/<script type=\\\\\"application\\\\\\\\/ld\\\\\\\\+json\\\\\">\\([\\\\\\\\s\\\\\\\\S]*?\\)<\\\\\\\\/script>/\\);try{JSON.parse\\(m[1]\\);console.log\\('JSON-LD valid'\\)}catch\\(e\\){console.log\\('JSON-LD ERROR:',e.message\\)}\")"
     ]
   }
 }
