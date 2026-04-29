@@ -398,16 +398,17 @@
             e.preventDefault();
 
             const name = document.getElementById('vedanta-name').value.trim();
+            const phone = document.getElementById('vedanta-phone').value.trim();
             const purpose = document.getElementById('vedanta-purpose').value;
             const error = document.getElementById('vedantaInquiryError');
 
-            if (!name || !purpose) {
-                error.textContent = 'Please fill in both fields before sending.';
+            if (!name || !phone || !purpose) {
+                error.textContent = 'Please fill in all fields before sending.';
                 return;
             }
 
             error.textContent = '';
-            const message = `Hi! I'm ${name}. This is regarding ${purpose} for Vedanta by Ghoomar, Varanasi.`;
+            const message = `Hi! I'm ${name} (${phone}). This is regarding ${purpose} for Vedanta by Ghoomar, Varanasi.`;
             window.open(`https://wa.me/919910028098?text=` + encodeURIComponent(message), '_blank');
         });
 
