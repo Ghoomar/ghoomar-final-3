@@ -315,6 +315,94 @@
         </div>
     </section>
 
+    <section id="faq" class="offers">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>FREQUENTLY ASKED</b> &bull;</h3>
+            <p style="text-align: center; margin-bottom: 30px;">Quick answers to common questions about visiting Vedanta.</p>
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>Is Vedanta pure vegetarian?</summary>
+                    <div class="faq-answer"><p>Yes &mdash; Vedanta by Ghoomar runs a strictly pure-vegetarian kitchen with no eggs.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>How far is it from Kashi Vishwanath Temple?</summary>
+                    <div class="faq-answer"><p>About a 10-minute walk via Godowlia Chowk. Dashashwamedh Ghat and the Ganga Aarti are roughly 12 minutes on foot.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you take reservations?</summary>
+                    <div class="faq-answer"><p>Yes. We recommend booking ahead on weekends and around festival evenings. Call <a href="tel:+919910028098">+91 99100 28098</a> or use the inquiry form above.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is the menu family and kid friendly?</summary>
+                    <div class="faq-answer"><p>Absolutely. Our multicuisine menu has Rajasthani thali, North &amp; South Indian classics, Chinese and continental favourites suitable for all ages.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you host group bookings or events?</summary>
+                    <div class="faq-answer"><p>Yes &mdash; family gatherings, pilgrim groups and special-occasion lunches are welcome. Reach out via the inquiry form for group rates.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are your timings?</summary>
+                    <div class="faq-answer"><p>Lunch 12&ndash;3 PM, dinner 7&ndash;11 PM (until 11:30 PM on weekends). Best to book your evening slot around the Ganga Aarti.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-accordion { max-width: 820px; margin: 0 auto; }
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: #fff;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .faq-item[open] {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+        .faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--text-color, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+        }
+        .faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-item > summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: #888;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] > summary::after {
+            content: '\2212';
+            transform: rotate(0deg);
+            color: #b88a44;
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer p { margin: 0; }
+        .faq-answer a { color: #b88a44; text-decoration: underline; }
+        @media (max-width: 600px) {
+            .faq-item > summary { padding: 16px 18px; font-size: 0.98rem; }
+            .faq-answer { padding: 0 18px 16px; }
+        }
+    </style>
+
     <footer id="contactus" class="footer">
         <div class="container">
             <div class="footer-grid">
