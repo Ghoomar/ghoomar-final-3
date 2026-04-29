@@ -47,9 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
             mobileOverlay.classList.add('active');
         });
 
-        closeMenu.addEventListener('click', () => {
-            mobileOverlay.classList.remove('active');
-        });
+        if (closeMenu) {
+            closeMenu.addEventListener('click', () => {
+                mobileOverlay.classList.remove('active');
+            });
+        }
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
