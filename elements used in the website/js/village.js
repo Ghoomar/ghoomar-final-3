@@ -104,7 +104,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const playPromise = targetVid.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log("Autoplay prevented or video failed to load:", error);
+                        if (error.name !== 'AbortError') {
+                            console.warn("Video failed to load:", error);
+                        }
                     });
                 }
             }
@@ -163,7 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Native video 'ended' event handles auto-advance
             const active = vids[idx];
             if (active && active.paused) {
-                active.play().catch(e => console.log("Play failed", e));
+                active.play().catch(e => {
+                    if (e.name !== 'AbortError') {
+                        console.warn("Play failed", e);
+                    }
+                });
             }
         }
         function stopAuto() {
