@@ -1,0 +1,53 @@
+/* ─── Unique Page Background Colors ─── */
+/* Each page gets its own warm, heritage-inspired tone  */
+/* These are subtle but noticeably different on each page */
+
+/* Home / Landing — original warm cream */
+body.master-landing {
+    background-color: #FDF8E8;
+}
+
+/* Thali main page — soft rose cream */
+body.bg-pattern-1 {
+    background-color: #FFF5F0;
+}
+
+/* Connaught Place — warm sand */
+body.bg-pattern-2 {
+    background-color: #F5EDE4;
+}
+
+/* Vedanta (fine dining) — cool sage mist for sophistication */
+body.vedanta-page {
+    background-color: #EFF5F0;
+}
+
+/* Village — golden sand for rustic warmth */
+body.village-page {
+    background-color: #FFF6E3;
+}
+
+/* Gallery — antique white */
+body.bg-camel-2 {
+    background-color: #FFF8EE;
+}
+
+/* Guwahati — soft tea-garden green */
+body.bg-flowers-2 {
+    background-color: #F0F4EC;
+}
+
+/* Patna — warm terracotta ivory */
+body.bg-elephant {
+    background-color: #FDF0E6;
+}
+
+/* Yatra — dusty lavender cream */
+body.bg-elephant-2 {
+    background-color: #F4F0F6;
+}
+
+/* Chandni Chowk — old Delhi peach */
+body.bg-hawa-mahal {
+    background-color: #FFF0EA;
+}

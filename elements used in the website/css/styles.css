@@ -14,18 +14,17 @@ html {
     --secondary-color: #A31C21;
     --accent-color:    #FBE201;
     --text-color:      #2A0E0E;
-    --bg-dark:         #FDF8E8;
-    --glass-bg:        rgba(255, 244, 194, 0.72);
+    --bg-dark:         transparent;
+    --glass-bg:        #ffffff;
     --glass-border:    rgba(163, 28, 33, 0.3);
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: #FDF8E8;
     color: var(--text-color);
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    /* Ensure texture blends nicely on light bg */
 }
 
 /* Smooth inter-page transitions */
@@ -56,12 +55,89 @@ body::before {
     width: 100vw;
     height: 100vh;
     background-image: none;
-    opacity: 0.05;
+    opacity: 0.15;
     mix-blend-mode: multiply;
     z-index: -1;
     pointer-events: none;
 }
 
+/* Distinct Page Identities using Heritage Assets */
+body.bg-pattern-1::before {
+    background-image: url('../assets/patterns/pattern-1.png');
+    background-size: 300px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-pattern-2::before {
+    background-image: url('../assets/patterns/pattern-2-web.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+}
+
+body.bg-flowers::before {
+    background-image: url('../design%20assets/Flower%201.svg');
+    background-size: 400px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-camels::before {
+    background-image: url('../design%20assets/Camels.svg');
+    background-size: 200px;
+    opacity: 0.06;
+    background-repeat: repeat;
+}
+
+body.bg-elephant::before {
+    background-image: url('../design%20assets/Elephant%202.svg');
+    background-size: 500px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-flowers-2::before {
+    background-image: url('../design%20assets/Flower%202.svg');
+    background-size: 300px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-camel-2::before {
+    background-image: url('../design%20assets/Camel%202.svg');
+    background-size: 400px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-camel-3::before {
+    background-image: url('../design%20assets/Camel%203.svg');
+    background-size: 400px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-elephant-2::before {
+    background-image: url('../design%20assets/Elephant.svg');
+    background-size: 500px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-girl::before {
+    background-image: url('../design%20assets/Girl.svg');
+    background-size: 400px;
+    opacity: 0.12;
+    background-repeat: repeat;
+}
+
+body.bg-hawa-mahal::before {
+    background-image: url('../assets/patterns/hawa-mahal-web.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -1114,7 +1190,7 @@ img {
     padding: 8px 12px;
     border-radius: 999px;
     border: 1px solid rgba(163, 28, 33, 0.35);
-    background: #FFF4C2;
+    background: #ffffff;
     color: var(--primary-color);
     font-size: 0.88rem;
     font-weight: 600;
@@ -2417,7 +2493,7 @@ body.master-landing::before {
     position: relative;
     display: flex;
     flex-direction: column;
-    background: #FFF4C2;
+    background: rgba(255, 255, 255, 0.4);
     border: 1.5px solid rgba(122, 20, 24, 0.4);
 
     border-radius: 20px;
@@ -2526,7 +2602,7 @@ body.master-landing::before {
 /* Per-brand card backgrounds — exact logo colours */
 .tile-thali  { background: #A31C20; border-color: #7a1418; }
 .tile-village { background: #FBC817; border-color: #c9a010; }
-.tile-yatra   { background: #FFF4C2; border-color: rgba(122, 20, 24, 0.4); }
+.tile-yatra   { background: rgba(255, 255, 255, 0.4); border-color: rgba(122, 20, 24, 0.4); }
 .tile-vedanta { background: #3A7A35; border-color: #2a5a26; }
 
 /* Text colour overrides for dark-background tiles */
@@ -2674,7 +2750,7 @@ body.coming-soon {
 /* ---- Shared tokens ---- */
 .gs-act {
     padding: 52px 0;
-    background-color: var(--bg-dark);
+    background-color: transparent;
 }
 
 .gs-act-header {
@@ -3779,7 +3855,7 @@ body.coming-soon {
 }
 
 .testimonial-card {
-    background: #FFFDF3;
+    background: #ffffff;
     border: 1px solid rgba(163, 28, 33, 0.12);
     border-radius: 16px;
     padding: 28px 24px;
@@ -3953,7 +4029,7 @@ body.coming-soon {
     font-size: 0.97rem;
     font-weight: 400;
     color: var(--text-color);
-    background: #FFFDF3;
+    background: #ffffff;
     border: 1px solid rgba(163, 28, 33, 0.22);
     border-radius: 8px;
     padding: 10px 14px;
@@ -4151,7 +4227,7 @@ body.coming-soon {
 }
 
 .testimonial-card {
-    background: #fff;
+    background: var(--glass-bg);
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -4440,4 +4516,235 @@ body.coming-soon {
         padding: 6px 12px;
         font-size: 0.75rem;
     }
+}
+
+/* Heritage Deco Ornaments */
+.deco-ornament {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+    max-width: 150px;
+}
+.deco-top-right {
+    top: -20px;
+    right: -20px;
+}
+.deco-bottom-left {
+    bottom: -20px;
+    left: -20px;
+}
+.deco-center-right {
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    max-width: 280px;
+    opacity: 0.08;
+}
+.deco-center-left {
+    top: 50%;
+}
+
+.vedanta-page .vedanta-logo-wrap img {
+    width: 200px;
+}
+
+.vedanta-page .hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.vedanta-page .hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 680px;
+}
+
+.vedanta-page .culinary-journey {
+    padding: 60px 0;
+}
+
+.vedanta-page .journey-grid {
+    gap: 40px;
+}
+
+.vedanta-page .journey-text {
+    padding: 30px;
+}
+
+.vedanta-map-card {
+    margin-top: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(42, 14, 14, 0.08);
+}
+
+.vedanta-map-actions {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(163, 28, 33, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.vedanta-map-actions .btn-primary,
+.vedanta-map-actions .btn-secondary {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+.vedanta-map-frame {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .vedanta-map-actions {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+    .vedanta-map-frame {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vedanta-map-frame {
+        height: 250px;
+    }
+    .vedanta-logo-wrap img {
+        width: 140px;
+    }
+}
+/* ============================================================
+   VILLAGE MAP SECTION
+   ============================================================ */
+.map-card {
+    margin-top: 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(42, 14, 14, 0.1);
+}
+
+.map-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(163, 28, 33, 0.05);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.map-btn-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-wa {
+    background: #25D366;
+    color: #fff;
+}
+
+.btn-menu-outline {
+    background: transparent;
+    border: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.map-frame-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.map-frame-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.open-in-maps-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .map-card-actions {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    .map-frame-container {
+        height: 320px;
+    }
+    .open-in-maps-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Heritage Deco Ornaments */
+.deco-ornament {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+    max-width: 150px;
+}
+.deco-top-right {
+    top: -20px;
+    right: -20px;
+}
+.deco-bottom-left {
+    bottom: -20px;
+    left: -20px;
+}
+.deco-center-right {
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    max-width: 280px;
+    opacity: 0.08;
+}
+.deco-center-left {
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%) scaleX(-1);
+    max-width: 280px;
+    opacity: 0.08;
+}
+/* Ensure sections can contain the ornaments gracefully */
+.culinary-journey, .offers, .testimonials-section, .proximity-section, .main-gallery-section, .outlet-pricing, .outlet-page, .master-hero {
+    position: relative;
+    overflow: hidden;
 }

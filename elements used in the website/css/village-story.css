@@ -93,7 +93,6 @@
 
 /* Act 2: Welcome */
 .act-welcome {
-    background: #FDF8E8;
     text-align: center;
 }
 
@@ -132,12 +131,11 @@
 /* Act 3: Showcases (Unlimited Food, Entertainment, Apno Ka Saath) */
 .showcase-act {
     padding: 60px 0;
-    background: #FDF8E8;
     position: relative;
 }
 
 .showcase-act:nth-child(even) {
-    background: var(--bg-dark, #FDF8E8);
+    /* Optional: We can leave this transparent or keep it empty */
 }
 
 .showcase-row {
@@ -216,6 +214,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     width: 100%;
+    padding: 40px 0;
 }
 .showcase-video-gallery::-webkit-scrollbar { display: none; }
 
@@ -254,7 +253,6 @@
 
 /* Act 7: Logistics */
 .act-logistics {
-    background: var(--bg-dark, #FDF8E8);
     padding: 70px 0;
 }
 
