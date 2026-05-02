@@ -88,43 +88,88 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function goTo(n) {
-            // Pause all and reset pointers
-            vids.forEach(v => { 
-                v.pause(); 
-                v.currentTime = 0; 
+            // Pause all
+            vids.forEach(v => {
+                v.pause();
+                v.currentTime = 0;
             });
-            
+
             idx = ((n % vids.length) + vids.length) % vids.length;
             updateDots();
+            updateCarousel();
 
-            // Scroll into view
+            // Play active
             const targetVid = vids[idx];
             if (targetVid) {
-                requestAnimationFrame(() => {
-                    gallery.scrollTo({
-                        left: targetVid.offsetLeft,
-                        behavior: 'smooth'
+                const playPromise = targetVid.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Autoplay prevented or video failed to load:", error);
                     });
-                    
-                    // Simple play attempt
-                    const playPromise = targetVid.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.log("Autoplay prevented or video failed to load:", error);
-                        });
-                    }
-                });
+                }
             }
         }
 
+        function updateCarousel() {
+            const total = vids.length;
+            vids.forEach((v, i) => {
+                const isActive = idx === i;
+                const isLeft = (idx - 1 + total) % total === i;
+                const isRight = (idx + 1) % total === i;
+
+                if (isActive) {
+                    v.style.zIndex = '3';
+                    v.style.opacity = '1';
+                    v.style.pointerEvents = 'auto';
+                    v.style.transform = `translateX(0%) translateY(0%) scale(1) rotateY(0deg)`;
+                } else if (isLeft) {
+                    v.style.zIndex = '2';
+                    v.style.opacity = '0.7';
+                    v.style.pointerEvents = 'auto';
+                    v.style.transform = `translateX(-45%) translateY(-5%) scale(0.85) rotateY(15deg)`;
+                } else if (isRight) {
+                    v.style.zIndex = '2';
+                    v.style.opacity = '0.7';
+                    v.style.pointerEvents = 'auto';
+                    v.style.transform = `translateX(45%) translateY(-5%) scale(0.85) rotateY(-15deg)`;
+                } else {
+                    v.style.zIndex = '1';
+                    v.style.opacity = '0';
+                    v.style.pointerEvents = 'none';
+                    v.style.transform = `translateX(0%) scale(0.5)`;
+                }
+                
+                v.onclick = (e) => {
+                    if (isLeft) {
+                        e.preventDefault();
+                        stopAuto(); goTo(idx - 1); startAuto();
+                    } else if (isRight) {
+                        e.preventDefault();
+                        stopAuto(); goTo(idx + 1); startAuto();
+                    } else if (isActive) {
+                        // Let user pause/play if they click active video
+                        if (v.paused) v.play();
+                        else v.pause();
+                    }
+                };
+            });
+        }
+        
+        // Initialize layout
+        updateCarousel();
+
         // ---- Autoscroll Logic ----
-        let scrollTimer;
         function startAuto() {
-            stopAuto();
-            scrollTimer = setInterval(() => goTo(idx + 1), 6000); // 6s per video
+            // Native video 'ended' event handles auto-advance
+            const active = vids[idx];
+            if (active && active.paused) {
+                active.play().catch(e => console.log("Play failed", e));
+            }
         }
         function stopAuto() {
-            clearInterval(scrollTimer);
+            // Nothing to clear, just pause
+            const active = vids[idx];
+            if (active) active.pause();
         }
 
         // Event Listeners
