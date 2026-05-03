@@ -38,6 +38,16 @@
     },
     {
       "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/thali"
+    },
+    {
+      "source": "/",
       "destination": "/home"
     },
     {
