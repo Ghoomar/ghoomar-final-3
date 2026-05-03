@@ -62,18 +62,42 @@
     },
     {
       "source": "/chandni-chowk",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
       "destination": "/pages/chandni-chowk"
     },
     {
       "source": "/connaught-place",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
       "destination": "/pages/connaught-place"
     },
     {
       "source": "/guwahati",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
       "destination": "/pages/guwahati"
     },
     {
       "source": "/patna",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
       "destination": "/pages/patna"
     },
     {
@@ -82,6 +106,12 @@
     },
     {
       "source": "/gallery-thali",
+      "has": [
+        {
+          "type": "host",
+          "value": "thali.ghoomarthali.in"
+        }
+      ],
       "destination": "/pages/gallery-thali"
     },
     {
