@@ -567,6 +567,68 @@
         </svg>
     </button>
 
+    <style>
+        .fp-book-btn {
+            margin-top: 14px;
+            width: 100%;
+            background: var(--primary-color, #a31c21);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 2px 8px rgba(163, 28, 33, 0.25);
+        }
+        .fp-book-btn:hover {
+            background: #c02329;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(163, 28, 33, 0.35);
+        }
+        .family-price-card.fp-featured .fp-book-btn {
+            background: #FBC817;
+            color: #1a1a1a;
+            box-shadow: 0 2px 8px rgba(251, 200, 23, 0.4);
+        }
+        .family-price-card.fp-featured .fp-book-btn:hover {
+            background: #ffd23a;
+            box-shadow: 0 4px 14px rgba(251, 200, 23, 0.5);
+        }
+    </style>
+
+    <script>
+        (function () {
+            var RAZORPAY_KEY = 'rzp_test_Skvr4ecarvwLZH';
+            document.addEventListener('click', function (e) {
+                var btn = e.target.closest('.fp-book-btn');
+                if (!btn) return;
+                if (typeof Razorpay === 'undefined') {
+                    alert('Payment library still loading. Please try again in a moment.');
+                    return;
+                }
+                var pkg = btn.dataset.package || 'Family Booking';
+                var people = btn.dataset.people || '';
+                var amount = parseInt(btn.dataset.amount, 10);
+                if (!amount || isNaN(amount)) return;
+                var rzp = new Razorpay({
+                    key: RAZORPAY_KEY,
+                    amount: amount,
+                    currency: 'INR',
+                    name: 'Ghoomar Village',
+                    description: pkg + (people ? ' — ' + people + ' people' : ''),
+                    image: '../assets/logos/ghoomar-village.svg',
+                    theme: { color: '#a31c21' },
+                    notes: { package: pkg, people: people }
+                });
+                rzp.open();
+            });
+        })();
+    </script>
+
     <script src="../js/page-transition.js" defer></script>
     <script src="../js/script.js" defer></script>
     <script src="../js/village.js" defer></script>
