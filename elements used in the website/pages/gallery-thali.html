@@ -262,15 +262,23 @@
             position: absolute;
             bottom: 16px; left: 50%;
             transform: translateX(-50%);
-            display: flex; gap: 8px; z-index: 10;
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 6px; z-index: 10;
+            max-width: calc(100% - 120px);
+            padding: 6px 10px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
         .gal-dot {
-            width: 9px; height: 9px;
+            width: 8px; height: 8px;
             border-radius: 50%;
             background: rgba(255,255,255,0.45);
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
             border: none;
+            flex: 0 0 auto;
         }
         .gal-dot.active {
             background: #fff;
