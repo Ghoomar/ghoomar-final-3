@@ -14,7 +14,7 @@
           "value": "village.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/village.html"
+      "destination": "/pages/village"
     },
     {
       "source": "/",
@@ -24,11 +24,11 @@
           "value": "vedanta.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/vedanta.html"
+      "destination": "/pages/vedanta"
     },
     {
       "source": "/",
-      "destination": "/home.html"
+      "destination": "/home"
     },
     {
       "source": "/menu",
@@ -38,7 +38,7 @@
           "value": "vedanta.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/vedanta-menu.html"
+      "destination": "/pages/vedanta-menu"
     },
     {
       "source": "/chandni-chowk",
