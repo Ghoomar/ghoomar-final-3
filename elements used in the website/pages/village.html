@@ -564,64 +564,196 @@
     </button>
 
     <style>
-        .fp-book-btn {
-            margin-top: 14px;
+        .booking-modal-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(20, 5, 5, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        .booking-modal-backdrop.is-open { display: flex; }
+        .booking-modal {
+            background: #fff;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 460px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            animation: bm-pop 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+        @keyframes bm-pop {
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .booking-modal-header {
+            background: var(--primary-color, #a31c21);
+            color: #fff;
+            padding: 22px 24px;
+            position: relative;
+        }
+        .booking-modal-header h3 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .booking-modal-header p { margin: 4px 0 0; font-size: 0.9rem; opacity: 0.85; }
+        .booking-modal-close {
+            position: absolute; top: 14px; right: 14px;
+            background: rgba(255,255,255,0.15);
+            border: none; color: #fff;
+            width: 32px; height: 32px; border-radius: 50%;
+            cursor: pointer; font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s ease;
+        }
+        .booking-modal-close:hover { background: rgba(255,255,255,0.3); }
+        .booking-modal-body { padding: 18px 20px 22px; }
+        .booking-modal-label {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .booking-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+        .booking-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 2px solid #e6e6e6;
+            border-radius: 10px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.1s ease;
+            text-align: left;
+            font-family: inherit;
+        }
+        .booking-option:hover { border-color: var(--primary-color, #a31c21); background: #fff; }
+        .booking-option.is-selected {
+            border-color: var(--primary-color, #a31c21);
+            background: #fff5f5;
+        }
+        .booking-option .bo-name { font-weight: 700; color: #1a1a1a; font-size: 0.98rem; }
+        .booking-option .bo-people { font-size: 0.82rem; color: #666; margin-top: 2px; }
+        .booking-option .bo-price { font-weight: 700; color: var(--primary-color, #a31c21); font-size: 1.05rem; white-space: nowrap; }
+        .booking-modal-cta {
             width: 100%;
             background: var(--primary-color, #a31c21);
             color: #fff;
             border: none;
-            border-radius: 8px;
-            padding: 10px 18px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
+            border-radius: 10px;
+            padding: 14px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
             letter-spacing: 0.3px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-            box-shadow: 0 2px 8px rgba(163, 28, 33, 0.25);
+            transition: background 0.2s ease, transform 0.1s ease;
         }
-        .fp-book-btn:hover {
-            background: #c02329;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(163, 28, 33, 0.35);
-        }
-        .family-price-card.fp-featured .fp-book-btn {
-            background: #FBC817;
-            color: #1a1a1a;
-            box-shadow: 0 2px 8px rgba(251, 200, 23, 0.4);
-        }
-        .family-price-card.fp-featured .fp-book-btn:hover {
-            background: #ffd23a;
-            box-shadow: 0 4px 14px rgba(251, 200, 23, 0.5);
-        }
+        .booking-modal-cta:hover:not(:disabled) { background: #c02329; }
+        .booking-modal-cta:disabled { opacity: 0.5; cursor: not-allowed; }
     </style>
+
+    <div class="booking-modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+        <div class="booking-modal">
+            <div class="booking-modal-header">
+                <h3 id="bookingModalTitle">Choose Your Table</h3>
+                <p>Select a package size to continue to payment</p>
+                <button type="button" class="booking-modal-close" id="bookingModalClose" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="booking-modal-body">
+                <span class="booking-modal-label">Table Size</span>
+                <div class="booking-options" id="bookingOptions">
+                    <button type="button" class="booking-option" data-package="Cozy Table" data-people="10" data-amount="985000">
+                        <span><span class="bo-name">Cozy Table</span><span class="bo-people"><i class="fas fa-users"></i> 10 people · &#8377;985 / person</span></span>
+                        <span class="bo-price">&#8377;9,850</span>
+                    </button>
+                    <button type="button" class="booking-option" data-package="Family Table" data-people="15" data-amount="1462500">
+                        <span><span class="bo-name">Family Table</span><span class="bo-people"><i class="fas fa-users"></i> 15 people · &#8377;975 / person</span></span>
+                        <span class="bo-price">&#8377;14,625</span>
+                    </button>
+                    <button type="button" class="booking-option" data-package="Grand Table" data-people="20" data-amount="1930000">
+                        <span><span class="bo-name">Grand Table</span><span class="bo-people"><i class="fas fa-users"></i> 20 people · &#8377;965 / person</span></span>
+                        <span class="bo-price">&#8377;19,300</span>
+                    </button>
+                    <button type="button" class="booking-option" data-package="Royal Feast" data-people="25" data-amount="2387500">
+                        <span><span class="bo-name">Royal Feast</span><span class="bo-people"><i class="fas fa-users"></i> 25 people · &#8377;955 / person</span></span>
+                        <span class="bo-price">&#8377;23,875</span>
+                    </button>
+                </div>
+                <button type="button" class="booking-modal-cta" id="bookingModalProceed" disabled>
+                    <i class="fas fa-lock"></i>&nbsp; Select a table to continue
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         (function () {
             var RAZORPAY_KEY = 'rzp_test_Skvr4ecarvwLZH';
-            document.addEventListener('click', function (e) {
-                var btn = e.target.closest('.fp-book-btn');
-                if (!btn) return;
+            var modal = document.getElementById('bookingModal');
+            var openBtn = document.getElementById('openBookingModal');
+            var closeBtn = document.getElementById('bookingModalClose');
+            var proceedBtn = document.getElementById('bookingModalProceed');
+            var options = document.querySelectorAll('#bookingOptions .booking-option');
+            var selected = null;
+
+            function openModal() {
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() {
+                modal.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+            function selectOption(opt) {
+                options.forEach(function (o) { o.classList.remove('is-selected'); });
+                opt.classList.add('is-selected');
+                selected = opt.dataset;
+                proceedBtn.disabled = false;
+                proceedBtn.innerHTML = '<i class="fas fa-lock"></i>&nbsp; Pay &#8377;' +
+                    (parseInt(selected.amount, 10) / 100).toLocaleString('en-IN') +
+                    ' for ' + selected.package;
+            }
+            function payNow() {
+                if (!selected) return;
                 if (typeof Razorpay === 'undefined') {
                     alert('Payment library still loading. Please try again in a moment.');
                     return;
                 }
-                var pkg = btn.dataset.package || 'Family Booking';
-                var people = btn.dataset.people || '';
-                var amount = parseInt(btn.dataset.amount, 10);
-                if (!amount || isNaN(amount)) return;
                 var rzp = new Razorpay({
                     key: RAZORPAY_KEY,
-                    amount: amount,
+                    amount: parseInt(selected.amount, 10),
                     currency: 'INR',
                     name: 'Ghoomar Village',
-                    description: pkg + (people ? ' — ' + people + ' people' : ''),
+                    description: selected.package + ' — ' + selected.people + ' people',
                     image: '../assets/logos/ghoomar-village.svg',
                     theme: { color: '#a31c21' },
-                    notes: { package: pkg, people: people }
+                    notes: { package: selected.package, people: selected.people }
                 });
                 rzp.open();
+                closeModal();
+            }
+
+            if (openBtn) openBtn.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
             });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            });
+            options.forEach(function (opt) {
+                opt.addEventListener('click', function () { selectOption(opt); });
+            });
+            proceedBtn.addEventListener('click', payNow);
         })();
     </script>
 
