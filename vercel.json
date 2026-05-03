@@ -4,5 +4,69 @@
   "installCommand": null,
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "village.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/village"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vedanta.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/vedanta"
+    },
+    {
+      "source": "/menu",
+      "has": [
+        {
+          "type": "host",
+          "value": "vedanta.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/vedanta-menu"
+    },
+    {
+      "source": "/chandni-chowk",
+      "destination": "/pages/chandni-chowk"
+    },
+    {
+      "source": "/connaught-place",
+      "destination": "/pages/connaught-place"
+    },
+    {
+      "source": "/guwahati",
+      "destination": "/pages/guwahati"
+    },
+    {
+      "source": "/patna",
+      "destination": "/pages/patna"
+    },
+    {
+      "source": "/thali",
+      "destination": "/pages/thali"
+    },
+    {
+      "source": "/gallery-thali",
+      "destination": "/pages/gallery-thali"
+    },
+    {
+      "source": "/yatra",
+      "destination": "/pages/yatra"
+    },
+    {
+      "source": "/yatra-menu",
+      "destination": "/pages/yatra-menu"
+    }
+  ]
 }
