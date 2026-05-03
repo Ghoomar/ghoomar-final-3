@@ -4189,12 +4189,20 @@ body.coming-soon {
 .scrollable-gallery img {
     flex: 0 0 calc(33.333% - 16px);
     width: calc(33.333% - 16px);
-    height: 250px;
+    height: 320px; /* Increased from 250px for better desktop presence */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(42, 14, 14, 0.1);
     transition: transform 0.3s ease;
     scroll-snap-align: start;
+}
+
+@media (min-width: 1200px) {
+    .scrollable-gallery img {
+        flex: 0 0 calc(25% - 16px); /* Show 4 images on large laptops */
+        width: calc(25% - 16px);
+        height: 380px;
+    }
 }
 
 .scrollable-gallery img:hover {

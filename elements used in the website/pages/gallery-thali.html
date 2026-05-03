@@ -171,7 +171,6 @@
             transform: scale(1.01);
         }
 
-        /* portrait galleries (dishes) */
         .img-gallery-strip.portrait figure {
             height: 70vh;
             min-height: 420px;
@@ -181,6 +180,46 @@
             object-fit: cover; display: block;
             border-radius: 20px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* ── LAPTOP OPTIMIZATION ── */
+        @media (min-width: 1024px) {
+            .gallery-hero { 
+                height: 70vh; 
+            }
+            .gs-act { 
+                padding: 100px 5%; 
+            }
+            
+            /* Show multiple images on laptop */
+            .img-gallery-strip.landscape figure {
+                flex: 0 0 45%; /* Show ~2.2 images to hint at scroll */
+                height: 48vh;
+                min-height: 400px;
+            }
+            .img-gallery-strip.portrait figure {
+                flex: 0 0 28%; /* Show ~3.5 images */
+                height: 55vh;
+                min-height: 500px;
+            }
+            
+            /* Centering the strips on large screens if they don't fill */
+            .img-gallery-strip {
+                padding: 10px 0 40px;
+            }
+
+            .gal-btn {
+                width: 60px; height: 60px;
+                font-size: 1.4rem;
+            }
+            .gal-prev { left: -30px; }
+            .gal-next { right: -30px; }
+            
+            /* Adjust caption for multiple images */
+            .img-gallery-strip figcaption {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
         }
 
         /* caption overlay at bottom of each slide */
@@ -209,7 +248,7 @@
             cursor: pointer; z-index: 10;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-            transition: transform 0.2s, background 0.2s;
+            transition: transform 0.2s, background 0.2s, left 0.3s, right 0.3s;
         }
         .gal-btn:hover {
             background: #fff;
@@ -518,54 +557,22 @@
         <div class="img-gallery-wrapper" id="thaliWrapper">
             <div class="img-gallery-strip landscape" id="thaliStrip">
                 <figure data-caption="The Complete Ghoomar Thali">
-                    <img src="../assets/thali/gallery/food/thali-01.jpg" alt="Complete Ghoomar Thali" loading="lazy">
+                    <img src="../assets/thali/food/Thali/DSC_0078.JPG" alt="Complete Ghoomar Thali" loading="lazy">
                     <figcaption>The Complete Ghoomar Thali</figcaption>
                 </figure>
-                <figure data-caption="Premium Thali Experience">
-                    <img src="../assets/thali/food/premium-thali.jpg" alt="Premium Thali" loading="lazy">
-                    <figcaption>Premium Thali Experience</figcaption>
+                <figure data-caption="Authentic Rajasthani Spread">
+                    <img src="../assets/thali/food/Thali/DSC_0083.JPG" alt="Authentic Rajasthani Spread" loading="lazy">
+                    <figcaption>Authentic Rajasthani Spread</figcaption>
                 </figure>
-                <figure data-caption="Regular Thali Spread">
-                    <img src="../assets/thali/food/regular-thali.jpg" alt="Regular Thali" loading="lazy">
-                    <figcaption>Regular Thali Spread</figcaption>
-                </figure>
-                <figure data-caption="Served Fresh to Table">
-                    <img src="../assets/thali/food/serving-thali.jpg" alt="Served Fresh" loading="lazy">
-                    <figcaption>Served Fresh — Table Side</figcaption>
-                </figure>
-                <figure data-caption="Signature Thali">
-                    <img src="../assets/thali/food/thali-1.jpg" alt="Signature Thali" loading="lazy">
-                    <figcaption>Signature Ghoomar Thali</figcaption>
-                </figure>
-                <figure data-caption="Authentic Arrangement">
-                    <img src="../assets/thali/gallery/food/thali-02.jpg" alt="Thali Arrangement" loading="lazy">
-                    <figcaption>Authentic Rajasthani Arrangement</figcaption>
-                </figure>
-                <figure data-caption="The Grand Thali">
-                    <img src="../assets/thali/gallery/food/thali-03.jpg" alt="Grand Thali" loading="lazy">
-                    <figcaption>The Grand Thali — Side View</figcaption>
-                </figure>
-                <figure data-caption="Thali from Above">
-                    <img src="../assets/thali/gallery/food/thali-04.jpg" alt="Thali from Above" loading="lazy">
-                    <figcaption>Thali from Above — Full Spread</figcaption>
-                </figure>
-                <figure data-caption="Festival Thali">
-                    <img src="../assets/thali/gallery/food/thali-05.jpg" alt="Festival Thali" loading="lazy">
-                    <figcaption>Festival Special Thali</figcaption>
-                </figure>
-                <figure data-caption="Piping Hot Delicacies">
-                    <img src="../assets/thali/gallery/food/thali-06.jpg" alt="Hot Delicacies" loading="lazy">
-                    <figcaption>Piping Hot — Straight from the Kitchen</figcaption>
-                </figure>
-                <figure data-caption="Warm Hospitality">
-                    <img src="../assets/thali/food/serving-thali-web.jpg" alt="Hospitality" loading="lazy">
-                    <figcaption>Warm Hospitality — Every Time</figcaption>
+                <figure data-caption="Royal Ghoomar Thali">
+                    <img src="../assets/thali/food/Thali/DSC_0139.JPG" alt="Royal Ghoomar Thali" loading="lazy">
+                    <figcaption>Royal Ghoomar Thali — Full Spread</figcaption>
                 </figure>
             </div>
             <button class="gal-btn gal-prev" data-target="thaliStrip" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
             <button class="gal-btn gal-next" data-target="thaliStrip" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
             <div class="gal-dots" id="thaliDots"></div>
-            <div class="gal-counter" id="thaliCounter">1 / 11</div>
+            <div class="gal-counter" id="thaliCounter">1 / 3</div>
         </div>
     </section>
 
