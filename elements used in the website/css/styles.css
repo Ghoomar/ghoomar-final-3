@@ -27,8 +27,8 @@ body {
     overflow-x: hidden;
 }
 
-/* Smooth inter-page transitions */
-body.page-transition-enabled {
+/* Smooth inter-page transitions applied to body children to protect fixed background */
+body.page-transition-enabled > *:not(nav):not(.thali-nav):not(.master-nav):not(.village-nav):not(script):not(style):not(link):not(meta) {
     animation: pageGlideIn 0.5s cubic-bezier(0.25, 1, 0.25, 1) forwards;
 }
 
@@ -43,7 +43,7 @@ body.page-transition-enabled {
     }
 }
 
-body.page-is-leaving {
+body.page-is-leaving > *:not(nav):not(.thali-nav):not(.master-nav):not(.village-nav):not(script):not(style):not(link):not(meta) {
     animation: pageGlideOut 0.4s cubic-bezier(0.25, 1, 0.25, 1) forwards !important;
     pointer-events: none;
 }
