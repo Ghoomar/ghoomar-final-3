@@ -58,7 +58,7 @@
 
         window.setTimeout(function () {
             window.location.assign(anchor.href);
-        }, 250);
+        }, 400);
     });
 
     // Navigation visibility logic: show only in hero section, hide when scrolling down

@@ -29,33 +29,34 @@ body {
 
 /* Smooth inter-page transitions */
 body.page-transition-enabled {
-    animation: pageFadeIn 0.35s ease-out forwards;
+    animation: pageGlideIn 0.5s cubic-bezier(0.25, 1, 0.25, 1) forwards;
 }
 
-@keyframes pageFadeIn {
+@keyframes pageGlideIn {
     0% {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateX(30px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
 body.page-is-leaving {
-    animation: pageFadeOut 0.25s ease-in forwards !important;
+    animation: pageGlideOut 0.4s cubic-bezier(0.25, 1, 0.25, 1) forwards !important;
     pointer-events: none;
 }
 
-@keyframes pageFadeOut {
+@keyframes pageGlideOut {
     0% {
         opacity: 1;
+        transform: translateX(0);
     }
     100% {
         opacity: 0;
+        transform: translateX(-30px);
     }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
