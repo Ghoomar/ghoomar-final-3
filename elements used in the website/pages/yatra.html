@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghoomar Yatra | Coming Soon</title>
-    <meta name="description" content="Ghoomar Yatra &mdash; curated Rajasthani travel and pilgrimage experiences. Coming soon.">
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Ghoomar Yatra | Curated Rajasthani Journeys</title>
+    <meta name="description" content="Ghoomar Yatra offers curated Rajasthani travel and pilgrimage experiences. No entry fee &mdash; pay only for the experiences you choose.">
+<link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/page-colors.css">
+    <link rel="stylesheet" href="../css/village-story.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,30 +17,553 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="icon" type="image/svg+xml" href="../assets/logos/ghoomar-mascot.svg">
 </head>
-<body class="coming-soon bg-elephant-2">
+<body class="village-page bg-flowers-2">
 
-    <nav class="master-nav">
-        <div class="master-nav-inner">
-            <a href="../index.html" class="master-nav-logo">
-                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar">
+    <nav class="village-nav" id="villageNav">
+        <div class="village-nav-inner">
+            <a href="../index.html" class="village-nav-logo" id="villageNavLogo">
+                <img src="../assets/logos/ghoomar-village.svg" alt="Ghoomar Village">
             </a>
-            <div class="master-nav-links">
-                <a href="thali.html">Traditional Thali</a>
-                <a href="village.html">Village</a>
-                <a href="yatra.html">Yatra</a>
-                <a href="vedanta.html">Vedanta</a>
+            <div class="village-nav-links" id="villageNavLinks">
+                <a href="#arrival" class="village-nav-link">Arrival</a>
+                <a href="#unlimited-food" class="village-nav-link">Food</a>
+                <a href="#entertainment" class="village-nav-link">Entertainment</a>
+                <a href="#apno-ka-saath" class="village-nav-link">Apno Ka Saath</a>
+                <a href="#logistics" class="village-nav-link">Tickets & Info</a>
             </div>
-            <a href="tel:+918803980000" class="master-nav-contact">Contact</a>
+            <div class="village-nav-end">
+                <a href="#logistics" class="village-nav-cta">Contact Us</a>
+                <button class="village-nav-hamburger" id="villageHamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <div class="coming-wrap">
-        <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar" class="cs-logo">
-        <p class="cs-eyebrow">Journey</p>
-        <h1>Ghoomar <span class="accent-font">Yatra</span></h1>
-        <p>Curated Rajasthani travel and pilgrimage experiences &mdash; something beautiful is on the way. Coming soon.</p>
-        <a href="../index.html" class="cs-back"><i class="fas fa-arrow-left"></i> Back To Ghoomar</a>
-    </div>
-    <script src="../js/page-transition.js"></script>
+
+    <!-- Act 1: The Hook -->
+    <section class="hero-section village-hero">
+        <video class="village-hero-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/community-1.mp4"></video>
+        <div class="hero-overlay village-hero-overlay"></div>
+        <div class="hero-content village-hero-content">
+            <h1 class="hero-title story-hook">Padharo Mhare Desh</h1>
+            <p class="hero-subtitle">One Ticket. Endless Memories. Unlock an immersive cultural portal right here in Gurugram</p>
+            <div class="hero-buttons">
+                <a href="#logistics" class="hero-btn primary">Inquiry</a>
+                <a href="javascript:void(0)" class="hero-btn outline" id="openMasterMenu">Today's Menu</a>
+                <a href="tel:+919810211031" class="hero-btn outline">Call Us</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+    </section>
+
+    <!-- Act 2: The Welcome -->
+    <section id="arrival" class="village-act act-welcome" style="position:relative; overflow:hidden;">
+        <img src="../design%20assets/Flower%202.svg" class="deco-ornament deco-top-right" style="opacity: 0.1;" alt="" aria-hidden="true">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">Padharo Mhare Desh</h2>
+                <p class="act-subtitle">The royal treatment starts before you even enter.</p>
+            </div>
+            <div class="welcome-content">
+                <p>Your immersive journey begins the moment you approach our doors. Feel the warmth of a traditional <strong>Teeka</strong> and the heartbeat of the loud, joyous <strong>Dhol welcome</strong>. You are no longer in a bustling modern city &mdash; you have just stepped into a 25,000 sq. ft. fully air-conditioned, living, breathing Rajasthani village.</p>
+                <div class="welcome-highlights">
+                    <div class="w-highlight"><i class="fas fa-snowflake"></i> 25,000 sq. ft. Air-Conditioned</div>
+                    <div class="w-highlight"><i class="fas fa-drum"></i> Dhol & Teeka Welcome</div>
+                    <div class="w-highlight"><i class="fas fa-car-side"></i> Free Basement Parking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 3: Showcase Sections -->
+    <section id="unlimited-food" class="showcase-act" style="position:relative; overflow:hidden;">
+        <img src="../design%20assets/Camel%202.svg" class="deco-ornament deco-center-left" style="opacity: 0.1;" alt="" aria-hidden="true">
+        <div class="container showcase-row">
+            <div class="gallery-wrapper">
+                <div class="showcase-video-gallery">
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-1.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-2.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-3.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-4.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-5.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-6.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-7.mp4" type="video/mp4"></video>
+                </div>
+                <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="gallery-dots"></div>
+            </div>
+            <div class="showcase-text">
+                <h2 class="act-title" style="text-align: left;">Unlimited Food</h2>
+                <p>Indulge in 20+ starters and 21+ main course dishes, all unlimited, freshly prepared, and served with royal hospitality &mdash; a pure vegetarian feast inspired by traditional Indian flavors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="entertainment" class="showcase-act" style="position:relative; overflow:hidden;">
+        <img src="../design%20assets/Elephant%202.svg" class="deco-ornament deco-center-right" style="opacity: 0.1;" alt="" aria-hidden="true">
+        <div class="container showcase-row reverse">
+            <div class="gallery-wrapper">
+                <div class="showcase-video-gallery">
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-1.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-2.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-3.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-5.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-6.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-7.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-8.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-9.mp4" type="video/mp4"></video>
+                </div>
+                <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="gallery-dots"></div>
+            </div>
+            <div class="showcase-text">
+                <h2 class="act-title" style="text-align: left;">Endless Entertainment</h2>
+                <p>From live folk dances and puppet shows to magic acts, games, and interactive experiences &mdash; every corner of Ghoomar Village is alive with joy and nonstop engagement.</p>
+                <p>Step into a living stage of traditions where Rajasthan's culture comes alive through music, performances, rituals, and timeless village art forms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apno-ka-saath" class="showcase-act">
+        <div class="container showcase-row">
+            <div class="gallery-wrapper">
+                <div class="showcase-video-gallery">
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-1.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-2.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-3.mp4" type="video/mp4"></video>
+                </div>
+                <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="gallery-dots"></div>
+            </div>
+            <div class="showcase-text">
+                <h2 class="act-title" style="text-align: left;">Apno ka Saath</h2>
+                <p>Because celebrations are better together. A space designed for families, friends, and colleagues to laugh, bond, and create memories &mdash; just like a real village gathering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 7: The Logistics -->
+    <section id="logistics" class="village-act act-logistics" style="position:relative; overflow:hidden;">
+        <img src="../design%20assets/Logo%20-%20Ghoomar%20Mascot.svg" class="deco-ornament deco-bottom-left" style="opacity: 0.12;" alt="" aria-hidden="true">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">Claim Your Ticket</h2>
+                <p class="act-subtitle">Choose your preferred experience to step into the village.</p>
+            </div>
+
+            <div class="logistics-grid">
+                <div class="pricing-cards">
+                    <div class="p-card">
+                        <div class="p-header">
+                            <h4>Unlimited Lunch Thali</h4>
+                            <p>12 PM To 3 PM (Food Focus, No Shows)</p>
+                        </div>
+                        <div class="p-prices">
+                            <div class="p-price-item">
+                                <span>Kids (5-10 yrs)</span>
+                                <strong>&#8377;395*</strong>
+                            </div>
+                            <div class="p-price-item">
+                                <span>Adults</span>
+                                <strong>&#8377;595*</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-card featured">
+                        <div class="featured-badge">Highly Recommended</div>
+                        <div class="p-header">
+                            <h4>Unlimited Village Experience</h4>
+                            <p>5 PM To 11 PM (Food + All Entertainment included)</p>
+                        </div>
+                        <div class="p-prices">
+                            <div class="p-price-item">
+                                <span>Kids (5-10 yrs)</span>
+                                <strong>&#8377;714*</strong>
+                            </div>
+                            <div class="p-price-item">
+                                <span>Adults</span>
+                                <strong>&#8377;995*</strong>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7; text-align: center; margin-top: 15px;">*Taxes extra. Prices higher on Fri, Sat, Sun.</p>
+                    </div>
+                </div>
+
+                <!-- Family Favourites Section (Website Only Booking) -->
+                <div class="family-favourites" style="grid-column: 1 / -1; margin-top: 30px; margin-bottom: 20px;">
+                    <h3 class="section-title">&bull; <b>FAMILY FAVOURITES</b> &bull;</h3>
+                    <p class="family-intro">A simplified and lucrative approach to <b>Family Table Reservations</b>. One unlimited thali, built for the whole family &mdash; Rajasthani experience, bhopa music, feel of Rajasthan, pagdi photo shoot and more than 24+ items.</p>
+
+                    <div class="family-perks">
+                        <span class="family-chip">Rajasthani Experience</span>
+                        <span class="family-chip">Unlimited Thali</span>
+                        <span class="family-chip">More Than 24+ Items</span>
+                        <span class="family-chip">Bopa Music Experience</span>
+                        <span class="family-chip">Feel Of Rajasthan</span>
+                        <span class="family-chip">Pagdi Photo Shoot</span>
+                    </div>
+
+                    <p class="family-pricing-heading">Starting from &#8377;955 per person &mdash; choose your table size</p>
+
+                    <div class="family-pricing">
+
+                        <div class="family-price-card">
+                            <div class="fp-badge-spacer"></div>
+                            <div class="fp-top-label">COZY TABLE</div>
+                            <div class="fp-size"><i class="fas fa-users"></i> 10 People</div>
+                            <div class="fp-divider"></div>
+                            <div class="fp-rate-table">
+                                <div class="fp-rate-row">
+                                    <span class="fp-rate-label">Per person</span>
+                                    <span class="fp-rate-value">&#8377;985</span>
+                                </div>
+                                <div class="fp-rate-row fp-total-row">
+                                    <span class="fp-rate-label">Package total</span>
+                                    <span class="fp-total-value">&#8377;9,850</span>
+                                </div>
+                            </div>
+                            <div class="fp-savings-row">
+                                <span class="fp-strike">&#8377;9,958</span>
+                                <span class="fp-save">Save &#8377;108</span>
+                            </div>
+                        </div>
+
+                        <div class="family-price-card fp-featured">
+                            <div class="fp-badge-spacer"></div>
+                            <div class="fp-top-label">FAMILY TABLE</div>
+                            <div class="fp-size"><i class="fas fa-users"></i> 15 People</div>
+                            <div class="fp-divider"></div>
+                            <div class="fp-rate-table">
+                                <div class="fp-rate-row">
+                                    <span class="fp-rate-label">Per person</span>
+                                    <span class="fp-rate-value">&#8377;975</span>
+                                </div>
+                                <div class="fp-rate-row fp-total-row">
+                                    <span class="fp-rate-label">Package total</span>
+                                    <span class="fp-total-value">&#8377;14,625</span>
+                                </div>
+                            </div>
+                            <div class="fp-savings-row">
+                                <span class="fp-strike">&#8377;14,944</span>
+                                <span class="fp-save">Save &#8377;319</span>
+                            </div>
+                        </div>
+
+                        <div class="family-price-card">
+                            <div class="fp-badge-spacer"></div>
+                            <div class="fp-top-label">GRAND TABLE</div>
+                            <div class="fp-size"><i class="fas fa-users"></i> 20 People</div>
+                            <div class="fp-divider"></div>
+                            <div class="fp-rate-table">
+                                <div class="fp-rate-row">
+                                    <span class="fp-rate-label">Per person</span>
+                                    <span class="fp-rate-value">&#8377;965</span>
+                                </div>
+                                <div class="fp-rate-row fp-total-row">
+                                    <span class="fp-rate-label">Package total</span>
+                                    <span class="fp-total-value">&#8377;19,300</span>
+                                </div>
+                            </div>
+                            <div class="fp-savings-row">
+                                <span class="fp-strike">&#8377;19,935</span>
+                                <span class="fp-save">Save &#8377;635</span>
+                            </div>
+                        </div>
+
+                        <div class="family-price-card">
+                            <div class="fp-badge-spacer"></div>
+                            <div class="fp-top-label">ROYAL FEAST</div>
+                            <div class="fp-size"><i class="fas fa-users"></i> 25 People</div>
+                            <div class="fp-divider"></div>
+                            <div class="fp-rate-table">
+                                <div class="fp-rate-row">
+                                    <span class="fp-rate-label">Per person</span>
+                                    <span class="fp-rate-value">&#8377;955</span>
+                                </div>
+                                <div class="fp-rate-row fp-total-row">
+                                    <span class="fp-rate-label">Package total</span>
+                                    <span class="fp-total-value">&#8377;23,875</span>
+                                </div>
+                            </div>
+                            <div class="fp-savings-row">
+                                <span class="fp-strike">&#8377;24,925</span>
+                                <span class="fp-save">Save &#8377;1,050</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Website Only Booking Callout -->
+                    <div class="family-platform-callout" style="margin-top: 30px;">
+                        <div class="fpc-text">
+                            <i class="fas fa-globe fpc-icon"></i>
+                            <div>
+                                <strong>ONLY APPLICABLE ON WEBSITE BOOKINGS*</strong>
+                                <p>This is a 100% pre-paid feature available exclusively through our website (not on WhatsApp or at the outlet). Secure your confirmed ticket instantly via Razorpay, just like booking a movie!</p>
+                            </div>
+                        </div>
+                        <div class="fpc-buttons">
+                            <a href="#" class="fpc-btn" style="background: var(--primary-color); color: #fff; box-shadow: 0 4px 16px rgba(163, 28, 33, 0.4);">
+                                <i class="fas fa-ticket-alt"></i> Book &amp; Pay Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
+                    <h3 style="margin-bottom: 25px; color: var(--primary-color);">Plan Your Journey</h3>
+                    
+                    <div class="info-group">
+                        <h5>Venue Location</h5>
+                        <p>2nd Floor, M3M Urbana,<br>Sector 67, Gurugram, Haryana 122101</p>
+                    </div>
+
+                    <div class="info-group">
+                        <h5>Need Assistance?</h5>
+                        <p><i class="fas fa-phone"></i> +91 98102 11031<br>
+                        <i class="fas fa-envelope"></i> village@ghoomarthali.in</p>
+                    </div>
+
+                    <div class="hero-buttons" style="margin-top: 30px; justify-content: flex-start;">
+                        <a href="https://wa.me/919810211031" class="btn-primary" target="_blank" rel="noopener">Book on WhatsApp</a>
+                        <a href="../assets/village/menu-dinner.pdf" class="btn-secondary" target="_blank" rel="noopener">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="village-act showcase-act" style="padding: 60px 0;">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>WHAT OUR GUESTS SAY</b> &bull;</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Arjun Singh -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"The most authentic Rajasthani thali I have had outside Jaipur. Every item was perfectly spiced and the unlimited servings kept coming with a warm smile. Dal baati churma has never tasted this good in Delhi."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=64&amp;h=64&amp;fit=crop&amp;crop=face" alt="Arjun Singh" loading="lazy">
+                        </div>
+                        <div class="testimonial-author-name">Arjun Singh</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Food Enthusiast</div>
+                    </div>
+                </div>
+
+                <!-- Meera Joshi -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"Ghoomar Thali is our family's go-to for every celebration. The royal ambiance, live bhopa music and that glorious spread of 24+ items &mdash; it is an experience unlike any other restaurant in the city. Absolutely outstanding."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&amp;h=64&amp;fit=crop&amp;crop=face" alt="Meera Joshi" loading="lazy">
+                        </div>
+                        <div class="testimonial-author-name">Meera Joshi</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Regular Diner</div>
+                    </div>
+                </div>
+
+                <!-- Vikram Nair -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star" style="color:#ccc;"></i>
+                        </div>
+                        <p class="testimonial-content">"Worth every rupee! 24+ items in the thali and every single one prepared with care and tradition. The pagdi photo shoot was a fun bonus that the whole group enjoyed. A must-visit for anyone who loves real Rajasthani food."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=64&amp;h=64&amp;fit=crop&amp;crop=face" alt="Vikram Nair" loading="lazy">
+                        </div>
+                        <div class="testimonial-author-name">Vikram Nair</div>
+                        <span class="testimonial-sep">&bull;</span>
+                        <div class="testimonial-role">Foodie Traveller</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 9: Locate Us -->
+    <section id="map" class="village-act">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>Find Us Here</b> &bull;</h2>
+                <p class="act-subtitle">Step into Rajasthan at M3M Urbana, Gurugram.</p>
+            </div>
+
+            <div class="map-card">
+                <div class="map-card-actions">
+                    <a href="https://wa.me/919810211031" target="_blank" class="map-btn-main btn-wa">
+                        <i class="fab fa-whatsapp"></i>&nbsp; BOOK ON WHATSAPP
+                    </a>
+                    <a href="javascript:void(0)" class="map-btn-main btn-menu-outline" id="openMasterMenuMap">
+                        <i class="fas fa-utensils"></i>&nbsp; VIEW MASTER MENU
+                    </a>
+                </div>
+                <div class="map-frame-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.3524673898165!2d77.0673413753512!3d28.393433575796245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23b6eff14b4b%3A0x1bb602aec36469e0!2sGhoomar%20Village%20-%20Experience%20Rajasthan!5e0!3m2!1sen!2sin!4v1713593000000!5m2!1sen!2sin" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="village-act" style="padding-top: 0;">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>FREQUENTLY ASKED</b> &bull;</h2>
+                <p class="act-subtitle">Quick answers to common questions about your visit to the Village.</p>
+            </div>
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>What exactly is Ghoomar Village?</summary>
+                    <div class="faq-answer"><p>Ghoomar Village is a 25,000 sq. ft. experiential space in Gurugram that brings the soul of Rajasthan to life. It features traditional welcomes, live folk performances, puppet shows, magic acts, cultural rituals, and an unlimited Rajasthani feast.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are the timings for the Village experience?</summary>
+                    <div class="faq-answer"><p>The full Village Experience (including entertainment and food) runs from 5:00 PM to 11:00 PM every day. We also offer an Unlimited Lunch Thali from 12:00 PM to 3:00 PM (focused on dining).</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is the food included in the entry ticket?</summary>
+                    <div class="faq-answer"><p>Yes! Your entry ticket covers the complete experience &mdash; including the unlimited Rajasthani feast and all live entertainment, performances, and shows inside the village.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is there a parking facility available at the venue?</summary>
+                    <div class="faq-answer"><p>Yes, we offer free basement parking for all our guests at M3M Urbana, Gurugram, ensuring a hassle-free arrival.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is Ghoomar Village suitable for corporate events or birthday parties?</summary>
+                    <div class="faq-answer"><p>Absolutely. With 25,000 sq. ft. of space and nonstop entertainment, we are a premier destination for corporate outings, family celebrations, and large group events.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to book my tickets in advance?</summary>
+                    <div class="faq-answer"><p>We highly recommend booking in advance, especially on weekends and public holidays, to ensure availability. You can book via WhatsApp or call us at <a href="tel:+919810211031">+91 98102 11031</a>.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-accordion { max-width: 820px; margin: 0 auto; }
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: #fff;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .faq-item[open] {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+        .faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--text-color, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+        }
+        .faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-item > summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: #888;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] > summary::after {
+            content: '\2212';
+            transform: rotate(0deg);
+            color: var(--primary-color, #b88a44);
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer p { margin: 0; }
+        .faq-answer a { color: var(--primary-color, #b88a44); text-decoration: underline; }
+        @media (max-width: 600px) {
+            .faq-item > summary { padding: 16px 18px; font-size: 0.98rem; }
+            .faq-answer { padding: 0 18px 16px; }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><strong>Hours</strong></h4>
+                    <p>Unlimited Lunch: 12pm &ndash; 3pm</p>
+                    <p>Village Experience: 5pm &ndash; 11pm</p>
+                    <p>Open All Days Of The Week</p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Contact</strong></h4>
+                    <p><strong>Phone:</strong> <a href="tel:+919810211031">+91 98102 11031</a></p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/919810211031" target="_blank" rel="noopener">+91 98102 11031</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:village@ghoomarthali.in">village@ghoomarthali.in</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Follow Us</strong></h4>
+                    <p>Watch updates from shows, food launches, and festival nights.</p>
+                    <div class="social-links" style="margin-top:20px;">
+                        <a href="http://facebook.com/ghoomarvillage" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="http://instagram.com/ghoomarvillage" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919810211031" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer container">
+            <div class="copyright">
+                <p>&copy; 2026 Ghoomar Village by Ghoomar Traditional Thali. All Rights Reserved. &nbsp;|&nbsp; <a href="../index.html">Ghoomar Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">
+        <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="19 10 12 3 5 10" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+          <polyline points="19 15.5 12 8.5 5 15.5" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+          <polyline points="19 21 12 14 5 21" style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3;"></polyline>
+        </svg>
+    </button>
+
+    <script src="../js/page-transition.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/village.js" defer></script>
 </body>
 </html>
