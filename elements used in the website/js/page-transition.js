@@ -28,7 +28,8 @@
             return false;
         }
 
-        if (url.origin !== window.location.origin) return false;
+        // Allow any http/https link to fade out before navigating
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
         return true;
     }
 
@@ -57,7 +58,7 @@
 
         window.setTimeout(function () {
             window.location.assign(anchor.href);
-        }, 90);
+        }, 250);
     });
 
     // Navigation visibility logic: show only in hero section, hide when scrolling down
