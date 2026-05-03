@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Ghoomar Yatra - Curated Rajasthani Journeys</title>
+    <meta name="description" content="Explore the full multicuisine menu of Ghoomar Yatra.">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/page-colors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --menu-accent: #b88a44;
+            --menu-bg: #EFF5F0;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        .menu-page {
+            background-color: var(--menu-bg);
+            min-height: 100vh;
+        }
+
+        .menu-header {
+            padding: 90px 20px 30px;
+            text-align: center;
+            background: transparent;
+        }
+
+        .menu-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #8a1538;
+            margin-bottom: 10px;
+        }
+
+        .menu-header p {
+            font-family: 'Outfit', sans-serif;
+            color: #6a5d4f;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .menu-nav {
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(184, 138, 68, 0.08);
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .menu-nav::-webkit-scrollbar { display: none; }
+
+        .menu-nav-inner {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 15px;
+        }
+
+        .menu-nav-link {
+            text-decoration: none;
+            color: #6a5d4f;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 5px 12px;
+            border-radius: 99px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-nav-link:hover, .menu-nav-link.active {
+            background: #8a1538;
+            color: #fff;
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px 100px;
+        }
+
+        .menu-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 140px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            color: #8a1538;
+            margin: 0;
+        }
+
+        .section-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, #b88a44, transparent);
+        }
+
+        .category-subtitle {
+            font-family: 'Outfit', sans-serif;
+            color: #b88a44;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 30px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-left: 3px solid #b88a44;
+            padding-left: 12px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(184, 138, 68, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(138, 21, 56, 0.08);
+            border-color: rgba(184, 138, 68, 0.3);
+        }
+
+        .item-info h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: #2a2a2a;
+            margin: 0 0 4px;
+            font-weight: 600;
+        }
+
+        .item-info p {
+            font-size: 0.85rem;
+            color: #777;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .item-price {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: #8a1538;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .back-link {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #8a1538;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: scale(1.1);
+            background: #b1234d;
+        }
+
+        @media (max-width: 768px) {
+            .menu-header { padding: 80px 15px 25px; }
+            .menu-header h1 { font-size: 2rem; }
+            .menu-header p { font-size: 0.95rem; }
+            
+            .menu-container { margin: 15px auto; padding: 0 12px 80px; }
+            .menu-section { margin-bottom: 45px; scroll-margin-top: 115px; }
+            .menu-grid { grid-template-columns: 1fr; gap: 12px; }
+            
+            /* Clean Top Nav for Mobile */
+            .thali-nav-inner { 
+                display: flex !important; 
+                justify-content: space-between !important; 
+                align-items: center !important; 
+                padding: 0 15px !important; 
+                height: 60px !important; 
+            }
+            .thali-nav-logo img { height: 30px !important; width: auto !important; }
+            .thali-nav-cta.visible-mobile { 
+                display: inline-flex !important; 
+                font-size: 0.75rem !important; 
+                padding: 5px 12px !important; 
+                border-radius: 50px !important;
+            }
+            
+            /* Premium Menu Bar (Category Nav) */
+            .menu-nav { 
+                top: 60px; 
+                padding: 8px 0; 
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
+            .menu-nav-inner { 
+                gap: 8px; 
+                padding: 0 10px; 
+                justify-content: flex-start; /* Allow natural scroll feel on mobile */
+            }
+            .menu-nav-link { 
+                font-size: 0.85rem; 
+                padding: 6px 14px; 
+                background: rgba(184, 138, 68, 0.05);
+                border: 1px solid rgba(184, 138, 68, 0.1);
+            }
+            .menu-nav-link.active {
+                background: #8a1538;
+                color: #fff;
+                border-color: #8a1538;
+            }
+            
+            .item-info h4 { font-size: 1.05rem; }
+            .item-price { font-size: 1.05rem; }
+            .section-header h2 { font-size: 1.7rem; }
+            
+            .back-link { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .menu-nav-link { font-size: 0.8rem; padding: 5px 10px; }
+            .section-header h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="menu-page yatra-page bg-elephant-2">
+
+    <nav class="thali-nav scrolled" style="position: fixed; width: 100%; top: 0; z-index: 1000;">
+        <div class="thali-nav-inner">
+            <a href="yatra.html" class="thali-nav-logo">
+                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar Yatra">
+            </a>
+            <div class="thali-nav-end">
+                <a href="yatra.html" class="thali-nav-cta visible-mobile">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="menu-header">
+        <h1>Our <span class="accent-font">Menu</span></h1>
+        <p>A curated journey through the finest vegetarian flavors, prepared with passion and served with tradition.</p>
+    </header>
+
+    <div class="menu-nav" id="menuNav">
+        <div class="menu-nav-inner">
+            <a href="#breakfast" class="menu-nav-link">Breakfast</a>
+            <a href="#beverages" class="menu-nav-link">Beverages</a>
+            <a href="#snacks" class="menu-nav-link">Snacks</a>
+            <a href="#south-indian" class="menu-nav-link">South Indian</a>
+            <a href="#chinese" class="menu-nav-link">Chinese</a>
+            <a href="#italian" class="menu-nav-link">Italian</a>
+            <a href="#starters" class="menu-nav-link">Starters</a>
+            <a href="#main-course" class="menu-nav-link">Main Course</a>
+            <a href="#thalis" class="menu-nav-link">Thalis</a>
+            <a href="#desserts" class="menu-nav-link">Desserts</a>
+        </div>
+    </div>
+
+    <main class="menu-container">
+        
+        <!-- Breakfast -->
+        <section id="breakfast" class="menu-section">
+            <div class="section-header">
+                <h2>Breakfast</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Poha With Jalebi</h4></div><div class="item-price">₹195</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Puri Sabji</h4></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chola Bhatura</h4></div><div class="item-price">₹240</div></div>
+            </div>
+        </section>
+
+        <!-- Beverages -->
+        <section id="beverages" class="menu-section">
+            <div class="section-header">
+                <h2>Beverages</h2>
+                <div class="line"></div>
+            </div>
+            <h3 class="category-subtitle">Classic Beverages</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Mineral Water</h4></div><div class="item-price">₹60</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Coca Cola / Fanta / Sprite</h4></div><div class="item-price">₹120</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Fresh Lime Soda</h4></div><div class="item-price">₹140</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Virgin Green Mint Mojito</h4></div><div class="item-price">₹220</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Cranberry Mint Spritz</h4></div><div class="item-price">₹220</div></div>
+            </div>
+            <h3 class="category-subtitle">Milkshakes</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Yatra Special Mango</h4></div><div class="item-price">₹225</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chocolate Oreo</h4></div><div class="item-price">₹195</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Butterscotch</h4></div><div class="item-price">₹195</div></div>
+            </div>
+        </section>
+
+        <!-- Snacks -->
+        <section id="snacks" class="menu-section">
+            <div class="section-header">
+                <h2>Anytime Snacks</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Mixed Pakoda</h4></div><div class="item-price">₹265</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Samosa Chaat</h4></div><div class="item-price">₹195</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Mirchi Vada</h4></div><div class="item-price">₹125</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Pyaaz Kachori</h4></div><div class="item-price">₹149</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Butter Pav Bhaji</h4></div><div class="item-price">₹169</div></div>
+            </div>
+        </section>
+
+        <!-- South Indian -->
+        <section id="south-indian" class="menu-section">
+            <div class="section-header">
+                <h2>South Indian</h2>
+                <div class="line"></div>
+            </div>
+            <h3 class="category-subtitle">Dosas & Uttapams</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Plain Dosa</h4></div><div class="item-price">₹210</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Masala Dosa</h4></div><div class="item-price">₹225</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Paneer Masala Dosa</h4></div><div class="item-price">₹260</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Rava Onion Masala Dosa</h4></div><div class="item-price">₹260</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Onion Uttapam</h4></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Mixed Vegetable Uttapam</h4></div><div class="item-price">₹260</div></div>
+            </div>
+            <h3 class="category-subtitle">Starters</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Idli Sambhar</h4></div><div class="item-price">₹210</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Sambhar Vada</h4></div><div class="item-price">₹210</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Idli Chaat</h4></div><div class="item-price">₹240</div></div>
+            </div>
+        </section>
+
+        <!-- Chinese -->
+        <section id="chinese" class="menu-section">
+            <div class="section-header">
+                <h2>Chinese</h2>
+                <div class="line"></div>
+            </div>
+            <h3 class="category-subtitle">Soups & Starters</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Manchow Soup</h4></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Hot & Sour Soup</h4></div><div class="item-price">₹220</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chilli Paneer Dry</h4></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Honey Chilli Potato</h4></div><div class="item-price">₹295</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Spring Roll</h4></div><div class="item-price">₹245</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Manchurian Dry</h4></div><div class="item-price">₹295</div></div>
+            </div>
+            <h3 class="category-subtitle">Main Course & Noodles</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Paneer Chilli Gravy</h4></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Manchurian Gravy</h4></div><div class="item-price">₹320</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Hakka Noodles</h4></div><div class="item-price">₹289</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chilli Garlic Noodles</h4></div><div class="item-price">₹289</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Fried Rice</h4></div><div class="item-price">₹289</div></div>
+            </div>
+        </section>
+
+        <!-- Italian -->
+        <section id="italian" class="menu-section">
+            <div class="section-header">
+                <h2>Italian</h2>
+                <div class="line"></div>
+            </div>
+            <h3 class="category-subtitle">Gourmet Pizzas</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Cheese Margherita Pizza</h4></div><div class="item-price">₹375</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Farmhouse Pizza</h4></div><div class="item-price">₹375</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Paneer Tikka Pizza</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Double Cheese Margherita</h4></div><div class="item-price">₹415</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Exotic Pizza</h4></div><div class="item-price">₹375</div></div>
+            </div>
+            <h3 class="category-subtitle">Pastas & Sides</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Creamy Cheese Fusilli</h4></div><div class="item-price">₹379</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Spicy Tomato Fusilli</h4></div><div class="item-price">₹379</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Cheese Garlic Bread</h4></div><div class="item-price">₹245</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chilli Cheese Toast</h4></div><div class="item-price">₹295</div></div>
+            </div>
+        </section>
+
+        <!-- Starters -->
+        <section id="starters" class="menu-section">
+            <div class="section-header">
+                <h2>Tandoori Starters</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Malai Paneer Tikka</h4></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Achaari Paneer Tikka</h4></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Dahi Ke Sholay</h4></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Hara Bhara Kebab</h4></div><div class="item-price">₹340</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Seekh Kebab</h4></div><div class="item-price">₹320</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Guldasta Platter</h4><p>4 Paneer Tikka, 4 Dahi Kebab, 4 Hara Bhara, 4 Chaap</p></div><div class="item-price">₹649</div></div>
+            </div>
+        </section>
+
+        <!-- Main Course -->
+        <section id="main-course" class="menu-section">
+            <div class="section-header">
+                <h2>Main Course</h2>
+                <div class="line"></div>
+            </div>
+            <h3 class="category-subtitle">Paneer Specialties</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Yatra Special Paneer</h4></div><div class="item-price">₹445</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Paneer Lababdar</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Kadhai Paneer</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Paneer Butter Masala</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Shahi Paneer</h4></div><div class="item-price">₹395</div></div>
+            </div>
+            <h3 class="category-subtitle">Vegetables & Dals</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Malai Kofta</h4></div><div class="item-price">₹385</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Dum Aloo Banarasi</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Kaju Curry</h4></div><div class="item-price">₹395</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Dal Makhani</h4></div><div class="item-price">₹315</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Dal Tadka</h4></div><div class="item-price">₹265</div></div>
+            </div>
+            <h3 class="category-subtitle">Indian Breads</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Butter Naan</h4></div><div class="item-price">₹105</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Garlic Naan</h4></div><div class="item-price">₹125</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Laccha Parantha</h4></div><div class="item-price">₹125</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Missi Roti</h4></div><div class="item-price">₹65</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Tandoori Roti</h4></div><div class="item-price">₹55</div></div>
+            </div>
+            <h3 class="category-subtitle">Rice & Biryani</h3>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Veg. Biryani</h4></div><div class="item-price">₹295</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Jeera Rice</h4></div><div class="item-price">₹215</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Steamed Basmati Rice</h4></div><div class="item-price">₹185</div></div>
+            </div>
+        </section>
+
+        <!-- Thalis -->
+        <section id="thalis" class="menu-section">
+            <div class="section-header">
+                <h2>Thalis</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Maharaja Thali</h4></div><div class="item-price">₹499</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Shahi Thali</h4></div><div class="item-price">₹449</div></div>
+                <div class="menu-item"><div class="item-info"><h4>South Indian Thali</h4></div><div class="item-price">₹449</div></div>
+            </div>
+        </section>
+
+        <!-- Sides & Salad -->
+        <section id="sides" class="menu-section">
+            <div class="section-header">
+                <h2>Sides & Salad</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Vegetable Raita</h4></div><div class="item-price">₹160</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Boondi Raita</h4></div><div class="item-price">₹160</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Masala Papad</h4></div><div class="item-price">₹80</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Green Salad</h4></div><div class="item-price">₹160</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Buttermilk (Chhaach)</h4></div><div class="item-price">₹60</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Fresh Lassi</h4></div><div class="item-price">₹140</div></div>
+            </div>
+        </section>
+
+        <!-- Desserts -->
+        <section id="desserts" class="menu-section">
+            <div class="section-header">
+                <h2>Desserts</h2>
+                <div class="line"></div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-info"><h4>Gulab Jamun (2 Pcs)</h4></div><div class="item-price">₹120</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Moongdal Halwa</h4></div><div class="item-price">₹149</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Walnut Brownie</h4></div><div class="item-price">₹99</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Lava Cake</h4></div><div class="item-price">₹99</div></div>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="yatra.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <script>
+        // Active section highlighting
+        const sections = document.querySelectorAll('.menu-section');
+        const navLinks = document.querySelectorAll('.menu-nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                    
+                    // Scroll the active link into view in the horizontal nav
+                    link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            });
+        });
+
+        // Smooth scroll with query param support
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            if (category) {
+                const element = document.getElementById(category);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
