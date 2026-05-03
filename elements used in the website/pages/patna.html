@@ -99,28 +99,7 @@
             height: 100%; 
             border: 0; 
         }
-        .open-in-maps-btn { 
-            position: absolute; 
-            top: 20px; 
-            left: 20px; 
-            background: #FFF; 
-            color: #1a73e8; 
-            padding: 10px 20px; 
-            border-radius: 10px; 
-            font-size: 1rem; 
-            font-weight: 600; 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            z-index: 5;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .open-in-maps-btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
-        }
+
     </style>
     <link rel="icon" type="image/svg+xml" href="../assets/logos/ghoomar-mascot.svg">
 </head>
@@ -183,10 +162,8 @@
                 <a href="https://menu.ghoomarthali.in/patna" target="_blank" class="map-btn-main btn-menu-outline">VIEW DINNER MENU</a>
             </div>
             <div class="map-frame-container" id="map">
-                <a href="https://maps.app.goo.gl/DXTnoNYMxTfcH4L98" target="_blank" class="open-in-maps-btn">
-                    Open in Maps <i class="fas fa-external-link-alt"></i>
-                </a>
-                <iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14391.992626732628!2d85.0852871!3d25.6049775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c2718bb791%3A0x66a1bec2dc55cce9!2sGhoomar%20Traditional%20Thali%20Restaurants%20-%20Raja%20Bazaar!5e0!3m2!1sen!2sin!4v1776666501107!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.9920903995558!2d85.08276777448775!3d25.605179077450558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c2718bb791%3A0x66a1bec2dc55cce9!2sGhoomar%20Traditional%20Thali%20Restaurants%20-%20Raja%20Bazaar!5e0!3m2!1sen!2sin!4v1777833623922!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <script>
                 new IntersectionObserver((entries, obs) => { entries[0].isIntersecting && (document.querySelector('#map iframe').src = document.querySelector('#map iframe').dataset.src, obs.disconnect()); }).observe(document.querySelector('#map'));
