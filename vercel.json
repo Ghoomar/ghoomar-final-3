@@ -28,6 +28,16 @@
     },
     {
       "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "yatra.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/yatra"
+    },
+    {
+      "source": "/",
       "destination": "/home"
     },
     {
