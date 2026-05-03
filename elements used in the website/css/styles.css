@@ -2526,6 +2526,14 @@ body.master-landing::before {
     transition: transform 0.6s ease;
 }
 
+.tile-village .tile-media img {
+    object-position: center 20%;
+}
+
+.tile-vedanta .tile-media img {
+    object-position: center 15%;
+}
+
 .master-tile:hover .tile-media img {
     transform: scale(1.07);
 }

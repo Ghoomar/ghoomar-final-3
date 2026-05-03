@@ -54,7 +54,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Experience Authentic<br><span class="accent-font">Rajasthani</span> Taste</h1>
-            <p class="hero-subtitle">Unlimited Pure Veg Rajasthani Thali served with 24+ Chokho dishes</p>
+            <p class="hero-subtitle">Treat yourself to an unlimited journey through Rajasthan's royal vegetarian cuisine</p>
             <div class="hero-buttons">
                 <a href="https://menu.ghoomarthali.in/" class="hero-btn primary" target="_blank" rel="noopener">Today's Menu</a>
                 <a href="tel:+918803980000" class="hero-btn outline">Call Us</a>
@@ -296,6 +296,95 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="offers" style="padding-top: 0;">
+        <div class="container">
+            <h3 class="section-title">&bull; <b>FREQUENTLY ASKED</b> &bull;</h3>
+            <p style="text-align: center; margin-bottom: 30px;">Quick answers to common questions about dining at Ghoomar.</p>
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>What is included in the Ghoomar Traditional Thali?</summary>
+                    <div class="faq-answer"><p>Our thali is a complete Rajasthani feast featuring over 24 authentic items including Dal Baati Churma, Gatte Ki Sabzi, Ker Sangri, various rotis, rice, starters, and traditional desserts.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is the thali really unlimited?</summary>
+                    <div class="faq-answer"><p>Yes! Our thali service is completely unlimited. Our staff will keep serving you all items with royal hospitality until you are fully satisfied.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you provide Jain food options?</summary>
+                    <div class="faq-answer"><p>Absolutely. We specialize in 100% pure vegetarian food and offer a dedicated Jain menu (prepared without onion and garlic) at all our outlets.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to book a table in advance?</summary>
+                    <div class="faq-answer"><p>While we welcome walk-ins, we recommend booking in advance, especially on weekends and for large groups, to ensure minimal waiting time. Call us at <a href="tel:+918803980000">+91 88039 80000</a>.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are the thali prices for adults and children?</summary>
+                    <div class="faq-answer"><p>Prices vary slightly by location and day. Generally, it is around ₹595 for adults and ₹395 for children (5-10 years). Please check the specific location page for exact pricing.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Are children allowed?</summary>
+                    <div class="faq-answer"><p>Yes, Ghoomar is a family-friendly restaurant. We have special pricing for children, and the vibrant atmosphere is enjoyed by guests of all ages.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-accordion { max-width: 820px; margin: 0 auto; }
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: #fff;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .faq-item[open] {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+        .faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--text-color, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+        }
+        .faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-item > summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: #888;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] > summary::after {
+            content: '\2212';
+            transform: rotate(0deg);
+            color: var(--primary-color, #b88a44);
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer p { margin: 0; }
+        .faq-answer a { color: var(--primary-color, #b88a44); text-decoration: underline; }
+        @media (max-width: 600px) {
+            .faq-item > summary { padding: 16px 18px; font-size: 0.98rem; }
+            .faq-answer { padding: 0 18px 16px; }
+        }
+    </style>
 
     <!-- Contact & Footer -->
     <footer id="contactus" class="footer">

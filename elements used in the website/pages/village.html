@@ -46,8 +46,8 @@
         <video class="village-hero-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/community-1.mp4"></video>
         <div class="hero-overlay village-hero-overlay"></div>
         <div class="hero-content village-hero-content">
-            <h1 class="hero-title story-hook"><span class="accent-font">25,000 sq.ft.</span> of Unlimited Fun, Unlimited Food, Experience Culture, and Heritage</h1>
-            <p class="hero-subtitle">One Ticket. Endless Memories. Unlock an immersive cultural portal right here in Gurugram.</p>
+            <h1 class="hero-title story-hook">Padharo Mhare Desh</h1>
+            <p class="hero-subtitle">One Ticket. Endless Memories. Unlock an immersive cultural portal right here in Gurugram</p>
             <div class="hero-buttons">
                 <a href="#logistics" class="hero-btn primary">Inquiry</a>
                 <a href="javascript:void(0)" class="hero-btn outline" id="openMasterMenu">Today's Menu</a>
@@ -431,6 +431,97 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="village-act" style="padding-top: 0;">
+        <div class="container">
+            <div class="act-header">
+                <h2 class="act-title">&bull; <b>FREQUENTLY ASKED</b> &bull;</h2>
+                <p class="act-subtitle">Quick answers to common questions about your visit to the Village.</p>
+            </div>
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>What exactly is Ghoomar Village?</summary>
+                    <div class="faq-answer"><p>Ghoomar Village is a 25,000 sq. ft. experiential space in Gurugram that brings the soul of Rajasthan to life. It features traditional welcomes, live folk performances, puppet shows, magic acts, cultural rituals, and an unlimited Rajasthani feast.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are the timings for the Village experience?</summary>
+                    <div class="faq-answer"><p>The full Village Experience (including entertainment and food) runs from 5:00 PM to 11:00 PM every day. We also offer an Unlimited Lunch Thali from 12:00 PM to 3:00 PM (focused on dining).</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is the food included in the entry ticket?</summary>
+                    <div class="faq-answer"><p>Yes! Your entry ticket covers the complete experience &mdash; including the unlimited Rajasthani feast and all live entertainment, performances, and shows inside the village.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is there a parking facility available at the venue?</summary>
+                    <div class="faq-answer"><p>Yes, we offer free basement parking for all our guests at M3M Urbana, Gurugram, ensuring a hassle-free arrival.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is Ghoomar Village suitable for corporate events or birthday parties?</summary>
+                    <div class="faq-answer"><p>Absolutely. With 25,000 sq. ft. of space and nonstop entertainment, we are a premier destination for corporate outings, family celebrations, and large group events.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to book my tickets in advance?</summary>
+                    <div class="faq-answer"><p>We highly recommend booking in advance, especially on weekends and public holidays, to ensure availability. You can book via WhatsApp or call us at <a href="tel:+919810211031">+91 98102 11031</a>.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-accordion { max-width: 820px; margin: 0 auto; }
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: #fff;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .faq-item[open] {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+        .faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--text-color, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+        }
+        .faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-item > summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: #888;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] > summary::after {
+            content: '\2212';
+            transform: rotate(0deg);
+            color: var(--primary-color, #b88a44);
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer p { margin: 0; }
+        .faq-answer a { color: var(--primary-color, #b88a44); text-decoration: underline; }
+        @media (max-width: 600px) {
+            .faq-item > summary { padding: 16px 18px; font-size: 0.98rem; }
+            .faq-answer { padding: 0 18px 16px; }
+        }
+    </style>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
