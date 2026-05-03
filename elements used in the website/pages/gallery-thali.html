@@ -259,29 +259,24 @@
 
         /* DOTS */
         .gal-dots {
-            position: absolute;
-            bottom: 16px; left: 50%;
-            transform: translateX(-50%);
+            position: relative;
             display: flex; flex-wrap: wrap; justify-content: center;
             gap: 6px; z-index: 10;
-            max-width: calc(100% - 120px);
-            padding: 6px 10px;
-            background: rgba(0,0,0,0.25);
-            border-radius: 999px;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            margin: 14px auto 0;
+            padding: 0 16px;
+            max-width: 100%;
         }
         .gal-dot {
-            width: 8px; height: 8px;
+            width: 9px; height: 9px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.45);
+            background: rgba(74,28,28,0.25);
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
             border: none;
             flex: 0 0 auto;
         }
         .gal-dot.active {
-            background: #fff;
+            background: var(--maroon, #4a1c1c);
             transform: scale(1.35);
         }
 
