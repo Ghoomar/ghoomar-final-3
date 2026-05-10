@@ -4228,7 +4228,7 @@ body.coming-soon {
 .scrollable-gallery img {
     flex: 0 0 100%;
     width: 100%;
-    height: 500px;
+    height: 450px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(42, 14, 14, 0.1);
@@ -4240,7 +4240,7 @@ body.coming-soon {
     .scrollable-gallery img {
         flex: 0 0 100%;
         width: 100%;
-        height: 600px;
+        height: 500px;
     }
 }
 
