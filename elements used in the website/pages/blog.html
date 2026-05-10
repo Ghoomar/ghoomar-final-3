@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Ghoomar Traditional Thali</title>
+    <meta name="description" content="Discover stories, traditions, and the rich flavors of Rajasthan on the official Ghoomar Blog.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/page-colors.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .blog-page-container { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .blog-header-section { text-align: center; margin-bottom: 60px; }
+        .blog-header-section h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand-maroon); margin-bottom: 15px; }
+        .blog-header-section p { font-size: 1.1rem; color: #6a5d4f; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
+        .blog-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.3s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid rgba(163, 28, 33, 0.05); }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(163, 28, 33, 0.1); border-color: rgba(163, 28, 33, 0.2); }
+        .blog-image { width: 100%; height: 240px; object-fit: cover; }
+        .blog-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-date { font-size: 0.85rem; color: var(--primary-color); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .blog-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: #2A0E0E; margin-bottom: 12px; line-height: 1.3; }
+        .blog-excerpt { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
+        .blog-more { margin-top: auto; color: var(--primary-color); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        
+        @media (max-width: 768px) {
+            .blog-header-section h2 { font-size: 2.2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .blog-page-container { padding: 40px 15px; }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/ghoomar-mascot.svg">
+</head>
+<body class="bg-pattern-2" style="font-family: 'Outfit', sans-serif;">
+
+    <nav class="thali-nav scrolled" style="position: relative; background: #FFF; border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <div class="thali-nav-inner">
+            <a href="thali.html" class="thali-nav-logo">
+                <img src="../assets/logos/ghoomar-thali.svg" alt="Ghoomar Traditional Thali" style="height: 44px; width: auto;">
+            </a>
+            <div class="thali-nav-links">
+                <a href="thali.html" class="thali-nav-link">Back to Thali</a>
+            </div>
+            <div class="thali-nav-end">
+                <a href="#contactus" class="thali-nav-cta">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="background-image: url('../assets/patterns/hawa-mahal-web.jpg'); min-height: 400px; height: 50vh;">
+        <div class="hero-overlay" style="background: rgba(42, 8, 16, 0.7);"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Ghoomar <span class="accent-font">Blog</span></h1>
+            <p class="hero-subtitle">Discover the stories, traditions, and flavors of Rajasthan</p>
+        </div>
+    </section>
+
+    <div class="blog-page-container">
+        <div class="blog-header-section">
+            <h2>Riwaazon Ka <span class="accent-font">Rangmanch</span></h2>
+            <p>Step into our world of heritage. From the secrets of our 100% pure vegetarian kitchen to the vibrant celebrations at Ghoomar Village, we share the heart of Rajasthan with you.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/thali/food/thali-item-1.jpg" alt="The Art of Thali" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">May 10, 2026</span>
+                    <h3 class="blog-title">The Art of the Perfect Rajasthani Thali</h3>
+                    <p class="blog-excerpt">Explore the history and selection of the 24+ dishes that make our traditional thali a royal feast.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            
+            <!-- Blog Post 2 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/village/Ghoomar village.webp" alt="Ghoomar Village Culture" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">April 25, 2026</span>
+                    <h3 class="blog-title">Ghoomar Village: A Cultural Renaissance</h3>
+                    <p class="blog-excerpt">How we're bringing the spirit of Rajasthan's rural celebrations to the modern city dweller.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            
+            <!-- Blog Post 3 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/thali/food/thali-item-3.jpg" alt="Secret Spices" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">April 12, 2026</span>
+                    <h3 class="blog-title">The Secret Spices of our Kitchen</h3>
+                    <p class="blog-excerpt">A deep dive into the hand-ground masalas that give Ghoomar its authentic, unforgettable taste.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- Blog Post 4 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/thali/food/thali-item-2.jpg" alt="Dal Baati" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">March 30, 2026</span>
+                    <h3 class="blog-title">Dal Baati Churma: More Than Just a Meal</h3>
+                    <p class="blog-excerpt">The origins of Rajasthan's most iconic dish and why it remains a symbol of hospitality.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- Blog Post 5 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/vedanta/Vedanta Exterior.jpg" alt="Vedanta Wellness" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">March 15, 2026</span>
+                    <h3 class="blog-title">Wellness and Taste: The Vedanta Philosophy</h3>
+                    <p class="blog-excerpt">How we combine traditional sattvic principles with modern fine dining at Vedanta.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- Blog Post 6 -->
+            <a href="#" class="blog-card">
+                <img src="../assets/patterns/hawa-mahal-web.jpg" alt="Architecture" class="blog-image">
+                <div class="blog-content">
+                    <span class="blog-date">March 02, 2026</span>
+                    <h3 class="blog-title">Architectural Wonders of Rajasthan</h3>
+                    <p class="blog-excerpt">From Jharokhas to Mandalas, exploring the design elements that inspire Ghoomar's spaces.</p>
+                    <span class="blog-more">Read Story <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contactus" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><strong>About Ghoomar</strong></h4>
+                    <p>Celebrating Rajasthani Heritage through authentic food, culture, and hospitality since 2016.</p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Quick Links</strong></h4>
+                    <p><a href="thali.html" style="color: inherit; text-decoration: none;">Traditional Thali</a></p>
+                    <p><a href="village.html" style="color: inherit; text-decoration: none;">Ghoomar Village</a></p>
+                    <p><a href="vedanta.html" style="color: inherit; text-decoration: none;">Vedanta</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Support</strong></h4>
+                    <p><strong>Phone:</strong> <a href="tel:+918803980000" style="color: inherit; text-decoration: none;">+91 88039 80000</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:support@ghoomarthali.in" style="color: inherit; text-decoration: none;">support@ghoomarthali.in</a></p>
+                    <p style="margin-top: 10px;"><a href="tel:9xxxxxxxxx" style="color: var(--primary-color, #b88a44); font-weight: bold; text-decoration: none;">Franchise with us</a></p>
+                </div>
+            </div>
+
+            <div class="footer-cta-form">
+                <h4>Have an Inquiry?</h4>
+                <p>Khamma Ghani! Chat with us on WhatsApp for bookings, events, or franchise inquiries.</p>
+                <a href="https://wa.me/918803980000?text=Khamma%20Ghani,%20I%20have%20an%20inquiry%20regarding%20Ghoomar." class="footer-cta-btn">
+                    <i class="fab fa-whatsapp"></i> CHAT WITH US
+                </a>
+            </div>
+        </div>
+
+        <div class="bottom-footer container">
+            <div class="copyright">
+                <p style="margin-top: 40px; opacity: 0.7; font-size: 0.85rem;">&copy; 2026 Ghoomar. All Rights Reserved. &nbsp;|&nbsp; <a href="../home.html">Ghoomar Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../js/page-transition.js" defer></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>

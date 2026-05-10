@@ -4834,6 +4834,10 @@ body.coming-soon {
     .thali-nav-links, .master-nav-links, .village-nav-links {
         display: none !important;
     }
+
+    .thali-nav-links.open, .village-nav-links.open {
+        display: flex !important;
+    }
 }
 
 /* 2. Taller Footer (min 50% screen) */
@@ -4868,6 +4872,68 @@ body.coming-soon {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Blog Section Styling */
+.blog-section {
+    padding: 80px 24px;
+    background: #fdf8e8;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 24px;
+}
+
+.blog-date {
+    font-size: 0.8rem;
+    color: var(--brand-warm, #8a7e6a);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.blog-title {
+    font-size: 1.25rem;
+    color: var(--brand-ink, #2a1b1b);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.blog-excerpt {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* 3. Footer WhatsApp Inquiry Form */
