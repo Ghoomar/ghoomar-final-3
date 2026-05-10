@@ -4842,7 +4842,7 @@ body.coming-soon {
 }
 
 /* 2. Taller Footer (min 50% screen) */
-.footer, .master-footer, .village-footer {
+.footer, .village-footer {
     min-height: 50vh;
     display: flex;
     flex-direction: column;
@@ -4851,6 +4851,11 @@ body.coming-soon {
     background: #1a0a0a;
     color: #FDF8E8;
     position: relative;
+}
+
+.master-footer {
+    min-height: unset;
+    background: transparent;
 }
 
 .footer-grid {
