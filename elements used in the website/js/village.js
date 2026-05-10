@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const gallery = wrapper.querySelector('.showcase-video-gallery');
         if (!gallery) return;
 
-        const vids    = Array.from(gallery.querySelectorAll('video'));
+        const vids    = Array.from(gallery.querySelectorAll('video, .video-placeholder'));
         const prevBtn = wrapper.querySelector('.gallery-prev');
         const nextBtn = wrapper.querySelector('.gallery-next');
         const dotsEl  = wrapper.querySelector('.gallery-dots');
