@@ -79,27 +79,22 @@ document.addEventListener('DOMContentLoaded', function () {
             window.open(`https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(message), '_blank');
         });
     }
-    // Gallery Auto-scroll
+    // Gallery Auto-scroll (one image at a time)
     const gallery = document.querySelector('.scrollable-gallery');
     if (gallery) {
-        let scrollAmount = 0;
-        let step = 1;
         let isHovered = false;
-
         gallery.addEventListener('mouseenter', () => isHovered = true);
         gallery.addEventListener('mouseleave', () => isHovered = false);
 
-        function autoScroll() {
+        setInterval(() => {
             if (!isHovered) {
-                scrollAmount += step;
-                if (scrollAmount >= gallery.scrollWidth - gallery.clientWidth) {
-                    scrollAmount = 0;
+                const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+                if (gallery.scrollLeft >= maxScroll - 10) {
+                    gallery.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    gallery.scrollBy({ left: gallery.clientWidth, behavior: 'smooth' });
                 }
-                gallery.scrollLeft = scrollAmount;
             }
-            requestAnimationFrame(autoScroll);
-        }
-        // Start auto-scroll after a small delay
-        setTimeout(() => requestAnimationFrame(autoScroll), 2000);
+        }, 2000);
     }
 });
