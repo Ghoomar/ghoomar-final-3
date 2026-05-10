@@ -94,18 +94,42 @@
     <section class="hero-section" style="background-image: url('../assets/vedanta/interior-1-web.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-
-            <h1 class="hero-title">Step into <span class="accent-font">Culture</span></h1>
-            <p class="hero-subtitle">A refined vegetarian dining destination in Varanasi inspired by tradition, comfort, and warm Indian hospitality.</p>
+            <p class="hero-subtitle" style="font-size: 1.4rem; letter-spacing: 0.1em; margin-bottom: 5px; opacity: 1;">Hello <span class="accent-font">Banaras</span></p>
+            <h1 class="hero-title">Experience the Heart of Heritage</h1>
+            <p class="hero-subtitle">Luxa Road, Varanasi</p>
             <div class="hero-buttons">
-                <a href="https://menu.ghoomarthali.in" target="_blank" rel="noopener" class="hero-btn primary">Menu</a>
-                <a href="#directions" class="hero-btn outline">Directions</a>
-                <a href="tel:+919910028098" class="hero-btn outline">Call Now</a>
+                <a href="https://vedanta.ghoomarthali.in/menu" class="btn-primary">View Menu</a>
+                <a href="tel:+919910028098" class="hero-btn-accent">Call Now</a>
             </div>
         </div>
+
+    <style>
+        .hero-btn-accent {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            background: #b88a44;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(184, 138, 68, 0.3);
+        }
+        .hero-btn-accent:hover {
+            background: #d4a76a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(184, 138, 68, 0.4);
+            color: #fff;
+        }
+    </style>
     </section>
 
-    <section id="about" class="culinary-journey">
+    <section id="about" class="culinary-journey" style="padding: 100px 0;">
         <img src="../design%20assets/Flower%201.svg" class="deco-ornament deco-center-left" style="opacity: 0.1;" alt="" aria-hidden="true">
         <div class="container journey-grid">
             <div class="journey-text">
@@ -116,7 +140,7 @@
                 <p>Built for families, pilgrims, travelers, and celebrations alike, the space blends contemporary comfort with Indian warmth to create an <span class="accent-font">elegant dine-in experience</span> just off Luxa Road.</p>
             </div>
             <div class="journey-images">
-                <img src="../assets/vedanta/Vedanta Exterior.jpg" alt="Vedanta by Ghoomar exterior" class="interior-img" loading="lazy" width="600" height="800" decoding="async">
+                <img src="../assets/vedanta/interior-2-web.jpg" alt="Vedanta by Ghoomar interior" class="interior-img" loading="lazy" width="600" height="800" decoding="async">
             </div>
         </div>
     </section>
@@ -138,25 +162,25 @@
                 </div>
                 <article class="proximity-stop">
                     <div class="proximity-time">10 min</div>
-                    <div class="proximity-icon"><i class="fas fa-place-of-worship"></i></div>
+                    <div class="proximity-icon"><img src="../assets/vedanta/kashi%20vishwanath.jpg" alt="Kashi Vishwanath Temple"></div>
                     <h4>Kashi Vishwanath Temple</h4>
                     <p>An easy stroll via Godowlia &mdash; ideal for a meal right after darshan.</p>
                 </article>
                 <article class="proximity-stop">
                     <div class="proximity-time">12 min</div>
-                    <div class="proximity-icon"><i class="fas fa-water"></i></div>
+                    <div class="proximity-icon"><img src="../assets/vedanta/Dashashwamedh%20Ghat.jpg" alt="Dashashwamedh Ghat"></div>
                     <h4>Dashashwamedh Ghat</h4>
                     <p>Time your evening dinner around the Ganga Aarti for an unforgettable night.</p>
                 </article>
                 <article class="proximity-stop">
                     <div class="proximity-time">5 min</div>
-                    <div class="proximity-icon"><i class="fas fa-map-signs"></i></div>
+                    <div class="proximity-icon"><img src="../assets/vedanta/Godowlia%20Chowk.jpg" alt="Godowlia Chowk"></div>
                     <h4>Godowlia Chowk</h4>
                     <p>Step out into the city's main heritage and shopping square, moments away.</p>
                 </article>
             </div>
             <div class="proximity-cta">
-                <a href="#directions" class="btn-primary"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+                <a href="tel:+919910028098" class="btn-primary">Call for Table Booking</a>
             </div>
         </div>
     </section>
@@ -226,19 +250,23 @@
         }
         .proximity-icon {
             position: absolute;
-            top: -28px;
+            top: -35px;
             left: 50%;
             transform: translateX(-50%);
-            width: 64px;
-            height: 64px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8a1538 0%, #b1234d 100%);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            box-shadow: 0 8px 20px rgba(138, 21, 56, 0.25);
+            background: #fff;
+            padding: 3px;
+            box-shadow: 0 8px 25px rgba(138, 21, 56, 0.2);
+            overflow: hidden;
+            border: 2px solid #b88a44;
+        }
+        .proximity-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         .proximity-time {
             display: inline-block;
@@ -309,52 +337,47 @@
             <p style="text-align: center; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">From morning's first bite to late-night sweet cravings, discover a world of pure vegetarian delicacies.</p>
             
             <div class="menu-category-grid">
-                <a href="/menu?category=breakfast" class="menu-cat-box">
-                    <div class="menu-cat-icon"><i class="fas fa-sun"></i></div>
+                <a href="vedanta-menu.html?category=breakfast" class="menu-cat-box">
+                    <div class="menu-cat-icon"><i class="fas fa-coffee"></i></div>
                     <h4>Breakfast</h4>
                     <span class="menu-cat-tag">Sunrise Flavors</span>
                 </a>
-                <a href="/menu?category=beverages" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=beverages" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-glass-whiskey"></i></div>
                     <h4>Beverages</h4>
-                    <span class="menu-cat-tag">Sips & Shakes</span>
+                    <span class="menu-cat-tag">7 AM - 11 AM</span>
                 </a>
-                <a href="/menu?category=snacks" class="menu-cat-box">
-                    <div class="menu-cat-icon"><i class="fas fa-cookie"></i></div>
-                    <h4>Snacks</h4>
-                    <span class="menu-cat-tag">Quick Bites</span>
-                </a>
-                <a href="/menu?category=south-indian" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=south-indian" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-utensils"></i></div>
                     <h4>South Indian</h4>
-                    <span class="menu-cat-tag">Dosas & More</span>
+                    <span class="menu-cat-tag">Dosas & Idlis</span>
                 </a>
-                <a href="/menu?category=chinese" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=chinese" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-fire"></i></div>
                     <h4>Chinese</h4>
-                    <span class="menu-cat-tag">Wok & Sizzle</span>
+                    <span class="menu-cat-tag">Oriental Flavours</span>
                 </a>
-                <a href="/menu?category=italian" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=italian" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-pizza-slice"></i></div>
                     <h4>Italian</h4>
                     <span class="menu-cat-tag">Pizza & Pasta</span>
                 </a>
-                <a href="/menu?category=starters" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=starters" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-fire-burner"></i></div>
                     <h4>Starters</h4>
                     <span class="menu-cat-tag">Tandoori Grills</span>
                 </a>
-                <a href="/menu?category=main-course" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=main-course" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-bowl-food"></i></div>
                     <h4>Main Course</h4>
                     <span class="menu-cat-tag">Hearty Meals</span>
                 </a>
-                <a href="/menu?category=thalis" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=thalis" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-th-large"></i></div>
                     <h4>Thalis</h4>
                     <span class="menu-cat-tag">Royal Spreads</span>
                 </a>
-                <a href="/menu?category=desserts" class="menu-cat-box">
+                <a href="vedanta-menu.html?category=desserts" class="menu-cat-box">
                     <div class="menu-cat-icon"><i class="fas fa-ice-cream"></i></div>
                     <h4>Desserts</h4>
                     <span class="menu-cat-tag">Sweet Endings</span>
@@ -362,7 +385,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
-                <a href="/menu" class="btn-primary">View Full Comprehensive Menu</a>
+                <a href="https://vedanta.ghoomarthali.in/menu" class="btn-primary">View Full Comprehensive Menu</a>
             </div>
         </div>
     </section>
@@ -585,7 +608,7 @@
                     </div>
                     <p class="miq-error" id="vedantaInquiryError" aria-live="polite"></p>
                     <button type="submit" class="miq-submit">
-                        <i class="fab fa-whatsapp"></i> Send Inquiry
+                        <i class="fab fa-whatsapp"></i> Chat with Me
                     </button>
                 </form>
             </div>

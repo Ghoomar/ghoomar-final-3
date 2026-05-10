@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurugram | Ghoomar Village</title>
+    <meta name="description" content="Ghoomar Village Gurugram — a 25,000 sq. ft. immersive Rajasthani experience at M3M Urbana, Sector 67. Unlimited food, live folk performances, and cultural experiences.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/page-colors.css">
+    <link rel="stylesheet" href="../css/village-story.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/ghoomar-mascot.svg">
+
+    <style>
+        .outlet-page { padding: 60px 20px; text-align: center; color: var(--text-color); max-width: 900px; margin: 0 auto; }
+        .outlet-page-header { background: url('../assets/village/village-logo.png') center/cover; position: relative; color: white; padding: 100px 20px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background-color: #1a0a0a; }
+        .outlet-page-header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .outlet-page-header * { position: relative; z-index: 1; }
+        .outlet-title { font-size: 2.5rem; margin-bottom: 10px; color: #FFF; font-family: 'Outfit', sans-serif; }
+        .outlet-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
+        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; transform: translateY(0); }
+        .btn-call, .btn-book, .btn-menu, .btn-map { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+        .btn-call:hover, .btn-book:hover, .btn-menu:hover, .btn-map:hover { background: transparent; color: var(--primary-color); transform: translateY(-3px); }
+        .action-btn:active { transform: translateY(0) scale(0.96); }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
+        .info-card { background: #fff; border: 1px solid rgba(163, 28, 33, 0.1); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .info-card h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .info-card p { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: start; gap: 12px; line-height: 1.5; color: var(--text-color); }
+        .info-card i { color: var(--primary-color); margin-top: 4px; font-size: 1.1rem; width: 20px; }
+        .pricing-section { margin-top: 30px; background: rgba(251, 226, 1, 0.1); border: 1px solid rgba(251, 226, 1, 0.5); padding: 20px; border-radius: 12px; text-align: center; }
+        .pricing-section h4 { color: #2A0E0E; margin-bottom: 15px; font-size: 1.1rem; }
+        .price-tag { display: inline-block; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; margin: 5px; font-size: 0.9rem; }
+        .map-card { margin-top: 50px; background: #FFF; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid rgba(163,28,33,0.1); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .map-card-actions { padding: 20px; display: flex; flex-direction: column; gap: 15px; background: #fff; }
+        .map-btn-main { display: block; width: 100%; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-transform: uppercase; text-align: center; font-size: 0.95rem; letter-spacing: 1.2px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-decoration: none; }
+        .btn-wa { background: #A31C21; color: white !important; border: none; }
+        .btn-wa:hover { background: #8B181C; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(163,28,33,0.4); }
+        .btn-menu-outline { background: white !important; color: #A31C21 !important; border: 2px solid #A31C21; }
+        .btn-menu-outline:hover { background: #A31C21 !important; color: white !important; transform: translateY(-2px); }
+        .map-frame-container { height: 400px; position: relative; border-top: 2px solid #FDF8E8; }
+        .map-frame-container iframe { width: 100%; height: 100%; border: 0; }
+        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .outlet-actions { flex-direction: column; } .action-btn { justify-content: center; } .outlet-page { padding: 40px 15px; } }
+    </style>
+</head>
+<body class="village-page bg-flowers-2" style="font-family: 'Outfit', sans-serif;">
+
+    <nav class="village-nav scrolled" style="position: relative;">
+        <div class="village-nav-inner">
+            <a href="https://village.ghoomarthali.in/" class="village-nav-logo">
+                <img src="../assets/logos/ghoomar-village.svg" alt="Ghoomar Village">
+            </a>
+            <div class="village-nav-links">
+                <a href="https://village.ghoomarthali.in/" class="village-nav-link">Back to Village</a>
+                <a href="#village-locations" class="village-nav-link">All Locations</a>
+            </div>
+            <div class="village-nav-end"></div>
+        </div>
+    </nav>
+
+    <section class="hero-section village-hero" style="min-height: 500px; height: 70vh;">
+        <video class="village-hero-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/community-1.mp4"></video>
+        <div class="hero-overlay village-hero-overlay"></div>
+        <div class="hero-content village-hero-content">
+            <h1 class="hero-title"><span class="accent-font">Gurugram</span></h1>
+            <p class="hero-subtitle">Ghoomar Village &mdash; M3M Urbana, Sector 67</p>
+        </div>
+    </section>
+
+    <div class="outlet-page">
+
+        <div class="outlet-actions">
+            <a href="tel:+919810211031" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
+            <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Village%20Gurugram." target="_blank" class="action-btn btn-book"><i class="fas fa-whatsapp"></i> WhatsApp</a>
+            <a href="../assets/village/menu-dinner.pdf" target="_blank" rel="noopener" class="action-btn btn-menu"><i class="fas fa-book-open"></i> View Menu</a>
+            <a href="#map" class="action-btn btn-map"><i class="fas fa-directions"></i> Directions</a>
+        </div>
+
+        <div class="details-grid">
+            <div class="info-card">
+                <h4><i class="fas fa-info-circle"></i> Venue Details</h4>
+                <p><i class="fas fa-map-marker-alt"></i> <span>2nd Floor, M3M Urbana,<br>Sector 67, Gurugram, Haryana 122101</span></p>
+                <p><i class="fas fa-phone-alt"></i> <span>+91 98102 11031</span></p>
+                <p><i class="fas fa-envelope"></i> <span>village@ghoomarthali.in</span></p>
+                <p><i class="fas fa-car"></i> <span>Free Basement Parking Available</span></p>
+            </div>
+
+            <div class="info-card">
+                <h4><i class="fas fa-clock"></i> Timings</h4>
+                <p style="margin-bottom: 10px;"><strong>Open Every Day</strong></p>
+                <p style="margin-bottom: 5px;"><i class="fas fa-sun" style="font-size:0.9rem;"></i> <span>Unlimited Lunch Thali: 12:00 PM &ndash; 3:00 PM</span></p>
+                <p><i class="fas fa-moon" style="font-size:0.9rem;"></i> <span>Village Experience: 5:00 PM &ndash; 11:00 PM</span></p>
+
+                <div class="pricing-section">
+                    <h4>Entry Pricing</h4>
+                    <div class="price-tag">Adult: &#8377;995/-</div>
+                    <div class="price-tag">Child: &#8377;714/-</div>
+                    <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 10px; margin-bottom: 0; display: block; text-align: center;">*Taxes extra. Prices higher on Fri, Sat, Sun.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-card" id="map">
+            <div class="map-card-actions">
+                <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Village%20Gurugram." target="_blank" class="map-btn-main btn-wa">
+                    <i class="fab fa-whatsapp"></i>&nbsp; BOOK ON WHATSAPP
+                </a>
+                <a href="../assets/village/menu-dinner.pdf" target="_blank" class="map-btn-main btn-menu-outline">VIEW DINNER MENU</a>
+            </div>
+            <div class="map-frame-container">
+                <iframe
+                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.3524673898165!2d77.0673413753512!3d28.393433575796245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23b6eff14b4b%3A0x1bb602aec36469e0!2sGhoomar%20Village%20-%20Experience%20Rajasthan!5e0!3m2!1sen!2sin!4v1713593000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><strong>About Ghoomar Village</strong></h4>
+                    <p>A 25,000 sq. ft. immersive Rajasthani experience — unlimited food, live folk performances, and cultural traditions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Quick Links</strong></h4>
+                    <p><a href="https://village.ghoomarthali.in/" style="color: inherit; text-decoration: none;">Village Home</a></p>
+                    <p><a href="https://restaurants.ghoomarthali.in/" style="color: inherit; text-decoration: none;">Traditional Thali</a></p>
+                    <p><a href="#village-locations" style="color: inherit; text-decoration: none;">All Locations</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Contact</strong></h4>
+                    <p><strong>Phone:</strong> <a href="tel:+919810211031" style="color: inherit; text-decoration: none;">+91 98102 11031</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:village@ghoomarthali.in" style="color: inherit; text-decoration: none;">village@ghoomarthali.in</a></p>
+                </div>
+            </div>
+
+            <div class="footer-cta-form">
+                <h4>Have an Inquiry?</h4>
+                <p>Khamma Ghani! Chat with us on WhatsApp for bookings, events, or franchise inquiries.</p>
+                <a href="https://wa.me/919810211031?text=Khamma%20Ghani,%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Village%20Gurugram." class="footer-cta-btn">
+                    <i class="fab fa-whatsapp"></i> CHAT WITH US
+                </a>
+            </div>
+        </div>
+        <div class="bottom-footer container">
+            <div class="copyright">
+                <p>&copy; 2026 Ghoomar Village. All Rights Reserved. &nbsp;|&nbsp; <a href="https://ghoomarthali.in/">Ghoomar Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../js/page-transition.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/maps-launcher.js" defer></script>
+</body>
+</html>

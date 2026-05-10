@@ -26,7 +26,7 @@
         }
 
         .menu-header {
-            padding: 90px 20px 30px;
+            padding: 40px 20px 30px;
             text-align: center;
             background: transparent;
         }
@@ -48,42 +48,49 @@
 
         .menu-nav {
             position: sticky;
-            top: 60px;
+            top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 4px 0;
-            border-bottom: 1px solid rgba(184, 138, 68, 0.08);
+            background: #fff;
+            padding: 12px 0;
+            border-bottom: 2px solid #f0e6d2;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            justify-content: center;
         }
         .menu-nav::-webkit-scrollbar { display: none; }
 
         .menu-nav-inner {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            padding: 0 15px;
+            gap: 8px;
+            padding: 0 20px;
         }
 
         .menu-nav-link {
             text-decoration: none;
             color: #6a5d4f;
             font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.78rem;
+            font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 5px 12px;
-            border-radius: 99px;
-            transition: all 0.3s ease;
+            letter-spacing: 0.08em;
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
         }
 
-        .menu-nav-link:hover, .menu-nav-link.active {
+        .menu-nav-link:hover {
+            color: #8a1538;
+            background: rgba(138, 21, 56, 0.05);
+        }
+
+        .menu-nav-link.active {
             background: #8a1538;
             color: #fff;
+            box-shadow: 0 4px 12px rgba(138, 21, 56, 0.2);
         }
 
         .menu-container {
@@ -225,21 +232,21 @@
             
             /* Premium Menu Bar (Category Nav) */
             .menu-nav { 
-                top: 60px; 
-                padding: 8px 0; 
-                background: rgba(255, 255, 255, 0.98);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                top: 0; 
+                padding: 10px 0; 
+                background: #fff;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                justify-content: flex-start;
             }
             .menu-nav-inner { 
-                gap: 8px; 
-                padding: 0 10px; 
-                justify-content: flex-start; /* Allow natural scroll feel on mobile */
+                gap: 6px; 
+                padding: 0 12px; 
+                justify-content: flex-start;
             }
             .menu-nav-link { 
-                font-size: 0.85rem; 
-                padding: 6px 14px; 
-                background: rgba(184, 138, 68, 0.05);
-                border: 1px solid rgba(184, 138, 68, 0.1);
+                font-size: 0.75rem; 
+                padding: 7px 14px; 
+                border: 1px solid rgba(138, 21, 56, 0.08);
             }
             .menu-nav-link.active {
                 background: #8a1538;
@@ -251,7 +258,7 @@
             .item-price { font-size: 1.05rem; }
             .section-header h2 { font-size: 1.7rem; }
             
-            .back-link { display: none; }
+            .back-link { display: flex; }
         }
 
         @media (max-width: 480px) {
@@ -262,16 +269,7 @@
 </head>
 <body class="menu-page vedanta-page bg-flowers">
 
-    <nav class="thali-nav scrolled" style="position: fixed; width: 100%; top: 0; z-index: 1000;">
-        <div class="thali-nav-inner">
-            <a href="/" class="thali-nav-logo">
-                <img src="../assets/vedanta/vedanta-logo.png" alt="Vedanta By Ghoomar">
-            </a>
-            <div class="thali-nav-end">
-                <a href="/" class="thali-nav-cta visible-mobile">Back to Home</a>
-            </div>
-        </div>
-    </nav>
+
 
     <header class="menu-header">
         <h1>Our <span class="accent-font">Menu</span></h1>
@@ -302,9 +300,9 @@
                 <div class="line"></div>
             </div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Poha With Jalebi</h4></div><div class="item-price">₹195</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Puri Sabji</h4></div><div class="item-price">₹240</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Chola Bhatura</h4></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Poha With Jalebi</h4><p>Spiced flattened rice, sweet Jalebi</p></div><div class="item-price">₹195</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Puri Sabji</h4><p>Wheat Puris, spicy potato curry</p></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chola Bhatura</h4><p>Fluffy bread, spicy chickpea curry</p></div><div class="item-price">₹240</div></div>
             </div>
         </section>
 
@@ -337,11 +335,11 @@
                 <div class="line"></div>
             </div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Mixed Pakoda</h4></div><div class="item-price">₹265</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Samosa Chaat</h4></div><div class="item-price">₹195</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Mirchi Vada</h4></div><div class="item-price">₹125</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Pyaaz Kachori</h4></div><div class="item-price">₹149</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Butter Pav Bhaji</h4></div><div class="item-price">₹169</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Mixed Pakoda</h4><p>Assorted crispy vegetable fritters</p></div><div class="item-price">₹265</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Samosa Chaat</h4><p>Crushed samosas, tangy chutneys</p></div><div class="item-price">₹195</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Mirchi Vada</h4><p>Large spicy stuffed fritters</p></div><div class="item-price">₹125</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Pyaaz Kachori</h4><p>Crunchy onion-stuffed pastry</p></div><div class="item-price">₹149</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Butter Pav Bhaji</h4><p>Spiced mash, buttery buns</p></div><div class="item-price">₹169</div></div>
             </div>
         </section>
 
@@ -353,10 +351,10 @@
             </div>
             <h3 class="category-subtitle">Dosas & Uttapams</h3>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Plain Dosa</h4></div><div class="item-price">₹210</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Masala Dosa</h4></div><div class="item-price">₹225</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Paneer Masala Dosa</h4></div><div class="item-price">₹260</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Rava Onion Masala Dosa</h4></div><div class="item-price">₹260</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Plain Dosa</h4><p>Crispy rice & lentil crepe</p></div><div class="item-price">₹210</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Masala Dosa</h4><p>Crepe with spiced potato filling</p></div><div class="item-price">₹225</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Paneer Masala Dosa</h4><p>Crepe with spiced cottage cheese</p></div><div class="item-price">₹260</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Rava Onion Masala Dosa</h4><p>Semolina crepe, onion, spices</p></div><div class="item-price">₹260</div></div>
                 <div class="menu-item"><div class="item-info"><h4>Onion Uttapam</h4></div><div class="item-price">₹240</div></div>
                 <div class="menu-item"><div class="item-info"><h4>Mixed Vegetable Uttapam</h4></div><div class="item-price">₹260</div></div>
             </div>
@@ -376,12 +374,12 @@
             </div>
             <h3 class="category-subtitle">Soups & Starters</h3>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Manchow Soup</h4></div><div class="item-price">₹240</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Hot & Sour Soup</h4></div><div class="item-price">₹220</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Chilli Paneer Dry</h4></div><div class="item-price">₹350</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Honey Chilli Potato</h4></div><div class="item-price">₹295</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Spring Roll</h4></div><div class="item-price">₹245</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Veg. Manchurian Dry</h4></div><div class="item-price">₹295</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Manchow Soup</h4><p>Spicy, crunchy noodle garnish</p></div><div class="item-price">₹240</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Hot & Sour Soup</h4><p>Tangy, spicy vegetable broth</p></div><div class="item-price">₹220</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Chilli Paneer Dry</h4><p>Crispy paneer, spicy chillies</p></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Honey Chilli Potato</h4><p>Sweet, spicy glazed potatoes</p></div><div class="item-price">₹295</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Spring Roll</h4><p>Crispy stuffed veggie rolls</p></div><div class="item-price">₹245</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Manchurian Dry</h4><p>Spicy fried veggie balls</p></div><div class="item-price">₹295</div></div>
             </div>
             <h3 class="category-subtitle">Main Course & Noodles</h3>
             <div class="menu-grid">
@@ -423,11 +421,11 @@
                 <div class="line"></div>
             </div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Malai Paneer Tikka</h4></div><div class="item-price">₹350</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Achaari Paneer Tikka</h4></div><div class="item-price">₹350</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Dahi Ke Sholay</h4></div><div class="item-price">₹350</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Hara Bhara Kebab</h4></div><div class="item-price">₹340</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Veg. Seekh Kebab</h4></div><div class="item-price">₹320</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Malai Paneer Tikka</h4><p>Creamy marinated grilled paneer</p></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Achaari Paneer Tikka</h4><p>Tangy, pickle-marinated paneer</p></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Dahi Ke Sholay</h4><p>Crunchy rolls, spiced yogurt</p></div><div class="item-price">₹350</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Hara Bhara Kebab</h4><p>Fried spinach and pea patties</p></div><div class="item-price">₹340</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Veg. Seekh Kebab</h4><p>Smoky grilled minced veggies</p></div><div class="item-price">₹320</div></div>
                 <div class="menu-item"><div class="item-info"><h4>Guldasta Platter</h4><p>4 Paneer Tikka, 4 Dahi Kebab, 4 Hara Bhara, 4 Chaap</p></div><div class="item-price">₹649</div></div>
             </div>
         </section>
@@ -477,9 +475,9 @@
                 <div class="line"></div>
             </div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="item-info"><h4>Maharaja Thali</h4></div><div class="item-price">₹499</div></div>
-                <div class="menu-item"><div class="item-info"><h4>Shahi Thali</h4></div><div class="item-price">₹449</div></div>
-                <div class="menu-item"><div class="item-info"><h4>South Indian Thali</h4></div><div class="item-price">₹449</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Maharaja Thali</h4><p>Grand assortment of heritage dishes</p></div><div class="item-price">₹499</div></div>
+                <div class="menu-item"><div class="item-info"><h4>Shahi Thali</h4><p>A royal platter of classics</p></div><div class="item-price">₹449</div></div>
+                <div class="menu-item"><div class="item-info"><h4>South Indian Thali</h4><p>Authentic flavours of the South</p></div><div class="item-price">₹449</div></div>
             </div>
         </section>
 
@@ -515,7 +513,7 @@
 
     </main>
 
-    <a href="/" class="back-link">
+    <a href="https://vedanta.ghoomarthali.in/" class="back-link" title="Back to Home">
         <i class="fas fa-arrow-left"></i>
     </a>
 

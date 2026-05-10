@@ -130,4 +130,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 2000);
         }
     }
+
+    // Hero Swiper
+    if (document.querySelector('.hero-swiper')) {
+        const hSwiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            autoplay: { 
+                delay: 5000, 
+                disableOnInteraction: false 
+            },
+            loop: true,
+            speed: 1500,
+            watchSlidesProgress: true,
+            grabCursor: false,
+            allowTouchMove: false // Keep it as a background effect
+        });
+    }
 });

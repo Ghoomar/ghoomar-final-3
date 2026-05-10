@@ -46,14 +46,20 @@
 
     <!-- Act 1: The Hook -->
     <section class="hero-section village-hero">
-        <video class="village-hero-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/community-1.mp4"></video>
+        <!-- Desktop Video (Horizontal) -->
+        <video class="village-hero-video desktop-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/community-1.mp4"></video>
+        <!-- Mobile Video (Vertical) -->
+        <video class="village-hero-video mobile-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/Video%20For%20Hero%20Section%20of%20Ghoomar%20Village.mp4"></video>
         <div class="hero-overlay village-hero-overlay"></div>
         <div class="hero-content village-hero-content">
             <h1 class="hero-title story-hook">Padharo Mhare <span class="accent-font">Desh</span></h1>
             <p class="hero-subtitle">One Ticket. Endless Memories. Unlock an immersive cultural portal into the heart of Rajasthan</p>
             <div class="hero-buttons">
                 <a href="tel:+919810211031" class="hero-btn outline">Call Us</a>
-                <a href="javascript:void(0)" class="hero-btn outline" id="openMasterMenu">Today's Menu</a>
+                <div class="menu-tooltip-wrapper">
+                    <a href="javascript:void(0)" class="hero-btn outline" id="openMasterMenu">Our Menu</a>
+                    <span class="menu-caption">Our chef's special menu changes daily</span>
+                </div>
                 <a href="#logistics" class="hero-btn primary">Inquiry</a>
             </div>
         </div>
@@ -64,9 +70,11 @@
     <section id="arrival" class="village-act act-welcome" style="position:relative; overflow:hidden;">
         <img src="../design%20assets/Flower%202.svg" class="deco-ornament deco-top-right" style="opacity: 0.1;" alt="" aria-hidden="true">
         <div class="container">
-            <div class="act-header">
-                <h2 class="act-title">Padharo Mhare Desh</h2>
-                <p class="act-subtitle">The royal treatment starts before you even enter.</p>
+            <div class="act-header journey-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px;">
+                <span class="journey-kicker">The Royal Welcome</span>
+                <h2 class="journey-title">Padharo Mhare <span class="accent-font">Desh</span></h2>
+                <div class="journey-divider" style="margin: 0 auto 25px auto;"></div>
+                <p class="act-subtitle" style="font-size: 1.3rem; opacity: 0.8; max-width: 700px;">The royal treatment starts before you even enter.</p>
             </div>
             <div class="welcome-content">
                 <p>Your immersive journey begins the moment you approach our doors. Feel the warmth of a traditional <strong>Teeka</strong> and the heartbeat of the loud, joyous <strong>Dhol welcome</strong>. You are no longer in a bustling modern city &mdash; you have just stepped into a 25,000 sq. ft. fully air-conditioned, living, breathing Rajasthani village.</p>
@@ -85,20 +93,22 @@
         <div class="container showcase-row">
             <div class="gallery-wrapper">
                 <div class="showcase-video-gallery">
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-4.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-1.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-2.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-3.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-5.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-6.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/food-7.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%201.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%202.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%203.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%204.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%205.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%206.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Unlimited%20Food/Unlimited%20Food%207.mp4" type="video/mp4"></video>
                 </div>
                 <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
                 <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 <div class="gallery-dots"></div>
             </div>
-            <div class="showcase-text">
-                <h2 class="act-title" style="text-align: left;">Unlimited Food</h2>
+            <div class="showcase-text journey-text">
+                <span class="journey-kicker">Pure Vegetarian</span>
+                <h2 class="journey-title" style="text-align: left;">Unlimited <span class="accent-font">Food</span></h2>
+                <div class="journey-divider"></div>
                 <p>Indulge in 20+ starters and 21+ main course dishes, all unlimited, freshly prepared, and served with royal hospitality &mdash; a pure vegetarian feast inspired by traditional Indian flavors.</p>
             </div>
         </div>
@@ -109,21 +119,21 @@
         <div class="container showcase-row reverse">
             <div class="gallery-wrapper">
                 <div class="showcase-video-gallery">
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-1.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-2.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-3.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-5.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-6.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-7.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-8.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/ent-9.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%201.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%202.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%203.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%204.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%205.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Endless%20Entertainment/Endless%20Entertainment%206.mp4" type="video/mp4"></video>
                 </div>
                 <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
                 <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 <div class="gallery-dots"></div>
             </div>
-            <div class="showcase-text">
-                <h2 class="act-title" style="text-align: left;">Endless Entertainment</h2>
+            <div class="showcase-text journey-text">
+                <span class="journey-kicker">Live Culture</span>
+                <h2 class="journey-title" style="text-align: left;">Endless <span class="accent-font">Entertainment</span></h2>
+                <div class="journey-divider"></div>
                 <p>From live folk dances and puppet shows to magic acts, games, and interactive experiences &mdash; every corner of Ghoomar Village is alive with joy and nonstop engagement.</p>
                 <p>Step into a living stage of traditions where Rajasthan's culture comes alive through music, performances, rituals, and timeless village art forms.</p>
             </div>
@@ -134,16 +144,19 @@
         <div class="container showcase-row">
             <div class="gallery-wrapper">
                 <div class="showcase-video-gallery">
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-1.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-2.mp4" type="video/mp4"></video>
-                    <video muted playsinline preload="metadata"><source src="../assets/village/videos/community-3.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Apno%20Ke%20Sath/Apno%20Ke%20Sath%201.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Apno%20Ke%20Sath/Apno%20Ke%20Sath%202.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Apno%20Ke%20Sath/Apno%20Ke%20Sath%203.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Apno%20Ke%20Sath/Apno%20Ke%20Sath%204.mp4" type="video/mp4"></video>
                 </div>
                 <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
                 <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 <div class="gallery-dots"></div>
             </div>
-            <div class="showcase-text">
-                <h2 class="act-title" style="text-align: left;">Apno ka Saath</h2>
+            <div class="showcase-text journey-text">
+                <span class="journey-kicker">Better Together</span>
+                <h2 class="journey-title" style="text-align: left;">Apno ka <span class="accent-font">Saath</span></h2>
+                <div class="journey-divider"></div>
                 <p>Because celebrations are better together. A space designed for families, friends, and colleagues to laugh, bond, and create memories &mdash; just like a real village gathering.</p>
             </div>
         </div>
@@ -154,31 +167,86 @@
         <div class="container showcase-row reverse">
             <div class="gallery-wrapper">
                 <div class="showcase-video-gallery">
-                    <div class="video-placeholder"><i class="fas fa-play-circle"></i><span>Coming Soon</span></div>
-                    <div class="video-placeholder"><i class="fas fa-play-circle"></i><span>Coming Soon</span></div>
-                    <div class="video-placeholder"><i class="fas fa-play-circle"></i><span>Coming Soon</span></div>
-                    <div class="video-placeholder"><i class="fas fa-play-circle"></i><span>Coming Soon</span></div>
-                    <div class="video-placeholder"><i class="fas fa-play-circle"></i><span>Coming Soon</span></div>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Riwazo%20Ka%20Rangmanch/Riwaazon%20Ka%20Rangmanch%201.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Riwazo%20Ka%20Rangmanch/Riwaazon%20Ka%20Rangmanch%202.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Riwazo%20Ka%20Rangmanch/Riwaazon%20Ka%20Rangmanch%204.mp4" type="video/mp4"></video>
+                    <video muted playsinline preload="metadata"><source src="../assets/village/Riwazo%20Ka%20Rangmanch/Riwaazon%20Ka%20Rangmanch%205.mp4" type="video/mp4"></video>
                 </div>
                 <button class="gallery-btn gallery-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
                 <button class="gallery-btn gallery-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 <div class="gallery-dots"></div>
             </div>
-            <div class="showcase-text">
-                <h2 class="act-title" style="text-align: left;">Riwaazon Ka Rangmanch</h2>
-                <p>Step onto the stage of traditions. From ancient folk rituals and living customs to age-old ceremonies brought to life — Ghoomar Village preserves and presents the living heritage of Rajasthan in its most vibrant form.</p>
+            <div class="showcase-text journey-text">
+                <span class="journey-kicker">Our Heritage</span>
+                <h2 class="journey-title" style="text-align: left;">Riwaazon Ka <span class="accent-font">Rangmanch</span></h2>
+                <div class="journey-divider"></div>
+                <p>Experience the soul of Rajasthan through a grand showcase of rituals, art, and traditions. A place where every performance tells a story of royalty and resilience.</p>
                 <p>Every performance is a story. Every ritual is a memory passed down through generations — waiting to be discovered by you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="village-act" style="padding: 100px 0;">
+        <div class="container">
+            <div class="act-header journey-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 60px;">
+                <span class="journey-kicker">Experience More</span>
+                <h2 class="journey-title">List of All <span class="accent-font">Activities</span></h2>
+                <div class="journey-divider" style="margin: 0 auto 25px auto;"></div>
+                <p class="act-subtitle" style="font-size: 1.3rem; opacity: 0.8; max-width: 700px;">Every corner of Ghoomar Village offers something new to discover.</p>
+            </div>
+            
+            <div class="activities-grid">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-theater-masks"></i></div>
+                    <h4>Puppet Show</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-magic"></i></div>
+                    <h4>Magic Show</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-music"></i></div>
+                    <h4>Folk Music</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-user-friends"></i></div>
+                    <h4>Ghoomar Dance</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-hands"></i></div>
+                    <h4>Pottery Making</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-fire"></i></div>
+                    <h4>Fire Act</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h4>Mehendi Art</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-star-and-crescent"></i></div>
+                    <h4>Astrology</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Village Games</h4>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-hat-cowboy"></i></div>
+                    <h4>Turban Tying</h4>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Act 7: The Logistics -->
     <section id="logistics" class="village-act act-logistics" style="position:relative; overflow:hidden;">
-        <img src="../design%20assets/Logo%20-%20Ghoomar%20Mascot.svg" class="deco-ornament deco-bottom-left" style="opacity: 0.12;" alt="" aria-hidden="true">
+        <img src="../design%20assets/Logo%20-%20Ghoomar%20Mascot.svg" class="deco-ornament mascot-watermark" style="opacity: 0.18;" alt="" aria-hidden="true">
         <div class="container">
             <div class="act-header">
                 <h2 class="act-title">Claim Your Ticket</h2>
-                <p class="act-subtitle">Choose your preferred experience to step into the village.</p>
+                <p class="act-subtitle">Choose your preferred experience to step into Ghoomar Village.</p>
             </div>
 
             <div class="logistics-grid">
@@ -203,7 +271,7 @@
                     <div class="p-card featured">
                         <div class="featured-badge">Highly Recommended</div>
                         <div class="p-header">
-                            <h4>Unlimited Village Experience</h4>
+                            <h4>Unlimited Ghoomar Village Experience</h4>
                             <p>5 PM to 11 PM (Food + All Entertainment Included)</p>
                         </div>
                         <div class="p-prices">
@@ -223,18 +291,18 @@
                 <!-- Family Favourites Section (Website Only Booking) -->
                 <div class="family-favourites" style="grid-column: 1 / -1; margin-top: 30px; margin-bottom: 20px;">
                     <h3 class="section-title">&bull; <b>FAMILY FAVOURITES</b> &bull;</h3>
-                    <p class="family-intro">A simplified and lucrative approach to <b>Family Table Reservations</b>. One unlimited thali, built for the whole family &mdash; Rajasthani experience, bhopa music, feel of Rajasthan, pagdi photo shoot and more than 24+ items.</p>
+                    <p class="family-intro">A simplified and lucrative approach to <b>Family Table Reservations</b>. One unlimited thali, built for the whole family &mdash; Rajasthani experience, Bhopa music, feel of Rajasthan, pagdi photo shoot and more than 24+ items.</p>
 
                     <div class="family-perks">
                         <span class="family-chip">Rajasthani Experience</span>
                         <span class="family-chip">Unlimited Thali</span>
                         <span class="family-chip">More Than 24+ Items</span>
-                        <span class="family-chip">Bopa Music Experience</span>
+                        <span class="family-chip">Bhopa Music Experience</span>
                         <span class="family-chip">Feel Of Rajasthan</span>
                         <span class="family-chip">Pagdi Photo Shoot</span>
                     </div>
 
-                    <p class="family-pricing-heading">Starting from &#8377;955 per person &mdash; Choose Your Table Size</p>
+                    <p class="family-pricing-heading">Starting from &#8377;995 + 5% GST per person &mdash; Choose Your Table Size</p>
 
                     <div class="family-pricing">
 
@@ -343,19 +411,34 @@
 
                 <div class="info-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
                     <h3 style="margin-bottom: 10px; color: var(--primary-color);">Plan Your Journey</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.7; font-size: 0.9rem;">Select your nearest village location below for address, map &amp; directions.</p>
+                    <p style="margin-bottom: 20px; opacity: 0.7; font-size: 0.9rem;">Select your nearest Ghoomar Village location below for address, map &amp; directions.</p>
 
                     <div class="info-group">
                         <h5>Need Assistance?</h5>
-                        <p><i class="fas fa-phone"></i> +91 98102 11031<br>
-                        <i class="fas fa-envelope"></i> village@ghoomarthali.in</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+919810211031" style="color: inherit; text-decoration: none;">+91 98102 11031</a><br>
+                        <i class="fas fa-envelope"></i> <a href="mailto:village@ghoomarthali.in" style="color: inherit; text-decoration: none;">village@ghoomarthali.in</a></p>
                     </div>
 
                     <div class="hero-buttons" style="margin-top: 24px; justify-content: flex-start;">
                         <a href="tel:+919810211031" class="btn-primary">Call to Book</a>
-                        <a href="../assets/village/menu-dinner.pdf" class="btn-secondary" target="_blank" rel="noopener">View Menu</a>
+                        <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20this%20is%20%5Bname%5D%2C%20and%20I'm%20planning%20to%20visit%20soon%2C%20could%20you%20please%20share%20today's%20menu%3F" class="btn-secondary" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Today's Menu</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="craftage" class="village-act" style="padding: 100px 0;">
+        <div class="container showcase-row">
+            <div class="showcase-text journey-text">
+                <span class="journey-kicker">The Shopping Experience</span>
+                <h2 class="journey-title">Craftage <span class="accent-font">India</span></h2>
+                <div class="journey-divider"></div>
+                <p>Take a piece of Rajasthan home with you. Craftage India brings together the finest handcrafted treasures from local artisans &mdash; from intricate jewelry to vibrant textiles.</p>
+                <p>Step into a marketplace where tradition meets artistry. Discover hand-painted pottery, authentic spices, and timeless souvenirs that capture the spirit of Ghoomar Village.</p>
+            </div>
+            <div class="gallery-wrapper" style="display: flex; justify-content: center; align-items: center;">
+                <img src="../assets/logos/craftage-india.png" alt="Craftage India Logo" style="max-width: 100%; height: auto; max-height: 350px;">
             </div>
         </div>
     </section>
@@ -560,7 +643,7 @@
         <div class="container">
             <div class="act-header">
                 <h2 class="act-title">&bull; <b>FREQUENTLY ASKED</b> &bull;</h2>
-                <p class="act-subtitle">Quick Answers to Common Questions About Your Visit to the Village.</p>
+                <p class="act-subtitle">Quick Answers to Common Questions About Your Visit to Ghoomar Village.</p>
             </div>
             <div class="faq-accordion">
                 <details class="faq-item">
@@ -568,12 +651,12 @@
                     <div class="faq-answer"><p>Ghoomar Village is a 25,000 sq. ft. experiential space in Gurugram that brings the soul of Rajasthan to life. It features traditional welcomes, live folk performances, puppet shows, magic acts, cultural rituals, and an unlimited Rajasthani feast.</p></div>
                 </details>
                 <details class="faq-item">
-                    <summary>What are the timings for the Village experience?</summary>
-                    <div class="faq-answer"><p>The full Village Experience (including entertainment and food) runs from 5:00 PM to 11:00 PM every day. We also offer an Unlimited Lunch Thali from 12:00 PM to 3:00 PM (focused on dining).</p></div>
+                    <summary>What are the timings for the Ghoomar Village experience?</summary>
+                    <div class="faq-answer"><p>The full Ghoomar Village Experience (including entertainment and food) runs from 5:00 PM to 11:00 PM every day. We also offer an Unlimited Lunch Thali from 12:00 PM to 3:00 PM (focused on dining).</p></div>
                 </details>
                 <details class="faq-item">
                     <summary>Is the food included in the entry ticket?</summary>
-                    <div class="faq-answer"><p>Yes! Your entry ticket covers the complete experience &mdash; including the unlimited Rajasthani feast and all live entertainment, performances, and shows inside the village.</p></div>
+                    <div class="faq-answer"><p>Yes! Your entry ticket covers the complete experience &mdash; including the unlimited Rajasthani feast and all live entertainment, performances, and shows inside Ghoomar Village.</p></div>
                 </details>
                 <details class="faq-item">
                     <summary>Is there a parking facility available at the venue?</summary>
@@ -653,7 +736,7 @@
                 <div class="footer-col">
                     <h4><strong>Hours</strong></h4>
                     <p>Unlimited Lunch: 12pm &ndash; 3pm</p>
-                    <p>Village Experience: 5pm &ndash; 11pm</p>
+                    <p>Ghoomar Village Experience: 5pm &ndash; 11pm</p>
                     <p>Open All Days Of The Week</p>
                 </div>
                 <div class="footer-col">

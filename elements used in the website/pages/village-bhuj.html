@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuj | Ghoomar Village</title>
+    <meta name="description" content="Ghoomar Village is coming to Bhuj, Gujarat. Stay tuned for the full immersive Rajasthani experience — unlimited food, live folk performances, and cultural traditions.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/page-colors.css">
+    <link rel="stylesheet" href="../css/village-story.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/ghoomar-mascot.svg">
+
+    <style>
+        .outlet-page { padding: 60px 20px; text-align: center; color: var(--text-color); max-width: 900px; margin: 0 auto; }
+        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; }
+        .btn-call { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+        .btn-call:hover { background: transparent; color: var(--primary-color); transform: translateY(-3px); }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
+        .info-card { background: #fff; border: 1px solid rgba(163, 28, 33, 0.1); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .info-card h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .info-card p { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: start; gap: 12px; line-height: 1.5; color: var(--text-color); }
+        .info-card i { color: var(--primary-color); margin-top: 4px; font-size: 1.1rem; width: 20px; }
+        .coming-soon-banner {
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 60%, #1a0a0a 100%);
+            border-radius: 20px;
+            padding: 60px 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(251,200,23,0.08) 0%, transparent 70%);
+        }
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(251,200,23,0.15);
+            border: 1px solid rgba(251,200,23,0.4);
+            color: #FBC817;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+        .coming-soon-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .coming-soon-sub {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            max-width: 420px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .notify-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .notify-cta:hover { background: #c02329; transform: translateY(-2px); }
+        .placeholder-note {
+            display: inline-block;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .coming-soon-title { font-size: 2rem; } .outlet-page { padding: 40px 15px; } }
+    </style>
+</head>
+<body class="village-page bg-flowers-2" style="font-family: 'Outfit', sans-serif;">
+
+    <nav class="village-nav scrolled" style="position: relative;">
+        <div class="village-nav-inner">
+            <a href="https://village.ghoomarthali.in/" class="village-nav-logo">
+                <img src="../assets/logos/ghoomar-village.svg" alt="Ghoomar Village">
+            </a>
+            <div class="village-nav-links">
+                <a href="https://village.ghoomarthali.in/" class="village-nav-link">Back to Village</a>
+                <a href="village.html#village-locations" class="village-nav-link">All Locations</a>
+            </div>
+            <div class="village-nav-end"></div>
+        </div>
+    </nav>
+
+    <section class="hero-section village-hero" style="min-height: 500px; height: 70vh;">
+        <video class="village-hero-video" autoplay loop muted playsinline preload="metadata" poster="../assets/village/village-logo.png" src="../assets/village/videos/ent-1.mp4"></video>
+        <div class="hero-overlay village-hero-overlay"></div>
+        <div class="hero-content village-hero-content">
+            <h1 class="hero-title"><span class="accent-font">Bhuj</span>, Gujarat</h1>
+            <p class="hero-subtitle">Ghoomar Village &mdash; Coming Soon</p>
+        </div>
+    </section>
+
+    <div class="outlet-page">
+
+        <div class="coming-soon-banner">
+            <span class="coming-soon-badge">Coming Soon</span>
+            <h2 class="coming-soon-title">Rajasthan is coming to <span style="color:#FBC817;">Bhuj</span></h2>
+            <p class="coming-soon-sub">We're building a brand new immersive cultural experience in the heart of Gujarat. Stay tuned for the grand opening announcement.</p>
+            <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20I%20want%20to%20know%20more%20about%20Ghoomar%20Village%20Bhuj." target="_blank" class="notify-cta">
+                <i class="fab fa-whatsapp"></i> Get Notified on WhatsApp
+            </a>
+        </div>
+
+        <div class="details-grid">
+            <div class="info-card">
+                <h4><i class="fas fa-map-marker-alt"></i> Venue Details</h4>
+                <p><i class="fas fa-map-marker-alt"></i>
+                    <span>
+                        [BHUJ_ADDRESS] <br>
+                        Bhuj, Gujarat <br>
+                        <span class="placeholder-note">Details to be announced</span>
+                    </span>
+                </p>
+                <p><i class="fas fa-phone-alt"></i> <span>+91 98102 11031 (shared line)</span></p>
+                <p><i class="fas fa-envelope"></i> <span>village@ghoomarthali.in</span></p>
+            </div>
+
+            <div class="info-card">
+                <h4><i class="fas fa-clock"></i> Timings</h4>
+                <p><i class="fas fa-info-circle"></i>
+                    <span>
+                        Timings will be announced closer to opening.<br>
+                        <span class="placeholder-note">[BHUJ_TIMINGS]</span>
+                    </span>
+                </p>
+
+                <div style="margin-top: 20px; background: rgba(251,226,1,0.1); border: 1px solid rgba(251,226,1,0.4); padding: 16px; border-radius: 10px;">
+                    <p style="font-size: 0.85rem; color: #555; text-align: center; margin-bottom: 0; display: block;">
+                        <i class="fas fa-bell" style="color: var(--primary-color); width: auto;"></i>
+                        &nbsp;Follow our social pages for opening updates
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div style="margin-top: 50px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px dashed rgba(163,28,33,0.3); max-width: 600px; margin-left: auto; margin-right: auto;">
+            <div style="padding: 40px 20px; text-align: center; background: #fafafa;">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: rgba(163,28,33,0.2); display: block; margin-bottom: 14px;"></i>
+                <p style="color: #999; font-size: 0.9rem; margin: 0;">
+                    Map will be added once the venue is confirmed.<br>
+                    <span class="placeholder-note">[BHUJ_MAP_EMBED_URL]</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><strong>About Ghoomar Village</strong></h4>
+                    <p>A 25,000 sq. ft. immersive Rajasthani experience — unlimited food, live folk performances, and cultural traditions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Quick Links</strong></h4>
+                    <p><a href="https://village.ghoomarthali.in/" style="color: inherit; text-decoration: none;">Village Home</a></p>
+                    <p><a href="https://restaurants.ghoomarthali.in/" style="color: inherit; text-decoration: none;">Traditional Thali</a></p>
+                    <p><a href="village.html#village-locations" style="color: inherit; text-decoration: none;">All Locations</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4><strong>Contact</strong></h4>
+                    <p><strong>Phone:</strong> <a href="tel:+919810211031" style="color: inherit; text-decoration: none;">+91 98102 11031</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:village@ghoomarthali.in" style="color: inherit; text-decoration: none;">village@ghoomarthali.in</a></p>
+                </div>
+            </div>
+
+            <div class="footer-cta-form">
+                <h4>Want to Know More?</h4>
+                <p>Khamma Ghani! Chat with us on WhatsApp for updates on the Bhuj opening.</p>
+                <a href="https://wa.me/919810211031?text=Khamma%20Ghani,%20I%20want%20to%20know%20more%20about%20Ghoomar%20Village%20Bhuj." class="footer-cta-btn">
+                    <i class="fab fa-whatsapp"></i> CHAT WITH US
+                </a>
+            </div>
+        </div>
+        <div class="bottom-footer container">
+            <div class="copyright">
+                <p>&copy; 2026 Ghoomar Village. All Rights Reserved. &nbsp;|&nbsp; <a href="https://ghoomarthali.in/">Ghoomar Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../js/page-transition.js" defer></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>
