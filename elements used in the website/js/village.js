@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function startAuto() {
             // Native video 'ended' event handles auto-advance
             const active = vids[idx];
-            if (active && active.paused) {
+            if (active && active.tagName === 'VIDEO' && active.paused) {
                 active.play().catch(e => {
                     if (e.name !== 'AbortError') {
                         console.warn("Play failed", e);
@@ -171,29 +171,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         function stopAuto() {
-            // Nothing to clear, just pause
             const active = vids[idx];
-            if (active) active.pause();
+            if (active && active.tagName === 'VIDEO') active.pause();
         }
 
         // Event Listeners
         if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); goTo(--idx); startAuto(); });
         if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); goTo(++idx); startAuto(); });
-        
+
         // Auto-advance on video end (if not looping)
         vids.forEach((v, i) => {
-            v.addEventListener('ended', () => goTo(idx + 1));
+            if (v.tagName === 'VIDEO') v.addEventListener('ended', () => goTo(idx + 1));
         });
 
         // Optimization: Intersection Observer
         // Only start the first video when the section is actually visible
         const observer = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
-                // If never played before, start at 0
-                if (vids[idx].paused) goTo(idx);
+                const active = vids[idx];
+                if (!active || active.tagName !== 'VIDEO' || active.paused) goTo(idx);
                 startAuto();
             } else {
-                vids.forEach(v => v.pause());
+                vids.forEach(v => { if (v.tagName === 'VIDEO') v.pause(); });
                 stopAuto();
             }
         }, { threshold: 0.3 });
