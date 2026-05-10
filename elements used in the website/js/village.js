@@ -147,8 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else if (isRight) {
                         e.preventDefault();
                         stopAuto(); goTo(idx + 1); startAuto();
-                    } else if (isActive) {
-                        // Let user pause/play if they click active video
+                    } else if (isActive && v.tagName === 'VIDEO') {
                         if (v.paused) v.play();
                         else v.pause();
                     }
