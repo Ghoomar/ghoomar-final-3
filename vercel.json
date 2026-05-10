@@ -14,7 +14,7 @@
           "value": "village.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/village"
+      "destination": "/pages/village.html"
     },
     {
       "source": "/",
@@ -24,7 +24,7 @@
           "value": "vedanta.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/vedanta"
+      "destination": "/pages/vedanta.html"
     },
     {
       "source": "/",
@@ -34,7 +34,7 @@
           "value": "yatra.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/yatra"
+      "destination": "/pages/yatra.html"
     },
     {
       "source": "/",
@@ -44,11 +44,7 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/thali"
-    },
-    {
-      "source": "/",
-      "destination": "/index"
+      "destination": "/pages/thali.html"
     },
     {
       "source": "/menu",
@@ -58,7 +54,7 @@
           "value": "vedanta.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/vedanta-menu"
+      "destination": "/pages/vedanta-menu.html"
     },
     {
       "source": "/chandni-chowk",
@@ -68,7 +64,7 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/chandni-chowk"
+      "destination": "/pages/chandni-chowk.html"
     },
     {
       "source": "/connaught-place",
@@ -78,7 +74,7 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/connaught-place"
+      "destination": "/pages/connaught-place.html"
     },
     {
       "source": "/guwahati",
@@ -88,7 +84,7 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/guwahati"
+      "destination": "/pages/guwahati.html"
     },
     {
       "source": "/patna",
@@ -98,7 +94,7 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/patna"
+      "destination": "/pages/patna.html"
     },
     {
       "source": "/gallery",
@@ -108,11 +104,19 @@
           "value": "restaurants.ghoomarthali.in"
         }
       ],
-      "destination": "/pages/gallery-thali"
+      "destination": "/pages/gallery-thali.html"
     },
     {
       "source": "/yatra-menu",
-      "destination": "/pages/yatra-menu"
+      "destination": "/pages/yatra-menu.html"
+    },
+    {
+      "source": "/index",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
     }
   ]
 }
