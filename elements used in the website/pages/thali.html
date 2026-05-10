@@ -459,6 +459,180 @@
         body.bg-elephant .testimonials-section .testimonials-grid { gap: 16px; }
     </style>
 
+    <!-- WhatsApp Location Picker Modal -->
+    <div class="wa-modal-backdrop" id="waLocationModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+        <div class="wa-modal">
+            <div class="wa-modal-header">
+                <div class="wa-modal-header-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                    <h3 id="waModalTitle">Choose Your Location</h3>
+                    <p>We'll connect you to the right outlet</p>
+                </div>
+                <button type="button" class="wa-modal-close" id="waModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="wa-modal-body">
+                <a class="wa-location-card" href="https://wa.me/919810703703?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Connaught%20Place." target="_blank" rel="noopener">
+                    <div class="wa-loc-info">
+                        <span class="wa-loc-name">Connaught Place</span>
+                        <span class="wa-loc-addr">Opp. PVR Plaza, Connaught Place, Delhi</span>
+                    </div>
+                    <span class="wa-loc-num">+91 98107 03703</span>
+                    <i class="fab fa-whatsapp wa-arrow"></i>
+                </a>
+                <a class="wa-location-card" href="https://wa.me/919717090971?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Chandni%20Chowk." target="_blank" rel="noopener">
+                    <div class="wa-loc-info">
+                        <span class="wa-loc-name">Chandni Chowk</span>
+                        <span class="wa-loc-addr">Omaxe Chowk, Dawatpur, Chandni Chowk, Delhi</span>
+                    </div>
+                    <span class="wa-loc-num">+91 97170 90971</span>
+                    <i class="fab fa-whatsapp wa-arrow"></i>
+                </a>
+                <a class="wa-location-card" href="https://wa.me/919031296999?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Patna." target="_blank" rel="noopener">
+                    <div class="wa-loc-info">
+                        <span class="wa-loc-name">Patna</span>
+                        <span class="wa-loc-addr">Raja Bazaar, Patna, Bihar</span>
+                    </div>
+                    <span class="wa-loc-num">+91 90312 96999</span>
+                    <i class="fab fa-whatsapp wa-arrow"></i>
+                </a>
+                <a class="wa-location-card" href="https://wa.me/919871944399?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Guwahati." target="_blank" rel="noopener">
+                    <div class="wa-loc-info">
+                        <span class="wa-loc-name">Guwahati</span>
+                        <span class="wa-loc-addr">GS Road, Guwahati, Assam</span>
+                    </div>
+                    <span class="wa-loc-num">+91 98719 44399</span>
+                    <i class="fab fa-whatsapp wa-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .wa-modal-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(10, 3, 3, 0.72);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        .wa-modal-backdrop.is-open { display: flex; }
+        .wa-modal {
+            background: #fff;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            animation: wa-pop 0.22s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+        @keyframes wa-pop {
+            from { opacity: 0; transform: translateY(18px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .wa-modal-header {
+            background: #25D366;
+            color: #fff;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+        }
+        .wa-modal-header-icon {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .wa-modal-header h3 { margin: 0; font-size: 1.1rem; font-weight: 700; }
+        .wa-modal-header p  { margin: 2px 0 0; font-size: 0.82rem; opacity: 0.88; }
+        .wa-modal-close {
+            position: absolute; top: 12px; right: 12px;
+            background: rgba(255,255,255,0.18);
+            border: none; color: #fff;
+            width: 30px; height: 30px; border-radius: 50%;
+            cursor: pointer; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .wa-modal-close:hover { background: rgba(255,255,255,0.32); }
+        .wa-modal-body { padding: 12px 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+        .wa-location-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 15px;
+            border: 1.5px solid #e8e8e8;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            background: #fafafa;
+            transition: border-color 0.18s, background 0.18s, transform 0.12s;
+        }
+        .wa-location-card:hover {
+            border-color: #25D366;
+            background: #f0fff4;
+            transform: translateY(-1px);
+        }
+        .wa-loc-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .wa-loc-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1a1a1a;
+        }
+        .wa-loc-addr {
+            font-size: 0.76rem;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .wa-loc-num {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #25D366;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .wa-arrow {
+            font-size: 1.3rem;
+            color: #25D366;
+            flex-shrink: 0;
+        }
+        @media (max-width: 480px) {
+            .wa-loc-num { display: none; }
+            .wa-loc-addr { font-size: 0.72rem; }
+        }
+    </style>
+
+    <script>
+        (function () {
+            var backdrop = document.getElementById('waLocationModal');
+            var openBtn  = document.getElementById('openWaLocationPicker');
+            var closeBtn = document.getElementById('waModalClose');
+
+            function open()  { backdrop.classList.add('is-open');    document.body.style.overflow = 'hidden'; }
+            function close() { backdrop.classList.remove('is-open'); document.body.style.overflow = ''; }
+
+            if (openBtn)  openBtn.addEventListener('click', open);
+            if (closeBtn) closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', function (e) { if (e.target === backdrop) close(); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && backdrop.classList.contains('is-open')) close();
+            });
+        })();
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="../js/page-transition.js" defer></script>
     <script src="../js/script.js" defer></script>
