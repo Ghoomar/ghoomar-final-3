@@ -79,4 +79,27 @@ document.addEventListener('DOMContentLoaded', function () {
             window.open(`https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(message), '_blank');
         });
     }
+    // Gallery Auto-scroll
+    const gallery = document.querySelector('.scrollable-gallery');
+    if (gallery) {
+        let scrollAmount = 0;
+        let step = 1;
+        let isHovered = false;
+
+        gallery.addEventListener('mouseenter', () => isHovered = true);
+        gallery.addEventListener('mouseleave', () => isHovered = false);
+
+        function autoScroll() {
+            if (!isHovered) {
+                scrollAmount += step;
+                if (scrollAmount >= gallery.scrollWidth - gallery.clientWidth) {
+                    scrollAmount = 0;
+                }
+                gallery.scrollLeft = scrollAmount;
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        // Start auto-scroll after a small delay
+        setTimeout(() => requestAnimationFrame(autoScroll), 2000);
+    }
 });
