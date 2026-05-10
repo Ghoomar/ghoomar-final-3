@@ -1952,7 +1952,7 @@ body.master-landing::before {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    transition: none !important;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
 }
 
 .thali-nav {
@@ -2546,7 +2546,8 @@ body.master-landing::before {
 
 .master-tile .tile-media {
     position: relative;
-    height: 160px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -2702,7 +2703,7 @@ body.master-landing::before {
     .master-hero { padding: 80px 16px 30px; }
     .master-hero-content { margin: 15px auto 30px; }
     .master-logo { width: 120px; margin-bottom: 15px; }
-    .master-tile .tile-media { height: 110px; }
+    .master-tile .tile-media { aspect-ratio: 1 / 1; height: auto; }
     .master-tile .tile-body { padding: 16px 20px 20px; }
     .master-tile h2 { font-size: 1.25rem; margin-bottom: 8px; }
     .master-tile .tile-body p { font-size: 0.9rem; margin-bottom: 14px; }
