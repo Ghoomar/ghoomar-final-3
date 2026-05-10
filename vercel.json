@@ -17,6 +17,26 @@
       "destination": "/pages/village"
     },
     {
+      "source": "/village-gurugram",
+      "has": [
+        {
+          "type": "host",
+          "value": "village.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/village-gurugram"
+    },
+    {
+      "source": "/village-bhuj",
+      "has": [
+        {
+          "type": "host",
+          "value": "village.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/village-bhuj"
+    },
+    {
       "source": "/",
       "has": [
         {
