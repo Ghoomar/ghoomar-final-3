@@ -48,7 +48,7 @@
     },
     {
       "source": "/",
-      "destination": "/index"
+      "destination": "/home"
     },
     {
       "source": "/menu",
