@@ -1129,17 +1129,18 @@ img {
     bottom: 40px;
     right: 30px;
     z-index: 99;
-    font-size: 18px;
+    font-size: 20px;
     outline: none;
-    background: rgba(255, 244, 194, 0.95);
+    background: var(--primary-color);
+    color: #fff;
     cursor: pointer;
     border-radius: 50%;
-    border: 1px solid var(--glass-border);
+    border: none;
     display: none;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(163, 28, 33, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #backToTop:hover {
@@ -1947,15 +1948,23 @@ body.master-landing::before {
 /* ============================================================
    THALI PAGE NAV
    ============================================================ */
-.thali-nav {
+.thali-nav, .pill-nav, .master-nav, .village-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
+    transition: none !important;
+}
+
+.thali-nav {
     background: rgba(253, 248, 232, 0.95);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.nav-hidden {
+    transform: translateY(-110%);
+    pointer-events: none;
 }
 
 .thali-nav.nav-hidden {
@@ -2137,7 +2146,7 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    transition: none !important;
 }
 
 .master-nav.nav-hidden {
@@ -2253,7 +2262,7 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    transition: none !important;
 }
 
 .village-nav.nav-hidden {
@@ -4785,4 +4794,123 @@ body.coming-soon {
 .culinary-journey, .offers, .testimonials-section, .proximity-section, .main-gallery-section, .outlet-pricing, .outlet-page, .master-hero {
     position: relative;
     overflow: hidden;
+}
+
+/* ────────────────────────────────────────────────────────────
+   STEP 1: GLOBAL REFINEMENTS
+   ──────────────────────────────────────────────────────────── */
+
+/* 1. Centered Header Logos (Mobile) - Maintaining Original Height */
+@media (max-width: 768px) {
+    .pill-nav, .thali-nav-inner, .master-nav-inner, .village-nav-inner {
+        display: grid !important;
+        grid-template-columns: 60px 1fr 60px !important;
+        align-items: center !important;
+        height: 64px !important;
+        padding: 0 15px !important;
+        gap: 0 !important;
+    }
+
+    .thali-nav-logo, .master-nav-logo, .village-nav-logo {
+        grid-column: 2 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .thali-nav-logo img, 
+    .master-nav-logo img, 
+    .village-nav-logo img {
+        margin: 0 auto;
+        max-height: 45px;
+        width: auto;
+    }
+
+    .nav-actions, .thali-nav-end, .master-nav-end, .village-nav-end {
+        grid-column: 3 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+    
+    .thali-nav-links, .master-nav-links, .village-nav-links {
+        display: none !important;
+    }
+}
+
+/* 2. Taller Footer (min 50% screen) */
+.footer, .master-footer, .village-footer {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+    background: #1a0a0a;
+    color: #FDF8E8;
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-col h4::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 40px !important;
+}
+
+.footer > .container:not(.bottom-footer),
+.master-footer > .container:not(.bottom-footer),
+.village-footer > .container:not(.bottom-footer) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 3. Footer WhatsApp Inquiry Form */
+.footer-cta-form {
+    order: -1; /* Move above grid */
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto 60px; /* Push grid down */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.footer-cta-form h4 {
+    color: #FDF8E8;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.footer-cta-form p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.footer-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }

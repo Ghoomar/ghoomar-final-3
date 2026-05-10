@@ -3,25 +3,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const backToTopBtn = document.getElementById("backToTop");
 
     // Single rAF-throttled scroll handler — replaces two separate scroll listeners
+    let lastScrollY = window.scrollY;
     let scrollRafPending = false;
+    const allNavs = document.querySelectorAll('.pill-nav, .thali-nav, .master-nav, .village-nav');
+
     window.addEventListener('scroll', () => {
         if (!scrollRafPending) {
             scrollRafPending = true;
             requestAnimationFrame(() => {
-                const y = window.scrollY;
-
-                if (pillNav) {
-                    if (y > 50) {
-                        pillNav.style.background = 'rgba(255, 244, 194, 0.97)';
-                        pillNav.style.boxShadow = '0 5px 20px rgba(163, 28, 33, 0.18)';
-                    } else {
-                        pillNav.style.background = 'var(--glass-bg)';
-                        pillNav.style.boxShadow = '0 8px 24px rgba(163, 28, 33, 0.1)';
-                    }
+                const currentScrollY = window.scrollY;
+                // 1. Header scroll behavior (Direct Response)
+                if (currentScrollY <= 50) {
+                    allNavs.forEach(nav => nav.classList.remove('nav-hidden'));
+                } else if (currentScrollY > lastScrollY) {
+                    // Scrolling down directly
+                    allNavs.forEach(nav => nav.classList.add('nav-hidden'));
+                } else if (currentScrollY < lastScrollY) {
+                    // Scrolling up directly
+                    allNavs.forEach(nav => nav.classList.remove('nav-hidden'));
                 }
+                lastScrollY = currentScrollY;
 
+                // 2. Nav shadow effects
+                allNavs.forEach(nav => {
+                    if (currentScrollY > 50) {
+                        nav.classList.add('scrolled');
+                    } else {
+                        nav.classList.remove('scrolled');
+                    }
+                });
+
+                // 3. Back to top button
                 if (backToTopBtn) {
-                    backToTopBtn.style.display = y > 500 ? 'flex' : 'none';
+                    backToTopBtn.style.display = currentScrollY > 500 ? 'flex' : 'none';
                 }
 
                 scrollRafPending = false;

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghoomar | Celebrating Rajasthani Heritage</title>
+  <meta name="description" content="Ghoomar is a family of Rajasthani hospitality experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/patterns/hawa-mahal-web.jpg" fetchpriority="high">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/ghoomar-mascot.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --maroon:#2A0810;--maroon-deep:#0E0204;
+  --saffron:#D05818;--saffron-lt:#E87828;
+  --gold:#C4901A;--gold-lt:#DEB040;
+  --cream:#FAF0DC;
+  --wood-dk:#1C0804;--wood-mid:#341408;
+  --brass:#B87820;--brass-lt:#D4A030;--brass-dk:#7A5010;
+  --text-cream:#F5E6C8;
+}
+html{scroll-behavior:auto}
+body{background:#FDF8E8;color:var(--maroon);font-family:'Outfit',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* =============================================
+   SCENE WRAP — sticky scroll container for door
+   ============================================= */
+#scene-wrap{
+  position:relative;
+  height:220vh;          /* extra scroll room = door travel distance */
+  z-index:100;
+}
+
+/* =============================================
+   DOOR PORTAL — sticky inside scene-wrap
+   ============================================= */
+#doorPortal{
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  background:#FDF8E8;
+  pointer-events:none; /* page behind is always scrollable */
+}
+
+/* Wall grid texture */
+.portal-wall{
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 99px,rgba(196,144,26,0.022) 100px),
+    repeating-linear-gradient(90deg,transparent,transparent 149px,rgba(196,144,26,0.022) 150px);
+  pointer-events:none;z-index:0;
+}
+.portal-jali{
+  position:absolute;inset:0;z-index:0;opacity:0.048;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 2L58 30L30 58L2 30Z' fill='none' stroke='%23C4901A' stroke-width='0.7'/%3E%3Ccircle cx='30' cy='30' r='4' fill='none' stroke='%23C4901A' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size:60px 60px;
+}
+
+/* Warm floor glow */
+.portal-glow{
+  position:absolute;z-index:1;pointer-events:none;
+  width:620px;height:680px;
+  background:radial-gradient(ellipse at 50% 68%,rgba(208,88,24,0.17) 0%,rgba(196,144,26,0.07) 38%,transparent 70%);
+  animation:breathe 4s ease-in-out infinite alternate;
+}
+@keyframes breathe{from{opacity:.7;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
+.portal-floor-glow{
+  position:absolute;bottom:0;left:0;right:0;height:200px;z-index:2;pointer-events:none;
+  background:linear-gradient(0deg,rgba(196,144,26,0.07) 0%,transparent 100%);
+}
+
+/* Light seeping through door center seam */
+.gap-light{
+  position:absolute;width:3px;height:70%;z-index:12;pointer-events:none;
+  background:linear-gradient(180deg,transparent 0%,rgba(255,210,90,0.55) 12%,rgba(255,235,115,0.88) 50%,rgba(255,210,90,0.55) 88%,transparent 100%);
+  filter:blur(2.5px);
+  animation:gap-pulse 2.8s ease-in-out infinite alternate;
+  transition:opacity 0.3s ease;
+}
+@keyframes gap-pulse{from{opacity:.4}to{opacity:1}}
+
+/* ---- TORCHES ---- */
+.torch{position:absolute;top:50%;margin-top:-200px;z-index:5;display:flex;flex-direction:column;align-items:center;pointer-events:none;}
+.torch-l{left:50%;margin-left:-220px;}.torch-r{right:50%;margin-right:-220px;}
+.tf{position:relative;width:22px;height:40px;transform-origin:bottom center;animation:flk-a .14s ease-in-out infinite alternate;}
+.tf::before,.tf::after{content:'';position:absolute;left:50%;transform:translateX(-50%);border-radius:50% 50% 20% 20%;}
+.tf::before{width:16px;height:34px;bottom:0;background:radial-gradient(ellipse at 50% 80%,#FFF4A0 0%,#FFB020 22%,#D05818 58%,rgba(160,30,0,.4) 100%);filter:blur(1px);animation:flk-b .11s ease-in-out infinite alternate;}
+.tf::after{width:8px;height:20px;bottom:6px;background:radial-gradient(ellipse at 50% 80%,#FFFFFF 0%,#FFF6D0 40%,rgba(255,200,80,.4) 100%);filter:blur(.5px);}
+@keyframes flk-a{0%{transform:rotate(-4deg) scale(1,1)}100%{transform:rotate(5deg) scale(.88,1.09)}}
+@keyframes flk-b{0%{transform:translateX(-50%) scaleX(.88)}100%{transform:translateX(-50%) scaleX(1.12)}}
+.tg{width:54px;height:54px;margin-top:-17px;background:radial-gradient(circle,rgba(255,150,28,.48) 0%,transparent 70%);filter:blur(8px);animation:flk-glow .14s ease-in-out infinite alternate;}
+@keyframes flk-glow{from{opacity:.62;transform:scale(.88)}to{opacity:1;transform:scale(1.12)}}
+
+/* ---- ARCH / LOGO ---- */
+.arch-frame-ui{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;pointer-events:none;}
+.portal-greeting{font-family:'Playfair Display',serif;font-size:clamp(.6rem,1.4vw,.82rem);letter-spacing:.44em;text-transform:uppercase;color:rgba(196,144,26,.58);margin-bottom:12px;animation:fade-drift 2s .4s both;}
+.portal-logo{height:48px;margin-bottom:16px;filter:drop-shadow(0 4px 18px rgba(196,144,26,.55)) brightness(1.15);animation:fade-drift 1.6s .1s both;}
+@keyframes fade-drift{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* Scroll hint shown over doors */
+.scroll-hint-portal{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:15;
+  display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;
+  animation:fade-drift 1.5s 1.2s both;
+}
+.shp-word{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(196,144,26,.6);font-weight:500;}
+.shp-line{width:1px;height:44px;background:linear-gradient(180deg,var(--gold) 0%,transparent 100%);transform-origin:top center;animation:drop-line 2.2s 2s ease-in-out infinite;}
+@keyframes drop-line{0%{transform:scaleY(0);opacity:1}65%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.shp-chevrons{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.shp-chevrons span{display:block;width:13px;height:6px;border-right:1.5px solid rgba(196,144,26,.45);border-bottom:1.5px solid rgba(196,144,26,.45);transform:rotate(45deg);animation:chev 1.9s ease-in-out infinite;}
+.shp-chevrons span:nth-child(2){animation-delay:.18s;opacity:.58}
+.shp-chevrons span:nth-child(3){animation-delay:.36s;opacity:.32}
+@keyframes chev{0%,100%{transform:rotate(45deg) translateY(-2px)}50%{transform:rotate(45deg) translateY(2px)}}
+
+/* ---- DOOR STAGE (3D) ---- */
+.door-stage{
+  perspective:2600px;
+  perspective-origin:50% 28%;
+  display:flex;
+  position:relative;z-index:10;
+}
+
+/* The key fix: NO backface-visibility:hidden, NO CSS transition (scroll drives it) */
+.door-leaf{
+  position:relative;
+  transform-style:preserve-3d;
+  will-change:transform;
+  flex-shrink:0;
+}
+.door-leaf.dl{transform-origin:left center;transform:rotateY(0deg);}
+.door-leaf.dr{transform-origin:right center;transform:rotateY(0deg);}
+
+/* =============================================
+   EMBER CANVAS
+   ============================================= */
+#ember-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;opacity:.4}
+
+/* =============================================
+   CHARKHA
+   ============================================= */
+.charkha-wrap{position:fixed;bottom:22px;right:22px;z-index:50;opacity:.24;pointer-events:none;filter:drop-shadow(0 0 6px rgba(196,144,26,.4))}
+.charkha-wheel{animation:spin-cw 10s linear infinite;transform-origin:50px 50px}
+@keyframes spin-cw{to{transform:rotate(360deg)}}
+
+/* =============================================
+   NAV
+   ============================================= */
+.gh-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(253,248,232,.95) 0%,transparent 100%);transition:background .45s ease,transform .38s cubic-bezier(.16,1,.3,1);border-bottom:1px solid transparent}
+.gh-nav.scrolled{background:rgba(253,248,232,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:rgba(196,144,26,.25)}
+.gh-nav.nav-hidden{transform:translateY(-100%)}
+.nav-logo img{height:42px;width:auto}
+.nav-links{display:flex;gap:38px}
+.nav-links a{font-size:.77rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--maroon);position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0%;height:1px;background:var(--gold);transition:width .38s ease}
+.nav-links a:hover{color:var(--saffron)}
+.nav-links a:hover::after{width:100%}
+.nav-contact{font-size:.77rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,144,26,.5);padding:9px 20px;border-radius:1px;transition:all .3s ease}
+.nav-contact:hover{background:var(--gold);color:var(--maroon);border-color:var(--gold)}
+
+/* =============================================
+   HERO
+   ============================================= */
+.gh-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:120px 40px 100px}
+.hero-bg{position:absolute;inset:-60px;background:url('assets/patterns/hawa-mahal-web.jpg') center top/cover no-repeat;will-change:transform;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(253,248,232,.4) 0%,rgba(253,248,232,.85) 100%),linear-gradient(180deg,rgba(253,248,232,.6) 0%,rgba(253,248,232,.4) 50%,rgba(253,248,232,1) 100%);z-index:1}
+/* Mandala */
+.mandala-outer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none}
+.mandala-svg{width:min(90vw,920px);height:min(90vw,920px);animation:spin-ccw-s 130s linear infinite;opacity:.13}
+@keyframes spin-ccw-s{to{transform:rotate(-360deg)}}
+.mandala-inner{width:min(50vw,520px);height:min(50vw,520px);animation:spin-cw-s 85s linear infinite;opacity:.09;position:absolute}
+@keyframes spin-cw-s{to{transform:rotate(360deg)}}
+/* Jali */
+.jali-strip{position:absolute;left:0;right:0;height:52px;z-index:6;pointer-events:none;opacity:.36}
+.jali-strip.top{top:72px}.jali-strip.bottom{bottom:0}
+.jali-strip svg{width:100%;height:100%}
+/* Content */
+.hero-content{position:relative;z-index:8;text-align:center;max-width:700px}
+.hero-logo{height:76px;margin:0 auto 26px;filter:drop-shadow(0 4px 22px rgba(0,0,0,.4));animation:rise-in 1.2s cubic-bezier(.16,1,.3,1) both}
+.hero-kicker{font-size:.7rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;animation:fade-up .9s .35s both}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,5.8rem);font-weight:800;line-height:1.08;color:var(--maroon);margin-bottom:26px;letter-spacing:-.01em;animation:fade-up .9s .55s both;text-shadow:0 4px 40px rgba(255,255,255,.6)}
+.hero-title .accent{font-style:italic;font-weight:700;color:var(--saffron)}
+.hero-subtitle{font-size:1.02rem;font-weight:500;color:rgba(42,8,16,.8);line-height:1.75;animation:fade-up .9s .75s both}
+@keyframes rise-in{from{opacity:0;transform:translateY(24px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+/* Lanterns */
+.lantern{position:absolute;pointer-events:none;z-index:7;filter:drop-shadow(0 4px 12px rgba(196,144,26,.28))}
+.lantern-1{top:8%;left:5%;animation:sway-a 7s ease-in-out infinite;transform-origin:top center}
+.lantern-2{top:6%;right:7%;animation:sway-b 9s ease-in-out infinite;transform-origin:top center}
+.lantern-3{top:16%;left:22%;animation:sway-a 6s 1.5s ease-in-out infinite;transform-origin:top center}
+@keyframes sway-a{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+@keyframes sway-b{0%,100%{transform:rotate(8deg)}50%{transform:rotate(-8deg)}}
+/* Peacock */
+.peacock-wrap{position:absolute;bottom:6%;left:2.5%;z-index:7;pointer-events:none;transform-origin:bottom center;animation:feather-sway 5.5s ease-in-out infinite;opacity:.85}
+@keyframes feather-sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+/* Camel */
+.camel-wrap{position:absolute;bottom:3%;right:1.5%;z-index:7;pointer-events:none;animation:camel-float 4.5s ease-in-out infinite;opacity:.22}
+@keyframes camel-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* Hero scroll hint */
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:9;display:flex;flex-direction:column;align-items:center;gap:10px;animation:fade-up 1s 1.4s both}
+.scroll-hint-word{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(196,144,26,.58)}
+.scroll-line{width:1px;height:44px;background:linear-gradient(180deg,var(--gold) 0%,transparent 100%);transform-origin:top center;animation:drop-line 2.2s 2s ease-in-out infinite}
+
+/* =============================================
+   FOUR WORLDS
+   ============================================= */
+.worlds-section{background:linear-gradient(180deg,#FDF8E8 0%,#FFF6E3 10%,#FEF6EE 50%,#FDF8E8 100%);padding:100px 48px 130px;position:relative;overflow:hidden;}
+.worlds-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 4L76 40L40 76L4 40Z' fill='none' stroke='%23C4901A' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='5' fill='none' stroke='%23C4901A' stroke-width='0.4'/%3E%3C/svg%3E");background-size:80px 80px;opacity:.052;pointer-events:none;}
+.worlds-section::after{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--saffron) 50%,var(--gold) 80%,transparent);opacity:.42}
+.worlds-intro{text-align:center;margin-bottom:76px;position:relative;z-index:1;}
+.section-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.worlds-intro h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--maroon);line-height:1.2;}
+.worlds-intro h2 em{font-style:italic;color:var(--saffron)}
+.worlds-intro p{font-size:.9rem;font-weight:500;color:rgba(42,8,16,.6);margin-top:14px;letter-spacing:.04em;}
+/* Grid */
+.doors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1380px;margin:0 auto;position:relative;z-index:1;}
+/* Card */
+.arch-card{display:flex;flex-direction:column;opacity:0;transform:translateY(80px);position:relative;cursor:pointer;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .4s ease;}
+.arch-card.revealed{animation:arch-in .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes arch-in{from{opacity:0;transform:translateY(80px)}to{opacity:1;transform:translateY(0)}}
+.arch-card:hover{transform:translateY(-14px)}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--saffron),var(--gold),var(--gold-lt));z-index:20;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.arch-card:hover::before{width:100%}
+/* Door frame */
+.arch-frame-box{position:relative;background:linear-gradient(180deg,var(--wood-mid) 0%,var(--wood-dk) 100%);border:2px solid var(--brass-dk);box-shadow:0 20px 50px rgba(0,0,0,.6),inset 0 1px 0 rgba(196,144,26,.13);transition:box-shadow .4s ease;overflow:hidden;}
+.arch-card:hover .arch-frame-box{box-shadow:0 40px 80px rgba(0,0,0,.76),0 0 48px rgba(196,144,26,.11)}
+/* Image */
+.arch-img-wrap{position:relative;overflow:hidden;}
+.arch-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(14,2,4,.52) 100%);pointer-events:none;z-index:2}
+.arch-img{width:100%;height:265px;object-fit:cover;display:block;transition:transform .85s cubic-bezier(.16,1,.3,1);filter:brightness(.84) saturate(.86);}
+.arch-card:hover .arch-img{transform:scale(1.1);filter:brightness(.96) saturate(1.12)}
+/* Arch overlay */
+.arch-svg-overlay{position:absolute;inset:0;z-index:3;pointer-events:none;}
+/* Ring pull */
+.ring-pull{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;filter:drop-shadow(0 2px 5px rgba(0,0,0,.6));opacity:.8;transition:opacity .3s,transform .3s;}
+.arch-card:hover .ring-pull{opacity:1;transform:translateX(-50%) scale(1.12)}
+/* Divider */
+.arch-divider{display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 12px;background:linear-gradient(90deg,var(--wood-dk),#381608,var(--wood-dk));border-top:1px solid rgba(196,144,26,.18);border-bottom:1px solid rgba(196,144,26,.18);}
+.stud-sm{width:6px;height:6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--brass-lt),var(--brass-dk));box-shadow:0 1px 3px rgba(0,0,0,.5);}
+/* Body */
+.arch-body{background:linear-gradient(180deg,#FFFFFF 0%,#FDF8E8 100%);border:2px solid var(--gold);border-top:none;padding:24px 20px 26px;flex:1;}
+.arch-tag{display:block;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--saffron);margin-bottom:9px;}
+.arch-body h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:var(--maroon);line-height:1.28;margin-bottom:11px;}
+.arch-body p{font-size:.8rem;font-weight:500;color:rgba(42,8,16,.7);line-height:1.68;margin-bottom:20px;}
+.arch-cta{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(196,144,26,.26);padding-bottom:4px;transition:color .3s,gap .3s,border-color .3s;}
+.arch-card:hover .arch-cta{color:var(--saffron-lt);border-color:var(--saffron);gap:16px}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.gh-footer{background:var(--maroon);padding:34px 48px;text-align:center;position:relative}
+.gh-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent)}
+.gh-footer p{font-size:.8rem;font-weight:300;color:rgba(245,230,200,.52);letter-spacing:.05em;line-height:1.8}
+.gh-footer a{color:rgba(245,230,200,.72);transition:color .3s}
+.gh-footer a:hover{color:var(--gold)}
+
+/* =============================================
+   PAGE TRANSITION COMPAT
+   ============================================= */
+body.page-transition-enabled .gh-hero,body.page-transition-enabled .worlds-section,body.page-transition-enabled .gh-footer{animation:gh-slide-in .5s cubic-bezier(.25,1,.25,1) both}
+body.page-is-leaving .gh-hero,body.page-is-leaving .worlds-section,body.page-is-leaving .gh-footer{animation:gh-slide-out .4s cubic-bezier(.25,1,.25,1) forwards!important;pointer-events:none}
+@keyframes gh-slide-in{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes gh-slide-out{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-30px)}}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media(max-width:1100px){.doors-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .doors-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .gh-nav{padding:0 18px}
+  .gh-hero{padding:100px 18px 80px}
+  .worlds-section{padding:56px 18px 76px}
+  .gh-footer{padding:26px 18px}
+  .lantern-3,.camel-wrap{display:none}
+  .torch-l{left:1%}.torch-r{right:1%}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- ================================================================
+     SCENE WRAP — tall container so scroll drives door opening
+     ================================================================ -->
+<div id="scene-wrap">
+  <div id="doorPortal">
+
+    <div id="palace-scene" style="position: absolute; width: 300vw; height: 300vh; top: -100vh; left: -100vw; overflow: hidden; transform-origin: 50.00% 76.95%; background: #0e0204 url('assets/patterns/final_masterpiece.png?v=999') 50.00% 76.95% / cover no-repeat;">
+
+      <!-- Arch Frame UI (The 3D Door and Torches) -->
+      <div id="html-door-wrapper" style="position: absolute; top: 76.95%; left: 50.00%; transform: translate(-50%, -50%) scale(0.35); transform-origin: center center; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: grab; pointer-events: auto !important;">
+
+    <!-- LEFT TORCH -->
+    <div class="torch torch-l" aria-hidden="true">
+      <div class="tf"></div>
+      <div class="tg"></div>
+      <svg width="32" height="230" viewBox="0 0 32 230" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#6A3808"/><stop offset="40%" stop-color="#CC9820"/>
+            <stop offset="70%" stop-color="#A87018"/><stop offset="100%" stop-color="#5A2C06"/>
+          </linearGradient>
+          <linearGradient id="sG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#4A2606"/><stop offset="50%" stop-color="#B88A18"/><stop offset="100%" stop-color="#4A2606"/>
+          </linearGradient>
+        </defs>
+        <path d="M5 17Q16 25 27 17L25 33Q16 41 7 33Z" fill="url(#bG)"/>
+        <rect x="13" y="33" width="6" height="150" fill="url(#sG)" rx="1"/>
+        <ellipse cx="16" cy="108" rx="8" ry="4" fill="url(#bG)"/>
+        <path d="M3 183L5 203Q16 215 27 203L29 183Q16 192 3 183Z" fill="url(#bG)"/>
+        <ellipse cx="16" cy="215" rx="12" ry="4.5" fill="#2E1604"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT TORCH -->
+    <div class="torch torch-r" aria-hidden="true" style="animation-delay:.09s">
+      <div class="tf" style="animation-delay:.09s"></div>
+      <div class="tg" style="animation-delay:.09s"></div>
+      <svg width="32" height="230" viewBox="0 0 32 230" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 17Q16 25 27 17L25 33Q16 41 7 33Z" fill="url(#bG)"/>
+        <rect x="13" y="33" width="6" height="150" fill="url(#sG)" rx="1"/>
+        <ellipse cx="16" cy="108" rx="8" ry="4" fill="url(#bG)"/>
+        <path d="M3 183L5 203Q16 215 27 203L29 183Q16 192 3 183Z" fill="url(#bG)"/>
+        <ellipse cx="16" cy="215" rx="12" ry="4.5" fill="#2E1604"/>
+      </svg>
+    </div>
+
+    <!-- ARCH UI (logo + greeting) -->
+    <!-- ARCH UI -->
+    <div class="arch-frame-ui">
+
+      <!-- SVG gradient defs (global) -->
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <linearGradient id="wdG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#140602"/><stop offset="18%" stop-color="#2E1006"/>
+            <stop offset="50%" stop-color="#421A0C"/><stop offset="82%" stop-color="#2E1006"/>
+            <stop offset="100%" stop-color="#140602"/>
+          </linearGradient>
+          <linearGradient id="brG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DEC060"/><stop offset="45%" stop-color="#C09020"/><stop offset="100%" stop-color="#806010"/>
+          </linearGradient>
+          <linearGradient id="pnG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#321206"/><stop offset="100%" stop-color="#200A03"/>
+          </linearGradient>
+          <linearGradient id="shG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.09)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+          <linearGradient id="rG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DEC060"/><stop offset="50%" stop-color="#C09020"/><stop offset="100%" stop-color="#7A4808"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- 3D DOOR STAGE -->
+      <div class="door-stage">
+
+        <!-- LEFT DOOR -->
+        <div class="door-leaf dl" id="dL">
+          <svg width="210" height="500" viewBox="0 0 210 500" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="208" height="498" fill="url(#wdG)" stroke="#3E1806" stroke-width="1.5"/>
+            <rect x="7" y="7" width="196" height="486" fill="none" stroke="#9A6818" stroke-width="2.2"/>
+            <rect x="10" y="10" width="190" height="480" fill="none" stroke="#503206" stroke-width=".7"/>
+            <!-- TOP STUDS -->
+            <circle cx="19" cy="19" r="4" fill="url(#brG)"/><circle cx="42" cy="19" r="4" fill="url(#brG)"/><circle cx="65" cy="19" r="4" fill="url(#brG)"/><circle cx="88" cy="19" r="4" fill="url(#brG)"/><circle cx="111" cy="19" r="4" fill="url(#brG)"/><circle cx="134" cy="19" r="4" fill="url(#brG)"/><circle cx="157" cy="19" r="4" fill="url(#brG)"/><circle cx="180" cy="19" r="4" fill="url(#brG)"/>
+            <!-- BOTTOM STUDS -->
+            <circle cx="19" cy="481" r="4" fill="url(#brG)"/><circle cx="42" cy="481" r="4" fill="url(#brG)"/><circle cx="65" cy="481" r="4" fill="url(#brG)"/><circle cx="88" cy="481" r="4" fill="url(#brG)"/><circle cx="111" cy="481" r="4" fill="url(#brG)"/><circle cx="134" cy="481" r="4" fill="url(#brG)"/><circle cx="157" cy="481" r="4" fill="url(#brG)"/><circle cx="180" cy="481" r="4" fill="url(#brG)"/>
+            <!-- LEFT COL -->
+            <circle cx="19" cy="54" r="4" fill="url(#brG)"/><circle cx="19" cy="91" r="4" fill="url(#brG)"/><circle cx="19" cy="128" r="4" fill="url(#brG)"/><circle cx="19" cy="165" r="4" fill="url(#brG)"/><circle cx="19" cy="202" r="4" fill="url(#brG)"/><circle cx="19" cy="239" r="4" fill="url(#brG)"/><circle cx="19" cy="276" r="4" fill="url(#brG)"/><circle cx="19" cy="313" r="4" fill="url(#brG)"/><circle cx="19" cy="350" r="4" fill="url(#brG)"/><circle cx="19" cy="387" r="4" fill="url(#brG)"/><circle cx="19" cy="443" r="4" fill="url(#brG)"/>
+            <!-- RIGHT COL -->
+            <circle cx="191" cy="54" r="4" fill="url(#brG)"/><circle cx="191" cy="91" r="4" fill="url(#brG)"/><circle cx="191" cy="128" r="4" fill="url(#brG)"/><circle cx="191" cy="165" r="4" fill="url(#brG)"/><circle cx="191" cy="202" r="4" fill="url(#brG)"/><circle cx="191" cy="239" r="4" fill="url(#brG)"/><circle cx="191" cy="276" r="4" fill="url(#brG)"/><circle cx="191" cy="313" r="4" fill="url(#brG)"/><circle cx="191" cy="350" r="4" fill="url(#brG)"/><circle cx="191" cy="387" r="4" fill="url(#brG)"/><circle cx="191" cy="443" r="4" fill="url(#brG)"/>
+            <!-- TOP PANEL (star) -->
+            <rect x="32" y="34" width="146" height="116" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="38" width="138" height="108" fill="none" stroke="rgba(196,144,26,.28)" stroke-width=".7"/>
+            <polygon points="105,48 115,73 140,73 121,89 128,114 105,99 82,114 89,89 70,73 95,73" fill="none" stroke="#C4901A" stroke-width="1.1" opacity=".62"/>
+            <circle cx="105" cy="81" r="17" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".42"/>
+            <circle cx="105" cy="81" r="7" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".52"/>
+            <circle cx="105" cy="81" r="2.5" fill="#C4901A" opacity=".42"/>
+            <!-- DIVIDER 1 -->
+            <rect x="13" y="156" width="184" height="9" fill="#160604"/>
+            <polygon points="28,156 36,160.5 28,165 20,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="56,156 64,160.5 56,165 48,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="84,156 92,160.5 84,165 76,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="112,156 120,160.5 112,165 104,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="140,156 148,160.5 140,165 132,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="168,156 176,160.5 168,165 160,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <!-- MID PANEL (lotus) -->
+            <rect x="32" y="171" width="146" height="172" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="175" width="138" height="164" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".7"/>
+            <path d="M 50 340 L 50 270 Q 50 194 105 189 Q 160 194 160 270 L 160 340Z" fill="none" stroke="#9A6014" stroke-width="1.1" opacity=".48"/>
+            <ellipse cx="105" cy="257" rx="30" ry="36" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".26"/>
+            <ellipse cx="105" cy="257" rx="20" ry="25" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".32"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(0,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(45,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(90,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(135,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(180,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(225,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(270,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(315,105,257)"/>
+            <circle cx="105" cy="257" r="9" fill="none" stroke="#C4901A" stroke-width="1" opacity=".42"/>
+            <circle cx="105" cy="257" r="3.5" fill="#C4901A" opacity=".28"/>
+            <!-- DIVIDER 2 -->
+            <rect x="13" y="349" width="184" height="9" fill="#160604"/>
+            <polygon points="28,349 36,353.5 28,358 20,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="56,349 64,353.5 56,358 48,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="84,349 92,353.5 84,358 76,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="112,349 120,353.5 112,358 104,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="140,349 148,353.5 140,358 132,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="168,349 176,353.5 168,358 160,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <!-- LOWER PANEL -->
+            <rect x="32" y="364" width="146" height="106" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="368" width="138" height="98" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".7"/>
+            <polygon points="52,382 65,392 52,402 39,392" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="158,382 171,392 158,402 145,392" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="52,432 65,442 52,452 39,442" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="158,432 171,442 158,452 145,442" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <circle cx="105" cy="417" r="14" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".3"/>
+            <circle cx="105" cy="417" r="7" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".38"/>
+            <circle cx="105" cy="417" r="2.5" fill="#C4901A" opacity=".26"/>
+            <!-- RING PULL -->
+            <circle cx="180" cy="296" r="13" fill="none" stroke="url(#brG)" stroke-width="3"/>
+            <circle cx="180" cy="296" r="8" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".9"/>
+            <circle cx="180" cy="307" r="4.5" fill="url(#brG)"/>
+            <rect x="177.5" y="307" width="5" height="9" rx="2" fill="url(#brG)"/>
+            <!-- Inner edge dark -->
+            <rect x="205" y="0" width="5" height="500" fill="rgba(0,0,0,.7)"/>
+            <!-- Sheen -->
+            <rect x="1" y="1" width="7" height="498" fill="url(#shG)" opacity=".1"/>
+          </svg>
+        </div>
+
+        <!-- GAP LIGHT -->
+        <div class="gap-light" id="gapLt"></div>
+
+        <!-- RIGHT DOOR (mirror) -->
+        <div class="door-leaf dr" id="dR">
+          <svg width="210" height="500" viewBox="0 0 210 500" xmlns="http://www.w3.org/2000/svg" style="transform:scaleX(-1)">
+            <rect x="1" y="1" width="208" height="498" fill="url(#wdG)" stroke="#3E1806" stroke-width="1.5"/>
+            <rect x="7" y="7" width="196" height="486" fill="none" stroke="#9A6818" stroke-width="2.2"/>
+            <rect x="10" y="10" width="190" height="480" fill="none" stroke="#503206" stroke-width=".7"/>
+            <circle cx="19" cy="19" r="4" fill="url(#brG)"/><circle cx="42" cy="19" r="4" fill="url(#brG)"/><circle cx="65" cy="19" r="4" fill="url(#brG)"/><circle cx="88" cy="19" r="4" fill="url(#brG)"/><circle cx="111" cy="19" r="4" fill="url(#brG)"/><circle cx="134" cy="19" r="4" fill="url(#brG)"/><circle cx="157" cy="19" r="4" fill="url(#brG)"/><circle cx="180" cy="19" r="4" fill="url(#brG)"/>
+            <circle cx="19" cy="481" r="4" fill="url(#brG)"/><circle cx="42" cy="481" r="4" fill="url(#brG)"/><circle cx="65" cy="481" r="4" fill="url(#brG)"/><circle cx="88" cy="481" r="4" fill="url(#brG)"/><circle cx="111" cy="481" r="4" fill="url(#brG)"/><circle cx="134" cy="481" r="4" fill="url(#brG)"/><circle cx="157" cy="481" r="4" fill="url(#brG)"/><circle cx="180" cy="481" r="4" fill="url(#brG)"/>
+            <circle cx="19" cy="54" r="4" fill="url(#brG)"/><circle cx="19" cy="91" r="4" fill="url(#brG)"/><circle cx="19" cy="128" r="4" fill="url(#brG)"/><circle cx="19" cy="165" r="4" fill="url(#brG)"/><circle cx="19" cy="202" r="4" fill="url(#brG)"/><circle cx="19" cy="239" r="4" fill="url(#brG)"/><circle cx="19" cy="276" r="4" fill="url(#brG)"/><circle cx="19" cy="313" r="4" fill="url(#brG)"/><circle cx="19" cy="350" r="4" fill="url(#brG)"/><circle cx="19" cy="387" r="4" fill="url(#brG)"/><circle cx="19" cy="443" r="4" fill="url(#brG)"/>
+            <circle cx="191" cy="54" r="4" fill="url(#brG)"/><circle cx="191" cy="91" r="4" fill="url(#brG)"/><circle cx="191" cy="128" r="4" fill="url(#brG)"/><circle cx="191" cy="165" r="4" fill="url(#brG)"/><circle cx="191" cy="202" r="4" fill="url(#brG)"/><circle cx="191" cy="239" r="4" fill="url(#brG)"/><circle cx="191" cy="276" r="4" fill="url(#brG)"/><circle cx="191" cy="313" r="4" fill="url(#brG)"/><circle cx="191" cy="350" r="4" fill="url(#brG)"/><circle cx="191" cy="387" r="4" fill="url(#brG)"/><circle cx="191" cy="443" r="4" fill="url(#brG)"/>
+            <rect x="32" y="34" width="146" height="116" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="38" width="138" height="108" fill="none" stroke="rgba(196,144,26,.28)" stroke-width=".7"/>
+            <polygon points="105,48 115,73 140,73 121,89 128,114 105,99 82,114 89,89 70,73 95,73" fill="none" stroke="#C4901A" stroke-width="1.1" opacity=".62"/>
+            <circle cx="105" cy="81" r="17" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".42"/>
+            <circle cx="105" cy="81" r="7" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".52"/>
+            <circle cx="105" cy="81" r="2.5" fill="#C4901A" opacity=".42"/>
+            <rect x="13" y="156" width="184" height="9" fill="#160604"/>
+            <polygon points="28,156 36,160.5 28,165 20,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="56,156 64,160.5 56,165 48,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="84,156 92,160.5 84,165 76,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="112,156 120,160.5 112,165 104,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="140,156 148,160.5 140,165 132,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="168,156 176,160.5 168,165 160,160.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <rect x="32" y="171" width="146" height="172" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="175" width="138" height="164" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".7"/>
+            <path d="M 50 340 L 50 270 Q 50 194 105 189 Q 160 194 160 270 L 160 340Z" fill="none" stroke="#9A6014" stroke-width="1.1" opacity=".48"/>
+            <ellipse cx="105" cy="257" rx="30" ry="36" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".26"/>
+            <ellipse cx="105" cy="257" rx="20" ry="25" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".32"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(0,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(45,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(90,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(135,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(180,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(225,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(270,105,257)"/>
+            <ellipse cx="105" cy="233" rx="7" ry="17" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".42" transform="rotate(315,105,257)"/>
+            <circle cx="105" cy="257" r="9" fill="none" stroke="#C4901A" stroke-width="1" opacity=".42"/>
+            <circle cx="105" cy="257" r="3.5" fill="#C4901A" opacity=".28"/>
+            <rect x="13" y="349" width="184" height="9" fill="#160604"/>
+            <polygon points="28,349 36,353.5 28,358 20,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="56,349 64,353.5 56,358 48,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="84,349 92,353.5 84,358 76,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="112,349 120,353.5 112,358 104,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="140,349 148,353.5 140,358 132,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <polygon points="168,349 176,353.5 168,358 160,353.5" fill="none" stroke="#C4901A" stroke-width=".62" opacity=".42"/>
+            <rect x="32" y="364" width="146" height="106" fill="url(#pnG)" stroke="#7A4C10" stroke-width="1.3"/>
+            <rect x="36" y="368" width="138" height="98" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".7"/>
+            <polygon points="52,382 65,392 52,402 39,392" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="158,382 171,392 158,402 145,392" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="52,432 65,442 52,452 39,442" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <polygon points="158,432 171,442 158,452 145,442" fill="none" stroke="#9A6014" stroke-width=".9" opacity=".38"/>
+            <circle cx="105" cy="417" r="14" fill="none" stroke="#C4901A" stroke-width=".7" opacity=".3"/>
+            <circle cx="105" cy="417" r="7" fill="none" stroke="#DEB040" stroke-width=".9" opacity=".38"/>
+            <circle cx="105" cy="417" r="2.5" fill="#C4901A" opacity=".26"/>
+            <circle cx="180" cy="296" r="13" fill="none" stroke="url(#brG)" stroke-width="3"/>
+            <circle cx="180" cy="296" r="8" fill="none" stroke="rgba(196,144,26,.26)" stroke-width=".9"/>
+            <circle cx="180" cy="307" r="4.5" fill="url(#brG)"/>
+            <rect x="177.5" y="307" width="5" height="9" rx="2" fill="url(#brG)"/>
+            <rect x="205" y="0" width="5" height="500" fill="rgba(0,0,0,.7)"/>
+            <rect x="1" y="1" width="7" height="498" fill="url(#shG)" opacity=".1"/>
+          </svg>
+        </div>
+
+      </div><!-- /door-stage -->
+    </div><!-- /arch-frame-ui wrapper -->
+    </div><!-- /arch-frame-ui relative container -->
+    </div><!-- /#palace-scene -->
+
+    <!-- SCROLL HINT overlay on portal -->
+    <div class="scroll-hint-portal">
+      <span class="shp-word">Scroll to Enter</span>
+      <div class="shp-chevrons"><span></span><span></span><span></span></div>
+      <div class="shp-line"></div>
+    </div>
+
+  </div><!-- /#doorPortal -->
+</div><!-- /#scene-wrap -->
+
+<!-- ================================================================
+     EMBER CANVAS
+     ================================================================ -->
+<canvas id="ember-canvas" aria-hidden="true"></canvas>
+
+<!-- CHARKHA -->
+<div class="charkha-wrap" aria-hidden="true">
+  <svg width="66" height="66" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="charkha-wheel">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#C4901A" stroke-width="2.5"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#C4901A" stroke-width=".8" opacity=".5"/>
+      <circle cx="50" cy="50" r="8" fill="#C4901A"/>
+      <circle cx="50" cy="50" r="3.5" fill="#2A0810"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(0,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(30,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(60,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(90,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(120,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(150,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(180,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(210,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(240,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(270,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(300,50,50)"/>
+      <line x1="50" y1="42" x2="50" y2="4" stroke="#C4901A" stroke-width="1.4" transform="rotate(330,50,50)"/>
+      <circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(0,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(30,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(60,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(90,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(120,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(150,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(180,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(210,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(240,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(270,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(300,50,50)"/><circle cx="50" cy="4" r="3" fill="#C4901A" transform="rotate(330,50,50)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- NAV -->
+<nav class="gh-nav master-nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="assets/logos/ghoomar-thali.svg" alt="Ghoomar"></a>
+  <div class="nav-links">
+    <a href="https://thali.ghoomarthali.in/">Traditional Thali</a>
+    <a href="https://village.ghoomarthali.in/">Village</a>
+    <a href="https://yatra.ghoomarthali.in/">Yatra</a>
+    <a href="https://vedanta.ghoomarthali.in/">Vedanta</a>
+  </div>
+  <a href="tel:+918803980000" class="nav-contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="gh-hero" id="ghHero" style="margin-top: -100vh;">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="mandala-outer" aria-hidden="true">
+    <svg class="mandala-svg" viewBox="-150 -150 300 300" xmlns="http://www.w3.org/2000/svg">
+      <circle r="148" fill="none" stroke="#C4901A" stroke-width=".8" opacity=".7"/>
+      <circle r="141" fill="none" stroke="#C4901A" stroke-width=".4" opacity=".4"/>
+      <ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(0)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(22.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(45)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(67.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(90)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(112.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(135)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(157.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(180)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(202.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(225)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(247.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(270)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(292.5)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(315)"/><ellipse rx="5" ry="32" cy="-113" fill="#C4901A" opacity=".35" transform="rotate(337.5)"/>
+      <circle r="100" fill="none" stroke="#C4901A" stroke-width=".9" opacity=".55"/>
+      <ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(0)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(45)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(90)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(135)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(180)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(225)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(270)"/><ellipse rx="16" ry="52" cy="-54" fill="#C4901A" opacity=".12" transform="rotate(315)"/>
+      <circle r="68" fill="none" stroke="#C4901A" stroke-width=".9" opacity=".55"/>
+      <polygon points="0,-60 14,-14 60,0 14,14 0,60 -14,14 -60,0 -14,-14" fill="#C4901A" opacity=".07" stroke="#C4901A" stroke-width=".8"/>
+      <circle r="40" fill="none" stroke="#C4901A" stroke-width="1" opacity=".55"/>
+      <ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(0)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(45)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(90)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(135)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(180)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(225)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(270)"/><ellipse rx="9" ry="20" cy="-25" fill="#C4901A" opacity=".18" transform="rotate(315)"/>
+      <circle r="18" fill="none" stroke="#C4901A" stroke-width="1" opacity=".6"/>
+      <circle r="5" fill="#C4901A" opacity=".28"/><circle r="2" fill="#C4901A" opacity=".7"/>
+    </svg>
+    <svg class="mandala-inner" viewBox="-75 -75 150 150" xmlns="http://www.w3.org/2000/svg">
+      <circle r="74" fill="none" stroke="#C4901A" stroke-width=".6" opacity=".5"/>
+      <ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(0)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(30)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(60)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(90)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(120)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(150)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(180)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(210)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(240)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(270)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(300)"/><ellipse rx="4" ry="16" cy="-58" fill="#C4901A" opacity=".3" transform="rotate(330)"/>
+      <polygon points="0,-42 10,-10 42,0 10,10 0,42 -10,10 -42,0 -10,-10" fill="#C4901A" opacity=".06" stroke="#C4901A" stroke-width=".6"/>
+      <circle r="22" fill="none" stroke="#C4901A" stroke-width=".8" opacity=".45"/>
+      <circle r="3" fill="#C4901A" opacity=".4"/>
+    </svg>
+  </div>
+  <div class="jali-strip top" aria-hidden="true">
+    <svg viewBox="0 0 1440 52" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="jP" x="0" y="0" width="52" height="52" patternUnits="userSpaceOnUse">
+        <path d="M26 4L48 26L26 48L4 26Z" fill="none" stroke="#C4901A" stroke-width="1.2"/>
+        <path d="M26 12L40 26L26 40L12 26Z" fill="none" stroke="#C4901A" stroke-width=".6"/>
+        <circle cx="26" cy="26" r="4" fill="none" stroke="#C4901A" stroke-width=".8"/>
+        <circle cx="2" cy="2" r="2" fill="#C4901A" opacity=".5"/><circle cx="50" cy="2" r="2" fill="#C4901A" opacity=".5"/>
+        <circle cx="2" cy="50" r="2" fill="#C4901A" opacity=".5"/><circle cx="50" cy="50" r="2" fill="#C4901A" opacity=".5"/>
+      </pattern></defs>
+      <rect width="1440" height="52" fill="url(#jP)"/>
+    </svg>
+  </div>
+  <div class="jali-strip bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 52" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1440" height="52" fill="url(#jP)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <img class="hero-logo" src="assets/logos/ghoomar-thali.svg" alt="Ghoomar">
+    <p class="hero-kicker">One Name. Four Worlds.</p>
+    <h1 class="hero-title">Welcome to<br><span class="accent">Rajasthan</span></h1>
+    <p class="hero-subtitle">From the finest Rajasthani Thali to a sprawling cultural Village,<br>from Wellness dining to sacred Yatras — step into the world of Ghoomar.</p>
+  </div>
+  <div class="lantern lantern-1" aria-hidden="true">
+    <svg width="52" height="130" viewBox="0 0 52 130" xmlns="http://www.w3.org/2000/svg">
+      <line x1="26" y1="0" x2="26" y2="18" stroke="#C4901A" stroke-width="1.5"/>
+      <circle cx="26" cy="18" r="4" fill="#C4901A" opacity=".7"/>
+      <path d="M14 28Q26 22 38 28L42 80Q26 90 10 80Z" fill="rgba(208,88,24,.85)" stroke="#C4901A" stroke-width="1"/>
+      <ellipse cx="26" cy="54" rx="14" ry="20" fill="rgba(255,200,80,.14)"/>
+      <line x1="18" y1="28" x2="14" y2="80" stroke="rgba(196,144,26,.38)" stroke-width=".7"/>
+      <line x1="26" y1="22" x2="26" y2="80" stroke="rgba(196,144,26,.38)" stroke-width=".7"/>
+      <line x1="34" y1="28" x2="38" y2="80" stroke="rgba(196,144,26,.38)" stroke-width=".7"/>
+      <path d="M10 80Q26 90 42 80L40 88Q26 96 12 88Z" fill="#C4901A" opacity=".8"/>
+      <line x1="20" y1="88" x2="18" y2="112" stroke="#C4901A" stroke-width="1"/>
+      <line x1="26" y1="90" x2="26" y2="114" stroke="#C4901A" stroke-width="1"/>
+      <line x1="32" y1="88" x2="34" y2="112" stroke="#C4901A" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="lantern lantern-2" aria-hidden="true">
+    <svg width="46" height="118" viewBox="0 0 46 118" xmlns="http://www.w3.org/2000/svg">
+      <line x1="23" y1="0" x2="23" y2="16" stroke="#C4901A" stroke-width="1.5"/>
+      <circle cx="23" cy="16" r="3.5" fill="#C4901A" opacity=".7"/>
+      <path d="M11 25Q23 19 35 25L39 73Q23 83 7 73Z" fill="rgba(196,144,26,.8)" stroke="#C4901A" stroke-width="1"/>
+      <ellipse cx="23" cy="49" rx="13" ry="19" fill="rgba(255,200,80,.1)"/>
+      <line x1="15" y1="25" x2="11" y2="73" stroke="rgba(196,144,26,.35)" stroke-width=".7"/>
+      <line x1="23" y1="19" x2="23" y2="73" stroke="rgba(196,144,26,.35)" stroke-width=".7"/>
+      <line x1="31" y1="25" x2="35" y2="73" stroke="rgba(196,144,26,.35)" stroke-width=".7"/>
+      <path d="M7 73Q23 83 39 73L37 81Q23 89 9 81Z" fill="#C4901A" opacity=".8"/>
+    </svg>
+  </div>
+  <div class="lantern lantern-3" aria-hidden="true">
+    <svg width="42" height="108" viewBox="0 0 42 108" xmlns="http://www.w3.org/2000/svg">
+      <line x1="21" y1="0" x2="21" y2="14" stroke="#C4901A" stroke-width="1.2"/>
+      <circle cx="21" cy="14" r="3" fill="#C4901A" opacity=".7"/>
+      <path d="M9 23Q21 17 33 23L37 69Q21 79 5 69Z" fill="rgba(208,88,24,.72)" stroke="#C4901A" stroke-width=".8"/>
+      <ellipse cx="21" cy="46" rx="12" ry="16" fill="rgba(255,200,80,.08)"/>
+      <line x1="13" y1="23" x2="9" y2="69" stroke="rgba(196,144,26,.32)" stroke-width=".6"/>
+      <line x1="21" y1="17" x2="21" y2="69" stroke="rgba(196,144,26,.32)" stroke-width=".6"/>
+      <line x1="29" y1="23" x2="33" y2="69" stroke="rgba(196,144,26,.32)" stroke-width=".6"/>
+      <path d="M5 69Q21 79 37 69L35 77Q21 85 7 77Z" fill="#C4901A" opacity=".72"/>
+    </svg>
+  </div>
+  <div class="peacock-wrap" aria-hidden="true">
+    <svg width="58" height="230" viewBox="0 0 58 230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="29" y1="230" x2="29" y2="48" stroke="#5A8A1A" stroke-width="2.5"/>
+      <line x1="29" y1="195" x2="8" y2="166" stroke="#5A8A1A" stroke-width="1"/>
+      <line x1="29" y1="195" x2="50" y2="168" stroke="#5A8A1A" stroke-width="1"/>
+      <line x1="29" y1="168" x2="5" y2="134" stroke="#5A8A1A" stroke-width=".8"/>
+      <line x1="29" y1="168" x2="53" y2="136" stroke="#5A8A1A" stroke-width=".8"/>
+      <line x1="29" y1="140" x2="10" y2="104" stroke="#5A8A1A" stroke-width=".8"/>
+      <line x1="29" y1="140" x2="48" y2="106" stroke="#5A8A1A" stroke-width=".8"/>
+      <line x1="29" y1="110" x2="14" y2="76" stroke="#4A7A14" stroke-width=".7"/>
+      <line x1="29" y1="110" x2="44" y2="78" stroke="#4A7A14" stroke-width=".7"/>
+      <ellipse cx="29" cy="56" rx="21" ry="27" fill="rgba(30,100,50,.6)" stroke="#2A8A4A" stroke-width="1.2"/>
+      <ellipse cx="29" cy="56" rx="13" ry="17" fill="rgba(20,60,120,.7)" stroke="#2A60B0" stroke-width="1"/>
+      <ellipse cx="29" cy="56" rx="7" ry="10" fill="rgba(30,140,80,.8)" stroke="#20B060" stroke-width=".8"/>
+      <ellipse cx="29" cy="56" rx="3.5" ry="5" fill="rgba(10,50,20,.9)"/>
+      <ellipse cx="27.5" cy="54" rx="1.5" ry="2" fill="rgba(255,255,255,.5)"/>
+    </svg>
+  </div>
+  <div class="camel-wrap" aria-hidden="true">
+    <img src="design%20assets/Camel%203.svg" alt="" width="180" height="auto" loading="lazy">
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span class="scroll-hint-word">Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- FOUR WORLDS -->
+<section class="worlds-section" id="worldsSection">
+  <div class="worlds-intro">
+    <p class="section-eyebrow">Our Experiences</p>
+    <h2>Choose Your <em>World</em></h2>
+    <p>Four doorways. One heritage. Step inside.</p>
+  </div>
+  <div class="doors-grid" id="doorsGrid">
+
+    <a href="https://thali.ghoomarthali.in/" class="arch-card">
+      <div class="arch-frame-box">
+        <div class="arch-img-wrap">
+          <img class="arch-img" src="assets/thali/food/serving-thali-web.jpg" alt="Traditional Thali" loading="eager" fetchpriority="high" width="400" height="265">
+          <svg class="arch-svg-overlay" viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 265L0 152C0 52 200 4 200 4C200 4 400 52 400 152L400 265" fill="none" stroke="#9A6014" stroke-width="3" opacity=".62"/>
+            <path d="M8 265L8 154C8 62 200 20 200 20C200 20 392 62 392 154L392 265" fill="none" stroke="#C4901A" stroke-width="1" opacity=".36"/>
+            <polygon points="200,3 214,21 200,27 186,21" fill="#C4901A" opacity=".72"/>
+            <circle cx="14" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+            <circle cx="386" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+          </svg>
+          <div class="ring-pull">
+            <svg width="34" height="42" viewBox="0 0 34 42" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="17" cy="15" r="12" fill="none" stroke="url(#rG)" stroke-width="3.5"/>
+              <circle cx="17" cy="25" r="5" fill="url(#rG)"/>
+              <rect x="14" y="25" width="6" height="11" rx="2" fill="url(#rG)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="arch-divider">
+          <div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div>
+        </div>
+      </div>
+      <div class="arch-body">
+        <span class="arch-tag">Dine</span>
+        <h2>Ghoomar Traditional Thali</h2>
+        <p>Unlimited Pure Veg Rajasthani Thali served with 24+ Chokho dishes</p>
+        <span class="arch-cta">Explore our Thali <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </a>
+
+    <a href="https://village.ghoomarthali.in/" class="arch-card">
+      <div class="arch-frame-box">
+        <div class="arch-img-wrap">
+          <img class="arch-img" src="assets/village/Ghoomar village.webp" alt="Ghoomar Village" loading="lazy" width="400" height="265">
+          <svg class="arch-svg-overlay" viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 265L0 152C0 52 200 4 200 4C200 4 400 52 400 152L400 265" fill="none" stroke="#9A6014" stroke-width="3" opacity=".62"/>
+            <path d="M8 265L8 154C8 62 200 20 200 20C200 20 392 62 392 154L392 265" fill="none" stroke="#C4901A" stroke-width="1" opacity=".36"/>
+            <polygon points="200,3 214,21 200,27 186,21" fill="#C4901A" opacity=".72"/>
+            <circle cx="14" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+            <circle cx="386" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+          </svg>
+          <div class="ring-pull">
+            <svg width="34" height="42" viewBox="0 0 34 42" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="17" cy="15" r="12" fill="none" stroke="url(#rG)" stroke-width="3.5"/>
+              <circle cx="17" cy="25" r="5" fill="url(#rG)"/>
+              <rect x="14" y="25" width="6" height="11" rx="2" fill="url(#rG)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="arch-divider">
+          <div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div>
+        </div>
+      </div>
+      <div class="arch-body">
+        <span class="arch-tag">Celebrate</span>
+        <h2>Ghoomar Village</h2>
+        <p>25,000 sq.ft. of Unlimited Fun, Unlimited Food, Experience Culture and Heritage</p>
+        <span class="arch-cta">Enter the Village <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </a>
+
+    <a href="https://vedanta.ghoomarthali.in/" class="arch-card">
+      <div class="arch-frame-box">
+        <div class="arch-img-wrap">
+          <img class="arch-img" src="assets/vedanta/Vedanta Exterior.jpg" alt="Vedanta By Ghoomar" loading="lazy" width="400" height="265">
+          <svg class="arch-svg-overlay" viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 265L0 152C0 52 200 4 200 4C200 4 400 52 400 152L400 265" fill="none" stroke="#9A6014" stroke-width="3" opacity=".62"/>
+            <path d="M8 265L8 154C8 62 200 20 200 20C200 20 392 62 392 154L392 265" fill="none" stroke="#C4901A" stroke-width="1" opacity=".36"/>
+            <polygon points="200,3 214,21 200,27 186,21" fill="#C4901A" opacity=".72"/>
+            <circle cx="14" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+            <circle cx="386" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+          </svg>
+          <div class="ring-pull">
+            <svg width="34" height="42" viewBox="0 0 34 42" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="17" cy="15" r="12" fill="none" stroke="url(#rG)" stroke-width="3.5"/>
+              <circle cx="17" cy="25" r="5" fill="url(#rG)"/>
+              <rect x="14" y="25" width="6" height="11" rx="2" fill="url(#rG)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="arch-divider">
+          <div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div>
+        </div>
+      </div>
+      <div class="arch-body">
+        <span class="arch-tag">Wellness</span>
+        <h2>Vedanta By Ghoomar</h2>
+        <p>A Pure Vegetarian Multicuisine Dining Experience Inspired by Tradition and Taste</p>
+        <span class="arch-cta">Explore Vedanta <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </a>
+
+    <a href="https://yatra.ghoomarthali.in/" class="arch-card">
+      <div class="arch-frame-box">
+        <div class="arch-img-wrap">
+          <img class="arch-img" src="assets/patterns/pattern-2-web.jpg" alt="Ghoomar Yatra" loading="lazy" width="400" height="265">
+          <svg class="arch-svg-overlay" viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 265L0 152C0 52 200 4 200 4C200 4 400 52 400 152L400 265" fill="none" stroke="#9A6014" stroke-width="3" opacity=".62"/>
+            <path d="M8 265L8 154C8 62 200 20 200 20C200 20 392 62 392 154L392 265" fill="none" stroke="#C4901A" stroke-width="1" opacity=".36"/>
+            <polygon points="200,3 214,21 200,27 186,21" fill="#C4901A" opacity=".72"/>
+            <circle cx="14" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+            <circle cx="386" cy="255" r="5" fill="none" stroke="#9A6014" stroke-width="1.4" opacity=".52"/>
+          </svg>
+          <div class="ring-pull">
+            <svg width="34" height="42" viewBox="0 0 34 42" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="17" cy="15" r="12" fill="none" stroke="url(#rG)" stroke-width="3.5"/>
+              <circle cx="17" cy="25" r="5" fill="url(#rG)"/>
+              <rect x="14" y="25" width="6" height="11" rx="2" fill="url(#rG)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="arch-divider">
+          <div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div><div class="stud-sm"></div>
+        </div>
+      </div>
+      <div class="arch-body">
+        <span class="arch-tag">Journey</span>
+        <h2>Ghoomar Yatra</h2>
+        <p>Curated Rajasthani travel and pilgrimage experiences, coming soon.</p>
+        <span class="arch-cta">Begin your Journey <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="gh-footer master-footer">
+  <p>&copy; 2026 Ghoomar. All Rights Reserved. &nbsp;|&nbsp;
+    <a href="tel:+918803980000">+91 88039 80000</a> &nbsp;|&nbsp;
+    <a href="mailto:support@ghoomarthali.in">support@ghoomarthali.in</a>
+  </p>
+</footer>
+
+<script>
+/* ================================================================
+   SCROLL-DRIVEN DOOR OPENING
+   - #scene-wrap is 220vh tall
+   - #doorPortal is sticky:top:0 inside it, always 100vh
+   - scrollY 0 → doorOpen 0deg (fully closed)
+   - scrollY = 1×vh → doorOpen 115deg (fully open)
+   - Portal fades from 75% → 100% scroll progress through scene
+   ================================================================ */
+(function(){
+  var portal  = document.getElementById('doorPortal');
+  var dL      = document.getElementById('dL');
+  var dR      = document.getElementById('dR');
+  var gapLt   = document.getElementById('gapLt');
+  var wrap    = document.getElementById('scene-wrap');
+  var palace  = document.getElementById('palace-scene');
+
+  function update(){
+    var scrollY  = window.pageYOffset;
+    var sceneH   = wrap.offsetHeight - window.innerHeight; // ~1.2×vh
+    var progress = Math.min(1, Math.max(0, scrollY / sceneH));
+
+    /* Door angle: 0 → 115deg as progress 0 → 1 */
+    var angle = progress * 115;
+    dL.style.transform = 'rotateY(-' + angle + 'deg)';
+    dR.style.transform = 'rotateY(' + angle + 'deg)';
+
+    /* Zoom in effect from distant palace to inside the door */
+    var zoom = 0.35 + (progress * progress * 5.65); /* Starts at 0.35 (ultra wide), zooms to 6.0 */
+    palace.style.transform = 'scale(' + zoom + ')';
+    
+    /* Foreground arch scales faster to pass behind camera */
+    var fgArch = document.getElementById('fg-arch');
+    if(fgArch) fgArch.style.transform = 'scale(' + (1 + progress * 8) + ')';
+    
+    /* Portal background remains 1 but we fade it all out at the end */
+
+    /* Gap light dims quickly as doors open */
+    var gapOpacity = Math.max(0, 1 - progress * 3);
+    gapLt.style.opacity = gapOpacity;
+
+    /* Fade out scroll hint early so it doesn't become huge */
+    var shp = document.querySelector('.scroll-hint-portal');
+    if(shp) shp.style.opacity = gapOpacity;
+
+    /* Portal fades: full opacity until 70% progress, then fades to 0 by 100% */
+    var fadeStart = 0.68;
+    var portalOpacity = progress < fadeStart ? 1 : 1 - (progress - fadeStart) / (1 - fadeStart);
+    portal.style.opacity = Math.max(0, portalOpacity);
+
+    /* Hide portal from layout once fully gone */
+    if(progress >= 1){
+      portal.style.visibility = 'hidden';
+    } else {
+      portal.style.visibility = 'visible';
+    }
+  }
+
+  /* Run on scroll with rAF for smoothness */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(function(){ update(); ticking = false; }); ticking = true; }
+  }, {passive: true});
+
+  /* Initial state */
+  update();
+})();
+
+// ==========================================
+// DRAG TO ALIGN MODE (EMERGENCY RE-ENABLE)
+// ==========================================
+(function(){
+  var doorWrap = document.getElementById('html-door-wrapper');
+  var palace = document.getElementById('palace-scene');
+  var isDragging = false;
+  var startX, startY, initialLeftPct, initialTopPct;
+
+  doorWrap.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    doorWrap.style.cursor = 'grabbing';
+    startX = e.clientX; startY = e.clientY;
+    var rect = doorWrap.getBoundingClientRect();
+    initialLeftPct = ((rect.left + rect.width/2) / window.innerWidth) * 100;
+    initialTopPct = ((rect.top + rect.height/2) / window.innerHeight) * 100;
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    var dx = e.clientX - startX, dy = e.clientY - startY;
+    var newLeft = initialLeftPct + (dx / window.innerWidth) * 100;
+    var newTop = initialTopPct + (dy / window.innerHeight) * 100;
+    doorWrap.style.left = newLeft + '%';
+    doorWrap.style.top = newTop + '%';
+    var s = document.getElementById('scale-slider').value;
+    document.getElementById('align-coords').innerText = "top: " + newTop.toFixed(2) + "%, left: " + newLeft.toFixed(2) + "%, scale: " + s;
+    palace.style.transformOrigin = newLeft.toFixed(2) + '% ' + newTop.toFixed(2) + '%';
+    palace.style.backgroundPosition = newLeft.toFixed(2) + '% ' + newTop.toFixed(2) + '%';
+  });
+
+  document.getElementById('scale-slider').addEventListener('input', function(e) {
+    var s = e.target.value;
+    doorWrap.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  });
+
+  document.addEventListener('mouseup', function() { isDragging = false; doorWrap.style.cursor = 'grab'; });
+})();
+
+/* EMBERS */
+(function(){
+  var c=document.getElementById('ember-canvas'),ctx=c.getContext('2d'),W,H,P=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();
+  window.addEventListener('resize',rs,{passive:true});
+  function E(){this.r2(true)}
+  E.prototype.r2=function(i){
+    this.x=Math.random()*W;this.y=i?Math.random()*H:H+20;
+    this.r=Math.random()*2.2+0.7;this.vy=Math.random()*.9+.4;
+    this.vx=(Math.random()-.5)*.4;this.a=Math.random()*.55+.18;
+    this.l=0;this.ml=Math.random()*220+160;
+    this.w=Math.random()*Math.PI*2;
+    this.c=Math.random()<.5?[208,88,24]:[196,144,26];
+  };
+  E.prototype.up=function(){
+    this.w+=.04;this.x+=this.vx+Math.sin(this.w)*.35;this.y-=this.vy;this.l++;
+    if(this.y<-10||this.l>this.ml)this.r2(false);
+  };
+  E.prototype.dw=function(){
+    var ratio=this.l/this.ml,a=this.a*(1-ratio*ratio),co=this.c;
+    ctx.save();ctx.globalAlpha=a;ctx.fillStyle='rgb('+co+')';
+    ctx.shadowColor='rgba('+co+',.8)';ctx.shadowBlur=this.r*3;
+    ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();
+  };
+  for(var i=0;i<65;i++)P.push(new E());
+  (function lp(){ctx.clearRect(0,0,W,H);P.forEach(function(p){p.up();p.dw()});requestAnimationFrame(lp)})();
+})();
+
+/* NAV */
+(function(){
+  var nav=document.getElementById('mainNav'),ly=0;
+  window.addEventListener('scroll',function(){
+    var y=pageYOffset;nav.classList.toggle('scrolled',y>60);
+    if(y>ly+6&&y>200)nav.classList.add('nav-hidden');
+    else if(y<ly-6)nav.classList.remove('nav-hidden');
+    ly=y;
+  },{passive:true});
+})();
+
+/* HERO PARALLAX */
+(function(){
+  var bg=document.getElementById('heroBg');
+  window.addEventListener('scroll',function(){bg.style.transform='translateY('+(pageYOffset*.28)+'px)'},{passive:true});
+})();
+
+/* ARCH CARD REVEAL */
+(function(){
+  var cards=document.querySelectorAll('.arch-card');
+  var obs=new IntersectionObserver(function(en){
+    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}});
+  },{threshold:.1,rootMargin:'0px 0px -20px 0px'});
+  cards.forEach(function(c,i){c.style.animationDelay=(i*.15)+'s';obs.observe(c)});
+})();
+
+/* DOOR INIT */
+(function(){
+  // This just ensures the very first frame is correct
+  if(typeof update === 'function') update();
+})();
+</script>
+
+<!-- ALIGNMENT UI -->
+<div id="align-ui" style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: white; padding: 15px 25px; border-radius: 8px; z-index: 10000; font-family: sans-serif; text-align: center; border: 2px solid #DEB040; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+  <b style="font-size:1.2em; color:#DEB040;">FINAL MASTERPIECE ALIGNMENT</b><br><br>
+  The image has been upgraded to a masterpiece.<br>
+  Please match the door one last time.<br><br>
+  <span id="align-coords" style="color: #DEB040; font-size: 1.4em; font-weight: bold;">top: 76.95%, left: 50.00%, scale: 0.35</span><br><br>
+  Scale: <input type="range" id="scale-slider" min="0.1" max="1.0" step="0.01" value="0.35" style="width:200px;"><br><br>
+  <small>Tell me the new numbers to finish!</small>
+</div>
+
+<script src="js/page-transition.js" defer></script>
+</body>
+</html>
