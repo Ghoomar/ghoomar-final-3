@@ -264,6 +264,37 @@
 }
 
 
+.showcase-video-gallery .video-placeholder {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 9 / 16;
+    background: linear-gradient(160deg, #1a0a0a 0%, #2d1515 50%, #1a0a0a 100%);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+    transition: all 0.8s cubic-bezier(.4, 2, .3, 1);
+}
+
+.showcase-video-gallery .video-placeholder i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.showcase-video-gallery .video-placeholder span {
+    font-size: 0.85rem;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
 .showcase-text {
     flex: 1;
     padding: 0 20px;
