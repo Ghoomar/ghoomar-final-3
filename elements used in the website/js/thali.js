@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             const whatsappNumber = outletNumbers[outletValue] || "918803980000";
-            const message = `Hi! I'm ${name} and I'm planning to visit the Ghoomar Traditional Thali at ${outletValue}. Could you please share the menu for today? 🙏`;
+            const message = `Khamma Ghani, this is ${name}, and I'm planning to visit soon, could you please share today's menu?`;
 
             window.open(`https://wa.me/${whatsappNumber}?text=` + encodeURIComponent(message), '_blank');
         });

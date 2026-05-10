@@ -1952,7 +1952,7 @@ body.master-landing::before {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    transition: none !important;
 }
 
 .thali-nav {
