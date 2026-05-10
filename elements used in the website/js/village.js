@@ -90,8 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function goTo(n) {
             // Pause all
             vids.forEach(v => {
-                v.pause();
-                v.currentTime = 0;
+                if (v.tagName === 'VIDEO') { v.pause(); v.currentTime = 0; }
             });
 
             idx = ((n % vids.length) + vids.length) % vids.length;
@@ -100,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Play active
             const targetVid = vids[idx];
-            if (targetVid) {
+            if (targetVid && targetVid.tagName === 'VIDEO') {
                 const playPromise = targetVid.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
