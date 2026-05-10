@@ -2146,7 +2146,7 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    transition: none !important;
 }
 
 .master-nav.nav-hidden {
@@ -4682,8 +4682,7 @@ body.coming-soon {
 }
 
 .map-card-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
     padding: 20px;
     background: rgba(163, 28, 33, 0.05);
@@ -4747,7 +4746,7 @@ body.coming-soon {
 
 @media (max-width: 768px) {
     .map-card-actions {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         padding: 15px;
     }
     .map-frame-container {
@@ -4770,8 +4769,9 @@ body.coming-soon {
     max-width: 150px;
 }
 .deco-top-right {
-    top: -20px;
-    right: -20px;
+    top: 20px;
+    right: 20px;
+    transform: scaleX(-1);
 }
 .deco-bottom-left {
     bottom: -20px;
