@@ -41,14 +41,14 @@
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/thali"
     },
     {
       "source": "/",
-      "destination": "/home"
+      "destination": "/index"
     },
     {
       "source": "/menu",
@@ -65,7 +65,7 @@
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/chandni-chowk"
@@ -75,7 +75,7 @@
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/connaught-place"
@@ -85,7 +85,7 @@
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/guwahati"
@@ -95,28 +95,20 @@
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/patna"
-    },
-    {
-      "source": "/thali",
-      "destination": "/pages/thali"
     },
     {
       "source": "/gallery",
       "has": [
         {
           "type": "host",
-          "value": "thali.ghoomarthali.in"
+          "value": "restaurants.ghoomarthali.in"
         }
       ],
       "destination": "/pages/gallery-thali"
-    },
-    {
-      "source": "/yatra",
-      "destination": "/pages/yatra"
     },
     {
       "source": "/yatra-menu",
