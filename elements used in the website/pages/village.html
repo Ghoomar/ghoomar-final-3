@@ -423,32 +423,136 @@
         </div>
     </section>
 
-    <!-- Act 9: Locate Us -->
-    <section id="map" class="village-act">
+    <!-- Locations -->
+    <section id="village-locations" class="village-act">
         <div class="container">
             <div class="act-header">
-                <h2 class="act-title">&bull; <b>Find Us Here</b> &bull;</h2>
-                <p class="act-subtitle">Step into Rajasthan at M3M Urbana, Gurugram.</p>
+                <h2 class="act-title">&bull; <b>Our Locations</b> &bull;</h2>
+                <p class="act-subtitle">Choose your nearest Ghoomar Village for address, map &amp; directions.</p>
             </div>
 
-            <div class="map-card">
-                <div class="map-card-actions">
-                    <a href="tel:+919810211031" class="map-btn-main btn-call">
-                        <i class="fas fa-phone"></i>&nbsp; CALL TO BOOK
-                    </a>
-                    <a href="javascript:void(0)" class="map-btn-main btn-menu-outline" id="openMasterMenuMap">
-                        <i class="fas fa-utensils"></i>&nbsp; VIEW MASTER MENU
-                    </a>
-                </div>
-                <div class="map-frame-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.3524673898165!2d77.0673413753512!3d28.393433575796245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23b6eff14b4b%3A0x1bb602aec36469e0!2sGhoomar%20Village%20-%20Experience%20Rajasthan!5e0!3m2!1sen!2sin!4v1713593000000!5m2!1sen!2sin" 
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+            <div class="village-location-grid">
+                <a href="village-gurugram.html" class="village-loc-card">
+                    <div class="vlc-img" style="background-image: url('../assets/village/village-logo.png');"></div>
+                    <div class="vlc-body">
+                        <span class="vlc-badge vlc-live">Open Now</span>
+                        <h3 class="vlc-name">Gurugram</h3>
+                        <p class="vlc-addr"><i class="fas fa-map-marker-alt"></i> 2nd Floor, M3M Urbana, Sector 67, Gurugram</p>
+                        <p class="vlc-phone"><i class="fas fa-phone"></i> +91 98102 11031</p>
+                    </div>
+                    <div class="vlc-footer">
+                        <span>View Details &amp; Map</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <div class="village-loc-card vlc-soon">
+                    <div class="vlc-img vlc-img-soon"></div>
+                    <div class="vlc-body">
+                        <span class="vlc-badge vlc-coming">Coming Soon</span>
+                        <h3 class="vlc-name">Bhuj, Gujarat</h3>
+                        <p class="vlc-addr"><i class="fas fa-map-marker-alt"></i> Details to be announced</p>
+                        <p class="vlc-phone"><i class="fas fa-phone"></i> +91 98102 11031</p>
+                    </div>
+                    <div class="vlc-footer vlc-footer-soon">
+                        <span>Stay Tuned</span>
+                        <i class="fas fa-clock"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .village-location-grid {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .village-loc-card {
+            flex: 1 1 320px;
+            max-width: 380px;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+            border: 1px solid rgba(163,28,33,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        a.village-loc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+        }
+        .vlc-img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            background-color: #1a0a0a;
+        }
+        .vlc-img-soon {
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 60%, #1a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vlc-img-soon::after {
+            content: '\f3c5';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.15);
+        }
+        .vlc-body { padding: 18px 20px 12px; flex: 1; }
+        .vlc-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .vlc-live    { background: #e8f5e9; color: #2e7d32; }
+        .vlc-coming  { background: #fff3e0; color: #e65100; }
+        .vlc-name    { font-size: 1.25rem; font-weight: 700; color: #1a0a0a; margin: 0 0 10px; font-family: 'Outfit', sans-serif; }
+        .vlc-addr, .vlc-phone {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .vlc-addr i, .vlc-phone i { color: var(--primary-color); margin-top: 2px; flex-shrink: 0; }
+        .vlc-footer {
+            padding: 14px 20px;
+            background: var(--primary-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .vlc-footer-soon {
+            background: #888;
+        }
+        .vlc-soon { cursor: default; }
+        @media (max-width: 600px) {
+            .village-loc-card { max-width: 100%; }
+        }
+    </style>
 
     <!-- FAQ Section -->
     <section id="faq" class="village-act" style="padding-top: 0; padding-bottom: 20px;">
