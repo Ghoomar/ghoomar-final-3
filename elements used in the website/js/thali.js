@@ -86,15 +86,48 @@ document.addEventListener('DOMContentLoaded', function () {
         gallery.addEventListener('mouseenter', () => isHovered = true);
         gallery.addEventListener('mouseleave', () => isHovered = false);
 
-        setInterval(() => {
+        const nextBtn = document.querySelector('.next-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+
+        const scrollNext = () => {
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+            if (gallery.scrollLeft >= maxScroll - 10) {
+                gallery.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                gallery.scrollBy({ left: gallery.clientWidth, behavior: 'smooth' });
+            }
+        };
+
+        const scrollPrev = () => {
+            if (gallery.scrollLeft <= 10) {
+                gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+            } else {
+                gallery.scrollBy({ left: -gallery.clientWidth, behavior: 'smooth' });
+            }
+        };
+
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            scrollNext();
+            resetInterval();
+        });
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            scrollPrev();
+            resetInterval();
+        });
+
+        let interval = setInterval(() => {
             if (!isHovered) {
-                const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-                if (gallery.scrollLeft >= maxScroll - 10) {
-                    gallery.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    gallery.scrollBy({ left: gallery.clientWidth, behavior: 'smooth' });
-                }
+                scrollNext();
             }
         }, 2000);
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (!isHovered) {
+                    scrollNext();
+                }
+            }, 2000);
+        }
     }
 });
