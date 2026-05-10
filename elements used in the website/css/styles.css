@@ -2262,7 +2262,7 @@ body.master-landing::before {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(163, 28, 33, 0.1);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    transition: none !important;
 }
 
 .village-nav.nav-hidden {
