@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhuj | Ghoomar Village</title>
-    <meta name="description" content="Ghoomar Village is coming to Bhuj, Gujarat. Stay tuned for the full immersive Rajasthani experience — unlimited food, live folk performances, and cultural traditions.">
+    <meta name="description" content="Ghoomar Village is coming to Bhuj, Gujarat — a 25,000 sq. ft. immersive Rajasthani experience with unlimited food, live folk performances, and cultural traditions.">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/page-colors.css">
     <link rel="stylesheet" href="../css/village-story.css">
@@ -19,18 +19,27 @@
 
     <style>
         .outlet-page { padding: 60px 20px; text-align: center; color: var(--text-color); max-width: 900px; margin: 0 auto; }
-        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; }
-        .btn-call { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
-        .btn-call:hover { background: transparent; color: var(--primary-color); transform: translateY(-3px); }
+        .outlet-page-header { background: url('../assets/village/village-logo.png') center/cover; position: relative; color: white; padding: 100px 20px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background-color: #1a0a0a; }
+        .outlet-page-header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .outlet-page-header * { position: relative; z-index: 1; }
+        .outlet-title { font-size: 2.5rem; margin-bottom: 10px; color: #FFF; font-family: 'Outfit', sans-serif; }
+        .outlet-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
+        .action-btn { padding: 12px 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 0.9rem; transform: translateY(0); }
+        .btn-call, .btn-book, .btn-menu, .btn-map { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+        .btn-call:hover, .btn-book:hover, .btn-menu:hover, .btn-map:hover { background: transparent; color: var(--primary-color); transform: translateY(-3px); }
+        .action-btn:active { transform: translateY(0) scale(0.96); }
         .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
         .info-card { background: #fff; border: 1px solid rgba(163, 28, 33, 0.1); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .info-card h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
         .info-card p { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: start; gap: 12px; line-height: 1.5; color: var(--text-color); }
         .info-card i { color: var(--primary-color); margin-top: 4px; font-size: 1.1rem; width: 20px; }
+        .pricing-section { margin-top: 30px; background: rgba(251, 226, 1, 0.1); border: 1px solid rgba(251, 226, 1, 0.5); padding: 20px; border-radius: 12px; text-align: center; }
+        .pricing-section h4 { color: #2A0E0E; margin-bottom: 15px; font-size: 1.1rem; }
+        .price-tag { display: inline-block; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; margin: 5px; font-size: 0.9rem; }
         .coming-soon-banner {
             background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 60%, #1a0a0a 100%);
             border-radius: 20px;
-            padding: 60px 30px;
+            padding: 50px 30px;
             text-align: center;
             margin-bottom: 40px;
             position: relative;
@@ -53,20 +62,22 @@
             text-transform: uppercase;
             padding: 6px 18px;
             border-radius: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .coming-soon-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             color: #fff;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            position: relative;
         }
         .coming-soon-sub {
             color: rgba(255,255,255,0.6);
             font-size: 1rem;
             max-width: 420px;
-            margin: 0 auto 30px;
+            margin: 0 auto 24px;
             line-height: 1.6;
+            position: relative;
         }
         .notify-cta {
             display: inline-flex;
@@ -80,6 +91,7 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: background 0.2s, transform 0.15s;
+            position: relative;
         }
         .notify-cta:hover { background: #c02329; transform: translateY(-2px); }
         .placeholder-note {
@@ -92,7 +104,15 @@
             border-radius: 6px;
             font-weight: 600;
         }
-        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .coming-soon-title { font-size: 2rem; } .outlet-page { padding: 40px 15px; } }
+        .map-card { margin-top: 50px; background: #FFF; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px dashed rgba(163,28,33,0.3); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .map-card-actions { padding: 20px; display: flex; flex-direction: column; gap: 15px; background: #fff; }
+        .map-btn-main { display: block; width: 100%; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-transform: uppercase; text-align: center; font-size: 0.95rem; letter-spacing: 1.2px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-decoration: none; }
+        .btn-wa { background: #A31C21; color: white !important; border: none; }
+        .btn-wa:hover { background: #8B181C; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(163,28,33,0.4); }
+        .map-placeholder { padding: 60px 20px; text-align: center; background: #fafafa; }
+        .map-placeholder i { font-size: 3rem; color: rgba(163,28,33,0.2); display: block; margin-bottom: 14px; }
+        .map-placeholder p { color: #999; font-size: 0.9rem; margin: 0; }
+        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } .outlet-actions { flex-direction: column; } .action-btn { justify-content: center; } .outlet-page { padding: 40px 15px; } .coming-soon-title { font-size: 2rem; } }
     </style>
 </head>
 <body class="village-page bg-flowers-2" style="font-family: 'Outfit', sans-serif;">
@@ -130,49 +150,53 @@
             </a>
         </div>
 
+        <div class="outlet-actions">
+            <a href="tel:+919810211031" class="action-btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
+            <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Village%20Bhuj." target="_blank" class="action-btn btn-book"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+
         <div class="details-grid">
             <div class="info-card">
-                <h4><i class="fas fa-map-marker-alt"></i> Venue Details</h4>
+                <h4><i class="fas fa-info-circle"></i> Venue Details</h4>
                 <p><i class="fas fa-map-marker-alt"></i>
                     <span>
-                        [BHUJ_ADDRESS] <br>
-                        Bhuj, Gujarat <br>
-                        <span class="placeholder-note">Details to be announced</span>
+                        Bhuj, Gujarat<br>
+                        <span class="placeholder-note">Address to be announced</span>
                     </span>
                 </p>
-                <p><i class="fas fa-phone-alt"></i> <span>+91 98102 11031 (shared line)</span></p>
+                <p><i class="fas fa-phone-alt"></i> <span>+91 98102 11031</span></p>
                 <p><i class="fas fa-envelope"></i> <span>village@ghoomarthali.in</span></p>
             </div>
 
             <div class="info-card">
-                <h4><i class="fas fa-clock"></i> Timings</h4>
+                <h4><i class="fas fa-clock"></i> Timings &amp; Pricing</h4>
                 <p><i class="fas fa-info-circle"></i>
                     <span>
                         Timings will be announced closer to opening.<br>
-                        <span class="placeholder-note">[BHUJ_TIMINGS]</span>
+                        <span class="placeholder-note">To be announced</span>
                     </span>
                 </p>
 
-                <div style="margin-top: 20px; background: rgba(251,226,1,0.1); border: 1px solid rgba(251,226,1,0.4); padding: 16px; border-radius: 10px;">
-                    <p style="font-size: 0.85rem; color: #555; text-align: center; margin-bottom: 0; display: block;">
-                        <i class="fas fa-bell" style="color: var(--primary-color); width: auto;"></i>
-                        &nbsp;Follow our social pages for opening updates
-                    </p>
+                <div class="pricing-section">
+                    <h4>Weekday Entry Pricing</h4>
+                    <div class="price-tag">Adults: &#8377;895 + 5% GST</div>
+                    <div class="price-tag">Kids (5&ndash;10 yrs): &#8377;666 + 5% GST</div>
+                    <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 10px; margin-bottom: 0; display: block; text-align: center;">*Prices higher on Fri, Sat &amp; Sun.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Map placeholder -->
-        <div style="margin-top: 50px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px dashed rgba(163,28,33,0.3); max-width: 600px; margin-left: auto; margin-right: auto;">
-            <div style="padding: 40px 20px; text-align: center; background: #fafafa;">
-                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: rgba(163,28,33,0.2); display: block; margin-bottom: 14px;"></i>
-                <p style="color: #999; font-size: 0.9rem; margin: 0;">
-                    Map will be added once the venue is confirmed.<br>
-                    <span class="placeholder-note">[BHUJ_MAP_EMBED_URL]</span>
-                </p>
+        <div class="map-card" id="map">
+            <div class="map-card-actions">
+                <a href="https://wa.me/919810211031?text=Khamma%20Ghani%2C%20I%20have%20an%20inquiry%20regarding%20Ghoomar%20Village%20Bhuj." target="_blank" class="map-btn-main btn-wa">
+                    <i class="fab fa-whatsapp"></i>&nbsp; GET NOTIFIED ON WHATSAPP
+                </a>
+            </div>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Map will be added once the venue is confirmed.</p>
             </div>
         </div>
-
     </div>
 
     <footer class="footer">
@@ -216,5 +240,6 @@
 
     <script src="../js/page-transition.js" defer></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/maps-launcher.js" defer></script>
 </body>
 </html>
