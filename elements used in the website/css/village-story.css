@@ -493,6 +493,14 @@
         font-size: 2.2rem;
     }
 }
+@media (max-width: 768px) {
+    /* Drop expensive 3D GPU compositing on mobile */
+    .showcase-video-gallery {
+        perspective: none;
+        transform-style: flat;
+    }
+}
+
 @media (max-width: 600px) {
     .act-title { font-size: 2.2rem; }
     .hero-title.story-hook { font-size: 2.2rem; line-height: 1.25; }
@@ -500,17 +508,24 @@
     .w-highlight { width: 100%; justify-content: center; }
     .sticky-booking-text { display: none; }
     .sticky-booking-bar { padding: 10px; }
-    
+
     .showcase-video-gallery {
-        height: 60vh;
-        max-height: 500px;
+        height: 52vh;
+        max-height: 380px;
         padding: 0;
     }
-    
+
     .showcase-video-gallery video {
         height: 100%;
         width: auto;
         aspect-ratio: 9 / 16;
+    }
+}
+
+@media (max-width: 400px) {
+    .showcase-video-gallery {
+        height: 46vh;
+        max-height: 300px;
     }
 }
 
