@@ -123,6 +123,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // Prime an adjacent video so its first frame is visible (not black)
+        function primeFirstFrame(vid) {
+            if (!vid || vid.tagName !== 'VIDEO') return;
+            if (vid.preload === 'none') {
+                vid.preload = 'metadata';
+                vid.load();
+            }
+            const showFrame = () => { if (vid.currentTime === 0) vid.currentTime = 0.001; };
+            if (vid.readyState >= 1) showFrame();
+            else vid.addEventListener('loadedmetadata', showFrame, { once: true });
+        }
+
         function updateCarousel() {
             const total = vids.length;
             const flatMode = window.innerWidth < 768;
@@ -143,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     v.style.transform = flatMode
                         ? `translateX(-45%) scale(0.85)`
                         : `translateX(-45%) translateY(-5%) scale(0.85) rotateY(15deg)`;
+                    primeFirstFrame(v);
                 } else if (isRight) {
                     v.style.zIndex = '2';
                     v.style.opacity = '0.7';
@@ -150,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     v.style.transform = flatMode
                         ? `translateX(45%) scale(0.85)`
                         : `translateX(45%) translateY(-5%) scale(0.85) rotateY(-15deg)`;
+                    primeFirstFrame(v);
                 } else {
                     v.style.zIndex = '1';
                     v.style.opacity = '0';
