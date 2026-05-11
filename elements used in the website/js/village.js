@@ -3,6 +3,17 @@
  * Handles ScrollSpy, Showcase Galleries, and Master Menu Modal
  */
 document.addEventListener('DOMContentLoaded', function () {
+    // ---- Hero Video: load only the one that matches the current device ----
+    const isMobile = window.innerWidth < 768;
+    const heroDesktop = document.querySelector('.village-hero-video.desktop-video');
+    const heroMobile  = document.querySelector('.village-hero-video.mobile-video');
+    const heroToLoad  = isMobile ? heroMobile : heroDesktop;
+    if (heroToLoad && heroToLoad.dataset.src) {
+        heroToLoad.src = heroToLoad.dataset.src;
+        heroToLoad.load();
+        heroToLoad.play().catch(() => {});
+    }
+
     // ---- Navigation Elements ----
     const nav         = document.getElementById('villageNav');
     const links       = document.querySelectorAll('.village-nav-link');
