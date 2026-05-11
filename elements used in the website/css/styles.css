@@ -205,6 +205,7 @@ img {
     text-align: center;
     margin: 20px 0 16px;
     position: relative;
+    text-transform: uppercase;
 }
 
 /* Buttons */
