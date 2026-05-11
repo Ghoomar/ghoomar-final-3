@@ -1910,6 +1910,15 @@ img {
         min-height: 60vh;
     }
 
+    .village-hero-content {
+        margin-bottom: 15vh;
+    }
+
+    .village-hero-cta {
+        bottom: 12%;
+        gap: 8px;
+    }
+
     .village-kicker {
         font-size: 0.72rem;
         padding: 6px 12px;
