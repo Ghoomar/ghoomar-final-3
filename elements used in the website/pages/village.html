@@ -52,12 +52,14 @@
         <video class="village-hero-video mobile-video" autoplay loop muted playsinline preload="none" poster="../assets/village/village-logo.png" data-src="../assets/village/Video%20For%20Hero%20Section%20of%20Ghoomar%20Village.mp4"></video>
         <script>
             (function() {
+                var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                var slow = conn && (conn.saveData || conn.effectiveType === 'slow-2g' || conn.effectiveType === '2g' || conn.effectiveType === '3g');
                 var isMobile = window.innerWidth < 768;
                 var sel = isMobile ? '.village-hero-video.mobile-video' : '.village-hero-video.desktop-video';
                 var vid = document.currentScript.parentElement.querySelector(sel);
                 if (vid && vid.dataset.src) {
                     vid.src = vid.dataset.src;
-                    vid.preload = 'auto';
+                    vid.preload = slow ? 'metadata' : 'auto';
                     vid.load();
                 }
             })();
