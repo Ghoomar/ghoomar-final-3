@@ -4829,7 +4829,7 @@ body.coming-soon {
     left: -40px;
     transform: translateY(-50%) scaleX(-1);
     max-width: 280px;
-    opacity: 0.08;
+    opacity: 0.18;
 }
 .mascot-watermark {
     position: absolute;
