@@ -1683,6 +1683,15 @@ img {
         min-height: 78vh;
     }
 
+    .village-hero-content {
+        margin-bottom: 20vh;
+    }
+
+    .village-hero-cta {
+        bottom: 14%;
+        gap: 10px;
+    }
+
     .village-visit-card {
         padding: 28px 20px;
     }
