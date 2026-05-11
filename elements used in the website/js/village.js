@@ -215,14 +215,21 @@ document.addEventListener('DOMContentLoaded', function () {
             if (v.tagName === 'VIDEO') v.addEventListener('ended', () => goTo(idx + 1));
         });
 
+        // Pre-fetch metadata for the first video so it's ready when user scrolls to it
+        const firstVid = vids[0];
+        if (firstVid && firstVid.tagName === 'VIDEO' && firstVid.preload === 'none') {
+            firstVid.preload = 'metadata';
+            firstVid.load();
+        }
+
         // Optimization: Intersection Observer
-        // Only start the first video when the section is actually visible
+        // Start preloading earlier (10% visible) so video is buffered by the time it's fully on screen
         const observer = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
-                // Unlock preload on active video now that the section is on-screen
                 const active = vids[idx];
-                if (active && active.tagName === 'VIDEO' && active.preload === 'none') {
+                if (active && active.tagName === 'VIDEO' && active.preload !== 'auto') {
                     active.preload = 'auto';
+                    active.load();
                 }
                 if (!active || active.tagName !== 'VIDEO' || active.paused) goTo(idx);
                 startAuto();
@@ -230,8 +237,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 vids.forEach(v => { if (v.tagName === 'VIDEO') v.pause(); });
                 stopAuto();
             }
-        }, { threshold: 0.3 });
-        
+        }, { threshold: 0.1 });
+
         observer.observe(wrapper);
     });
 
