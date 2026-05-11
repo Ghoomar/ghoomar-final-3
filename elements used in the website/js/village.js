@@ -214,10 +214,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (v.tagName === 'VIDEO') v.addEventListener('ended', () => goTo(idx + 1));
         });
 
-        // Pre-fetch metadata for the first video so it's ready when user scrolls to it
+        // First video already has preload="auto" in HTML — just ensure it starts loading
         const firstVid = vids[0];
-        if (firstVid && firstVid.tagName === 'VIDEO' && firstVid.preload === 'none') {
-            firstVid.preload = 'metadata';
+        if (firstVid && firstVid.tagName === 'VIDEO' && firstVid.readyState === 0) {
             firstVid.load();
         }
 
