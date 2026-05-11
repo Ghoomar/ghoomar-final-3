@@ -1838,13 +1838,19 @@ img {
         gap: 10px;
     }
 
-    .outlet-card {
-        flex: 1 1 100%;
+    #locations .container {
+        padding: 0;
         max-width: none;
     }
 
+    .outlet-card {
+        flex: 1 1 100%;
+        max-width: none;
+        border-radius: 0; /* Full width often looks better without rounded corners on the sides */
+    }
+
     .outlet-name {
-        font-size: 0.92rem;
+        font-size: 0.95rem;
     }
 
     .outlet-address {
