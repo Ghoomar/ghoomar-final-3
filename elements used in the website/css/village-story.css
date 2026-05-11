@@ -59,6 +59,8 @@
     padding: 60px 0;
     position: relative;
     overflow: hidden; /* Prevent horizontal scroll from deco elements */
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
 }
 
 .act-header {
