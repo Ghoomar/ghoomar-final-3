@@ -1917,12 +1917,11 @@ img {
 
     .village-hero {
         min-height: 60vh;
-        padding-top: 80px;
-        padding-bottom: 32px;
+        padding-bottom: 36px;
     }
 
     .village-hero-content {
-        margin-bottom: 0;
+        margin-bottom: 12px;
     }
 
     .village-hero-cta {
