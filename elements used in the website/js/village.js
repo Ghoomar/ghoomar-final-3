@@ -108,9 +108,10 @@ document.addEventListener('DOMContentLoaded', function () {
             updateDots();
             updateCarousel();
 
-            // Play active
+            // Play active — enable preload on demand so it starts fetching
             const targetVid = vids[idx];
             if (targetVid && targetVid.tagName === 'VIDEO') {
+                if (targetVid.preload === 'none') targetVid.preload = 'auto';
                 const playPromise = targetVid.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
