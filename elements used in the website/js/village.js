@@ -205,7 +205,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Only start the first video when the section is actually visible
         const observer = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                // Unlock preload on active video now that the section is on-screen
                 const active = vids[idx];
+                if (active && active.tagName === 'VIDEO' && active.preload === 'none') {
+                    active.preload = 'auto';
+                }
                 if (!active || active.tagName !== 'VIDEO' || active.paused) goTo(idx);
                 startAuto();
             } else {
