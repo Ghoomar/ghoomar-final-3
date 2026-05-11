@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateCarousel() {
             const total = vids.length;
+            const flatMode = window.innerWidth < 768;
             vids.forEach((v, i) => {
                 const isActive = idx === i;
                 const isLeft = (idx - 1 + total) % total === i;
@@ -134,17 +135,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     v.style.zIndex = '3';
                     v.style.opacity = '1';
                     v.style.pointerEvents = 'auto';
-                    v.style.transform = `translateX(0%) translateY(0%) scale(1) rotateY(0deg)`;
+                    v.style.transform = `translateX(0%) scale(1)`;
                 } else if (isLeft) {
                     v.style.zIndex = '2';
                     v.style.opacity = '0.7';
                     v.style.pointerEvents = 'auto';
-                    v.style.transform = `translateX(-45%) translateY(-5%) scale(0.85) rotateY(15deg)`;
+                    v.style.transform = flatMode
+                        ? `translateX(-45%) scale(0.85)`
+                        : `translateX(-45%) translateY(-5%) scale(0.85) rotateY(15deg)`;
                 } else if (isRight) {
                     v.style.zIndex = '2';
                     v.style.opacity = '0.7';
                     v.style.pointerEvents = 'auto';
-                    v.style.transform = `translateX(45%) translateY(-5%) scale(0.85) rotateY(-15deg)`;
+                    v.style.transform = flatMode
+                        ? `translateX(45%) scale(0.85)`
+                        : `translateX(45%) translateY(-5%) scale(0.85) rotateY(-15deg)`;
                 } else {
                     v.style.zIndex = '1';
                     v.style.opacity = '0';
