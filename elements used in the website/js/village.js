@@ -3,6 +3,22 @@
  * Handles ScrollSpy, Showcase Galleries, and Master Menu Modal
  */
 document.addEventListener('DOMContentLoaded', function () {
+    // Detect slow connections (mobile data / data-saver mode)
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isSlowConnection = conn && (
+        conn.saveData === true ||
+        conn.effectiveType === 'slow-2g' ||
+        conn.effectiveType === '2g' ||
+        conn.effectiveType === '3g'
+    );
+
+    // On slow connections, revert gallery first-video eager preloading to on-demand only
+    if (isSlowConnection) {
+        document.querySelectorAll('.showcase-video-gallery video:first-child').forEach(v => {
+            v.preload = 'none';
+        });
+    }
+
     // ---- Hero Video: inline script already set src & triggered load early ----
     // Just ensure play() is called once the DOM is ready
     const isMobile = window.innerWidth < 768;
@@ -10,7 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
         ? document.querySelector('.village-hero-video.mobile-video')
         : document.querySelector('.village-hero-video.desktop-video');
     if (heroToLoad) {
-        heroToLoad.play().catch(() => {});
+        // On slow connections, wait for canplay before attempting play
+        if (isSlowConnection) {
+            heroToLoad.addEventListener('canplay', () => heroToLoad.play().catch(() => {}), { once: true });
+        } else {
+            heroToLoad.play().catch(() => {});
+        }
     }
 
     // ---- Navigation Elements ----
