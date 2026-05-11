@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 :root {
@@ -74,7 +75,7 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-image: none;
     opacity: 0.15;
@@ -4624,34 +4625,7 @@ body.coming-soon {
     }
 }
 
-/* Heritage Deco Ornaments */
-.deco-ornament {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.15;
-    max-width: 150px;
-}
-.deco-top-right {
-    top: -20px;
-    right: -20px;
-}
-.deco-bottom-left {
-    bottom: -20px;
-    left: -20px;
-}
-.deco-center-right {
-    top: 50%;
-    right: -40px;
-    transform: translateY(-50%);
-    max-width: 280px;
-    opacity: 0.08;
-}
-.deco-center-left {
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%) scaleX(-1);
-}
+
 
 .vedanta-page .vedanta-logo-wrap img {
     width: 200px;
@@ -4850,6 +4824,16 @@ body.coming-soon {
     transform: translateY(-50%) scaleX(-1);
     max-width: 280px;
     opacity: 0.08;
+}
+.mascot-watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 280px !important;
+    opacity: 0.15 !important;
+    z-index: 0;
+    transform: rotate(10deg);
+    pointer-events: none;
 }
 /* Ensure sections can contain the ornaments gracefully */
 .culinary-journey, .offers, .testimonials-section, .proximity-section, .main-gallery-section, .outlet-pricing, .outlet-page, .master-hero {
