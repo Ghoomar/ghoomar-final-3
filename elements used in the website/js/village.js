@@ -3,14 +3,13 @@
  * Handles ScrollSpy, Showcase Galleries, and Master Menu Modal
  */
 document.addEventListener('DOMContentLoaded', function () {
-    // ---- Hero Video: load only the one that matches the current device ----
+    // ---- Hero Video: inline script already set src & triggered load early ----
+    // Just ensure play() is called once the DOM is ready
     const isMobile = window.innerWidth < 768;
-    const heroDesktop = document.querySelector('.village-hero-video.desktop-video');
-    const heroMobile  = document.querySelector('.village-hero-video.mobile-video');
-    const heroToLoad  = isMobile ? heroMobile : heroDesktop;
-    if (heroToLoad && heroToLoad.dataset.src) {
-        heroToLoad.src = heroToLoad.dataset.src;
-        heroToLoad.load();
+    const heroToLoad = isMobile
+        ? document.querySelector('.village-hero-video.mobile-video')
+        : document.querySelector('.village-hero-video.desktop-video');
+    if (heroToLoad) {
         heroToLoad.play().catch(() => {});
     }
 
