@@ -1839,14 +1839,14 @@ img {
     }
 
     #locations .container {
-        padding: 0;
+        padding: 0 10px;
         max-width: none;
     }
 
     .outlet-card {
         flex: 1 1 100%;
         max-width: none;
-        border-radius: 0; /* Full width often looks better without rounded corners on the sides */
+        border-radius: 14px; /* Restored rounded corners */
     }
 
     .outlet-name {
