@@ -122,7 +122,7 @@
 /* Act 2: Welcome */
 .act-welcome {
     text-align: center;
-    padding: 100px 0 80px 0; /* More space at top to clear hero, 80px at bottom */
+    padding: 60px 0;
 }
 
 .welcome-content {
