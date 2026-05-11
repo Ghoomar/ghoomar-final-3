@@ -1682,14 +1682,23 @@ img {
 
     .village-hero {
         min-height: 78vh;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 40px;
     }
 
     .village-hero-content {
-        margin-bottom: 42vh;
+        margin-bottom: 0;
     }
 
     .village-hero-cta {
-        bottom: 20%;
+        position: static;
+        transform: none;
+        left: auto;
+        bottom: auto;
+        width: 100%;
         gap: 10px;
     }
 
