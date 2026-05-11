@@ -172,17 +172,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     v.style.zIndex = '2';
                     v.style.opacity = '0.7';
                     v.style.pointerEvents = 'auto';
-                    v.style.transform = flatMode
-                        ? `translateX(-45%) scale(0.85)`
-                        : `translateX(-45%) translateY(-5%) scale(0.85) rotateY(15deg)`;
+                    v.style.transform = `translateX(-45%) scale(0.85)`;
                     primeFirstFrame(v);
                 } else if (isRight) {
                     v.style.zIndex = '2';
                     v.style.opacity = '0.7';
                     v.style.pointerEvents = 'auto';
-                    v.style.transform = flatMode
-                        ? `translateX(45%) scale(0.85)`
-                        : `translateX(45%) translateY(-5%) scale(0.85) rotateY(-15deg)`;
+                    v.style.transform = `translateX(45%) scale(0.85)`;
                     primeFirstFrame(v);
                 } else {
                     v.style.zIndex = '1';
