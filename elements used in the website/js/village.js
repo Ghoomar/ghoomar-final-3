@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateCarousel() {
             const total = vids.length;
-            const flatMode = window.innerWidth < 768;
             vids.forEach((v, i) => {
                 const isActive = idx === i;
                 const isLeft = (idx - 1 + total) % total === i;
