@@ -1188,6 +1188,20 @@ img {
     margin-bottom: 30vh; /* Pushes the content significantly up to avoid clashing */
 }
 
+.village-hero-cta {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 3;
+    width: 90%;
+    max-width: 600px;
+}
+
 .village-kicker {
     display: inline-flex;
     align-items: center;
