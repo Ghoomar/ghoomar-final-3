@@ -161,6 +161,10 @@
     {
       "source": "/yatra-menu",
       "destination": "/pages/yatra-menu"
+    },
+    {
+      "source": "/village-ghaziabad",
+      "destination": "/pages/village-ghaziabad"
     }
   ]
 }
