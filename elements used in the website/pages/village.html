@@ -912,8 +912,16 @@
             var openBtn = document.getElementById('openBookingModal');
             var closeBtn = document.getElementById('bookingModalClose');
             var proceedBtn = document.getElementById('bookingModalProceed');
+            var dateInput = document.getElementById('bookingDate');
             var options = document.querySelectorAll('#bookingOptions .booking-option');
             var selected = null;
+
+            // Set minimum date to today
+            var today = new Date();
+            var yyyy = today.getFullYear();
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var dd = String(today.getDate()).padStart(2, '0');
+            dateInput.min = yyyy + '-' + mm + '-' + dd;
 
             function openModal() {
                 modal.classList.add('is-open');
