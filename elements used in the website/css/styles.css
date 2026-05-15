@@ -2620,7 +2620,7 @@ body.master-landing::before {
 }
 
 .tile-vedanta .tile-media img {
-    object-position: center 0%;
+    object-position: center -60px;
 }
 
 .master-tile:hover .tile-media img {
