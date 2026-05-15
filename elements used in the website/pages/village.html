@@ -931,17 +931,27 @@
                 modal.classList.remove('is-open');
                 document.body.style.overflow = '';
             }
+            function updateProceedBtn() {
+                var dateOk = dateInput.value !== '';
+                if (selected && dateOk) {
+                    proceedBtn.disabled = false;
+                    proceedBtn.innerHTML = '<i class="fas fa-lock"></i>&nbsp; Pay &#8377;' +
+                        (parseInt(selected.amount, 10) / 100).toLocaleString('en-IN') +
+                        ' for ' + selected.package;
+                } else {
+                    proceedBtn.disabled = true;
+                    proceedBtn.innerHTML = '<i class="fas fa-lock"></i>&nbsp; Select a date &amp; table to continue';
+                }
+            }
             function selectOption(opt) {
                 options.forEach(function (o) { o.classList.remove('is-selected'); });
                 opt.classList.add('is-selected');
                 selected = opt.dataset;
-                proceedBtn.disabled = false;
-                proceedBtn.innerHTML = '<i class="fas fa-lock"></i>&nbsp; Pay &#8377;' +
-                    (parseInt(selected.amount, 10) / 100).toLocaleString('en-IN') +
-                    ' for ' + selected.package;
+                updateProceedBtn();
             }
+            dateInput.addEventListener('change', updateProceedBtn);
             function payNow() {
-                if (!selected) return;
+                if (!selected || !dateInput.value) return;
                 if (typeof Razorpay === 'undefined') {
                     alert('Payment library still loading. Please try again in a moment.');
                     return;
@@ -951,10 +961,10 @@
                     amount: parseInt(selected.amount, 10),
                     currency: 'INR',
                     name: 'Ghoomar Village',
-                    description: selected.package + ' — ' + selected.people + ' people',
+                    description: selected.package + ' — ' + selected.people + ' people on ' + dateInput.value,
                     image: '../assets/logos/ghoomar-village.svg',
                     theme: { color: '#a31c21' },
-                    notes: { package: selected.package, people: selected.people }
+                    notes: { package: selected.package, people: selected.people, date: dateInput.value }
                 });
                 rzp.open();
                 closeModal();
