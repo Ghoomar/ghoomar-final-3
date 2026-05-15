@@ -47,6 +47,16 @@
       "destination": "/pages/village-bhuj"
     },
     {
+      "source": "/village-ghaziabad",
+      "has": [
+        {
+          "type": "host",
+          "value": "village.ghoomarthali.in"
+        }
+      ],
+      "destination": "/pages/village-ghaziabad"
+    },
+    {
       "source": "/",
       "has": [
         {
