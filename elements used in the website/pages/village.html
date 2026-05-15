@@ -538,11 +538,20 @@
             gap: 24px;
             justify-content: center;
             flex-wrap: wrap;
-            max-width: 820px;
+            max-width: 1200px;
             margin: 0 auto;
         }
+        @media (min-width: 900px) {
+            .village-location-grid {
+                flex-wrap: nowrap;
+            }
+            .village-loc-card {
+                flex: 1 1 0;
+                max-width: none;
+            }
+        }
         .village-loc-card {
-            flex: 1 1 320px;
+            flex: 1 1 280px;
             max-width: 380px;
             background: #fff;
             border-radius: 18px;
