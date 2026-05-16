@@ -3779,13 +3779,19 @@ body.coming-soon {
     .family-chip {
         padding: 0;
         font-size: 0.9rem;
+        justify-content: center;
+    }
+
+    .family-chip::after {
+        display: none;
     }
 
     .family-perks {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px 8px;
         text-align: center;
+        padding: 0 8px;
     }
 }
 
