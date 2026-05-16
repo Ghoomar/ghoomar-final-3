@@ -537,8 +537,11 @@
                 if (link.getAttribute('href').includes(current)) {
                     link.classList.add('active');
                     
-                    // Scroll the active link into view in the horizontal nav
-                    link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    // Scroll the active link into view within the horizontal nav bar only
+                    const nav = document.getElementById('menuNav');
+                    const linkLeft = link.offsetLeft - nav.offsetLeft;
+                    const linkCenter = linkLeft - (nav.offsetWidth / 2) + (link.offsetWidth / 2);
+                    nav.scrollTo({ left: linkCenter, behavior: 'smooth' });
                 }
             });
         });
